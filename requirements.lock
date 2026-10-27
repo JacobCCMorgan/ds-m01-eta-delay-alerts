@@ -1,0 +1,6 @@
+# Execution dependencies pinned for Python 3.11+ (tested Python 3.12.14).
+duckdb==1.4.1
+pyarrow==21.0.0
+psycopg==3.2.10
+psycopg-binary==3.2.10
+typing-extensions==4.16.0

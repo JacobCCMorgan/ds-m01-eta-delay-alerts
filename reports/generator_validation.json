@@ -1,0 +1,200 @@
+{
+  "status": "passed",
+  "started_at": "2026-10-27T00:51:21.656367Z",
+  "generator_version": "ds-m01-synthetic-generator-1.0.1",
+  "command": "PYTHONPATH=src python scripts/check_generator_stability.py",
+  "dataset_kind": "synthetic",
+  "temporary_full_data_retained": false,
+  "stage_claim": "M1 generator validation, not M2 full-project delivery or model validation",
+  "checks": {
+    "same_directory_regeneration": {
+      "status": "passed",
+      "fresh_counts": {
+        "core_tenant": 3,
+        "core_vehicle": 30,
+        "core_device": 36,
+        "core_vehicle_device_assignment": 686,
+        "eta_trip": 120,
+        "eta_facility_version": 12,
+        "eta_route_version": 12,
+        "eta_trip_plan_version": 120,
+        "eta_promise_version": 131,
+        "eta_trip_event": 240,
+        "eta_trip_outcome": 251,
+        "telemetry_event": 12834,
+        "provenance_record": 14475
+      },
+      "overwrite_counts": {
+        "core_tenant": 3,
+        "core_vehicle": 30,
+        "core_device": 36,
+        "core_vehicle_device_assignment": 686,
+        "eta_trip": 120,
+        "eta_facility_version": 12,
+        "eta_route_version": 12,
+        "eta_trip_plan_version": 120,
+        "eta_promise_version": 131,
+        "eta_trip_event": 240,
+        "eta_trip_outcome": 251,
+        "telemetry_event": 12834,
+        "provenance_record": 14475
+      },
+      "all_generated_file_hashes_unchanged": true,
+      "generated_file_sha256": {
+        "data/raw/core_tenant.jsonl": "7154bc213244b56e70970090bf7b40469074c20f31cf5d3101a0f385d5031061",
+        "data/raw/core_vehicle.jsonl": "c6dd63bfad259cf5c366c895ede7303c635dde12772352b343bf16728429307f",
+        "data/raw/core_device.jsonl": "58502b12b6329ede2427bf553981b2d010929f246655d621bb0d57891e2d88cc",
+        "data/raw/core_vehicle_device_assignment.jsonl": "dc55c0174c20f022decb0a23ae2085cfdd0b2e1a99961b93f8eecf9ea7dcba63",
+        "data/raw/eta_trip.jsonl": "e1e69e0c52e0ba8684b77f92d0deb29fe604d81a07d65617b2f748c000b8f703",
+        "data/raw/eta_facility_version.jsonl": "8f5ff3da65a2b6fd194cd9cc6b97cb0fb616d4f219c01716bd9212ad915f8164",
+        "data/raw/eta_route_version.jsonl": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+        "data/raw/eta_trip_plan_version.jsonl": "cc308b24bd6127b7924250fbf8227b2dfb125aeb0814e46160a2ffe9cfbaa5a8",
+        "data/raw/eta_promise_version.jsonl": "5e9f217e9640cb4d47c57d4b6f94b51fb1fa1abf1d3fb3abf5d79cd8a1f41661",
+        "data/raw/eta_trip_event.jsonl": "c8f26a7c02780dbc6419eff5ab95213c12e5f7883b08abc250d8e092ec9cde46",
+        "data/raw/eta_trip_outcome.jsonl": "062a849f8b17b5cd6761c662ad192adccfd1ac89e928d89afb737768f0b22045",
+        "data/raw/telemetry_event.jsonl": "166a10337d49267a5bd7e4d20622bb7178e9cb3b8dba19d02616ddd27c48bab7",
+        "data/raw/provenance_record.jsonl": "8766a4bee276eb8fd98695e832abf2f3dcf13cdaa68dc8cd6ed577f1920db809",
+        "validation/latent_truth.jsonl": "b4212ecbdbd07fd24d4bb97412e6834403727a38b29d1f3cd9d641c7a69fc2e1",
+        "validation/scenario_registry.json": "e74f0757f5a9b17cef8a9fc36d814383aa3d2099873e7af72c35aaa30e64d5c9"
+      },
+      "committed_registry_hashes_and_counts_match_disk": true,
+      "same_config_generated_at": "2026-10-27T00:51:21.656367Z"
+    },
+    "canonical_schema_trial": {
+      "core_tenant": 3,
+      "core_vehicle": 30,
+      "core_device": 36,
+      "core_vehicle_device_assignment": 686,
+      "eta_trip": 120,
+      "eta_facility_version": 12,
+      "eta_route_version": 12,
+      "eta_trip_plan_version": 120,
+      "eta_promise_version": 131,
+      "eta_trip_event": 240,
+      "eta_trip_outcome": 251,
+      "telemetry_event": 12834,
+      "provenance_record": 14475
+    },
+    "canonical_schema_full": {
+      "core_tenant": 3,
+      "core_vehicle": 30,
+      "core_device": 36,
+      "core_vehicle_device_assignment": 686,
+      "eta_trip": 1800,
+      "eta_facility_version": 12,
+      "eta_route_version": 12,
+      "eta_trip_plan_version": 1800,
+      "eta_promise_version": 1964,
+      "eta_trip_event": 3600,
+      "eta_trip_outcome": 3763,
+      "telemetry_event": 197303,
+      "provenance_record": 211009
+    },
+    "trial_business_row_containment": {
+      "core_tenant": 3,
+      "core_vehicle": 30,
+      "core_device": 36,
+      "core_vehicle_device_assignment": 686,
+      "eta_trip": 120,
+      "eta_facility_version": 12,
+      "eta_route_version": 12,
+      "eta_trip_plan_version": 120,
+      "eta_promise_version": 131,
+      "eta_trip_event": 240,
+      "eta_trip_outcome": 251,
+      "telemetry_event": 12834
+    },
+    "trial_coverage": {
+      "tenants": [
+        "T01",
+        "T02",
+        "T03"
+      ],
+      "vehicle_count": 30,
+      "routes": [
+        "ROUTE-01",
+        "ROUTE-02",
+        "ROUTE-03",
+        "ROUTE-04",
+        "ROUTE-05",
+        "ROUTE-06",
+        "ROUTE-07",
+        "ROUTE-08",
+        "ROUTE-09",
+        "ROUTE-10",
+        "ROUTE-11",
+        "ROUTE-12"
+      ],
+      "scenario_counts": {
+        "arrival_report_late": 10,
+        "cancelled": 11,
+        "device_swap": 11,
+        "gps_dropout": 11,
+        "invalid_position": 11,
+        "late_arrival": 11,
+        "late_gps": 11,
+        "normal": 11,
+        "outcome_revision": 11,
+        "promise_revision": 11,
+        "unfinished": 11
+      },
+      "trial_trip_count": 120
+    },
+    "temporal_consistency": {
+      "physical_vehicle_trip_pairs_checked": 1770,
+      "physical_spare_window_pairs_checked": 161,
+      "final_known_vehicle_assignment_pairs_checked": 328,
+      "final_known_device_assignment_pairs_checked": 325,
+      "physical_vehicle_overlap_count": 0,
+      "physical_spare_overlap_count": 0,
+      "wrong_or_ambiguous_trial_assignments": 0,
+      "matched_trial_telemetry": 12816,
+      "unknown_before_assignment_report": 18,
+      "unknown_examples": [
+        {
+          "event_id": "T03-TRIP-000106-GPS-0097",
+          "available_time": "2026-01-11T13:49:13Z",
+          "reason": "Relationship had not yet been reported at the event availability cutoff."
+        },
+        {
+          "event_id": "T02-TRIP-000271-GPS-0034",
+          "available_time": "2026-02-08T12:42:25Z",
+          "reason": "Relationship had not yet been reported at the event availability cutoff."
+        },
+        {
+          "event_id": "T02-TRIP-000271-GPS-0035",
+          "available_time": "2026-02-08T12:43:09Z",
+          "reason": "Relationship had not yet been reported at the event availability cutoff."
+        },
+        {
+          "event_id": "T01-TRIP-000436-GPS-0039",
+          "available_time": "2026-03-05T12:44:29Z",
+          "reason": "Relationship had not yet been reported at the event availability cutoff."
+        },
+        {
+          "event_id": "T01-TRIP-000601-GPS-0034",
+          "available_time": "2026-04-02T11:46:10Z",
+          "reason": "Relationship had not yet been reported at the event availability cutoff."
+        }
+      ],
+      "unknown_policy": "Retain as unknown at the historical cutoff; do not backfill future relationship knowledge."
+    }
+  },
+  "config": {
+    "seed": 20261021,
+    "namespace": "ds-m01-2026-v1",
+    "generated_at_used": "2026-10-27T00:51:21.656367Z",
+    "extract_as_of": "2026-10-15T07:00:00Z"
+  },
+  "input_sha256": {
+    "config/m1.json": "1f5cfaa6ba46ab2053dd141a06f437ba82595e121ca1b2e50e54c0aff07ab52c",
+    "contracts/fields.json": "daab8670d3f53b7efff6b96dc9df9efa82f6c271543b31bb3d9c9a4933be0d41",
+    "src/ds_m01/generate.py": "7e4827697771e5c4c255f5bdb26986f012089a81fd4249cb2c815d416806f044",
+    "src/ds_m01/common.py": "1aa015f6f39c1ca0a7f0a4496bec6ad185f0521644c2bf7b2125a17d60b64b94",
+    "scripts/check_generator_stability.py": "aaa893837999952b64bff94ca3a6091b31206b482a1ea9ad738e53f0c68a7425"
+  },
+  "generation_seconds": 31.489,
+  "finished_at": "2026-10-27T00:52:09.988406Z",
+  "elapsed_seconds": 48.332,
+  "exit_code": 0
+}

@@ -1,0 +1,160 @@
+[
+  {
+    "scenario": "normal",
+    "tenant_id": "T02",
+    "trip_id": "T02-TRIP-000001",
+    "departure_at": "2026-01-02T14:07:00Z",
+    "first_snapshot_at": "2026-01-02T14:07:20Z",
+    "initial_promise_end": "2026-01-02T16:41:20.979310Z",
+    "actual_gate_arrival_at": "2026-01-02T16:32:50.855323Z",
+    "gate_report_available_at": "2026-01-02T16:33:20.855323Z",
+    "snapshot_count": 5,
+    "label_counts": {
+      "eligible": 5
+    },
+    "position_counts": {
+      "valid": 5
+    },
+    "evidence_is_synthetic": true,
+    "hidden_physical_arrival_not_a_model_input": true
+  },
+  {
+    "scenario": "late_arrival",
+    "tenant_id": "T01",
+    "trip_id": "T01-TRIP-000046",
+    "departure_at": "2026-01-05T18:17:00Z",
+    "first_snapshot_at": "2026-01-05T18:17:20Z",
+    "initial_promise_end": "2026-01-05T20:32:06.496552Z",
+    "actual_gate_arrival_at": "2026-01-05T21:58:05.440111Z",
+    "gate_report_available_at": "2026-01-05T21:58:35.440111Z",
+    "snapshot_count": 8,
+    "label_counts": {
+      "eligible": 8
+    },
+    "position_counts": {
+      "valid": 8
+    },
+    "evidence_is_synthetic": true,
+    "hidden_physical_arrival_not_a_model_input": true
+  },
+  {
+    "scenario": "promise_revision",
+    "tenant_id": "T02",
+    "trip_id": "T02-TRIP-000061",
+    "departure_at": "2026-01-08T17:11:00Z",
+    "first_snapshot_at": "2026-01-08T17:11:20Z",
+    "initial_promise_end": "2026-01-08T19:50:20.979310Z",
+    "actual_gate_arrival_at": "2026-01-08T19:57:44.544669Z",
+    "gate_report_available_at": "2026-01-08T19:58:14.544669Z",
+    "snapshot_count": 6,
+    "label_counts": {
+      "eligible": 6
+    },
+    "position_counts": {
+      "valid": 6
+    },
+    "evidence_is_synthetic": true,
+    "hidden_physical_arrival_not_a_model_input": true
+  },
+  {
+    "scenario": "gps_dropout",
+    "tenant_id": "T03",
+    "trip_id": "T03-TRIP-000136",
+    "departure_at": "2026-01-14T15:30:00Z",
+    "first_snapshot_at": "2026-01-14T15:30:20Z",
+    "initial_promise_end": "2026-01-14T16:53:16.137931Z",
+    "actual_gate_arrival_at": "2026-01-14T17:03:03.291013Z",
+    "gate_report_available_at": "2026-01-14T17:03:33.291013Z",
+    "snapshot_count": 4,
+    "label_counts": {
+      "eligible": 4
+    },
+    "position_counts": {
+      "valid": 2,
+      "low_confidence": 2
+    },
+    "evidence_is_synthetic": true,
+    "hidden_physical_arrival_not_a_model_input": true
+  },
+  {
+    "scenario": "cancelled",
+    "tenant_id": "T03",
+    "trip_id": "T03-TRIP-000091",
+    "departure_at": "2026-01-11T18:08:00Z",
+    "first_snapshot_at": "2026-01-11T18:08:20Z",
+    "initial_promise_end": "2026-01-11T20:19:06.186207Z",
+    "actual_gate_arrival_at": null,
+    "gate_report_available_at": null,
+    "snapshot_count": 1,
+    "label_counts": {
+      "cancelled": 1
+    },
+    "position_counts": {
+      "valid": 1
+    },
+    "evidence_is_synthetic": true,
+    "hidden_physical_arrival_not_a_model_input": true
+  },
+  {
+    "scenario": "arrival_report_late",
+    "tenant_id": "T02",
+    "trip_id": "T02-TRIP-000151",
+    "departure_at": "2026-01-17T17:19:00Z",
+    "first_snapshot_at": "2026-01-17T17:19:20Z",
+    "initial_promise_end": "2026-01-17T18:36:38.751724Z",
+    "actual_gate_arrival_at": "2026-01-17T18:40:26.801230Z",
+    "gate_report_available_at": "2026-02-06T18:40:26.801230Z",
+    "snapshot_count": 24,
+    "label_counts": {
+      "eligible": 3,
+      "already_arrived": 21
+    },
+    "position_counts": {
+      "valid": 4,
+      "low_confidence": 20
+    },
+    "evidence_is_synthetic": true,
+    "hidden_physical_arrival_not_a_model_input": true
+  },
+  {
+    "scenario": "outcome_revision",
+    "tenant_id": "T02",
+    "trip_id": "T02-TRIP-000031",
+    "departure_at": "2026-01-05T16:24:00Z",
+    "first_snapshot_at": "2026-01-05T16:24:20Z",
+    "initial_promise_end": "2026-01-05T17:36:38.751724Z",
+    "actual_gate_arrival_at": "2026-01-05T17:39:14.083848Z",
+    "gate_report_available_at": "2026-01-05T17:39:44.083848Z",
+    "snapshot_count": 3,
+    "label_counts": {
+      "eligible": 3
+    },
+    "position_counts": {
+      "no_position": 1,
+      "valid": 2
+    },
+    "evidence_is_synthetic": true,
+    "hidden_physical_arrival_not_a_model_input": true
+  },
+  {
+    "scenario": "unfinished",
+    "tenant_id": "T03",
+    "trip_id": "T03-TRIP-000076",
+    "departure_at": "2026-01-08T15:25:00Z",
+    "first_snapshot_at": "2026-01-08T15:25:20Z",
+    "initial_promise_end": "2026-01-08T16:53:16.137931Z",
+    "actual_gate_arrival_at": "2026-01-08T16:53:30.712209Z",
+    "gate_report_available_at": null,
+    "snapshot_count": 24,
+    "label_counts": {
+      "not_mature": 24
+    },
+    "position_counts": {
+      "no_position": 1,
+      "valid": 2,
+      "low_confidence": 21
+    },
+    "evidence_is_synthetic": true,
+    "hidden_physical_arrival_not_a_model_input": true
+  }
+]

@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ds-m01-eta"
+version = "0.1.0"
+description = "Point-in-time ETA data trial with independent arrival labels"
+requires-python = ">=3.11"
+dependencies = ["duckdb==1.4.1", "pyarrow==21.0.0"]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]==3.2.10"]
+reports = ["matplotlib", "python-docx", "pypdf"]
+
+[project.scripts]
+ds-m01 = "ds_m01.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

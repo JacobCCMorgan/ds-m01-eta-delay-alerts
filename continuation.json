@@ -1,0 +1,72 @@
+{
+  "project_id": "DS-M01",
+  "milestone": "M0 + M1",
+  "version": "0.1.0",
+  "status": "M1_snapshot_and_HTTP_trial_verified_postgres_not_run",
+  "source_kind": "original_synthetic_2026_scenarios",
+  "completed": [
+    "M0 source compatibility audit; DA-E01 unchanged",
+    "120-trip source generation with atomic per-file publication and persisted-count guard",
+    "937 point-in-time snapshots and independently sourced arrival targets",
+    "17 typed canonical tables and Parquet",
+    "33 unittest cases",
+    "24 full-data invariant checks",
+    "real loopback HTTP ingestion and parity",
+    "clean-directory byte reproducibility",
+    "120-to-1800 generator stability in temporary verification directories"
+  ],
+  "remaining": [
+    "Native PostgreSQL operational roundtrip in a compatible runtime",
+    "M2 full 1800-trip end-to-end retained dataset",
+    "Remaining 11 required tables in their modelling/notification milestones",
+    "ETA baselines and quantile models",
+    "Interval and probability calibration",
+    "Frozen final model evaluation",
+    "Alert/adoption/action/followup replay",
+    "Full user acceptance and user-owned signed GitHub commits"
+  ],
+  "next_entry": [
+    "Check reports/quality_report.json, reports/rebuild_report.json, reports/generator_validation.json",
+    "Resume native PostgreSQL service verification if compatible runtime is available; do not request company data",
+    "Create new M2 config from config/m1.json with sample_size 1800 while retaining entity IDs and seed namespace",
+    "Generate full data and validate as-of labels, holdout cohorts and eligible sample sizes before modelling"
+  ],
+  "user_confirmation_required_now": false,
+  "github": {
+    "commits_created": 0,
+    "pushed": false,
+    "remote_CI": "pending_user_push",
+    "suggested_commit_message": "feat(ds-m01): add reproducible point-in-time ETA data trial"
+  },
+  "DA-E01_status": "delivered_pending_user_acceptance_unmodified",
+  "counts": {
+    "trip_count": 120,
+    "snapshot_count": 937,
+    "history_reference_count": 11594,
+    "label_eligibility": {
+      "eligible": 457,
+      "not_mature": 288,
+      "cancelled": 11,
+      "already_arrived": 181
+    },
+    "position_quality": {
+      "valid": 413,
+      "low_confidence": 465,
+      "no_position": 59
+    },
+    "trip_split_counts": {
+      "train": 65,
+      "excluded": 16,
+      "calibration": 13,
+      "test": 26
+    },
+    "candidate_horizon_hours": 12,
+    "model_trained": false,
+    "metrics_are_model_performance": false,
+    "source_kind": "synthetic",
+    "feature_definition_version": "m1-features-v1"
+  },
+  "postgres_runtime": "not_run; native service absent and sandbox supports only root UID; no bypass attempted",
+  "drive_project_folder": "https://drive.google.com/drive/folders/1-NP9mEpV9aARQb3Ms4lUkcFLGS7F-36q",
+  "recorded_at_utc": "2026-10-27T00:53:39.246858+00:00"
+}

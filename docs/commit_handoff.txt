@@ -1,0 +1,52 @@
+DS-M01 M1 v0.1.0
+
+No Git repository was initialized by the assistant. No commit or push was performed.
+This is one real completed data-trial milestone, with the native PostgreSQL check explicitly pending.
+
+Suggested commit message (not an existing commit):
+feat(ds-m01): add reproducible point-in-time ETA data trial
+
+The user signs commits using their configured signing key and pushes to their chosen repository.
+No fabricated commit dates, bug history, or remote CI claims are supplied.
+
+The complete archive includes source, raw/processed data, Parquet, DuckDB, reports and validation evidence.
+The source archive omits generated data and hidden simulation truth; run the generator to rebuild them, or use the complete archive.
+
+GitHub source packaging correction v0.1.1 — 2026-10-27
+
+Use DS-M01_M1_GitHub_Source_20261027_v0_1_1.zip for the first source import.
+Application version and verified M1 code remain 0.1.0. This is packaging-only.
+The prior source ZIP accidentally included 14 synthetic generator staging files.
+They are omitted here; the original delivered archives are retained unchanged.
+The updated .gitignore also excludes staging, package build artifacts, generated
+data and validation truth while retaining data/LICENSE.md.
+SOURCE_SHA256SUMS.txt covers exactly this archive's files except itself.
+
+繁體中文操作步驟
+1. 若尚無 DS-M01 repository，在 GitHub 新增空 repository。建議名稱
+   ds-m01-eta-delay-alerts；不要預先建立 README、.gitignore 或 LICENSE，
+   因為交付包已包含這些檔案。
+2. 解壓此包，進入 ds_m01 資料夾。README.md、src/、tests/ 應在目前目錄。
+3. 使用你已設定的 Git 身分與簽署金鑰。GPG/SSH 公鑰必須以正確用途加入
+   GitHub 帳號，且提交者 email 應使用該帳號已驗證的 email。
+   尚未設定者先依 GitHub 官方簽章設定完成；不要省略簽章以繞過失敗。
+4. 以下僅適用於此新解壓資料夾與新建空 repository。逐行執行並確認成功：
+
+   git init -b main
+   git config commit.gpgsign true
+   git add .
+   git diff --cached --stat
+   git commit -S -m "feat(ds-m01): add reproducible point-in-time ETA data trial"
+   git remote add origin REPOSITORY_URL
+   git push -u origin main
+
+   REPOSITORY_URL 請替換為你剛建立 repository 的實際 URL。
+   已有 repository/歷史的情況，使用原本 checkout 與分支流程，不照做初始化。
+5. 在 GitHub 的 Commits 頁面確認這筆提交顯示 Verified。
+   本機簽章成功仍需 GitHub 成功辨識簽章，才符合你的 Verified 要求。
+6. 此為 M0/M1 資料試跑里程碑：模型訓練和原生 PostgreSQL 驗證仍待完成。
+
+Official references (checked 2026-10-27):
+https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
+https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key
+https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github

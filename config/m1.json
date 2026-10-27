@@ -1,0 +1,149 @@
+{
+  "project_id": "DS-M01",
+  "execution_spec_version": "1.0.0",
+  "decision_date_local": "2026-10-26",
+  "timezone": "America/Los_Angeles",
+  "source_sha256": "daa32b8f677eb7dd88aadef244c46fef1e25b8ed3f9e38533c8b106888cf73b2",
+  "period": {
+    "main_start": "2026-01-01",
+    "main_end_inclusive": "2026-09-30",
+    "optional_warmup_start": "2025-12-01",
+    "outcome_cutoff_exclusive": "2026-10-15T00:00:00-07:00"
+  },
+  "scale": {
+    "tenants": 3,
+    "vehicles": 30,
+    "devices": 36,
+    "drivers": 45,
+    "facilities": 12,
+    "routes": 12,
+    "main_trips": 1800,
+    "density_note": "Same trip count over nine months; lower density than legacy six-month design."
+  },
+  "randomness": {
+    "master_seed": 20261021,
+    "namespace": "ds-m01-2026-v1",
+    "substream_rule": "SHA256 first 128 bits; named stable substreams; reuse existing agreed algorithm and test vectors"
+  },
+  "split": {
+    "train_departure_dates": [
+      "2026-01-01",
+      "2026-06-23"
+    ],
+    "train_label_cutoff_exclusive": "2026-07-01T00:00:00-07:00",
+    "calibration_departure_dates": [
+      "2026-07-01",
+      "2026-07-24"
+    ],
+    "calibration_label_cutoff_exclusive": "2026-08-01T00:00:00-07:00",
+    "test_departure_dates": [
+      "2026-08-01",
+      "2026-09-30"
+    ],
+    "buffer_ranges": [
+      [
+        "2026-06-24",
+        "2026-06-30"
+      ],
+      [
+        "2026-07-25",
+        "2026-07-31"
+      ]
+    ],
+    "group_by": [
+      "tenant_id",
+      "trip_id"
+    ],
+    "heldout_ids_status": "frozen_before_generation_and_modelling"
+  },
+  "settings": {
+    "nominal_interval_coverage": 0.8,
+    "snapshot_interval_minutes": 30,
+    "gnss_active_interval_seconds": 60,
+    "minimum_actionable_lead_minutes": 30,
+    "alert_suppression_minutes": 30,
+    "small_trial_trips": 120,
+    "threshold_status": "select on calibration and freeze before final test",
+    "snapshot_schedule": "first_known_departure_then_every_30_minutes"
+  },
+  "optional_tables_disabled": [
+    "eta_forecast_version",
+    "eta_routing_response"
+  ],
+  "github": {
+    "assistant_commit": false,
+    "assistant_push": false,
+    "signature_owner": "user",
+    "remote_ci_status": "pending_user_push"
+  },
+  "required_tables": [
+    "eta_trip",
+    "eta_facility_version",
+    "eta_route_version",
+    "eta_trip_plan_version",
+    "eta_promise_version",
+    "eta_trip_event",
+    "eta_snapshot",
+    "eta_history_reference",
+    "eta_trip_outcome",
+    "eta_snapshot_label",
+    "eta_split_assignment",
+    "eta_model_version",
+    "eta_evaluation_membership",
+    "eta_prediction",
+    "eta_alert_rule_version",
+    "eta_output_release",
+    "eta_alert_episode",
+    "eta_alert",
+    "eta_notification_delivery",
+    "eta_adoption",
+    "eta_action",
+    "eta_action_followup",
+    "core_tenant",
+    "core_vehicle",
+    "core_device",
+    "core_vehicle_device_assignment",
+    "provenance_record",
+    "telemetry_event"
+  ],
+  "original_requirement_count": 110,
+  "field_supply_record_count": 341,
+  "stage_status": {
+    "selection": "confirmed",
+    "execution_spec": "ready",
+    "source_mapping_structure": "checked",
+    "shared_runtime_review": "completed_narrow_compatibility_audit",
+    "data_generation": "m1_120_trip_trial_implemented",
+    "model_training": "planned",
+    "technical_validation": "m1_checks_implemented_see_actual_reports",
+    "user_acceptance": "not_started",
+    "postgres_service_validation": "not_run_environment_unavailable"
+  },
+  "methods": {
+    "model_selection": "Training-period chronological validation only; July reserved for interval/probability calibration and alert threshold selection.",
+    "remaining_time_baseline": "Historical total-duration distribution conditional on duration > elapsed, minus elapsed. Sparse groups fall back to distance/global pools; unsupported observations return unavailable.",
+    "holdout_isolation": "Exclude held-out vehicle/route trips from training, calibration, warmup and historical duration pools.",
+    "snapshot_eligibility": "Use only status known at snapshot time; separately retain and report snapshots issued after actual arrival but before arrival was known.",
+    "promise_reference": "Freeze promise_version for every alert and evaluate its delay label/actionable lead against that version. Initial trip promise is a separate business outcome reference."
+  },
+  "sample_size": 120,
+  "seed": 20261021,
+  "namespace": "ds-m01-2026-v1",
+  "generated_at": "2026-10-27T00:49:51.405454Z",
+  "extract_as_of": "2026-10-15T07:00:00Z",
+  "heldout": {
+    "route_ids": [
+      "ROUTE-12"
+    ],
+    "vehicle_ids": [
+      "T01-V10",
+      "T02-V10",
+      "T03-V10"
+    ]
+  },
+  "position_stale_seconds": 900,
+  "max_snapshot_hours": 12,
+  "frozen_at_basis": "actual implementation freeze; synthetic historical exercise, not real past model deployment",
+  "receipt_semantics": "Original source generation run start, pinned for deterministic replay; subsequent actual execution times are in reports.",
+  "verify_source_manifest": true
+}

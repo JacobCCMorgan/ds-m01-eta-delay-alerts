@@ -1,0 +1,447 @@
+{
+  "audit_id": "DS-M01-M0-shared-runtime-audit-v2",
+  "project_id": "DS-M01",
+  "audited_at_utc": "2026-10-27T00:51:53.392378+00:00",
+  "scope": "Read-only source audit and ten narrow verification groups, refreshed after source-manifest helpers were appended; no project data was read or written and no full integration/model acceptance is claimed.",
+  "source": {
+    "project_id": "DA-E01",
+    "drive_file_id": "1L4nXY0KHzD6aaXMkwtzVg9PDtwYQ5xLS",
+    "zip_file": "DA-E01_v1_source.zip",
+    "zip_sha256": "c6f890c1bd0724bcf3f133dde50957a259502280c05f9f4eadd2f75daacc1e0a",
+    "zip_hash_independently_checked": true,
+    "extracted_file_count": 165,
+    "tree_hash_algorithm": "SHA256(UTF-8 JSON sorted relative-path:SHA256 mapping; compact separators)",
+    "tree_sha256": "5eb5c3cda0d3b5ef1f4273a31fd2121b205b292fadc2936fc2517566d9ab04fa",
+    "before_after_bytes_identical": true,
+    "selected_file_sha256": {
+      "src/fleet_fuel/common.py": "e2a6b476a2eeb09f0d0ced5ec5dc85f736b12400ac2e1c5841b7484605876b88",
+      "src/fleet_fuel/simulation.py": "13b0ea15ad47629a8e3aa53c13784d90fb43baf7f59225e55b537ea6b346afbf",
+      "src/fleet_fuel/event_api.py": "19a6dbb547921e36080cb7dc5d3b362683a23690c7798a339875b2a7835c0049",
+      "src/fleet_fuel/ingestion.py": "d759dd225679926c6b93aff841d08a9a86dba6f56f3c9ddab8d6a2c4cd5d7b21",
+      "src/fleet_fuel/operational.py": "4dfe1c06253190972932a418a3c30f5faf995f2d2a24d09fe1a1bf8e7e3b9569",
+      "src/fleet_fuel/input_policy.py": "53cb4c42cc3ad98d8052e46b8afb861582825fbdb75db112ba25d183523d1b3d",
+      "tests/test_simulation.py": "8e12b95960142d136ec226da14eb3dd610570213488b36542f8e533c8606ff80",
+      "tests/test_ingestion.py": "f1ca866acee6032960d20bacaa765b57c85179d4558bae925d25e60aa6cefa50",
+      "tests/test_postgres.py": "fbb8b85d56bcf29d92ecab8e135bb078a7692da1e74312c672f240a5afc8b901",
+      "config/project.json": "5d572c8df4a907dcf0382a325a57c37894d627f414d09beecc14e9fd7d79eda1",
+      "config/simulation.json": "6ac569918be5c86a8397e1fddd838b3109e7fcd906db912198e07bf4152e0433",
+      "contracts/da_e01_contract.json": "56f5b3bf504239831c466244db0e95e35047ae806888b390dc67254fe009a77a",
+      "pyproject.toml": "10622f92a22d8d2b177283a5c80da1cf18b8f85befe08b84eccc36e1e807dd4b",
+      "requirements.lock.txt": "dc46e3319a80b895aeaf265cd3872c3b2989671489c6e978601b90f0c0b7219a"
+    },
+    "original_period": "2025-01-01 through 2025-06-30",
+    "source_timezone": "America/Los_Angeles",
+    "source_seed": 20261021
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "bytecode_writes_disabled": true,
+    "installed_dependency_lock_fully_verified": false
+  },
+  "entity_registry": {
+    "origin": "Reconstructed from checked simulation.py loops and in-memory build_plan(); not a generated/exported data registry.",
+    "counts": {
+      "tenant": 3,
+      "vehicle": 30,
+      "device": 36,
+      "driver": 45,
+      "facility": 12,
+      "route": 12
+    },
+    "ids": {
+      "tenant_ids": [
+        "T01",
+        "T02",
+        "T03"
+      ],
+      "vehicle_ids": [
+        "T01-V01",
+        "T01-V02",
+        "T01-V03",
+        "T01-V04",
+        "T01-V05",
+        "T01-V06",
+        "T01-V07",
+        "T01-V08",
+        "T01-V09",
+        "T01-V10",
+        "T02-V01",
+        "T02-V02",
+        "T02-V03",
+        "T02-V04",
+        "T02-V05",
+        "T02-V06",
+        "T02-V07",
+        "T02-V08",
+        "T02-V09",
+        "T02-V10",
+        "T03-V01",
+        "T03-V02",
+        "T03-V03",
+        "T03-V04",
+        "T03-V05",
+        "T03-V06",
+        "T03-V07",
+        "T03-V08",
+        "T03-V09",
+        "T03-V10"
+      ],
+      "device_ids": [
+        "T01-D01",
+        "T01-D02",
+        "T01-D03",
+        "T01-D04",
+        "T01-D05",
+        "T01-D06",
+        "T01-D07",
+        "T01-D08",
+        "T01-D09",
+        "T01-D10",
+        "T01-D11",
+        "T01-D12",
+        "T02-D01",
+        "T02-D02",
+        "T02-D03",
+        "T02-D04",
+        "T02-D05",
+        "T02-D06",
+        "T02-D07",
+        "T02-D08",
+        "T02-D09",
+        "T02-D10",
+        "T02-D11",
+        "T02-D12",
+        "T03-D01",
+        "T03-D02",
+        "T03-D03",
+        "T03-D04",
+        "T03-D05",
+        "T03-D06",
+        "T03-D07",
+        "T03-D08",
+        "T03-D09",
+        "T03-D10",
+        "T03-D11",
+        "T03-D12"
+      ],
+      "driver_ids": [
+        "T01-R01",
+        "T01-R02",
+        "T01-R03",
+        "T01-R04",
+        "T01-R05",
+        "T01-R06",
+        "T01-R07",
+        "T01-R08",
+        "T01-R09",
+        "T01-R10",
+        "T01-R11",
+        "T01-R12",
+        "T01-R13",
+        "T01-R14",
+        "T01-R15",
+        "T02-R01",
+        "T02-R02",
+        "T02-R03",
+        "T02-R04",
+        "T02-R05",
+        "T02-R06",
+        "T02-R07",
+        "T02-R08",
+        "T02-R09",
+        "T02-R10",
+        "T02-R11",
+        "T02-R12",
+        "T02-R13",
+        "T02-R14",
+        "T02-R15",
+        "T03-R01",
+        "T03-R02",
+        "T03-R03",
+        "T03-R04",
+        "T03-R05",
+        "T03-R06",
+        "T03-R07",
+        "T03-R08",
+        "T03-R09",
+        "T03-R10",
+        "T03-R11",
+        "T03-R12",
+        "T03-R13",
+        "T03-R14",
+        "T03-R15"
+      ],
+      "facility_ids": [
+        "SITE-01",
+        "SITE-02",
+        "SITE-03",
+        "SITE-04",
+        "SITE-05",
+        "SITE-06",
+        "SITE-07",
+        "SITE-08",
+        "SITE-09",
+        "SITE-10",
+        "SITE-11",
+        "SITE-12"
+      ],
+      "route_ids": [
+        "ROUTE-01",
+        "ROUTE-02",
+        "ROUTE-03",
+        "ROUTE-04",
+        "ROUTE-05",
+        "ROUTE-06",
+        "ROUTE-07",
+        "ROUTE-08",
+        "ROUTE-09",
+        "ROUTE-10",
+        "ROUTE-11",
+        "ROUTE-12"
+      ]
+    },
+    "trip_id_pattern": "Txx-Vxx-TR001..TR060 within each vehicle",
+    "trip_identity_warning": "Reused entity IDs do not mean 2026 trips are the same business events as 2025 trips; dataset/project identity must qualify cross-project trip joins.",
+    "facility_route_geometry_warning": "The original route ring connects SITE-01→02 ... SITE-12→01 and is explicitly abstract_synthetic_route; original trip durations and distances were independently generated, so these are not road-network ETA ground truth."
+  },
+  "seed_contract": {
+    "master_seed": 20261021,
+    "new_namespace": "ds-m01-2026-v1",
+    "rule": "UTF-8 encoding of unit-separator joined str(seed,*tokens), SHA256 first 16 bytes as unsigned big-endian integer",
+    "suggested_call": "stable_seed(20261021, 'ds-m01-2026-v1', purpose, entity_id)",
+    "vectors": [
+      {
+        "seed": 20261021,
+        "tokens": [
+          "trip",
+          "T01-V01-TR001"
+        ],
+        "input_utf8_hex": "32303236313032311f747269701f5430312d5630312d5452303031",
+        "unsigned_128_decimal": "45315173385107991413193837980978084803"
+      },
+      {
+        "seed": 20261021,
+        "tokens": [
+          "ds-m01-2026-v1",
+          "trip",
+          "T01-V01-TR001"
+        ],
+        "input_utf8_hex": "32303236313032311f64732d6d30312d323032362d76311f747269701f5430312d5630312d5452303031",
+        "unsigned_128_decimal": "22982877921785618888433484590010977744"
+      },
+      {
+        "seed": 20261021,
+        "tokens": [
+          "ds-m01-2026-v1",
+          "arrival",
+          "T01-V01-TR001"
+        ],
+        "input_utf8_hex": "32303236313032311f64732d6d30312d323032362d76311f6172726976616c1f5430312d5630312d5452303031",
+        "unsigned_128_decimal": "64924869840908592381127895811668987632"
+      }
+    ]
+  },
+  "reuse_decisions": [
+    {
+      "component": "Entity identifier namespace",
+      "decision": "carry_forward_convention",
+      "source": "simulation.py build_plan()/generate()",
+      "target": "DS-M01 generator",
+      "detail": "Preserve tenant/vehicle/device/driver/site/route IDs; regenerate all 2026 temporal versions and assignments. Registry enumerations are reconstructed from code, not an exported registry file."
+    },
+    {
+      "component": "Named deterministic seed",
+      "decision": "adaptation_observed_and_parity_checked",
+      "source": "simulation.sub_seed",
+      "target": "ds_m01.common.stable_seed",
+      "detail": "Exact separator, UTF-8 encoding, SHA256 prefix128 and big-endian semantics retained. DS-M01 namespace prevents the new process from sharing DA-E01 random streams."
+    },
+    {
+      "component": "Streaming file SHA256",
+      "decision": "adaptation_observed_and_parity_checked",
+      "source": "common.digest",
+      "target": "ds_m01.common.digest_file",
+      "detail": "Same 1 MiB block strategy and resulting digest."
+    },
+    {
+      "component": "Deterministic JSON/UTF-8",
+      "decision": "adaptation_observed_by_source_review",
+      "source": "common.json_text/rows",
+      "target": "ds_m01.common.write_jsonl/read_jsonl",
+      "detail": "Sorted compact JSON preserved; explicit UTF-8 and allow_nan=False added. Source default=str and permissive NaN behavior are not carried forward. Write functions were not exercised by this read-only audit."
+    },
+    {
+      "component": "UTC conversion",
+      "decision": "adaptation_observed_and_narrowly_checked",
+      "source": "event_api.canonical_utc; simulation.parse/stamp",
+      "target": "ds_m01.common.parse_ts/utc",
+      "detail": "DS-M01 rejects naive timestamps and normalizes to UTC. Output formatting intentionally differs from canonical_utc microseconds format."
+    },
+    {
+      "component": "SQL identifier quoting",
+      "decision": "reusable_but_not_adopted_in_current_helper",
+      "source": "common.ident",
+      "target": null,
+      "detail": "Original SQL quoting fixture passed. DS-M01 common.ident creates a hashed record ID and is a different API despite the shared name; do not substitute one for the other."
+    },
+    {
+      "component": "Snapshot-bound cursors and bounded retry/quarantine patterns",
+      "decision": "design_reference_only",
+      "source": "event_api.py; ingestion.py",
+      "target": "future ETA transport adapters",
+      "detail": "Cursor pure functions checked; HTTP, event indexing, retry and quarantine integrations not rerun. ETA requires tenant/source-qualified event identity and ETA event tables."
+    },
+    {
+      "component": "Operational extraction/versioning",
+      "decision": "design_reference_only",
+      "source": "operational.py",
+      "target": "future ETA source adapters",
+      "detail": "Repeatable-read extraction, immutable keys and audit logging are patterns only. FUEL environment names, fuel table allowlists and schema bootstrap cannot be imported wholesale."
+    },
+    {
+      "component": "Fuel analysis boundary",
+      "decision": "do_not_reuse_directly",
+      "source": "input_policy.py; contracts/da_e01_contract.json",
+      "target": "ETA explicit contract and feature allowlist",
+      "detail": "The fuel canonical/analytics allowlists and contract path are incompatible. Prefix checks alone do not stop ETA outcome leakage."
+    },
+    {
+      "component": "DA-E01 physical generator, dates and fuel business logic",
+      "decision": "do_not_reuse",
+      "source": "simulation.py build_plan/generate/SourceWriter; config/*.json",
+      "target": "new 2026 ETA generator",
+      "detail": "2025 constants, independent fuel distance/duration generation, fuel units and source cutoff are project-specific. Do not shift old timestamps and label the result as fresh observed data."
+    },
+    {
+      "component": "Existing acceptance reports/test records",
+      "decision": "provenance_reference_only",
+      "source": "outputs/validation/reports and old tests",
+      "target": null,
+      "detail": "Packaged historical results are not a DS-M01 pass and were not counted as rerun checks."
+    },
+    {
+      "component": "Source manifest creation and verification",
+      "decision": "new_DS_M01_functions_source_reviewed_only",
+      "source": "DS-M01 implementation, not imported from DA-E01",
+      "target": "ds_m01.common.write_source_manifest/verify_source_manifest",
+      "detail": "Writer compares persisted counts and records file SHA256 before replacing the manifest. Verifier compares raw source file hashes. Pipeline and warehouse invoke the verifier when configured. Manifest helpers were not executed in this M0 refresh; no whole-project transaction or concurrency guarantee is inferred."
+    }
+  ],
+  "ds_m01_helper_observed": {
+    "path": "src/ds_m01/common.py",
+    "sha256": "1aa015f6f39c1ca0a7f0a4496bec6ad185f0521644c2bf7b2125a17d60b64b94",
+    "status": "Current file narrowly rechecked; existing helper bytes unchanged, new source-manifest functions inspected only.",
+    "previous_file_sha256": "2b24ce3bedab5ef6dc70d2896d92f6b303802d232d58d1b35e6282efaf140a6c",
+    "unchanged_legacy_prefix_sha256": "2b24ce3bedab5ef6dc70d2896d92f6b303802d232d58d1b35e6282efaf140a6c",
+    "new_functions": [
+      "write_source_manifest",
+      "verify_source_manifest"
+    ],
+    "new_functions_execution_status": "not_run_in_M0_refresh; source review only; final integration evidence is maintained separately",
+    "observed_at_utc": "2026-10-27T00:51:53.392378+00:00",
+    "file_unchanged_during_refresh": true
+  },
+  "executed_checks": [
+    {
+      "check_id": "M0-01",
+      "name": "Existing stable-ID and interval test",
+      "status": "passed",
+      "execution_scope": "Direct invocation of the existing test method only; unittest setUpClass and generate() were not run.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-02",
+      "name": "Independent SHA256 seed vectors",
+      "status": "passed",
+      "execution_scope": "Three pure-function vectors; decimal strings preserve unsigned 128-bit integer precision.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-03",
+      "name": "Timezone normalization and DST-offset fixtures",
+      "status": "passed",
+      "execution_scope": "Pure canonical_utc function, including rejection of timezone-naive input.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-04",
+      "name": "Cursor snapshot binding",
+      "status": "passed",
+      "execution_scope": "Pure cursor functions; no HTTP server or SQLite event index was started.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-05",
+      "name": "Digest, canonical JSON and SQL identifier quoting",
+      "status": "passed",
+      "execution_scope": "Read-only file hash and pure serialization/quoting fixtures.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-06",
+      "name": "Truth-prefix boundary and its limitation",
+      "status": "passed",
+      "execution_scope": "Confirms common prohibited labels are caught, but arrival_time is not: ETA must use an explicit feature allowlist.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-07",
+      "name": "Entity reconstruction from the original plan",
+      "status": "passed",
+      "execution_scope": "In-memory 2025 plan only; source data/raw entity files are absent from the source ZIP.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-08",
+      "name": "DS-M01 helper compatibility",
+      "status": "passed",
+      "execution_scope": "Current DS-M01 common.py seed/digest parity and timezone guard; no M1 pipeline execution in this audit.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-09",
+      "name": "DA-E01 source immutability",
+      "status": "passed",
+      "execution_scope": "Compared SHA256 of all 165 extracted files before and after these checks.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    },
+    {
+      "check_id": "M0-10",
+      "name": "Previously audited helper bytes preserved",
+      "status": "passed",
+      "execution_scope": "SHA256 of common.py bytes preceding the appended source-manifest helpers equals the previously audited full-file SHA256. The new manifest functions were inspected, not executed in this read-only M0 refresh.",
+      "rerun_at_utc": "2026-10-27T00:51:53.392378+00:00"
+    }
+  ],
+  "not_executed": [
+    "Full DA-E01 test suite or SimulationTests.setUpClass",
+    "DA-E01 generate() or generated source table replay",
+    "PostgreSQL service/bootstrap/extract transaction tests",
+    "HTTP server, fault injection, paging index and retry integration",
+    "DuckDB ingestion/normalization/analysis pipelines",
+    "All dependency lock pins or alternate Python platforms",
+    "DS-M01 M1 full pipeline, model training, calibration, evaluation or deployment"
+  ],
+  "compatibility_actions": [
+    "Keep all 2025 DA-E01 artifacts unchanged.",
+    "Regenerate dates and entity assignment/version validity for the 2026 period.",
+    "Use explicit ETA source and feature allowlists; outcomes/truth must remain outside the feature boundary.",
+    "Keep stable entity IDs, project/dataset-qualified record identity and a distinct random namespace.",
+    "Treat 1,800 trips over nine months as lower sampling density than the old six-month design; do not claim equivalent month-level precision.",
+    "Rerun DS-M01-specific contract, temporal availability and leakage tests in M1/M2; this audit does not replace them."
+  ],
+  "github_actions": {
+    "commit_created": false,
+    "push_attempted": false
+  },
+  "initial_audited_at_utc": "2026-10-27T00:30:36.925758+00:00",
+  "refresh_notes": {
+    "reason": "Final common.py added source-manifest helpers; previous helper bytes are identical.",
+    "data_access": "No DS-M01 data or report files read or written during this refresh.",
+    "checks_passed": 10,
+    "legacy_source_files_unchanged": 165,
+    "zip_hash_reverified": true,
+    "final_generator_stability": "Owned by the main execution flow after configuration freeze; not rerun here."
+  }
+}

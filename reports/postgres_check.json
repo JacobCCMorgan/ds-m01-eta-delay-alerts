@@ -1,0 +1,10 @@
+{
+  "status": "not_run",
+  "reason": "DS_M01_PG_DSN is not configured; no PostgreSQL execution claimed.",
+  "runtime_blockers": [
+    "Native PostgreSQL binaries unavailable",
+    "Only UID/GID 0 mapped; cannot switch to ordinary PostgreSQL service user"
+  ],
+  "implementation_ready": true,
+  "server_execution_verified": false
+}

@@ -1,0 +1,922 @@
+{
+  "required_tables": 28,
+  "active_canonical_tables": 17,
+  "optional_disabled": [
+    "eta_forecast_version",
+    "eta_routing_response"
+  ],
+  "tables": [
+    {
+      "table": "eta_trip",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 120
+    },
+    {
+      "table": "eta_facility_version",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 12
+    },
+    {
+      "table": "eta_route_version",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 12
+    },
+    {
+      "table": "eta_trip_plan_version",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 120
+    },
+    {
+      "table": "eta_promise_version",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 131
+    },
+    {
+      "table": "eta_trip_event",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 240
+    },
+    {
+      "table": "eta_snapshot",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 937
+    },
+    {
+      "table": "eta_history_reference",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 11594
+    },
+    {
+      "table": "eta_trip_outcome",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 251
+    },
+    {
+      "table": "eta_snapshot_label",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 937
+    },
+    {
+      "table": "eta_split_assignment",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 120
+    },
+    {
+      "table": "eta_model_version",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_evaluation_membership",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_prediction",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_alert_rule_version",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_output_release",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_alert_episode",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_alert",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_notification_delivery",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_adoption",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_action",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "eta_action_followup",
+      "m1_status": "planned_later_milestone",
+      "row_count": null
+    },
+    {
+      "table": "core_tenant",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 3
+    },
+    {
+      "table": "core_vehicle",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 30
+    },
+    {
+      "table": "core_device",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 36
+    },
+    {
+      "table": "core_vehicle_device_assignment",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 686
+    },
+    {
+      "table": "provenance_record",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 27943
+    },
+    {
+      "table": "telemetry_event",
+      "m1_status": "populated_and_checked_in_trial",
+      "row_count": 12834
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "DS-M01-F001",
+      "table": "core_tenant",
+      "column": "tenant_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F002",
+      "table": "core_vehicle",
+      "column": "vehicle_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F003",
+      "table": "provenance_record",
+      "column": "source_record_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F004",
+      "table": "provenance_record",
+      "column": "event_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F005",
+      "table": "provenance_record",
+      "column": "available_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F006",
+      "table": "provenance_record",
+      "column": "record_version",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F048",
+      "table": "core_device",
+      "column": "device_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F049",
+      "table": "core_vehicle_device_assignment",
+      "column": "valid_from",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F050",
+      "table": "core_vehicle_device_assignment",
+      "column": "valid_to",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P005",
+      "table": "provenance_record",
+      "column": "raw_record_reference",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P006",
+      "table": "provenance_record",
+      "column": "source_system_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P007",
+      "table": "provenance_record",
+      "column": "value_states",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P008",
+      "table": "provenance_record",
+      "column": "extract_as_of",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P009",
+      "table": "provenance_record",
+      "column": "retrieved_at",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P001",
+      "table": "eta_facility_version",
+      "column": "timezone",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P004",
+      "table": "eta_facility_version",
+      "column": "arrival_definition",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P014",
+      "table": "eta_facility_version",
+      "column": "latitude_deg",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P015",
+      "table": "eta_facility_version",
+      "column": "longitude_deg",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P016",
+      "table": "eta_facility_version",
+      "column": "latitude_deg",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P017",
+      "table": "eta_facility_version",
+      "column": "longitude_deg",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F019",
+      "table": "eta_route_version",
+      "column": "route_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F007",
+      "table": "eta_trip_plan_version",
+      "column": "trip_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F009",
+      "table": "eta_trip_plan_version",
+      "column": "planned_departure_at",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F013",
+      "table": "eta_trip_plan_version",
+      "column": "origin_facility_version_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F014",
+      "table": "eta_trip_plan_version",
+      "column": "destination_facility_version_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P002",
+      "table": "eta_promise_version",
+      "column": "promise_version_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F011",
+      "table": "eta_promise_version",
+      "column": "window_start_at",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F012",
+      "table": "eta_promise_version",
+      "column": "window_end_at",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P003",
+      "table": "eta_promise_version",
+      "column": "known_at",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F010",
+      "table": "eta_trip_event",
+      "column": "occurred_at",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F008",
+      "table": "eta_snapshot",
+      "column": "snapshot_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F015",
+      "table": "eta_snapshot",
+      "column": "trip_status_as_of",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F016",
+      "table": "eta_snapshot",
+      "column": "latitude_deg",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F017",
+      "table": "eta_snapshot",
+      "column": "longitude_deg",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F018",
+      "table": "eta_snapshot",
+      "column": "last_position_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P010",
+      "table": "eta_snapshot",
+      "column": "position_available_at",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P011",
+      "table": "eta_snapshot",
+      "column": "position_validity",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P012",
+      "table": "eta_snapshot",
+      "column": "gnss_speed_kmh",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P013",
+      "table": "eta_snapshot",
+      "column": "position_age_seconds",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F020",
+      "table": "eta_snapshot",
+      "column": "remaining_distance_km",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P020",
+      "table": "eta_snapshot",
+      "column": "departure_time_bucket",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P021",
+      "table": "eta_snapshot",
+      "column": "elapsed_trip_seconds",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P018",
+      "table": "eta_history_reference",
+      "column": "historical_trip_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F021",
+      "table": "eta_history_reference",
+      "column": "historical_duration_seconds",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P019",
+      "table": "eta_history_reference",
+      "column": "historical_label_known_at",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P022",
+      "table": "eta_forecast_version",
+      "column": "precip_probability",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F023",
+      "table": "eta_forecast_version",
+      "column": "issued_at",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F024",
+      "table": "eta_forecast_version",
+      "column": "valid_from",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P025",
+      "table": "eta_forecast_version",
+      "column": "valid_to",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F025",
+      "table": "eta_forecast_version",
+      "column": "retrieved_at",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P023",
+      "table": "eta_forecast_version",
+      "column": "grid_id",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P024",
+      "table": "eta_forecast_version",
+      "column": "snapshot_ref",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F022",
+      "table": "eta_forecast_version",
+      "column": "precip_probability",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P026",
+      "table": "eta_routing_response",
+      "column": "requested_at",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P027",
+      "table": "eta_routing_response",
+      "column": "received_at",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P028",
+      "table": "eta_routing_response",
+      "column": "vehicle_height_m",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P029",
+      "table": "eta_routing_response",
+      "column": "vehicle_width_m",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P030",
+      "table": "eta_routing_response",
+      "column": "vehicle_length_m",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P031",
+      "table": "eta_routing_response",
+      "column": "vehicle_gross_weight_kg",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P032",
+      "table": "eta_routing_response",
+      "column": "request_version",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P033",
+      "table": "eta_routing_response",
+      "column": "provider_duration_seconds",
+      "status": "optional_disabled",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F026",
+      "table": "eta_trip_outcome",
+      "column": "actual_arrival_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F027",
+      "table": "eta_trip_outcome",
+      "column": "service_start_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F028",
+      "table": "eta_trip_outcome",
+      "column": "delivery_completed_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F029",
+      "table": "eta_trip_outcome",
+      "column": "cancellation_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F030",
+      "table": "eta_trip_outcome",
+      "column": "label_available_time",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F031",
+      "table": "eta_trip_outcome",
+      "column": "label_status",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P034",
+      "table": "eta_trip_outcome",
+      "column": "arrival_evidence_ref",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P035",
+      "table": "eta_trip_outcome",
+      "column": "arrival_time_precision",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P036",
+      "table": "eta_trip_outcome",
+      "column": "reviewer_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P037",
+      "table": "eta_trip_outcome",
+      "column": "cancellation_reason",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P038",
+      "table": "eta_trip_outcome",
+      "column": "followup_through",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P039",
+      "table": "eta_trip_outcome",
+      "column": "followup_end_reason",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P040",
+      "table": "eta_trip_outcome",
+      "column": "revision_reason",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F032",
+      "table": "eta_snapshot_label",
+      "column": "delay_outcome",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P047",
+      "table": "eta_split_assignment",
+      "column": "split_version",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P041",
+      "table": "eta_split_assignment",
+      "column": "split_group_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P049",
+      "table": "eta_split_assignment",
+      "column": "split_group_id",
+      "status": "m1_data_available_full_requirement_not_yet_accepted",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F037",
+      "table": "eta_model_version",
+      "column": "prediction_version",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P048",
+      "table": "eta_model_version",
+      "column": "training_cutoff_at",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P050",
+      "table": "eta_model_version",
+      "column": "feature_definition_version",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P042",
+      "table": "eta_model_version",
+      "column": "nominal_interval_coverage",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P044",
+      "table": "eta_evaluation_membership",
+      "column": "lead_time_slice",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P045",
+      "table": "eta_evaluation_membership",
+      "column": "unseen_route",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P046",
+      "table": "eta_evaluation_membership",
+      "column": "trip_evaluation_weight",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P052",
+      "table": "eta_evaluation_membership",
+      "column": "evaluation_slice",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F033",
+      "table": "eta_prediction",
+      "column": "eta_median",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F034",
+      "table": "eta_prediction",
+      "column": "eta_lower",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F035",
+      "table": "eta_prediction",
+      "column": "eta_upper",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F036",
+      "table": "eta_prediction",
+      "column": "delay_probability",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F038",
+      "table": "eta_prediction",
+      "column": "fallback_reason",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P053",
+      "table": "eta_prediction",
+      "column": "remaining_eta_seconds",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P051",
+      "table": "eta_alert_rule_version",
+      "column": "decision_threshold_version",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P055",
+      "table": "eta_alert_rule_version",
+      "column": "delay_alert_threshold",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P043",
+      "table": "eta_alert_rule_version",
+      "column": "minimum_action_lead_seconds",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F040",
+      "table": "eta_output_release",
+      "column": "output_id",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P054",
+      "table": "eta_alert_episode",
+      "column": "alert_episode_id",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P058",
+      "table": "eta_alert_episode",
+      "column": "duplicate_alert_count",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F039",
+      "table": "eta_alert",
+      "column": "alert_id",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P056",
+      "table": "eta_notification_delivery",
+      "column": "delivered_at",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F041",
+      "table": "eta_notification_delivery",
+      "column": "received_or_opened_at",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F042",
+      "table": "eta_adoption",
+      "column": "adoption_status",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P057",
+      "table": "eta_action",
+      "column": "action_id",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F043",
+      "table": "eta_action",
+      "column": "action_type",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F044",
+      "table": "eta_action",
+      "column": "action_time",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P059",
+      "table": "eta_action",
+      "column": "handling_seconds",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F045",
+      "table": "eta_action_followup",
+      "column": "outcome_observation_end",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F046",
+      "table": "eta_action_followup",
+      "column": "observed_delay_seconds",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-P060",
+      "table": "eta_action_followup",
+      "column": "original_promise_delay_seconds",
+      "status": "planned",
+      "full_requirement_complete": false
+    },
+    {
+      "requirement_id": "DS-M01-F047",
+      "table": "eta_action_followup",
+      "column": "review_outcome",
+      "status": "planned",
+      "full_requirement_complete": false
+    }
+  ]
+}

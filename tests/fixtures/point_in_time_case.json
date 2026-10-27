@@ -1,0 +1,27 @@
+{
+  "description": "Independent hand-authored M1 timeline. No generator, model output, or hidden simulator truth is consulted.",
+  "snapshot_time": "2026-06-23T10:00:00Z",
+  "tables": {
+    "eta_trip": [{"tenant_id": "T01", "trip_id": "TRIP-1", "registered_at": "2026-06-22T08:00:00Z", "provenance_id": "HAND-1"}],
+    "eta_trip_plan_version": [{"tenant_id": "T01", "trip_id": "TRIP-1", "trip_version_id": "PLAN-1", "vehicle_id": "V-1", "route_version_id": "ROUTE-V1", "planned_departure_at": "2026-06-23T09:00:00Z", "origin_facility_version_id": "ORIGIN-V1", "destination_facility_version_id": "DEST-V1", "plan_known_at": "2026-06-22T08:00:00Z", "supersedes_trip_version_id": null, "provenance_id": "HAND-1"}],
+    "eta_promise_version": [{"tenant_id": "T01", "trip_id": "TRIP-1", "promise_version_id": "PROMISE-1", "window_start_at": "2026-06-23T10:40:00Z", "window_end_at": "2026-06-23T10:50:00Z", "known_at": "2026-06-22T08:00:00Z", "supersedes_promise_version_id": null, "change_reason": "initial", "provenance_id": "HAND-1"}],
+    "eta_route_version": [{"tenant_id": "T01", "route_id": "ROUTE-1", "route_version_id": "ROUTE-V1", "origin_facility_version_id": "ORIGIN-V1", "destination_facility_version_id": "DEST-V1", "planned_distance_km": 120.0, "valid_from": "2026-01-01T00:00:00Z", "valid_to": null, "known_at": "2026-01-01T00:00:00Z", "provenance_id": "HAND-1"}],
+    "eta_facility_version": [
+      {"tenant_id": "T01", "facility_id": "ORIGIN", "facility_version_id": "ORIGIN-V1", "timezone": "America/Los_Angeles", "arrival_definition": "first_valid_gate_crossing", "latitude_deg": 34.0, "longitude_deg": -118.0, "valid_from": "2026-01-01T00:00:00Z", "valid_to": null, "known_from": "2026-01-01T00:00:00Z", "known_to": null, "provenance_id": "HAND-1"},
+      {"tenant_id": "T01", "facility_id": "DEST", "facility_version_id": "DEST-V1", "timezone": "America/Los_Angeles", "arrival_definition": "first_valid_gate_crossing", "latitude_deg": 34.6, "longitude_deg": -117.0, "valid_from": "2026-01-01T00:00:00Z", "valid_to": null, "known_from": "2026-01-01T00:00:00Z", "known_to": null, "provenance_id": "HAND-1"}
+    ],
+    "eta_trip_event": [{"tenant_id": "T01", "trip_id": "TRIP-1", "trip_event_id": "DEPART-1", "event_type": "departure", "trip_status": "in_transit", "occurred_at": "2026-06-23T09:00:00Z", "available_at": "2026-06-23T09:00:00Z", "provenance_id": "HAND-1"}],
+    "core_vehicle_device_assignment": [{"tenant_id": "T01", "assignment_id": "ASSIGN-1", "vehicle_id": "V-1", "device_id": "D-1", "valid_from": "2026-01-01T00:00:00Z", "valid_to": null, "known_from": "2026-01-01T00:00:00Z", "known_to": null, "valid_to_state": "open", "known_to_state": "open", "resolution_status": "resolved", "provenance_id": "HAND-1"}],
+    "telemetry_event": [{"tenant_id": "T01", "canonical_event_id": "GPS-1", "event_type": "telemetry", "device_id": "D-1", "vehicle_id": "V-1", "event_time": "2026-06-23T09:55:00Z", "available_time": "2026-06-23T09:56:00Z", "gnss_valid": "valid", "latitude_deg": 34.3, "longitude_deg": -117.5, "gnss_speed_kmh": 60.0, "vehicle_speed_kmh": 60.0, "vehicle_speed_origin": "gnss", "source_event_id": "GPS-RAW-1", "source_system_id": "hand_fixture", "record_revision": "1", "raw_record_id": "RAW-1", "mapping_version": "hand-v1", "boot_session_id": "BOOT-1", "provenance_id": "HAND-1"}],
+    "provenance_record": [{"tenant_id": "T01", "provenance_id": "HAND-1", "available_time": "2026-01-01T00:00:00Z", "source_nature": "independent_hand_fixture"}]
+  },
+  "outcomes": [{"tenant_id": "T01", "trip_id": "TRIP-1", "outcome_version_id": "OUTCOME-1", "actual_arrival_time": "2026-06-23T11:00:00Z", "service_start_time": "2026-06-23T12:00:00Z", "delivery_completed_time": "2026-06-23T13:00:00Z", "cancellation_time": null, "label_available_time": "2026-06-23T13:10:00Z", "label_status": "verified", "arrival_evidence_ref": "handwritten-gate-timeline", "arrival_time_precision": "second", "reviewer_id": "fixture_author", "cancellation_reason": "not_applicable", "followup_through": "2026-06-23T13:10:00Z", "followup_end_reason": "completed", "revision_reason": null, "supersedes_outcome_version_id": null, "provenance_id": "HAND-1"}],
+  "expected": {"selected_position_event_id": "GPS-1", "position_age_seconds": 300, "elapsed_trip_seconds": 3600, "remaining_duration_seconds": 3600, "delay_outcome": true, "label_eligibility": "eligible"},
+  "split_config": {
+    "timezone": "America/Los_Angeles",
+    "generated_at": "2026-10-27T00:00:00Z",
+    "period": {"main_start": "2026-01-01", "main_end_inclusive": "2026-09-30", "optional_warmup_start": "2025-12-01", "outcome_cutoff_exclusive": "2026-10-15T00:00:00-07:00"},
+    "split": {"train_departure_dates": ["2026-01-01", "2026-06-23"], "train_label_cutoff_exclusive": "2026-07-01T00:00:00-07:00", "calibration_departure_dates": ["2026-07-01", "2026-07-24"], "calibration_label_cutoff_exclusive": "2026-08-01T00:00:00-07:00", "test_departure_dates": ["2026-08-01", "2026-09-30"], "buffer_ranges": [["2026-06-24", "2026-06-30"], ["2026-07-25", "2026-07-31"]], "group_by": ["tenant_id", "trip_id"]},
+    "heldout": {"route_ids": ["ROUTE-12"], "vehicle_ids": ["T01-V10", "T02-V10", "T03-V10"]}
+  }
+}

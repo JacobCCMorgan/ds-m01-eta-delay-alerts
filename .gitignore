@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+data/ds_m01_m1.duckdb.wal
+
+# Local build and synthetic generation outputs
+.generator-stage-*/
+*.egg-info/
+build/
+dist/
+data/*
+!data/LICENSE.md
+validation/
