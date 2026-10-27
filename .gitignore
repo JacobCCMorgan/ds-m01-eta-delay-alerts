@@ -13,3 +13,8 @@ dist/
 data/*
 !data/LICENSE.md
 validation/
+
+# Incomplete derived-data publication
+.pipeline-stage-*/
+*.duckdb.wal
+*.duckdb.tmp/

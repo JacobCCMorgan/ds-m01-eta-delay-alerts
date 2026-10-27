@@ -1,0 +1,277 @@
+{
+  "status": "passed",
+  "scope": "fresh generation, point-in-time pipeline, typed DuckDB validation, Parquet; HTTP telemetry feature parity with operational snapshots",
+  "generated_counts": {
+    "core_tenant": 3,
+    "core_vehicle": 30,
+    "core_device": 36,
+    "core_vehicle_device_assignment": 686,
+    "eta_trip": 120,
+    "eta_facility_version": 12,
+    "eta_route_version": 12,
+    "eta_trip_plan_version": 120,
+    "eta_promise_version": 131,
+    "eta_trip_event": 240,
+    "eta_trip_outcome": 251,
+    "telemetry_event": 12834,
+    "provenance_record": 14475
+  },
+  "files": [
+    {
+      "path": "data/raw/core_device.jsonl",
+      "original_sha256": "58502b12b6329ede2427bf553981b2d010929f246655d621bb0d57891e2d88cc",
+      "rebuilt_sha256": "58502b12b6329ede2427bf553981b2d010929f246655d621bb0d57891e2d88cc",
+      "equal": true
+    },
+    {
+      "path": "data/raw/core_tenant.jsonl",
+      "original_sha256": "7154bc213244b56e70970090bf7b40469074c20f31cf5d3101a0f385d5031061",
+      "rebuilt_sha256": "7154bc213244b56e70970090bf7b40469074c20f31cf5d3101a0f385d5031061",
+      "equal": true
+    },
+    {
+      "path": "data/raw/core_vehicle.jsonl",
+      "original_sha256": "c6dd63bfad259cf5c366c895ede7303c635dde12772352b343bf16728429307f",
+      "rebuilt_sha256": "c6dd63bfad259cf5c366c895ede7303c635dde12772352b343bf16728429307f",
+      "equal": true
+    },
+    {
+      "path": "data/raw/core_vehicle_device_assignment.jsonl",
+      "original_sha256": "dc55c0174c20f022decb0a23ae2085cfdd0b2e1a99961b93f8eecf9ea7dcba63",
+      "rebuilt_sha256": "dc55c0174c20f022decb0a23ae2085cfdd0b2e1a99961b93f8eecf9ea7dcba63",
+      "equal": true
+    },
+    {
+      "path": "data/raw/eta_facility_version.jsonl",
+      "original_sha256": "8f5ff3da65a2b6fd194cd9cc6b97cb0fb616d4f219c01716bd9212ad915f8164",
+      "rebuilt_sha256": "8f5ff3da65a2b6fd194cd9cc6b97cb0fb616d4f219c01716bd9212ad915f8164",
+      "equal": true
+    },
+    {
+      "path": "data/raw/eta_promise_version.jsonl",
+      "original_sha256": "5e9f217e9640cb4d47c57d4b6f94b51fb1fa1abf1d3fb3abf5d79cd8a1f41661",
+      "rebuilt_sha256": "5e9f217e9640cb4d47c57d4b6f94b51fb1fa1abf1d3fb3abf5d79cd8a1f41661",
+      "equal": true
+    },
+    {
+      "path": "data/raw/eta_route_version.jsonl",
+      "original_sha256": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+      "rebuilt_sha256": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+      "equal": true
+    },
+    {
+      "path": "data/raw/eta_trip.jsonl",
+      "original_sha256": "e1e69e0c52e0ba8684b77f92d0deb29fe604d81a07d65617b2f748c000b8f703",
+      "rebuilt_sha256": "e1e69e0c52e0ba8684b77f92d0deb29fe604d81a07d65617b2f748c000b8f703",
+      "equal": true
+    },
+    {
+      "path": "data/raw/eta_trip_event.jsonl",
+      "original_sha256": "c8f26a7c02780dbc6419eff5ab95213c12e5f7883b08abc250d8e092ec9cde46",
+      "rebuilt_sha256": "c8f26a7c02780dbc6419eff5ab95213c12e5f7883b08abc250d8e092ec9cde46",
+      "equal": true
+    },
+    {
+      "path": "data/raw/eta_trip_outcome.jsonl",
+      "original_sha256": "062a849f8b17b5cd6761c662ad192adccfd1ac89e928d89afb737768f0b22045",
+      "rebuilt_sha256": "062a849f8b17b5cd6761c662ad192adccfd1ac89e928d89afb737768f0b22045",
+      "equal": true
+    },
+    {
+      "path": "data/raw/eta_trip_plan_version.jsonl",
+      "original_sha256": "cc308b24bd6127b7924250fbf8227b2dfb125aeb0814e46160a2ffe9cfbaa5a8",
+      "rebuilt_sha256": "cc308b24bd6127b7924250fbf8227b2dfb125aeb0814e46160a2ffe9cfbaa5a8",
+      "equal": true
+    },
+    {
+      "path": "data/raw/provenance_record.jsonl",
+      "original_sha256": "3630aeec4fd335865fbdba89a3015420dd20ea816dbb0102a51b6e277bae00a0",
+      "rebuilt_sha256": "3630aeec4fd335865fbdba89a3015420dd20ea816dbb0102a51b6e277bae00a0",
+      "equal": true
+    },
+    {
+      "path": "data/raw/telemetry_event.jsonl",
+      "original_sha256": "166a10337d49267a5bd7e4d20622bb7178e9cb3b8dba19d02616ddd27c48bab7",
+      "rebuilt_sha256": "166a10337d49267a5bd7e4d20622bb7178e9cb3b8dba19d02616ddd27c48bab7",
+      "equal": true
+    },
+    {
+      "path": "data/processed/eta_history_reference.jsonl",
+      "original_sha256": "f1ff74ecf4f28a2c923ffe9d0af5718c00493460f0ddfc50ec79ee3de1f9005d",
+      "rebuilt_sha256": "f1ff74ecf4f28a2c923ffe9d0af5718c00493460f0ddfc50ec79ee3de1f9005d",
+      "equal": true
+    },
+    {
+      "path": "data/processed/eta_snapshot.jsonl",
+      "original_sha256": "30f78233e20a0bf8d138078857eb58e4784ee96a62d073002cab640d5b4f20e9",
+      "rebuilt_sha256": "30f78233e20a0bf8d138078857eb58e4784ee96a62d073002cab640d5b4f20e9",
+      "equal": true
+    },
+    {
+      "path": "data/processed/eta_snapshot_label.jsonl",
+      "original_sha256": "6b4a33bb3840fd99359881a6c851b1d0e2a81e324a2065523db3d152a5fc236e",
+      "rebuilt_sha256": "6b4a33bb3840fd99359881a6c851b1d0e2a81e324a2065523db3d152a5fc236e",
+      "equal": true
+    },
+    {
+      "path": "data/processed/eta_split_assignment.jsonl",
+      "original_sha256": "98a99deaeac894c67f04577a4b8df7b8abda5531ab03f171adc989d68155654a",
+      "rebuilt_sha256": "98a99deaeac894c67f04577a4b8df7b8abda5531ab03f171adc989d68155654a",
+      "equal": true
+    },
+    {
+      "path": "data/processed/feature_lineage.jsonl",
+      "original_sha256": "c4fb8777b37bc6bcce06931d8c52ceac2d288c8061821ca6829ddbcc45aa3e86",
+      "rebuilt_sha256": "c4fb8777b37bc6bcce06931d8c52ceac2d288c8061821ca6829ddbcc45aa3e86",
+      "equal": true
+    },
+    {
+      "path": "data/processed/provenance_record.jsonl",
+      "original_sha256": "a84295364ae780555bc9042ee12424d1d704ab7e5fb683fdf858bdd09e6a1cef",
+      "rebuilt_sha256": "a84295364ae780555bc9042ee12424d1d704ab7e5fb683fdf858bdd09e6a1cef",
+      "equal": true
+    },
+    {
+      "path": "data/processed/trip_membership.jsonl",
+      "original_sha256": "d7e97961bd8748446f7767641e96314466eaf9e166e240ec959cdc18c44e3758",
+      "rebuilt_sha256": "d7e97961bd8748446f7767641e96314466eaf9e166e240ec959cdc18c44e3758",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/core_device.parquet",
+      "original_sha256": "f04731bfd246b48a32c40f1ca30eef16a1c0d468827e9d82d40776503f8a12d6",
+      "rebuilt_sha256": "f04731bfd246b48a32c40f1ca30eef16a1c0d468827e9d82d40776503f8a12d6",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/core_tenant.parquet",
+      "original_sha256": "d81731dc94bff3b2fb15613a32f936938f766a06fd4199894aa018aa8899ec25",
+      "rebuilt_sha256": "d81731dc94bff3b2fb15613a32f936938f766a06fd4199894aa018aa8899ec25",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/core_vehicle.parquet",
+      "original_sha256": "1f6d3e1a317b39b533576c08e0438e27c740a3c61bc6fc6a15a58a116dd34dea",
+      "rebuilt_sha256": "1f6d3e1a317b39b533576c08e0438e27c740a3c61bc6fc6a15a58a116dd34dea",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/core_vehicle_device_assignment.parquet",
+      "original_sha256": "3ea2e32ccf6b181945a833d05ae3393bf2765569744c18dab3920e27be5aa367",
+      "rebuilt_sha256": "3ea2e32ccf6b181945a833d05ae3393bf2765569744c18dab3920e27be5aa367",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_facility_version.parquet",
+      "original_sha256": "c2c40376494006a65cc98dfd0ea9ef8675b8bf773d3515aa7577b89df856faca",
+      "rebuilt_sha256": "c2c40376494006a65cc98dfd0ea9ef8675b8bf773d3515aa7577b89df856faca",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_history_reference.parquet",
+      "original_sha256": "dabdfb50d329c6357dccbf67e4888654f353ed8fb01924be9c13964b8211b287",
+      "rebuilt_sha256": "dabdfb50d329c6357dccbf67e4888654f353ed8fb01924be9c13964b8211b287",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_promise_version.parquet",
+      "original_sha256": "2deef617f747d8ce31d55f87ba4cc2d8ee2bdff2e40c77190fc2926fa493bba4",
+      "rebuilt_sha256": "2deef617f747d8ce31d55f87ba4cc2d8ee2bdff2e40c77190fc2926fa493bba4",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_route_version.parquet",
+      "original_sha256": "edd0f5ee14f7063477c664f5d167748ea517c399d181e3bdc300f500a31cda68",
+      "rebuilt_sha256": "edd0f5ee14f7063477c664f5d167748ea517c399d181e3bdc300f500a31cda68",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_snapshot.parquet",
+      "original_sha256": "4baa6151defc65caab1f22c7b86c4ca47a59956c5f9b3687af429f43ce9305f5",
+      "rebuilt_sha256": "4baa6151defc65caab1f22c7b86c4ca47a59956c5f9b3687af429f43ce9305f5",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_snapshot_label.parquet",
+      "original_sha256": "129790b9b3829df62181e99bf4dcf81faeed788fdafe4255bf46bfd463763134",
+      "rebuilt_sha256": "129790b9b3829df62181e99bf4dcf81faeed788fdafe4255bf46bfd463763134",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_split_assignment.parquet",
+      "original_sha256": "43ca58c36a7de136e2e88711cf7b80f577ce75d0fc5ab3b53641a4ee8de3f00d",
+      "rebuilt_sha256": "43ca58c36a7de136e2e88711cf7b80f577ce75d0fc5ab3b53641a4ee8de3f00d",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_trip.parquet",
+      "original_sha256": "188c7d3de7b58bbbd348d88576da4d665584b37856fec0dcf22b8ff951ef9a8d",
+      "rebuilt_sha256": "188c7d3de7b58bbbd348d88576da4d665584b37856fec0dcf22b8ff951ef9a8d",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_trip_event.parquet",
+      "original_sha256": "0773649dc7c2757e1ec7f66cd7785d9045435cd08d00d05d1ffac86273f70407",
+      "rebuilt_sha256": "0773649dc7c2757e1ec7f66cd7785d9045435cd08d00d05d1ffac86273f70407",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_trip_outcome.parquet",
+      "original_sha256": "d1b1c7a8e27f87293746e402e3bb5dca2d05340eff693f996fff66d50228f0dc",
+      "rebuilt_sha256": "d1b1c7a8e27f87293746e402e3bb5dca2d05340eff693f996fff66d50228f0dc",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/eta_trip_plan_version.parquet",
+      "original_sha256": "b5c24f5de542e3cd338ace8a9d13d23a0ee1258bd2d80897e425d6d1e9d26890",
+      "rebuilt_sha256": "b5c24f5de542e3cd338ace8a9d13d23a0ee1258bd2d80897e425d6d1e9d26890",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/provenance_record.parquet",
+      "original_sha256": "314ce87120fee26e320d4a573b0b58192e28e3b4a0109e809f216933431384d9",
+      "rebuilt_sha256": "314ce87120fee26e320d4a573b0b58192e28e3b4a0109e809f216933431384d9",
+      "equal": true
+    },
+    {
+      "path": "data/parquet/telemetry_event.parquet",
+      "original_sha256": "f7f11bd117b91867458f9b8edb8b5747c8e2cfd3d38cc1e3aa481ba6b5cf660f",
+      "rebuilt_sha256": "f7f11bd117b91867458f9b8edb8b5747c8e2cfd3d38cc1e3aa481ba6b5cf660f",
+      "equal": true
+    }
+  ],
+  "http_input_parity": [
+    {
+      "file": "feature_lineage.jsonl",
+      "equal": true
+    },
+    {
+      "file": "eta_snapshot_label.jsonl",
+      "equal": true
+    },
+    {
+      "file": "eta_snapshot.jsonl",
+      "equal": true
+    },
+    {
+      "file": "trip_membership.jsonl",
+      "equal": true
+    },
+    {
+      "file": "eta_history_reference.jsonl",
+      "equal": true
+    },
+    {
+      "file": "eta_split_assignment.jsonl",
+      "equal": true
+    },
+    {
+      "file": "provenance_record.jsonl",
+      "equal": true
+    }
+  ],
+  "quality_passed": true,
+  "postgres_service_parity": "not_run",
+  "finished_at_utc": "2026-10-27T00:51:45.165677+00:00",
+  "elapsed_seconds": 24.824
+}

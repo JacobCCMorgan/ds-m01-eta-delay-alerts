@@ -1,0 +1,8 @@
+{
+  "command": "run",
+  "status": "passed",
+  "elapsed_seconds": 320.567,
+  "peak_rss_kib": 7578196,
+  "platform_rss_unit": "Linux KiB",
+  "finished_at_utc": "2026-10-27T21:05:44.201376+00:00"
+}

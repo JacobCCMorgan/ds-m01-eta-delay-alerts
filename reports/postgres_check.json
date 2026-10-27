@@ -1,10 +1,35 @@
 {
+  "milestone": "M2",
   "status": "not_run",
-  "reason": "DS_M01_PG_DSN is not configured; no PostgreSQL execution claimed.",
+  "reason": "No configured PostgreSQL endpoint and no supported native local PostgreSQL service runtime is available.",
+  "checked_at_utc": "2026-10-27T20:57:40.346671+00:00",
+  "check_scope": "Fresh availability inspection only; no server connection, schema creation or SQL execution.",
+  "runtime_evidence": {
+    "effective_uid": 0,
+    "effective_gid": 0,
+    "uid_map": "0          0          1",
+    "gid_map": "0          0          1",
+    "executables_on_path": {
+      "postgres": null,
+      "initdb": null,
+      "pg_ctl": null,
+      "psql": null,
+      "docker": null,
+      "podman": null
+    },
+    "configured_dsn_present": false
+  },
   "runtime_blockers": [
-    "Native PostgreSQL binaries unavailable",
-    "Only UID/GID 0 mapped; cannot switch to ordinary PostgreSQL service user"
+    "DS_M01_PG_DSN is not configured; no remote or local database endpoint has been supplied.",
+    "postgres/initdb/pg_ctl/psql are absent from PATH; docker/podman are also absent.",
+    "Only UID/GID 0 is mapped; native PostgreSQL initialization requires an ordinary non-root service account."
   ],
-  "implementation_ready": true,
-  "server_execution_verified": false
+  "connector_and_typed_ddl_supplied": true,
+  "server_execution_verified": false,
+  "postgres_row_counts_or_hash_parity_verified": false,
+  "credentials_recorded": false,
+  "native_service_install_or_privilege_bypass_attempted": false,
+  "operational_tables_in_supplied_check": 11,
+  "next_check_command": "python -m ds_m01.postgres_check --root . --output reports/postgres_roundtrip.json",
+  "execution_requirement": "Run against a dedicated PostgreSQL database through DS_M01_PG_DSN after generating the M2 raw data; a passed report requires actual typed roundtrip equality."
 }

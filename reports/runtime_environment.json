@@ -1,0 +1,28 @@
+{
+  "recorded_at_utc": "2026-10-27T21:13:14.576260+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux",
+  "machine": "x86_64",
+  "dependencies": {
+    "duckdb": "1.4.1",
+    "pyarrow": "21.0.0",
+    "psycopg": "3.2.10",
+    "matplotlib": "3.10.8",
+    "python-docx": "1.2.0",
+    "pypdf": "6.10.0"
+  },
+  "code_and_config_sha256": {
+    "src/ds_m01/common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+    "src/ds_m01/generate.py": "7e4827697771e5c4c255f5bdb26986f012089a81fd4249cb2c815d416806f044",
+    "src/ds_m01/pipeline.py": "453d6760affc221cca9bd2141c61bdb677df3223fdaf9384bada8e26687438b3",
+    "src/ds_m01/warehouse.py": "bd56808238a7694fddbde37c4513ecbec4aab35079b521c5ef9117883d844335",
+    "src/ds_m01/cli.py": "fd4717a19c30b7378d933428366b8c123199844bfb9de2cbd6a1569039675f67",
+    "src/ds_m01/event_api.py": "cdf74b4f6fe47dc563d7be73950f6373088524e400d45529c293cb64d9e9dbe2",
+    "scripts/check_rebuild.py": "b5d264415b7902f56c20aad5ca2730cb37e4a71654baafc69f36681d7d460b7f",
+    "scripts/check_m2_readiness.py": "6ffc2e83faeedc45c509ff412811ed10323a53dc19f489ac03ee42d66c8a8e0d",
+    "config/m2.json": "9b2fec72600c7ac16af7ebb6d52129642d6d1fc479c5c80948f8c6fb9cb0d26b"
+  },
+  "model_trained": false,
+  "macos_tested": false,
+  "native_postgres_tested": false
+}

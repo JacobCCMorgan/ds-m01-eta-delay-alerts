@@ -1,0 +1,51 @@
+{
+  "generated_counts": {
+    "core_tenant": 3,
+    "core_vehicle": 30,
+    "core_device": 36,
+    "core_vehicle_device_assignment": 686,
+    "eta_trip": 1800,
+    "eta_facility_version": 12,
+    "eta_route_version": 12,
+    "eta_trip_plan_version": 1800,
+    "eta_promise_version": 1964,
+    "eta_trip_event": 3600,
+    "eta_trip_outcome": 3763,
+    "telemetry_event": 197303,
+    "provenance_record": 211009
+  },
+  "summary": {
+    "trip_count": 1800,
+    "snapshot_count": 14349,
+    "history_reference_count": 2536045,
+    "label_eligibility": {
+      "eligible": 6966,
+      "cancelled": 164,
+      "already_arrived": 2947,
+      "not_mature": 4272
+    },
+    "position_quality": {
+      "valid": 6394,
+      "no_position": 859,
+      "low_confidence": 7096
+    },
+    "trip_split_counts": {
+      "train": 992,
+      "excluded": 237,
+      "calibration": 171,
+      "test": 400
+    },
+    "candidate_horizon_hours": 12,
+    "model_trained": false,
+    "metrics_are_model_performance": false,
+    "source_kind": "synthetic",
+    "feature_definition_version": "m1-features-v1"
+  },
+  "execution": {
+    "finished_at_utc": "2026-10-27T21:05:44.200027+00:00",
+    "elapsed_seconds": 320.565,
+    "command": "run",
+    "config_path": "/workspace/scratch/d19ad7bcb7a7/ds_m01_m2/config/m2.json",
+    "config_sha256": "9b2fec72600c7ac16af7ebb6d52129642d6d1fc479c5c80948f8c6fb9cb0d26b"
+  }
+}

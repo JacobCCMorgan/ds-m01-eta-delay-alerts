@@ -1,0 +1,100 @@
+{
+  "status": "ready_for_m3_with_cautions",
+  "technical_checks_passed": true,
+  "ready_to_attempt_m3": true,
+  "trips_by_role": [
+    {
+      "split_role": "calibration",
+      "trips": 171,
+      "snapshots": 1358,
+      "eligible_snapshots": 596,
+      "eligible_trips": 130,
+      "delayed_eligible_snapshots": 302,
+      "on_time_eligible_snapshots": 294
+    },
+    {
+      "split_role": "excluded",
+      "trips": 237,
+      "snapshots": 1941,
+      "eligible_snapshots": 1122,
+      "eligible_trips": 195,
+      "delayed_eligible_snapshots": 656,
+      "on_time_eligible_snapshots": 466
+    },
+    {
+      "split_role": "test",
+      "trips": 400,
+      "snapshots": 3200,
+      "eligible_snapshots": 1578,
+      "eligible_trips": 328,
+      "delayed_eligible_snapshots": 792,
+      "on_time_eligible_snapshots": 786
+    },
+    {
+      "split_role": "train",
+      "trips": 992,
+      "snapshots": 7850,
+      "eligible_snapshots": 3670,
+      "eligible_trips": 805,
+      "delayed_eligible_snapshots": 1780,
+      "on_time_eligible_snapshots": 1890
+    }
+  ],
+  "test_cohorts": [
+    {
+      "cohort": "seen_vehicle_and_route",
+      "trips": 325,
+      "snapshots": 2586,
+      "eligible_snapshots": 1197,
+      "eligible_trips": 262,
+      "delayed_eligible_snapshots": 578,
+      "on_time_eligible_snapshots": 619
+    },
+    {
+      "cohort": "unseen_route_only",
+      "trips": 34,
+      "snapshots": 349,
+      "eligible_snapshots": 206,
+      "eligible_trips": 29,
+      "delayed_eligible_snapshots": 127,
+      "on_time_eligible_snapshots": 79
+    },
+    {
+      "cohort": "unseen_vehicle_and_route",
+      "trips": 4,
+      "snapshots": 28,
+      "eligible_snapshots": 28,
+      "eligible_trips": 4,
+      "delayed_eligible_snapshots": 16,
+      "on_time_eligible_snapshots": 12
+    },
+    {
+      "cohort": "unseen_vehicle_only",
+      "trips": 37,
+      "snapshots": 237,
+      "eligible_snapshots": 147,
+      "eligible_trips": 33,
+      "delayed_eligible_snapshots": 71,
+      "on_time_eligible_snapshots": 76
+    }
+  ],
+  "m3_support": {
+    "eligible_trip_diagnostic_floor": 30,
+    "threshold_meaning": "Descriptive sample-support flag only; not a statistical power calculation or deployment acceptance threshold.",
+    "blockers": [],
+    "cautions": [
+      "test/unseen_route_only: 29 eligible trips; below descriptive floor 30",
+      "test/unseen_vehicle_and_route: 4 eligible trips; below descriptive floor 30",
+      "excluded: 8 eligible snapshots have no historical training pool; define an explicit unsupported/fallback policy in M3",
+      "train: 97 eligible snapshots have no historical training pool; define an explicit unsupported/fallback policy in M3"
+    ],
+    "ready_to_attempt_m3": true,
+    "constraints": [
+      "Use trip-grouped temporal validation; snapshots within a trip are dependent.",
+      "Do not tune features, models, calibration or thresholds using test-role outcomes.",
+      "This audit examines coverage and validity only; no model accuracy, calibration or operational benefit is claimed.",
+      "Synthetic scenario frequencies are engineering test design, not real fleet incidence."
+    ]
+  },
+  "elapsed_seconds": 4.821
+}

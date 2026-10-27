@@ -1,0 +1,27 @@
+{
+  "trip_count": 1800,
+  "snapshot_count": 14349,
+  "history_reference_count": 2536045,
+  "label_eligibility": {
+    "eligible": 6966,
+    "cancelled": 164,
+    "already_arrived": 2947,
+    "not_mature": 4272
+  },
+  "position_quality": {
+    "valid": 6394,
+    "no_position": 859,
+    "low_confidence": 7096
+  },
+  "trip_split_counts": {
+    "train": 992,
+    "excluded": 237,
+    "calibration": 171,
+    "test": 400
+  },
+  "candidate_horizon_hours": 12,
+  "model_trained": false,
+  "metrics_are_model_performance": false,
+  "source_kind": "synthetic",
+  "feature_definition_version": "m1-features-v1"
+}

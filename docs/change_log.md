@@ -36,3 +36,17 @@
 本次不是全案或最終使用者驗收。完整 1,800 趟 M2 流程、其餘 11 張必要表、模型與校正、預警及行動追蹤、O01–O03 完整成果、原生 PostgreSQL 服務往返仍有後續工作。產生器擴量與重建各次執行的結果只依相應 JSON 報告判定。
 
 沒有建立任何 Git commit 或執行 push；簽署、Verified 認證及 GitHub 發布由使用者負責。
+
+
+## 2026-10-27 M2 0.2.0
+
+- Retained all 1,800 synthetic trips and complete as-of output/history rather than only a temporary generator expansion.
+- Indexed trip inputs and streamed history/provenance with staged per-file publication; all seven original M1 derived files remain byte-identical under M1 settings.
+- Added exhaustive 13-source manifest coverage, count and SHA checks; malformed/truncated rows fail closed.
+- Created 28 typed schemas/Parquet exports, with 11 future model/alert tables explicitly empty.
+- Replaced repeated full-snapshot scans and Python provenance retention with indexed/SQL validation.
+- Added M2 maturity, cohort, history support and M1 continuity audit.
+- Added pipeline staging/build outputs to Git/archive exclusions.
+- Unit tests: 49 pass; warehouse: 27 pass; readiness: 22 pass. Full fresh rebuild receipt is delivered separately.
+- The first profiling launcher could not start because /usr/bin/time was absent; Python resource profiling was used successfully. No data-stage failure was hidden.
+- No Git commit/push, model training, fake deployment date or PostgreSQL success claim.

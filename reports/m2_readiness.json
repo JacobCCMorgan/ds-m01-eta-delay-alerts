@@ -1,0 +1,850 @@
+{
+  "project_id": "DS-M01",
+  "milestone": "M2",
+  "status": "ready_for_m3_with_cautions",
+  "technical_checks_passed": true,
+  "ready_to_attempt_m3": true,
+  "source_kind": "original_synthetic_2026_scenarios",
+  "model_trained": false,
+  "metrics_are_model_performance": false,
+  "test_use": "Schema, validity and coverage audit only. No model or threshold is selected from test outcomes.",
+  "database_path": "data/ds_m01_m2.duckdb",
+  "config_path": "config/m2.json",
+  "input_hashes": {
+    "config_sha256": "9b2fec72600c7ac16af7ebb6d52129642d6d1fc479c5c80948f8c6fb9cb0d26b",
+    "quality_report_sha256": "c3c64fa15c2fa4acd59a4418ca4f9f0d483077edc144e4ca8f1c683ab78fb5e7",
+    "membership_sha256": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061",
+    "feature_lineage_sha256": "dba784ddb39e400c104e5d6679cb4a03c1b6e835a6584bf3f5e490da2611154e",
+    "scenario_registry_sha256": "fbcc7c10e485509de9448ea14bdf6571df143c7cbd30dca3f7f3c65ddad3f4b8"
+  },
+  "counts": {
+    "core_tenant": 3,
+    "core_vehicle": 30,
+    "core_device": 36,
+    "core_vehicle_device_assignment": 686,
+    "eta_trip": 1800,
+    "eta_facility_version": 12,
+    "eta_route_version": 12,
+    "eta_trip_plan_version": 1800,
+    "eta_promise_version": 1964,
+    "eta_trip_event": 3600,
+    "eta_trip_outcome": 3763,
+    "telemetry_event": 197303,
+    "provenance_record": 2775752,
+    "eta_snapshot": 14349,
+    "eta_snapshot_label": 14349,
+    "eta_split_assignment": 1800,
+    "eta_history_reference": 2536045,
+    "eta_model_version": 0,
+    "eta_evaluation_membership": 0,
+    "eta_prediction": 0,
+    "eta_alert_rule_version": 0,
+    "eta_output_release": 0,
+    "eta_alert_episode": 0,
+    "eta_alert": 0,
+    "eta_notification_delivery": 0,
+    "eta_adoption": 0,
+    "eta_action": 0,
+    "eta_action_followup": 0
+  },
+  "trips_by_role": [
+    {
+      "split_role": "calibration",
+      "trips": 171,
+      "snapshots": 1358,
+      "eligible_snapshots": 596,
+      "eligible_trips": 130,
+      "delayed_eligible_snapshots": 302,
+      "on_time_eligible_snapshots": 294
+    },
+    {
+      "split_role": "excluded",
+      "trips": 237,
+      "snapshots": 1941,
+      "eligible_snapshots": 1122,
+      "eligible_trips": 195,
+      "delayed_eligible_snapshots": 656,
+      "on_time_eligible_snapshots": 466
+    },
+    {
+      "split_role": "test",
+      "trips": 400,
+      "snapshots": 3200,
+      "eligible_snapshots": 1578,
+      "eligible_trips": 328,
+      "delayed_eligible_snapshots": 792,
+      "on_time_eligible_snapshots": 786
+    },
+    {
+      "split_role": "train",
+      "trips": 992,
+      "snapshots": 7850,
+      "eligible_snapshots": 3670,
+      "eligible_trips": 805,
+      "delayed_eligible_snapshots": 1780,
+      "on_time_eligible_snapshots": 1890
+    }
+  ],
+  "trips_by_month": [
+    {
+      "month": "2026-01",
+      "trips": 200
+    },
+    {
+      "month": "2026-02",
+      "trips": 200
+    },
+    {
+      "month": "2026-03",
+      "trips": 200
+    },
+    {
+      "month": "2026-04",
+      "trips": 200
+    },
+    {
+      "month": "2026-05",
+      "trips": 200
+    },
+    {
+      "month": "2026-06",
+      "trips": 200
+    },
+    {
+      "month": "2026-07",
+      "trips": 200
+    },
+    {
+      "month": "2026-08",
+      "trips": 200
+    },
+    {
+      "month": "2026-09",
+      "trips": 200
+    }
+  ],
+  "label_maturity_by_role": [
+    {
+      "split_role": "calibration",
+      "label_eligibility": "already_arrived",
+      "snapshots": 215,
+      "trips": 14
+    },
+    {
+      "split_role": "calibration",
+      "label_eligibility": "cancelled",
+      "snapshots": 19,
+      "trips": 19
+    },
+    {
+      "split_role": "calibration",
+      "label_eligibility": "eligible",
+      "snapshots": 596,
+      "trips": 130
+    },
+    {
+      "split_role": "calibration",
+      "label_eligibility": "not_mature",
+      "snapshots": 528,
+      "trips": 22
+    },
+    {
+      "split_role": "excluded",
+      "label_eligibility": "already_arrived",
+      "snapshots": 317,
+      "trips": 20
+    },
+    {
+      "split_role": "excluded",
+      "label_eligibility": "cancelled",
+      "snapshots": 22,
+      "trips": 22
+    },
+    {
+      "split_role": "excluded",
+      "label_eligibility": "eligible",
+      "snapshots": 1122,
+      "trips": 195
+    },
+    {
+      "split_role": "excluded",
+      "label_eligibility": "not_mature",
+      "snapshots": 480,
+      "trips": 20
+    },
+    {
+      "split_role": "test",
+      "label_eligibility": "already_arrived",
+      "snapshots": 722,
+      "trips": 40
+    },
+    {
+      "split_role": "test",
+      "label_eligibility": "cancelled",
+      "snapshots": 36,
+      "trips": 36
+    },
+    {
+      "split_role": "test",
+      "label_eligibility": "eligible",
+      "snapshots": 1578,
+      "trips": 328
+    },
+    {
+      "split_role": "test",
+      "label_eligibility": "not_mature",
+      "snapshots": 864,
+      "trips": 36
+    },
+    {
+      "split_role": "train",
+      "label_eligibility": "already_arrived",
+      "snapshots": 1693,
+      "trips": 97
+    },
+    {
+      "split_role": "train",
+      "label_eligibility": "cancelled",
+      "snapshots": 87,
+      "trips": 87
+    },
+    {
+      "split_role": "train",
+      "label_eligibility": "eligible",
+      "snapshots": 3670,
+      "trips": 805
+    },
+    {
+      "split_role": "train",
+      "label_eligibility": "not_mature",
+      "snapshots": 2400,
+      "trips": 100
+    }
+  ],
+  "test_cohorts": [
+    {
+      "cohort": "seen_vehicle_and_route",
+      "trips": 325,
+      "snapshots": 2586,
+      "eligible_snapshots": 1197,
+      "eligible_trips": 262,
+      "delayed_eligible_snapshots": 578,
+      "on_time_eligible_snapshots": 619
+    },
+    {
+      "cohort": "unseen_route_only",
+      "trips": 34,
+      "snapshots": 349,
+      "eligible_snapshots": 206,
+      "eligible_trips": 29,
+      "delayed_eligible_snapshots": 127,
+      "on_time_eligible_snapshots": 79
+    },
+    {
+      "cohort": "unseen_vehicle_and_route",
+      "trips": 4,
+      "snapshots": 28,
+      "eligible_snapshots": 28,
+      "eligible_trips": 4,
+      "delayed_eligible_snapshots": 16,
+      "on_time_eligible_snapshots": 12
+    },
+    {
+      "cohort": "unseen_vehicle_only",
+      "trips": 37,
+      "snapshots": 237,
+      "eligible_snapshots": 147,
+      "eligible_trips": 33,
+      "delayed_eligible_snapshots": 71,
+      "on_time_eligible_snapshots": 76
+    }
+  ],
+  "position_quality_by_role": [
+    {
+      "split_role": "calibration",
+      "position_validity": "low_confidence",
+      "snapshots": 710,
+      "eligible_snapshots": 51
+    },
+    {
+      "split_role": "calibration",
+      "position_validity": "no_position",
+      "snapshots": 82,
+      "eligible_snapshots": 63
+    },
+    {
+      "split_role": "calibration",
+      "position_validity": "valid",
+      "snapshots": 566,
+      "eligible_snapshots": 482
+    },
+    {
+      "split_role": "excluded",
+      "position_validity": "low_confidence",
+      "snapshots": 792,
+      "eligible_snapshots": 63
+    },
+    {
+      "split_role": "excluded",
+      "position_validity": "no_position",
+      "snapshots": 116,
+      "eligible_snapshots": 98
+    },
+    {
+      "split_role": "excluded",
+      "position_validity": "valid",
+      "snapshots": 1033,
+      "eligible_snapshots": 961
+    },
+    {
+      "split_role": "test",
+      "position_validity": "low_confidence",
+      "snapshots": 1578,
+      "eligible_snapshots": 115
+    },
+    {
+      "split_role": "test",
+      "position_validity": "no_position",
+      "snapshots": 196,
+      "eligible_snapshots": 167
+    },
+    {
+      "split_role": "test",
+      "position_validity": "valid",
+      "snapshots": 1426,
+      "eligible_snapshots": 1296
+    },
+    {
+      "split_role": "train",
+      "position_validity": "low_confidence",
+      "snapshots": 4016,
+      "eligible_snapshots": 298
+    },
+    {
+      "split_role": "train",
+      "position_validity": "no_position",
+      "snapshots": 465,
+      "eligible_snapshots": 376
+    },
+    {
+      "split_role": "train",
+      "position_validity": "valid",
+      "snapshots": 3369,
+      "eligible_snapshots": 2996
+    }
+  ],
+  "tenant_role_coverage": [
+    {
+      "tenant_id": "T01",
+      "split_role": "calibration",
+      "trips": 62,
+      "vehicles": 9,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T01",
+      "split_role": "excluded",
+      "trips": 46,
+      "vehicles": 1,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T01",
+      "split_role": "test",
+      "trips": 132,
+      "vehicles": 10,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T01",
+      "split_role": "train",
+      "trips": 357,
+      "vehicles": 9,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T02",
+      "split_role": "calibration",
+      "trips": 58,
+      "vehicles": 9,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T02",
+      "split_role": "excluded",
+      "trips": 47,
+      "vehicles": 1,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T02",
+      "split_role": "test",
+      "trips": 134,
+      "vehicles": 10,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T02",
+      "split_role": "train",
+      "trips": 358,
+      "vehicles": 9,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T03",
+      "split_role": "calibration",
+      "trips": 51,
+      "vehicles": 9,
+      "routes": 3
+    },
+    {
+      "tenant_id": "T03",
+      "split_role": "excluded",
+      "trips": 144,
+      "vehicles": 10,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T03",
+      "split_role": "test",
+      "trips": 134,
+      "vehicles": 10,
+      "routes": 4
+    },
+    {
+      "tenant_id": "T03",
+      "split_role": "train",
+      "trips": 277,
+      "vehicles": 9,
+      "routes": 3
+    }
+  ],
+  "heldout_id_coverage": {
+    "vehicles": [
+      {
+        "vehicle_id": "T01-V10",
+        "split_role": "excluded",
+        "trips": 46
+      },
+      {
+        "vehicle_id": "T01-V10",
+        "split_role": "test",
+        "trips": 13
+      },
+      {
+        "vehicle_id": "T02-V10",
+        "split_role": "excluded",
+        "trips": 47
+      },
+      {
+        "vehicle_id": "T02-V10",
+        "split_role": "test",
+        "trips": 14
+      },
+      {
+        "vehicle_id": "T03-V10",
+        "split_role": "excluded",
+        "trips": 47
+      },
+      {
+        "vehicle_id": "T03-V10",
+        "split_role": "test",
+        "trips": 14
+      }
+    ],
+    "routes": [
+      {
+        "route_id": "ROUTE-12",
+        "split_role": "excluded",
+        "trips": 106
+      },
+      {
+        "route_id": "ROUTE-12",
+        "split_role": "test",
+        "trips": 38
+      }
+    ]
+  },
+  "history_support_by_role": [
+    {
+      "split_role": "calibration",
+      "snapshots": 1358,
+      "no_history_snapshots": 0,
+      "eligible_no_history_snapshots": 0,
+      "minimum_training_trips": 234,
+      "median_training_trips": 282.0,
+      "maximum_training_trips": 289
+    },
+    {
+      "split_role": "excluded",
+      "snapshots": 1941,
+      "no_history_snapshots": 9,
+      "eligible_no_history_snapshots": 8,
+      "minimum_training_trips": 0,
+      "median_training_trips": 142.0,
+      "maximum_training_trips": 289
+    },
+    {
+      "split_role": "test",
+      "snapshots": 3200,
+      "no_history_snapshots": 0,
+      "eligible_no_history_snapshots": 0,
+      "minimum_training_trips": 234,
+      "median_training_trips": 282.0,
+      "maximum_training_trips": 289
+    },
+    {
+      "split_role": "train",
+      "snapshots": 7850,
+      "no_history_snapshots": 209,
+      "eligible_no_history_snapshots": 97,
+      "minimum_training_trips": 0,
+      "median_training_trips": 130.0,
+      "maximum_training_trips": 279
+    }
+  ],
+  "eligible_target_ranges_by_role": [
+    {
+      "split_role": "calibration",
+      "minimum_remaining_seconds": 18,
+      "median_remaining_seconds": 4029.0,
+      "maximum_remaining_seconds": 16354
+    },
+    {
+      "split_role": "excluded",
+      "minimum_remaining_seconds": 3,
+      "median_remaining_seconds": 5219.0,
+      "maximum_remaining_seconds": 22632
+    },
+    {
+      "split_role": "test",
+      "minimum_remaining_seconds": 8,
+      "median_remaining_seconds": 4316.0,
+      "maximum_remaining_seconds": 22724
+    },
+    {
+      "split_role": "train",
+      "minimum_remaining_seconds": 6,
+      "median_remaining_seconds": 4116.5,
+      "maximum_remaining_seconds": 23767
+    }
+  ],
+  "synthetic_scenario_coverage": {
+    "scope": "Engineering scenario inventory only; never a predictor or real-world prevalence estimate.",
+    "validation_only": true,
+    "scenario_counts": {
+      "arrival_report_late": 163,
+      "cancelled": 164,
+      "device_swap": 164,
+      "gps_dropout": 164,
+      "invalid_position": 163,
+      "late_arrival": 164,
+      "late_gps": 164,
+      "normal": 164,
+      "outcome_revision": 163,
+      "promise_revision": 164,
+      "unfinished": 163
+    }
+  },
+  "feature_separation": {
+    "feature_allowlist": [
+      "departure_time_bucket",
+      "elapsed_trip_seconds",
+      "gnss_speed_kmh",
+      "latitude_deg",
+      "longitude_deg",
+      "position_age_seconds",
+      "position_validity",
+      "remaining_distance_km"
+    ],
+    "allowed_parent_tables": [
+      "core_vehicle_device_assignment",
+      "eta_facility_version",
+      "eta_promise_version",
+      "eta_route_version",
+      "eta_trip_event",
+      "eta_trip_plan_version",
+      "telemetry_event"
+    ],
+    "observed_parent_tables": [
+      {
+        "parent_table": "core_vehicle_device_assignment",
+        "parent_links": 13490
+      },
+      {
+        "parent_table": "eta_facility_version",
+        "parent_links": 28698
+      },
+      {
+        "parent_table": "eta_promise_version",
+        "parent_links": 14349
+      },
+      {
+        "parent_table": "eta_route_version",
+        "parent_links": 14349
+      },
+      {
+        "parent_table": "eta_trip_event",
+        "parent_links": 14349
+      },
+      {
+        "parent_table": "eta_trip_plan_version",
+        "parent_links": 14349
+      },
+      {
+        "parent_table": "telemetry_event",
+        "parent_links": 13490
+      }
+    ],
+    "evidence_scope": "Persisted feature column and direct provenance-parent audit; history may use strictly prior training outcomes."
+  },
+  "checks": [
+    {
+      "name": "full_design_retained",
+      "violations": 0,
+      "passed": true,
+      "detail": {
+        "expected": 1800,
+        "actual": 1800
+      }
+    },
+    {
+      "name": "warehouse_quality_passed",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "complete_trip_membership_and_departure",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "complete_snapshot_label_membership",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "heldouts_absent_from_train_and_calibration",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "history_uses_seen_training_only",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "history_before_snapshot_and_training_cutoff",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "eligible_targets_positive_and_binary",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "unavailable_targets_remain_null",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "selected_labels_available_before_role_cutoff",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "source_available_before_extract",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "feature_columns_match_explicit_allowlist",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "one_lineage_record_per_snapshot_count",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "lineage_identity_unique_and_complete",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "lineage_max_availability_not_future",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "snapshot_parents_exclude_outcomes_and_simulation_truth",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "snapshot_lineage_has_no_validation_file",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "scenario_registry_validation_only",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "scenario_counts_match_retained_trips",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "all_configured_months_present",
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "name": "configured_month_density_retained",
+      "violations": 0,
+      "passed": true,
+      "detail": {
+        "planned_trips_per_month": 200
+      }
+    },
+    {
+      "name": "m1_business_rows_preserved",
+      "violations": 0,
+      "passed": true
+    }
+  ],
+  "m1_continuity": {
+    "status": "passed",
+    "scope": "Exact M1 business raw rows and snapshot/label rows must be contained in M2.",
+    "excluded_from_comparison": [
+      "provenance_record: new acquisition receipt and M2 dataset/version metadata",
+      "eta_split_assignment.frozen_at: new actual execution receipt",
+      "eta_history_reference: deliberately expanded eligible training pool"
+    ],
+    "files": [
+      {
+        "path": "data/raw/core_device.jsonl",
+        "m1_row_count": 36,
+        "matched_m1_rows": 36,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/core_tenant.jsonl",
+        "m1_row_count": 3,
+        "matched_m1_rows": 3,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/core_vehicle.jsonl",
+        "m1_row_count": 30,
+        "matched_m1_rows": 30,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/core_vehicle_device_assignment.jsonl",
+        "m1_row_count": 686,
+        "matched_m1_rows": 686,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/eta_facility_version.jsonl",
+        "m1_row_count": 12,
+        "matched_m1_rows": 12,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/eta_promise_version.jsonl",
+        "m1_row_count": 131,
+        "matched_m1_rows": 131,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/eta_route_version.jsonl",
+        "m1_row_count": 12,
+        "matched_m1_rows": 12,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/eta_trip.jsonl",
+        "m1_row_count": 120,
+        "matched_m1_rows": 120,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/eta_trip_event.jsonl",
+        "m1_row_count": 240,
+        "matched_m1_rows": 240,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/eta_trip_outcome.jsonl",
+        "m1_row_count": 251,
+        "matched_m1_rows": 251,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/eta_trip_plan_version.jsonl",
+        "m1_row_count": 120,
+        "matched_m1_rows": 120,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/raw/telemetry_event.jsonl",
+        "m1_row_count": 12834,
+        "matched_m1_rows": 12834,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/processed/eta_snapshot.jsonl",
+        "m1_row_count": 937,
+        "matched_m1_rows": 937,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      },
+      {
+        "path": "data/processed/eta_snapshot_label.jsonl",
+        "m1_row_count": 937,
+        "matched_m1_rows": 937,
+        "missing_or_changed_m1_rows": 0,
+        "passed": true
+      }
+    ]
+  },
+  "m3_support": {
+    "eligible_trip_diagnostic_floor": 30,
+    "threshold_meaning": "Descriptive sample-support flag only; not a statistical power calculation or deployment acceptance threshold.",
+    "blockers": [],
+    "cautions": [
+      "test/unseen_route_only: 29 eligible trips; below descriptive floor 30",
+      "test/unseen_vehicle_and_route: 4 eligible trips; below descriptive floor 30",
+      "excluded: 8 eligible snapshots have no historical training pool; define an explicit unsupported/fallback policy in M3",
+      "train: 97 eligible snapshots have no historical training pool; define an explicit unsupported/fallback policy in M3"
+    ],
+    "ready_to_attempt_m3": true,
+    "constraints": [
+      "Use trip-grouped temporal validation; snapshots within a trip are dependent.",
+      "Do not tune features, models, calibration or thresholds using test-role outcomes.",
+      "This audit examines coverage and validity only; no model accuracy, calibration or operational benefit is claimed.",
+      "Synthetic scenario frequencies are engineering test design, not real fleet incidence."
+    ]
+  },
+  "postgres_service_status": "not_run",
+  "finished_at_utc": "2026-10-27T21:06:19.558735+00:00",
+  "elapsed_seconds": 4.821
+}

@@ -31,3 +31,25 @@ CREATE TABLE "eta_snapshot_label" ("tenant_id" VARCHAR NOT NULL,"provenance_id" 
 CREATE TABLE "eta_split_assignment" ("tenant_id" VARCHAR NOT NULL,"split_version" VARCHAR NOT NULL,"trip_id" VARCHAR NOT NULL,"split_group_id" VARCHAR NOT NULL,"split_role" VARCHAR NOT NULL,"frozen_at" TIMESTAMPTZ NOT NULL,"label_cutoff_at" TIMESTAMPTZ NOT NULL,PRIMARY KEY ("tenant_id","trip_id","split_version"));
 
 CREATE TABLE "eta_history_reference" ("tenant_id" VARCHAR NOT NULL,"provenance_id" VARCHAR NOT NULL,"snapshot_id" VARCHAR NOT NULL,"historical_trip_id" VARCHAR NOT NULL,"historical_outcome_version_id" VARCHAR NOT NULL,"historical_duration_seconds" BIGINT NOT NULL,"historical_label_known_at" TIMESTAMPTZ NOT NULL,"baseline_group" VARCHAR NOT NULL,PRIMARY KEY ("tenant_id","snapshot_id","historical_trip_id"));
+
+CREATE TABLE "eta_model_version" ("prediction_version" VARCHAR NOT NULL,"training_cutoff_at" TIMESTAMPTZ NOT NULL,"feature_definition_version" VARCHAR NOT NULL,"nominal_interval_coverage" DECIMAL(7,6) NOT NULL,"split_version" VARCHAR NOT NULL,"interval_calibration_version" VARCHAR NOT NULL,"probability_calibration_version" VARCHAR NOT NULL,"calibration_cutoff_at" TIMESTAMPTZ NOT NULL,"baseline_definition" VARCHAR NOT NULL);
+
+CREATE TABLE "eta_evaluation_membership" ("tenant_id" VARCHAR NOT NULL,"snapshot_id" VARCHAR NOT NULL,"split_version" VARCHAR NOT NULL,"lead_time_slice" VARCHAR NOT NULL,"unseen_route" BOOLEAN NOT NULL,"trip_evaluation_weight" DECIMAL(12,9) NOT NULL,"evaluation_slice" JSON NOT NULL);
+
+CREATE TABLE "eta_prediction" ("tenant_id" VARCHAR NOT NULL,"snapshot_id" VARCHAR NOT NULL,"prediction_version" VARCHAR NOT NULL,"eta_median" TIMESTAMPTZ NOT NULL,"eta_lower" TIMESTAMPTZ NOT NULL,"eta_upper" TIMESTAMPTZ NOT NULL,"delay_probability" DECIMAL(7,6),"fallback_reason" VARCHAR NOT NULL,"remaining_eta_seconds" BIGINT NOT NULL,"generated_at" TIMESTAMPTZ NOT NULL,"value_states" JSON NOT NULL);
+
+CREATE TABLE "eta_alert_rule_version" ("decision_threshold_version" VARCHAR NOT NULL,"delay_alert_threshold" DECIMAL(7,6) NOT NULL,"minimum_action_lead_seconds" INTEGER NOT NULL,"repeat_suppression_seconds" INTEGER NOT NULL,"threshold_selection_ref" VARCHAR NOT NULL);
+
+CREATE TABLE "eta_output_release" ("tenant_id" VARCHAR NOT NULL,"provenance_id" VARCHAR NOT NULL,"output_id" VARCHAR NOT NULL,"prediction_version" VARCHAR NOT NULL,"released_at" TIMESTAMPTZ NOT NULL,"release_mode" VARCHAR NOT NULL);
+
+CREATE TABLE "eta_alert_episode" ("tenant_id" VARCHAR NOT NULL,"alert_episode_id" VARCHAR NOT NULL,"trip_id" VARCHAR NOT NULL,"episode_started_at" TIMESTAMPTZ NOT NULL,"episode_closed_at" TIMESTAMPTZ,"delivered_alert_count" INTEGER NOT NULL,"duplicate_alert_count" INTEGER NOT NULL,"counts_as_of" TIMESTAMPTZ NOT NULL,"value_states" JSON NOT NULL);
+
+CREATE TABLE "eta_alert" ("tenant_id" VARCHAR NOT NULL,"alert_id" VARCHAR NOT NULL,"alert_episode_id" VARCHAR NOT NULL,"output_id" VARCHAR NOT NULL,"trip_id" VARCHAR NOT NULL,"snapshot_id" VARCHAR NOT NULL,"prediction_version" VARCHAR NOT NULL,"decision_threshold_version" VARCHAR NOT NULL,"created_at" TIMESTAMPTZ NOT NULL,"alert_status" VARCHAR NOT NULL);
+
+CREATE TABLE "eta_notification_delivery" ("tenant_id" VARCHAR NOT NULL,"provenance_id" VARCHAR NOT NULL,"delivery_id" VARCHAR NOT NULL,"alert_id" VARCHAR NOT NULL,"recipient_role" VARCHAR NOT NULL,"delivered_at" TIMESTAMPTZ,"received_or_opened_at" TIMESTAMPTZ,"receipt_type" VARCHAR NOT NULL,"delivery_status" VARCHAR NOT NULL);
+
+CREATE TABLE "eta_adoption" ("tenant_id" VARCHAR NOT NULL,"provenance_id" VARCHAR NOT NULL,"adoption_id" VARCHAR NOT NULL,"delivery_id" VARCHAR NOT NULL,"adoption_status" VARCHAR NOT NULL,"adoption_reason" VARCHAR,"decided_at" TIMESTAMPTZ);
+
+CREATE TABLE "eta_action" ("tenant_id" VARCHAR NOT NULL,"provenance_id" VARCHAR NOT NULL,"action_id" VARCHAR NOT NULL,"adoption_id" VARCHAR NOT NULL,"alert_id" VARCHAR NOT NULL,"action_type" VARCHAR NOT NULL,"action_time" TIMESTAMPTZ,"handling_seconds" INTEGER);
+
+CREATE TABLE "eta_action_followup" ("tenant_id" VARCHAR NOT NULL,"provenance_id" VARCHAR NOT NULL,"action_id" VARCHAR NOT NULL,"outcome_version_id" VARCHAR NOT NULL,"followup_promise_version_id" VARCHAR NOT NULL,"original_promise_version_id" VARCHAR NOT NULL,"outcome_observation_end" TIMESTAMPTZ NOT NULL,"observed_delay_seconds" BIGINT,"original_promise_delay_seconds" BIGINT,"review_outcome" VARCHAR NOT NULL,"result_origin" VARCHAR NOT NULL);

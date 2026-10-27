@@ -1,64 +1,59 @@
 {
   "project_id": "DS-M01",
-  "milestone": "M0 + M1",
-  "version": "0.1.0",
-  "status": "M1_snapshot_and_HTTP_trial_verified_postgres_not_run",
+  "milestone": "M2",
+  "version": "0.2.0",
+  "status": "M2_full_snapshot_HTTP_data_verified_postgres_not_run",
   "source_kind": "original_synthetic_2026_scenarios",
   "completed": [
-    "M0 source compatibility audit; DA-E01 unchanged",
-    "120-trip source generation with atomic per-file publication and persisted-count guard",
-    "937 point-in-time snapshots and independently sourced arrival targets",
-    "17 typed canonical tables and Parquet",
-    "33 unittest cases",
-    "24 full-data invariant checks",
-    "real loopback HTTP ingestion and parity",
-    "clean-directory byte reproducibility",
-    "120-to-1800 generator stability in temporary verification directories"
+    "M1 verified source baseline preserved",
+    "Retained 1800-trip full data and all history/provenance",
+    "28 typed schemas and Parquet exports; 17 populated, 11 reserved empty",
+    "49 passing unit tests",
+    "27 passing warehouse checks",
+    "22 passing M2 readiness checks",
+    "48 byte-identical raw/processed/Parquet rebuild files",
+    "7 byte-identical HTTP-derived output files",
+    "M1 14 business/snapshot/label file subsets preserved exactly",
+    "M1 seven-file optimized-pipeline byte parity"
   ],
   "remaining": [
-    "Native PostgreSQL operational roundtrip in a compatible runtime",
-    "M2 full 1800-trip end-to-end retained dataset",
-    "Remaining 11 required tables in their modelling/notification milestones",
-    "ETA baselines and quantile models",
-    "Interval and probability calibration",
-    "Frozen final model evaluation",
-    "Alert/adoption/action/followup replay",
-    "Full user acceptance and user-owned signed GitHub commits"
+    "Native PostgreSQL operational roundtrip on compatible runtime",
+    "M3 historical conditional remaining-time baseline and candidate models",
+    "Training-only chronological model validation",
+    "July interval/probability calibration and alert-threshold freeze",
+    "Frozen final test evaluation with explicit sparse-cohort limitations",
+    "Populate and validate remaining11model/notification/action tables",
+    "Full project acceptance and user-owned signed commits"
   ],
   "next_entry": [
-    "Check reports/quality_report.json, reports/rebuild_report.json, reports/generator_validation.json",
-    "Resume native PostgreSQL service verification if compatible runtime is available; do not request company data",
-    "Create new M2 config from config/m1.json with sample_size 1800 while retaining entity IDs and seed namespace",
-    "Generate full data and validate as-of labels, holdout cohorts and eligible sample sizes before modelling"
+    "Read reports/m2_readiness.json and config/m2.json; preserve frozen splits and heldout IDs",
+    "Use805training trips/3670eligible snapshots;130calibration trips/596snapshots;328test trips/1578snapshots",
+    "Define unsupported/fallback behavior for97eligible training snapshots lacking history",
+    "Report 29unseen-route-only and4combined-unseen eligible test trips with small-sample uncertainty",
+    "Do not select models/features/thresholds from final test outcomes",
+    "NativePGcheck remains parallel unresolved service item, not implicit success"
   ],
   "user_confirmation_required_now": false,
-  "github": {
-    "commits_created": 0,
-    "pushed": false,
-    "remote_CI": "pending_user_push",
-    "suggested_commit_message": "feat(ds-m01): add reproducible point-in-time ETA data trial"
-  },
-  "DA-E01_status": "delivered_pending_user_acceptance_unmodified",
   "counts": {
-    "trip_count": 120,
-    "snapshot_count": 937,
-    "history_reference_count": 11594,
+    "trip_count": 1800,
+    "snapshot_count": 14349,
+    "history_reference_count": 2536045,
     "label_eligibility": {
-      "eligible": 457,
-      "not_mature": 288,
-      "cancelled": 11,
-      "already_arrived": 181
+      "eligible": 6966,
+      "cancelled": 164,
+      "already_arrived": 2947,
+      "not_mature": 4272
     },
     "position_quality": {
-      "valid": 413,
-      "low_confidence": 465,
-      "no_position": 59
+      "valid": 6394,
+      "no_position": 859,
+      "low_confidence": 7096
     },
     "trip_split_counts": {
-      "train": 65,
-      "excluded": 16,
-      "calibration": 13,
-      "test": 26
+      "train": 992,
+      "excluded": 237,
+      "calibration": 171,
+      "test": 400
     },
     "candidate_horizon_hours": 12,
     "model_trained": false,
@@ -66,7 +61,24 @@
     "source_kind": "synthetic",
     "feature_definition_version": "m1-features-v1"
   },
-  "postgres_runtime": "not_run; native service absent and sandbox supports only root UID; no bypass attempted",
+  "m3_cautions": [
+    "test/unseen_route_only: 29 eligible trips; below descriptive floor 30",
+    "test/unseen_vehicle_and_route: 4 eligible trips; below descriptive floor 30",
+    "excluded: 8 eligible snapshots have no historical training pool; define an explicit unsupported/fallback policy in M3",
+    "train: 97 eligible snapshots have no historical training pool; define an explicit unsupported/fallback policy in M3"
+  ],
+  "postgres_runtime": "not_run; no native service/DSN and only UID0 mapping",
+  "github": {
+    "repository": "JacobCCMorgan/ds-m01-eta-delay-alerts",
+    "baseline_commit": "ff9ad674434064366c789b5d7de944bfbdb5b0d4",
+    "baseline_verified": true,
+    "assistant_commits_created": 0,
+    "assistant_pushed": false,
+    "remote_CI": "not_run_by_assistant",
+    "suggested_commit_message": "feat(ds-m01): add full 2026 dataset and M2 validation"
+  },
+  "DA-E01_status": "delivered_pending_user_acceptance_unmodified",
   "drive_project_folder": "https://drive.google.com/drive/folders/1-NP9mEpV9aARQb3Ms4lUkcFLGS7F-36q",
-  "recorded_at_utc": "2026-10-27T00:53:39.246858+00:00"
+  "drive_m2_folder": "https://drive.google.com/drive/folders/1nQhVTuNTIkHyO_M67UFQbHssh9rFjvqa",
+  "recorded_at_utc": "2026-10-27T21:14:22.764403+00:00"
 }

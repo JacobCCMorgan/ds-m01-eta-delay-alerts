@@ -2,77 +2,71 @@
 
 [繁體中文](README.zh-TW.md)
 
-This delivery implements **M0 source review and the M1 data trial**. It contains original fictional 2026 logistics scenarios, point-in-time features, independently observed arrival labels, a local HTTP transport check, and a typed DuckDB/Parquet warehouse. It is not real Rollingtrans data, a trained ETA model, or evidence of operational performance.
+**M2 data milestone, application v0.2.0.** This project provides a reproducible, original synthetic 2026 fleet dataset and point-in-time feature/label pipeline. It is an independent portfolio exercise, not real Rollingtrans operational data. Models and alert policies have not been trained or evaluated.
 
-## Delivered result
+## Delivered data
 
-| Item | Current M1 result |
+| Item | M2 result |
 |---|---:|
-| Main-period trial trips, January–September 2026 | 120 |
-| GNSS telemetry records | 12,834 |
-| Snapshots and corresponding labels | 937 each |
-| Active canonical tables / original required tables | 17 / 28 |
-| Eligible / not mature / cancelled / already arrived labels | 457 / 288 / 11 / 181 |
-| Valid / low-confidence / missing positions | 413 / 465 / 59 |
-| Train / excluded / calibration / test trips | 65 / 16 / 13 / 26 |
+| Trips, January–September 2026 | 1,800 (200/month) |
+| GPS events | 197,303 |
+| Snapshots and corresponding labels | 14,349 each |
+| Historical training-trip references | 2,536,045 |
+| Provenance records | 2,775,752 |
+| Canonical schemas | 28 |
+| Populated data-stage tables / reserved empty future tables | 17 / 11 |
 
-The 33 unit tests pass for this implementation. The warehouse runs 24 checks; their current result is recorded in `reports/quality_report.json`. The actual loopback HTTP run fetched 94 pages, retried one injected 503, and replayed 137 records without adding duplicate canonical events. Complete received records match the canonical source content. See [scope and evidence](docs/m1_scope.md) for limits and report locations.
+Labels: 6,966 eligible; 4,272 not mature; 164 cancelled; 2,947 already arrived before the system knew it. Of the eligible snapshots, 1,122 belong to excluded trips and are not model-training/evaluation input. Position quality: 6,394 valid, 7,096 stale, 859 missing. Counts reflect deliberately varied engineering scenarios, not real-world prevalence or model performance.
 
-## Run on a Mac
+| Role | Trips | Eligible trips | Eligible snapshots |
+|---|---:|---:|---:|
+| Train | 992 | 805 | 3,670 |
+| Calibration | 171 | 130 | 596 |
+| Test | 400 | 328 | 1,578 |
+| Excluded | 237 | 195 | 1,122 |
 
-Use Python 3.11 or later. The delivered checks ran with Python 3.12.14 on Linux; macOS execution is not claimed as tested. Open Terminal in the extracted project directory:
+## Validation and readiness
+
+49 unit tests pass. The full warehouse passes 27 checks; M2 coverage and point-in-time readiness passes 22 checks. The 120-trip M1 business rows and all 937 M1 snapshot/label rows are preserved exactly. The optimized pipeline also reproduces all seven M1 processed JSONL files byte-for-byte under the original configuration.
+
+The actual loopback HTTP run receives 1,441 pages, retries one injected 503, and replays 137 duplicate records with no added canonical rows. See `reports/last_http-check.json`. Fresh-directory source/processed/Parquet reproducibility and HTTP-derived parity are recorded in `reports/rebuild_report.json` once completed; the delivery includes its actual result.
+
+M3 may proceed with explicit limits: unseen-route-only testing has 29 eligible trips; both unseen vehicle and unseen route has only 4. These are descriptive coverage warnings, not deployment gates or a power analysis. The training set has 97 eligible snapshots without a prior historical pool; M3 must define a fallback or unavailable result. Split boundaries and heldouts remain fixed. Never tune on test outcomes or treat same-trip snapshots as independent trips.
+
+## Run
+
+Use Python 3.11+. Tested here on Linux/Python 3.12.14; macOS execution is not claimed. No company files, paid API, or credentials are needed for this snapshot/HTTP workflow.
 
 ```bash
-python3 --version
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.lock
 python -m pip install -e . --no-deps
-python -m ds_m01.cli run --root .
-```
-
-`run` regenerates the configured 120-trip dataset, builds snapshots/labels/history, and validates DuckDB and Parquet outputs. It replaces generated project outputs; keep the supplied archive if you want an unchanged reference copy.
-
-Exercise the real local HTTP path and rebuild from the received telemetry:
-
-```bash
-python -m ds_m01.cli http-check --root .
-python -m ds_m01.cli build --root . --telemetry-mode http_snapshot
-python -m ds_m01.cli validate --root .
+python -m ds_m01.cli run --root . --config config/m2.json
+python -m ds_m01.cli http-check --root . --config config/m2.json
+python scripts/check_m2_readiness.py --root .
 python -m unittest discover -s tests -v
-python scripts/check_rebuild.py --root .
+python scripts/check_rebuild.py --root . --config config/m2.json
 ```
 
-Continue with `http_snapshot` only when `reports/last_http-check.json` says `passed`. The server uses an ephemeral `127.0.0.1` port and closes after the check. A runtime that cannot bind the port receives a `blocked` report. No external API, credentials, or database is needed for these commands.
+Default CLI configuration is `config/m2.json` when present; use explicit `--config` for reproducible selection. `run` replaces generated data in the selected root. Use a separate root for M1 experiments. M1 configuration remains in `config/m1.json`; historical M1 receipts are in `reports/m1_reference/`.
 
-Optional generator expansion/stability check:
+The complete dataset occupies about 12.6 GB before ZIP compression. The observed full-run peak RSS was about 7.23 GiB; local usage varies. Allow approximately 30 GB free disk for the complete fresh rebuild and HTTP parity checks. The rebuild releases its temporary first-pass JSONL before the HTTP pass to avoid retaining a third full copy.
 
-```bash
-python scripts/check_generator_stability.py --root .
-```
+## Layout
 
-This generates temporary 120- and 1,800-trip raw datasets to check schema, subset stability, schedules and assignment histories. Allow tens of seconds depending on the machine. It writes `reports/generator_validation.json`; it does not retain or deliver an M2 full pipeline.
+- `src/ds_m01/`: generator, as-of pipeline, typed warehouse, HTTP transport, PostgreSQL adapter.
+- `config/`, `contracts/`, `sql/`: frozen configurations, field contracts and all 28 schema definitions.
+- `data/raw/`, `data/processed/`, `data/parquet/`, `data/ds_m01_m2.duckdb`: full data, 28 typed exports and warehouse (complete archive).
+- `data/source_manifest.json`: exhaustive 13-source row-count and SHA256 guard.
+- `validation/`: engineering-only synthetic scenario truth; never a feature source.
+- `reports/`: actual run receipts, readiness, compatibility and reproducibility evidence.
+- `scripts/build_m2_report.py`: Chinese report authoring after all required receipts pass.
 
-## Files to review
+The 11 reserved tables are empty placeholders with contract types/nullability. Their later-stage population, final keys and model/alert behavior still need validation. Native PostgreSQL has not run in this environment; see `docs/postgres_runtime_note.md` for the real-service roundtrip command. DuckDB and HTTP do not stand in for that verification.
 
-| Path | Purpose |
-|---|---|
-| `config/m1.json` | Dataset seed, namespace, periods, cutoffs, held-out entities and settings |
-| `contracts/` | Original requirements, table register and field contract |
-| `data/raw/` | 13 source tables as JSONL |
-| `data/ingested/` | Actual HTTP-received canonical telemetry |
-| `data/processed/` | Four derived tables and combined provenance |
-| `data/parquet/`, `data/ds_m01_m1.duckdb` | 17 canonical table exports and typed warehouse |
-| `reports/` | Counts, quality checks, command receipts and replay evidence |
-| `validation/` | Isolated synthetic truth for generator checks; not feature input |
-| `tests/` | Independent point-in-time, build and transport fixtures |
+## GitHub handoff
 
-The pinned `generated_at` in the delivered configuration is the original synthetic source acquisition receipt. Keeping it fixed permits byte-reproducible replay; command reports record each execution's actual finish time. For a new dataset, create a new configuration with an actual acquisition timestamp and a new dataset namespace. The historical scenario dates do not claim that a model was deployed in the past.
+M2 builds on user-owned signed M1 commit `ff9ad674434064366c789b5d7de944bfbdb5b0d4`, verified on GitHub. No assistant commit or push was performed. Use the source archive to update the existing repository and make a new signed commit; retain `.git` and the M1 history. See `docs/commit_handoff.txt`.
 
-## Next stages and handoff
-
-M2 still needs the retained 1,800-trip end-to-end dataset and its validation. Model fitting, interval/probability calibration, final-test evaluation, alert episodes, action follow-up and the complete O01–O03 deliverables remain pending. Eleven required tables are reserved for those later stages; the two optional tables remain disabled.
-
-The PostgreSQL adapter and DDL are supplied, but the native PostgreSQL roundtrip has **not run** in this environment. See [PostgreSQL runtime note](docs/postgres_runtime_note.md) for the separate local check. PostgreSQL credentials are not needed to review or run the delivered snapshot/HTTP trial.
-
-No Git commit or push was created. The user owns signed commits, Verified status and GitHub publication. DA-E01 remains unchanged and pending its separate acceptance.
+Next: chronological baseline/candidate model development, interval/probability calibration, frozen final evaluation, then alert delivery/adoption/action follow-up. DA-E01 remains unchanged and pending its separate acceptance.
