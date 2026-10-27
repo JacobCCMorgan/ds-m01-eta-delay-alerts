@@ -13,7 +13,7 @@ invalid positions, late outcome corrections, unknown/cancelled outcomes and
 the repeated DST hour. They also check later-known status corrections and
 unknown/withdrawn assignments rather than treating them as known mappings.
 No generator, fitted model, or hidden simulator truth
-is imported. The split dates are copied from the accepted execution contract;
+is imported. The split dates are copied from the frozen execution contract;
 the expected role for each boundary date is explicitly written in the test.
 
 `test_build_invariants.py` extends the same written case into two trips and
@@ -30,5 +30,5 @@ verify that the selected known status update appears in snapshot lineage
 while a future-available update does not. The short-trip snapshot starts at
 the 20-second knowledge delay and retains a cancelled label with null targets.
 
-These fixtures test the public point-in-time functions. They are not a claim
-that the complete M1 or later project acceptance criteria have passed.
+These fixtures test the specified point-in-time invariants. Complete pipeline,
+transport and warehouse checks are recorded separately in the execution reports.

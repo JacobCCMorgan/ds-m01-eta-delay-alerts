@@ -1,60 +1,60 @@
-# DS-M01 M1 範圍與證據
+# M1 trial scope and evidence
 
-本文件說明本次可驗收的工程成果。主期為 2026-01-01 至 2026-09-30，全部為原創合成情境；資料、技術測試與模型成效分開認定。
+M1 established the point-in-time pipeline on a fixed 120-trip subset of the January–September 2026 synthetic design. This document describes that historical trial. The full 1,800-trip data milestone is documented in [M2 scope](m2_scope.md).
 
-## 已實作
+## Implemented foundation
 
-- **M0 共用來源稽核**：核對 DA-E01 原始封裝與檔案雜湊，保留實體識別規則與 deterministic seed 語意，DA-E01 檔案未修改。證據為 `shared_runtime_audit.json`／`.md`。
-- **M1 產生器**：固定 120 趟子集合，涵蓋 3 租戶、30 車、12 路線及 11 種情境；使用新 DS-M01 資料命名空間。沿用實體 ID 不等於沿用 2025 行程或真實資料。
-- **時間可知性流程**：依事件發生時間與資料可取得時間、承諾版本、設備關係版本和已知狀態建立快照；特徵完成後才加入標籤。
-- **獨立標籤與歷史參照**：到場由 gate／sign-in 型合成觀測建立，與最後 GPS 點、服務開始、交付完成分開；歷史只使用合格訓練行程及當時已知的成熟觀測。
-- **實際 HTTP 接收**：本機分頁、503 重試、cursor 檢查、重播去重與內容雜湊比對；接收結果可供相同特徵流程使用。
-- **DuckDB／Parquet**：型別化建立 17 張標準表，執行時間可知性、標籤、來源追溯、保留實體及結構檢查。
+- **Shared runtime audit:** checked stable entity identifiers and deterministic seed semantics against the earlier source implementation. The audit reused identifiers and narrow utility behavior, not 2025 trip observations or fuel-analysis logic. See [shared runtime audit](shared_runtime_audit.md).
+- **Synthetic source generation:** retained 120 trips across three tenants, 30 vehicles, 12 routes and 11 scenario families, using the DS-M01 dataset namespace.
+- **Point-in-time reconstruction:** selected inputs using event time, availability time, promise versions, device assignment versions and known trip status. Labels were joined only after features were constructed.
+- **Independent arrival evidence:** simulated gate/sign-in observations established arrival independently of the last GPS point, service start and delivery completion. Historical references used mature observations from eligible training trips known at the snapshot.
+- **HTTP ingestion:** exercised local pagination, 503 retries, cursor checks, replay deduplication and conflicting-content rejection, then supplied received telemetry to the same feature pipeline.
+- **Typed storage:** built 17 canonical DuckDB/Parquet tables and validated temporal availability, labels, lineage, heldout membership and structure.
 
-## 目前資料規模
+## Historical trial size
 
-`reports/m1_summary.json` 與 `reports/quality_report.json` 是本節的權威來源。
+The retained sources for these counts are [M1 summary](../reports/m1_reference/m1_summary.json) and [M1 quality report](../reports/m1_reference/quality_report.json).
 
-| 項目 | 數量 |
+| Item | Count |
 |---|---:|
-| 行程／定位記錄 | 120／12,834 |
-| 快照／標籤／歷史參照 | 937／937／11,594 |
-| 標籤：eligible／not_mature／cancelled／already_arrived | 457／288／11／181 |
-| 定位：valid／low_confidence／no_position | 413／465／59 |
-| 行程切分：train／excluded／calibration／test | 65／16／13／26 |
+| Trips / GPS records | 120 / 12,834 |
+| Snapshots / labels / historical references | 937 / 937 / 11,594 |
+| Labels: eligible / not mature / cancelled / already arrived | 457 / 288 / 11 / 181 |
+| Position: valid / low confidence / unavailable | 413 / 465 / 59 |
+| Trips: train / excluded / calibration / test | 65 / 16 / 13 / 26 |
 
-這些是試跑資料數量。保留未知、未成熟及取消資料是預期行為；它們不被填為零秒或準時。實際已到場、但到場狀態尚未取得時產生的快照會保留，並排除於剩餘時間迴歸標籤。
+Unknown, immature and cancelled outcomes remain explicit; they are not filled with zero remaining seconds or on-time labels. Snapshots created after physical arrival but before arrival status was known remain in the data as `already_arrived`, excluded from remaining-time regression labels.
 
-候選快照最長追蹤出發後 12 小時；定位超過 900 秒標示低可信度。第一個快照由取得出發事件觸發，之後每 30 分鐘建立。本合成來源在出發後 20 秒收到事件，因此可保留 25 分鐘即取消行程的首個可知快照。
+The candidate horizon is 12 hours after departure. Position age above 900 seconds is low confidence. The first snapshot is triggered when the departure event becomes available, followed by 30-minute intervals. In this source, departure is known 20 seconds after the event, preserving a snapshot for trips cancelled after only 25 minutes.
 
-## 表格與階段
+## Tables and stage boundaries
 
-| 分組 | 本次啟用表 |
+| Group | M1 populated tables |
 |---|---|
-| 共用與追溯 | `core_tenant`、`core_vehicle`、`core_device`、`core_vehicle_device_assignment`、`provenance_record` |
-| ETA 來源 | `eta_trip`、`eta_facility_version`、`eta_route_version`、`eta_trip_plan_version`、`eta_promise_version`、`eta_trip_event`、`eta_trip_outcome` |
-| 定位來源 | `telemetry_event` |
-| M1 衍生 | `eta_snapshot`、`eta_snapshot_label`、`eta_split_assignment`、`eta_history_reference` |
+| Shared entities and provenance | `core_tenant`, `core_vehicle`, `core_device`, `core_vehicle_device_assignment`, `provenance_record` |
+| ETA sources | `eta_trip`, `eta_facility_version`, `eta_route_version`, `eta_trip_plan_version`, `eta_promise_version`, `eta_trip_event`, `eta_trip_outcome` |
+| Telemetry | `telemetry_event` |
+| Derived records | `eta_snapshot`, `eta_snapshot_label`, `eta_split_assignment`, `eta_history_reference` |
 
-原始 28 張必要表與 110 項需求維持原範圍。本次啟用 17 張；其餘 11 張為 `eta_model_version`、`eta_evaluation_membership`、`eta_prediction`、`eta_alert_rule_version`、`eta_output_release`、`eta_alert_episode`、`eta_alert`、`eta_notification_delivery`、`eta_adoption`、`eta_action`、`eta_action_followup`，待相應模型與預警階段實作。`eta_forecast_version`、`eta_routing_response` 兩張選用表尚未啟用。
+The project retains 28 required table definitions and 110 requirements. M1 populated 17 tables. The remaining 11 model and alert tables are `eta_model_version`, `eta_evaluation_membership`, `eta_prediction`, `eta_alert_rule_version`, `eta_output_release`, `eta_alert_episode`, `eta_alert`, `eta_notification_delivery`, `eta_adoption`, `eta_action` and `eta_action_followup`. M2 creates their empty typed schemas; their behavior remains future work. Optional `eta_forecast_version` and `eta_routing_response` are not enabled.
 
-## 驗證證據
+## Retained validation evidence
 
-| 證據 | 已確認內容與限制 |
+| Evidence | Historical result and boundary |
 |---|---|
-| `reports/quality_report.json` | 937 快照版本的 24 項檢查、17 張表輸出；以最新 `passed` 與逐項違反筆數判定，不是 28 張表全案驗收。 |
-| `tests/`；`reports/unittest_results.txt` | 現有 33 個測試通過：20 個時間可知性、4 個建表不變條件、8 個 HTTP、1 個來源發布防護測試；封裝測試紀錄應對應最後一次執行。 |
-| `reports/last_http-check.json` | 實際 94 頁、1 次重試、137 筆重播、0 筆新增重複事件；12,834 筆接收內容與標準化來源一致，服務已關閉。 |
-| `reports/rebuild_report.json` | 重建腳本的輸出位置；以實際檔案的 `status` 與逐檔比對判定，不以文件代替執行。涵蓋新目錄重建及 HTTP 輸入特徵一致性。 |
-| `reports/generator_validation.json` | 可選產生器擴量檢查的實際結果；以 `status`／`failure` 判定。暫存 1,800 趟原件通過也不等於 M2 全流程交付。 |
-| `docs/postgres_runtime_note.md` | 原生 PostgreSQL 往返尚未執行，環境缺乏可用服務；提供程式／DDL 不算服務驗證通過。 |
+| [Quality report](../reports/m1_reference/quality_report.json) | 24 checks passed for the 937-snapshot trial and its 17 populated tables. |
+| [Unit test results](../reports/m1_reference/unittest_results.txt) | 33 tests passed: 20 temporal cases, four build invariants, eight HTTP cases and one source-publication guard. The current suite has subsequently expanded. |
+| [HTTP results](../reports/m1_reference/last_http-check.json) | 94 pages, one retry, 137 replayed records and zero added duplicates; all 12,834 canonical records matched, and the local server closed. |
+| [Rebuild results](../reports/m1_reference/rebuild_report.json) | Fresh-directory generation, point-in-time outputs, typed warehouse and Parquet rebuild passed, including HTTP input parity. |
+| [Generator validation](../reports/m1_reference/generator_validation.json) | Same-directory stability and temporary 1,800-trip source generation passed. This source-only expansion was separate from the later complete M2 pipeline. |
+| [PostgreSQL inspection](../reports/m1_reference/postgres_check.json) | Native PostgreSQL roundtrip was not run; supplying an adapter and DDL did not establish service integration. |
 
-HTTP 的原檔位元組可能因排序不同而與輸出不同；驗證比較完整事件身分及內容，再確認輸出與標準排序 JSONL 的 SHA256 相同。事件去重鍵包含租戶、事件及 revision；相同鍵的不同內容會被拒絕。
+HTTP response ordering can differ from source ordering. Validation compares complete event identities and content, then checks the SHA256 digest of canonical sorted JSONL. Deduplication keys include tenant, event and revision; different content under the same key is rejected.
 
-## 重現與尚待完成
+## Reproduction and subsequent work
 
-執行方式見專案 README。相同設定保留來源取得紀錄 `generated_at`，實際執行時間另記於 `reports/last_*.json`。新資料版本應使用新的來源取得時間與 dataset namespace，不能把重播時間假裝成過去上線時間。
+Run instructions are in the [README](../README.md). Exact reproduction preserves the recorded source receipt `generated_at` in the frozen configuration; actual execution time is recorded separately. A newly generated dataset version requires its own receipt metadata and dataset identity.
 
-M2 仍需完成保留的 1,800 趟端到端資料、擴量後品質與樣本量檢查；9 個月共 1,800 趟的月均密度低於舊 6 個月設計。後續還包含模型選擇、區間與機率校正、最終測試、警報門檻、預警與行動追蹤，以及完整 O01–O03 成果。現階段沒有模型準確度、覆蓋率、預警 precision／recall 或營運效益結論。
+M2 subsequently completed the retained 1,800-trip pipeline and expanded quality, coverage and continuity checks. Neither milestone trained models or established accuracy, interval coverage, alert precision/recall or operational benefit. Native PostgreSQL remains pending; its [runtime note](postgres_runtime_note.md) describes the independent service check.
 
-PostgreSQL 可在使用者日後選擇的本機環境另行驗證；M1 snapshot／HTTP 路徑不需要資料庫憑證。所有 Git 簽署 commit 與 push 由使用者執行。
+Historical receipts remain unchanged as evidence of those runs. Current documentation and reporting compatibility checks are separate in [public cleanup validation](../reports/public_cleanup_validation.json); they do not represent another full M2 rebuild.

@@ -1,0 +1,139 @@
+{
+  "project_id": "DS-M01",
+  "scope": "Public documentation and reporting",
+  "baseline_commit": "38f752891fa6a2140ed9573f0ccee566572f4a0f",
+  "checked_at_utc": "2026-10-27T23:12:59.851824+00:00",
+  "status": "passed",
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "count": 49,
+    "passed": true,
+    "log": "public_cleanup_unittest_results.txt",
+    "log_sha256": "3aa97ede201de96da157ff582228b0ff168f48866cb0160191cde22e0944846e"
+  },
+  "runtime_and_test_files": {
+    "unchanged": true,
+    "file_count": 22,
+    "sha256": {
+      "requirements.lock": "cfd03ba6b6b3ec4b0df5b9d0b8ff1f925350c3cf2622cae959cea30dd6ffdb7f",
+      "scripts/check_generator_stability.py": "aaa893837999952b64bff94ca3a6091b31206b482a1ea9ad738e53f0c68a7425",
+      "scripts/check_m2_readiness.py": "6ffc2e83faeedc45c509ff412811ed10323a53dc19f489ac03ee42d66c8a8e0d",
+      "scripts/check_rebuild.py": "b5d264415b7902f56c20aad5ca2730cb37e4a71654baafc69f36681d7d460b7f",
+      "sql/duckdb_schema.sql": "160a23ffd23f04fd65690e53be328d0c5bd3e9649e20e1a10a080fa5d7c812f7",
+      "sql/postgres_operational.sql": "e946cb6413536cb5c321650334fddbe3282e9cb148709e571fec33982654608e",
+      "src/ds_m01/__init__.py": "32080b8cc6eb421037ac53b1af02f681fbdd6f25a1cafb5c20c1f84d37b290fd",
+      "src/ds_m01/cli.py": "fd4717a19c30b7378d933428366b8c123199844bfb9de2cbd6a1569039675f67",
+      "src/ds_m01/common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+      "src/ds_m01/event_api.py": "cdf74b4f6fe47dc563d7be73950f6373088524e400d45529c293cb64d9e9dbe2",
+      "src/ds_m01/generate.py": "7e4827697771e5c4c255f5bdb26986f012089a81fd4249cb2c815d416806f044",
+      "src/ds_m01/pipeline.py": "453d6760affc221cca9bd2141c61bdb677df3223fdaf9384bada8e26687438b3",
+      "src/ds_m01/postgres_check.py": "9f4a96ff6f7411cab21a3a585e7b1d5c844e883d44b3a8fe73b88a7a372b0efb",
+      "src/ds_m01/warehouse.py": "bd56808238a7694fddbde37c4513ecbec4aab35079b521c5ef9117883d844335",
+      "tests/fixtures/point_in_time_case.json": "4fdf3b88bc2912b0649a06f3832bb9b957588774ea1c5980adea62ce83d3385d",
+      "tests/test_build_invariants.py": "81b1c3ba517f092fe7b1538877e1c9ee87ba588d23d813530fe3ca2d92b61450",
+      "tests/test_event_api.py": "93082812258fd0902fe9b40cc97666512a6775ccbcd94e69a0ed21fc4f7bff9e",
+      "tests/test_m2_readiness.py": "2b3a6ebe9ce8ef5a11dfd149acf8f1c5b7e3d96ec55fd84c6bfa4fed64bf1714",
+      "tests/test_pipeline_publication.py": "db852627e5d598cc6db1f282aa7232debb330680fe484de57b1444fa238af0a6",
+      "tests/test_point_in_time.py": "79d73281830cb57f96f555dc050b81983cb22a046907da6184edd9426e935277",
+      "tests/test_source_publication.py": "756860263c33661230710f98c6584cd63e917327f2f984b1b4a28d13aceb4b01",
+      "tests/test_warehouse_contract.py": "35f09bc73d91cc555443d27b43890ab4f502c9870d838d38a2b3898a11cbe356"
+    }
+  },
+  "contract_machine_projection": {
+    "records": 341,
+    "shared_table_names": 34,
+    "ordered_metadata_equal": true,
+    "keys": [
+      "name",
+      "type",
+      "required",
+      "nullable",
+      "input_fields",
+      "origin",
+      "field_id",
+      "table",
+      "table_id",
+      "version",
+      "identity_key",
+      "s21_ids",
+      "projects",
+      "precision",
+      "availability_rule",
+      "timezone_rule",
+      "supply_mode",
+      "source_candidates",
+      "producer_package_id",
+      "value_role",
+      "verified_source_ids",
+      "public_value_candidate",
+      "source_mapping_hints",
+      "upstream_field_ids",
+      "required_by",
+      "optional_by",
+      "production_data_acquired",
+      "sample_data_generated"
+    ]
+  },
+  "configuration_comparison": {
+    "m1.json": {
+      "runtime_parameters_unchanged": true,
+      "current_file_sha256": "1f5cfaa6ba46ab2053dd141a06f437ba82595e121ca1b2e50e54c0aff07ab52c"
+    },
+    "m2.json": {
+      "runtime_parameters_unchanged": true,
+      "current_file_sha256": "9b2fec72600c7ac16af7ebb6d52129642d6d1fc479c5c80948f8c6fb9cb0d26b"
+    }
+  },
+  "historical_execution_receipts": {
+    "preserved_byte_for_byte": true,
+    "file_count": 29,
+    "sha256": {
+      "reports/execution_attempts/time_command_unavailable.txt": "3e737f6a9117cec194b02103b357f8668fae9adb86a8a8cd0bf25efab8948548",
+      "reports/http_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reports/http_stdout.txt": "08545f74f2440d9ae6314622cde4db80b5dfe0513ad2eaaf50e9efa2585fd034",
+      "reports/last_http-check.json": "08545f74f2440d9ae6314622cde4db80b5dfe0513ad2eaaf50e9efa2585fd034",
+      "reports/last_run.json": "f9585571c5ee9d2851c8fd83c59bcea12a8960f21cb25d0be127044176683b20",
+      "reports/m1_reference/generator_validation.json": "67a4897f466328ef8b519e51d33532d35b0d37ff06939a5128a91cf7bda111b7",
+      "reports/m1_reference/last_http-check.json": "697d9b89de0d08e53be9481faaf3f9d2b769df42ea5fecc6a066c09fe7e2f484",
+      "reports/m1_reference/last_run.json": "e34fc3b7e995e0e49052dd7efa48755c04cf5520bd49a847d2a0c7af5c441861",
+      "reports/m1_reference/m1_summary.json": "470b323b01b40374bd9d7882d647b1bb14391a532c9dc654b50b9b6b5ff65032",
+      "reports/m1_reference/postgres_check.json": "d984a4234edbc95284e334b8fdf8a71e33e34ff13a6742bb4a2e9738e4ca1eac",
+      "reports/m1_reference/quality_report.json": "9e298b162cf85100edc90e5d8e692e7f1befc755f3930793efd343e48b40530b",
+      "reports/m1_reference/rebuild_report.json": "4fec639f142e3d2083b8f96dc73f20fbf70a1d9c4a1a67eac43f3d40fbbb52df",
+      "reports/m1_reference/representative_cases.json": "2041e94ff2db6e800350ebe7c91e8b4542d06ba186e0b45fa95dd2cb0e459ca1",
+      "reports/m1_reference/unittest_results.txt": "83dc9ae5147b33d86a68d3f3687782e25c0228dfdfbd43307aaea9f81cb95044",
+      "reports/m2_readiness.json": "fd4afd4a65205e53bf23c944a738d98e0615c4bf2f855e60b704902ac849d373",
+      "reports/m2_summary.json": "723d07bef3771451ded6ca5b8a57b7157cb20aad9c4cc9e14a011cab036ebdae",
+      "reports/pipeline_m1_compatibility.json": "d19f5b33ee1254c696c76a702531d696c953d96c301e1677c5ae7264c8f9d98a",
+      "reports/postgres_check.json": "d984a4234edbc95284e334b8fdf8a71e33e34ff13a6742bb4a2e9738e4ca1eac",
+      "reports/quality_report.json": "c3c64fa15c2fa4acd59a4418ca4f9f0d483077edc144e4ca8f1c683ab78fb5e7",
+      "reports/readiness_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reports/readiness_stdout.txt": "80efc84428c863133a706ab81b4f498a2e84d1236eaf35900246258472ca2c98",
+      "reports/rebuild_report.json": "c08dba07e473c4a66019d3a0308472d0abe0ea0d61fb9689bdc8afb239dcd28e",
+      "reports/rebuild_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reports/rebuild_stdout.txt": "7ee5ce86db7ff5931d40f33605cb3d776dee7f48c553f12c0591a5b769b330cf",
+      "reports/run_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reports/run_stdout.txt": "2a1ba3ec00fe880fd93ffdbceebacdb7d0e119aa1fbf853c332e1602f8333133",
+      "reports/runtime_environment.json": "1248b571c6b471951976f26505779926519634a0d76df4392dddd90a75a8ba53",
+      "reports/runtime_profile.json": "c61b3859e33ad0976f00d6f3b3176734dd8742b96db33855a4e4d2555b774fbc",
+      "reports/unittest_results.txt": "3aa97ede201de96da157ff582228b0ff168f48866cb0160191cde22e0944846e"
+    }
+  },
+  "figures": {
+    "reproduction_command": "python scripts/plot_data_quality.py --root .",
+    "regeneration_byte_identical": true,
+    "sha256": {
+      "reports/figures/m2_snapshot_quality.png": "582c47dbe327a4391b9950659bb8a562ed96cfa3307ddf86d6794c010d157246",
+      "reports/m1_reference/figures/m1_snapshot_quality.png": "615a04bfd9513d044b13bcfdce486825f5b9dff00f70f26f5c8f21c13fd6d5d5"
+    }
+  },
+  "documentation": {
+    "relative_links_resolve": true,
+    "relative_link_count": 63,
+    "english_text_scan_scope": "Markdown documents",
+    "english_text_files_checked": 10
+  },
+  "full_m2_dataset_rebuilt": false,
+  "model_training_or_evaluation_performed": false,
+  "native_postgresql_validation_performed": false
+}

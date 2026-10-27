@@ -1,75 +1,79 @@
-# DS-M01 M0：共用程式與實體識別碼稽核
+# Shared runtime and entity identifier audit
 
-稽核結論：可以沿用實體 ID、命名 seed 規則與少量通用工具；DA-E01 的 2025 油耗產生器、資料契約與分析流程不能整套搬入 ETA 專案。本次 **10 組窄驗證通過**，來源檔案未改動；這不是 M1 完整流程或模型驗收結果。
+The M0 audit established a narrow reuse boundary: stable entity identifiers, named seed behavior and selected utilities were compatible with DS-M01. The earlier 2025 fuel-data generator, domain contracts and analytical pipeline were not reusable as ETA observations. Ten audit checks passed, and the reference source files were unchanged.
 
-## 來源與實際檢查
+This is a historical source compatibility audit. It did not run the complete DS-M01 pipeline or validate any model. Later M1 and M2 execution receipts provide their own evidence.
 
-- 來源：`DA-E01_v1_source.zip`，Drive 檔案 ID `1L4nXY0KHzD6aaXMkwtzVg9PDtwYQ5xLS`。
-- 獨立計算 ZIP SHA256：`c6f890c1bd0724bcf3f133dde50957a259502280c05f9f4eadd2f75daacc1e0a`。
-- 抽出來源共 165 個檔案，檢查前後逐檔 SHA256 相同。
-- 來源樹摘要：`5eb5c3cda0d3b5ef1f4273a31fd2121b205b292fadc2936fc2517566d9ab04fa`。算法及選定檔案雜湊見同名 JSON。
-- Python 3.12.14；停用 bytecode 寫入。未完整驗證依賴鎖定檔的所有版本。
-- 稽核執行時間：`2026-10-27T00:51:53.392378+00:00`（來源 manifest helper 加入後重新稽核）。
+## Reference source and audit record
 
-本次 DS-M01 `common.py` SHA256：`1aa015f6f39c1ca0a7f0a4496bec6ad185f0521644c2bf7b2125a17d60b64b94`。新增 `write_source_manifest`／`verify_source_manifest` 前的程式位元組摘要為 `2b24ce3bedab5ef6dc70d2896d92f6b303802d232d58d1b35e6282efaf140a6c`，與前次完整 helper 檔案摘要相同，確認既有 seed、digest、時間與序列化 helper 未修改。
-
-新增 manifest 函式本次只檢閱程式：寫入端核對已落盤筆數並記錄檔案 SHA256；驗證端在設定啟用時供 pipeline／warehouse 核對來源檔案。其整合測試由主流程另行記錄，本次 M0 更新沒有讀寫 DS-M01 專案資料，也不將這些函式解讀成全專案交易保證。
-
-## 可沿用的範圍
-
-| 項目 | 決定與相容性 |
+| Item | Historical value |
 |---|---|
-| 實體 ID | 沿用 3 租戶、30 車輛、36 裝置、45 駕駛、12 站點、12 路線的識別規則；2026 的有效期間、設備指派與路線版本重新產生。 |
-| 命名 seed | 原 `sub_seed` 與 DS-M01 `stable_seed` 的 3 組測試向量相同；新資料使用 `ds-m01-2026-v1` namespace。 |
-| SHA256 與 JSON | 檔案摘要相容；DS-M01 明確使用 UTF-8、排序欄位及 `allow_nan=False`。JSONL 寫入僅檢閱程式，未在此稽核執行。 |
-| 時間 | DS-M01 明確拒絕無時區時間並轉為 UTC；保留語意，不要求與舊函式的字串精度完全相同。 |
-| Cursor／重試／隔離／來源快照 | 作為設計參考；只重驗 cursor 純函式，尚未在本稽核重跑服務整合。 |
+| Source archive | `DA-E01_v1_source.zip` |
+| Archive SHA256 | `c6f890c1bd0724bcf3f133dde50957a259502280c05f9f4eadd2f75daacc1e0a` |
+| Extracted source files | 165, all with identical pre/post-audit hashes |
+| Source-tree digest | `5eb5c3cda0d3b5ef1f4273a31fd2121b205b292fadc2936fc2517566d9ab04fa` |
+| Runtime | Python 3.12.14, bytecode writing disabled |
+| Audit timestamp | `2026-10-27T00:51:53.392378+00:00` |
 
-原 `common.ident` 是 SQL 識別字引用；DS-M01 的同名函式產生雜湊記錄 ID，**不是同一 API**。舊 `contract()`、fuel 表格 allowlist、Postgres 的 `FUEL_*` 設定及油耗單位轉換不直接沿用。
+The digest method, selected file hashes, exact entity IDs and check details are retained in [shared_runtime_audit.json](shared_runtime_audit.json). The audit did not verify every version in the dependency lock file.
 
-## 實體與 seed 契約
+At the audit timestamp, DS-M01 `common.py` had SHA256 `1aa015f6f39c1ca0a7f0a4496bec6ad185f0521644c2bf7b2125a17d60b64b94`. Its source prefix before the new `write_source_manifest` and `verify_source_manifest` helpers had SHA256 `2b24ce3bedab5ef6dc70d2896d92f6b303802d232d58d1b35e6282efaf140a6c`, matching the previously audited complete helper file. This established that the existing seed, digest, time and serialization helpers had not changed at that point. These are historical digests, not assertions about later file versions.
 
-| 實體 | ID 範圍 |
+The new manifest functions received source review only in M0. They check published counts and file hashes and guard pipeline/warehouse entry points when enabled. Their integration checks were recorded later by the main pipeline. M0 itself did not read or write generated DS-M01 data, and the helpers were not interpreted as a transaction spanning the whole project.
+
+## Reuse decisions
+
+| Component | Compatibility boundary |
 |---|---|
-| 租戶 | `T01`–`T03` |
-| 車輛 | 各租戶 `Txx-V01`–`Txx-V10` |
-| 裝置 | 各租戶 `Txx-D01`–`Txx-D12` |
-| 駕駛 | 各租戶 `Txx-R01`–`Txx-R15` |
-| 站點／路線 | `SITE-01`–`SITE-12`／`ROUTE-01`–`ROUTE-12` |
+| Entity IDs | Retain identifier rules for three tenants, 30 vehicles, 36 devices, 45 drivers, 12 sites and 12 routes. Regenerate 2026 validity intervals, assignments and route versions. |
+| Named seeds | Three test vectors matched between the original `sub_seed` and DS-M01 `stable_seed`. New observations use the `ds-m01-2026-v1` namespace. |
+| SHA256 and JSON | File digests are compatible. DS-M01 explicitly uses UTF-8, sorted fields and `allow_nan=False`. JSONL writing was source-reviewed but not executed in this audit. |
+| Time | DS-M01 rejects naive timestamps and normalizes to UTC. Timestamp semantics are preserved without requiring identical string precision to the earlier helper. |
+| Cursors and source snapshots | Retain design principles. Pure cursor functions were tested; HTTP service, retry and snapshot integration were outside M0. |
 
-來源 ZIP 沒有生成後的 `data/raw` 實體登錄。本表是從實際 `simulation.py` 的迴圈及記憶體中的 `build_plan()` 重建，不宣稱讀到不存在的登錄檔。完整 ID 清單存於 JSON。
+The earlier `common.ident` quoted SQL identifiers; DS-M01's function of the same name generates hashed record IDs. They are different APIs. The previous fuel-domain `contract()`, table allowlist, PostgreSQL `FUEL_*` settings and fuel-unit conversions were not carried over.
 
-Seed 規則為：將 `seed` 及 tokens 轉為字串，以 `\x1f` 連接，UTF-8 編碼後取 SHA256 前 16 bytes，以 unsigned big-endian 解讀。主 seed 為 `20261021`。建議呼叫：
+## Entity and seed contract
+
+| Entity | Identifier range |
+|---|---|
+| Tenant | `T01`–`T03` |
+| Vehicle | `Txx-V01`–`Txx-V10` per tenant |
+| Device | `Txx-D01`–`Txx-D12` per tenant |
+| Driver | `Txx-R01`–`Txx-R15` per tenant |
+| Site / route | `SITE-01`–`SITE-12` / `ROUTE-01`–`ROUTE-12` |
+
+The source archive contained no generated raw entity registry. These IDs were reconstructed from the actual `simulation.py` loops and an in-memory `build_plan()` call. The audit JSON retains the complete lists. Reusing a registry identifier does not imply that every corresponding entity is active in the DS-M01 data contracts; for example, driver records are not among the 17 populated data-stage tables.
+
+For seed derivation, convert the base seed and tokens to strings, join them with `\x1f`, encode as UTF-8, take the first 16 bytes of SHA256 and interpret them as an unsigned big-endian integer. The base seed is `20261021`:
 
 ```python
 stable_seed(20261021, "ds-m01-2026-v1", purpose, entity_id)
 ```
 
-例如 `purpose="trip"`、`entity_id="T01-V01-TR001"` 的結果是 `22982877921785618888433484590010977744`。JSON 以十進位字串儲存完整 128-bit 值。
+For `purpose="trip"` and `entity_id="T01-V01-TR001"`, the result is `22982877921785618888433484590010977744`. JSON audit records store the complete 128-bit value as a decimal string.
 
-## 已重跑與尚未重跑
+## Executed checks
 
-| 檢查 | 實際範圍與結果 |
+| Check | Actual scope and result |
 |---|---|
-| M0-01 | 直接執行既有 stable-ID／時間區間 test method，通過；未呼叫 unittest setUpClass 或 generate()。 |
-| M0-02 | 3 組獨立 SHA256 seed 向量，通過。 |
-| M0-03 | DST 前後明確 offset 的 UTC 正規化，以及拒絕無時區輸入，通過。 |
-| M0-04 | cursor roundtrip 與錯誤 snapshot 拒絕，通過。 |
-| M0-05 | digest、排序 JSON、SQL identifier 引用，通過。 |
-| M0-06 | truth-prefix 防護及其侷限驗證，通過；`arrival_time` 不會被舊前綴規則攔截。 |
-| M0-07 | 來源計畫重建出 1,800 趟、3 租戶、30 車、45 駕駛，通過。 |
-| M0-08 | DS-M01 現有 helper 的 seed／digest 相容性及無時區拒絕，通過。 |
-| M0-09 | 所有來源檔案檢查前後內容不變，通過。 |
-| M0-10 | 新增 manifest helper 前的既有程式位元組與前次稽核完全相同，通過；新函式僅作來源檢閱。 |
+| M0-01 | Existing stable-ID/time-interval test method passed when called directly; `setUpClass` and `generate()` were not invoked. |
+| M0-02 | Three independently calculated SHA256 seed vectors passed. |
+| M0-03 | Explicit-offset normalization across DST and rejection of naive timestamps passed. |
+| M0-04 | Cursor roundtrip and wrong-snapshot rejection passed. |
+| M0-05 | Digest, sorted JSON and SQL identifier quoting checks passed. |
+| M0-06 | Legacy truth-prefix guard and its limits were confirmed: `arrival_time` was not rejected by that prefix rule. |
+| M0-07 | In-memory source-plan reconstruction returned 1,800 trips, three tenants, 30 vehicles and 45 drivers. |
+| M0-08 | DS-M01 helper seed/digest compatibility and naive-timestamp rejection passed. |
+| M0-09 | All reference source files remained unchanged after the audit. |
+| M0-10 | Existing helper bytes before the manifest additions matched the earlier audit; new helpers received source review only. |
 
-本次 M0 稽核未重跑（M1 另有獨立報告）：DA-E01 完整測試套件及資料產生、Postgres、HTTP／重試／故障注入、DuckDB 全流程、DS-M01 M1 全流程、模型訓練／校正／測試。既有封裝報告的通過記錄不計入本次重跑結果。
+M0 did not run the earlier project's full test suite or data generation, PostgreSQL, HTTP fault injection, the complete DuckDB pipeline, the complete DS-M01 pipeline, model fitting, calibration or evaluation. Existing reports from other executions were not counted as new M0 results.
 
-## 對 2026 ETA 實作的限制
+## Implications for ETA data
 
-1. 來源 2025 路線是站點環狀連接的抽象合成路線，原行程距離與 90–180 分鐘時長各自產生。站點座標和舊行程時長不能當成真實路網 ETA 標籤。
-2. 同一車輛等實體可延續 ID，但 2026 行程不是 2025 同一業務事件。跨專案資料串接必須帶 project／dataset 身分，防止同格式 trip ID 誤連。
-3. 2026 主期延長為 9 個月但維持 1,800 趟，月均密度降低；不能宣稱與舊 6 個月設計有相同月別精度。
-4. ETA 使用明確欄位 allowlist；真實到達、延誤標籤及模擬真值不得進入預測特徵。舊前綴檢查不足以提供這項保證。
-5. 日期、版本有效區間、設備指派與可用時間重新建立。後續由 DS-M01 的契約、時間可用性與洩漏檢查驗證；本稽核不取代它們。
-
-DA-E01 來源維持不變。本次未建立 Git commit，也未 push。
+1. The earlier routes were abstract site loops; distance and 90–180-minute duration were generated independently. Old coordinates and durations cannot serve as real road-network ETA labels.
+2. Stable vehicle IDs may span datasets, but 2026 trips are different business events. Cross-dataset joins need an explicit project/dataset identity to avoid collisions among similarly formatted trip IDs.
+3. Spreading 1,800 trips across nine months yields lower monthly density than a six-month design. Equal monthly statistical precision cannot be assumed.
+4. ETA features require an explicit allowlist excluding actual arrivals, delay labels and simulator truth. The legacy prefix guard is insufficient.
+5. Validity intervals, assignment histories and availability timestamps must be regenerated and checked under DS-M01 contracts. This audit does not replace the later temporal and leakage checks.

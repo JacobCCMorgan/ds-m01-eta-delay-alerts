@@ -11,7 +11,7 @@ dependencies = ["duckdb==1.4.1", "pyarrow==21.0.0"]
 
 [project.optional-dependencies]
 postgres = ["psycopg[binary]==3.2.10"]
-reports = ["matplotlib", "python-docx", "pypdf"]
+plots = ["matplotlib==3.10.8"]
 
 [project.scripts]
 ds-m01 = "ds_m01.cli:main"

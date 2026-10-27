@@ -1,4 +1,4 @@
-# M1 synthetic source generator
+# Synthetic fleet source generator
 
 This is an original, fictional engineering dataset. It is not Rollingtrans
 customer telemetry, a real fleet operating record, or evidence of real-world
@@ -35,7 +35,7 @@ version IDs. Each tenant's four segments form a directed loop.
 ## Explicit route-geometry execution assumption
 
 The source contract describes `planned_distance_km` as distance along a route,
-not an arbitrary displacement. For this M1 execution, each fictional route
+not an arbitrary displacement. For the M1 and M2 dataset versions, each fictional route
 consists of one directed straight geographical segment; distance is the
 haversine length of that synthetic segment. Thus geometry length and planned
 distance agree. These segments are **not real roads**, truck-approved paths,
