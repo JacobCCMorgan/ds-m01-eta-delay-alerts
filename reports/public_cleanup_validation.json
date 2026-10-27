@@ -1,15 +1,15 @@
 {
   "project_id": "DS-M01",
-  "scope": "Public documentation and reporting",
+  "scope": "Public documentation and English contract metadata",
   "baseline_commit": "38f752891fa6a2140ed9573f0ccee566572f4a0f",
-  "checked_at_utc": "2026-10-27T23:12:59.851824+00:00",
+  "checked_at_utc": "2026-10-27T23:13:00.545631+00:00",
   "status": "passed",
   "unit_tests": {
     "command": "python -m unittest discover -s tests -v",
     "count": 49,
     "passed": true,
     "log": "public_cleanup_unittest_results.txt",
-    "log_sha256": "3aa97ede201de96da157ff582228b0ff168f48866cb0160191cde22e0944846e"
+    "log_sha256": "f6ec9e2ae94921ebd1a147f1aed1212ac9adab3270af0529b1dd515730ff0891"
   },
   "runtime_and_test_files": {
     "unchanged": true,
@@ -77,11 +77,11 @@
   "configuration_comparison": {
     "m1.json": {
       "runtime_parameters_unchanged": true,
-      "current_file_sha256": "1f5cfaa6ba46ab2053dd141a06f437ba82595e121ca1b2e50e54c0aff07ab52c"
+      "current_file_sha256": "a83a9ce02436c014b5bfaeec2f4d3ce6c11ad4ce9f3467208af3ffd19753d3ac"
     },
     "m2.json": {
       "runtime_parameters_unchanged": true,
-      "current_file_sha256": "9b2fec72600c7ac16af7ebb6d52129642d6d1fc479c5c80948f8c6fb9cb0d26b"
+      "current_file_sha256": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc"
     }
   },
   "historical_execution_receipts": {
@@ -130,10 +130,502 @@
   "documentation": {
     "relative_links_resolve": true,
     "relative_link_count": 63,
-    "english_text_scan_scope": "Markdown documents",
-    "english_text_files_checked": 10
+    "english_text_scan_scope": "All UTF-8 public files",
+    "english_text_files_checked": 75
   },
   "full_m2_dataset_rebuilt": false,
   "model_training_or_evaluation_performed": false,
-  "native_postgresql_validation_performed": false
+  "native_postgresql_validation_performed": false,
+  "subset_compatibility_replay": {
+    "scope": "Actual 120-trip subset replay; not a full 1800-trip M2 rebuild",
+    "config_override": {
+      "sample_size": 120
+    },
+    "other_runtime_parameters_unchanged": true,
+    "commands": [
+      "python -m ds_m01.cli run --root <isolated-baseline> --config <baseline-trial-config>",
+      "python -m ds_m01.cli run --root <isolated-cleaned> --config <cleaned-trial-config>"
+    ],
+    "runs": {
+      "baseline": {
+        "exit_code": 0,
+        "started_at_utc": "2026-10-27T23:11:06.720742+00:00",
+        "finished_at_utc": "2026-10-27T23:11:13.852169+00:00",
+        "elapsed_seconds": 7.131,
+        "config_sha256": "05981a5774afcdbef8590837eb6d4f132d28b6757779081df4a7308c979e2d48"
+      },
+      "working": {
+        "exit_code": 0,
+        "started_at_utc": "2026-10-27T23:11:06.717923+00:00",
+        "finished_at_utc": "2026-10-27T23:11:13.792353+00:00",
+        "elapsed_seconds": 7.074,
+        "config_sha256": "10c6df18ae1d635cac554c86eac9f82b8776037f8121c33b7f48d143eacfc712"
+      }
+    },
+    "quality": {
+      "baseline": {
+        "checks": 27,
+        "passed": true,
+        "all_checks_passed": true,
+        "materialized_canonical_tables": 28,
+        "populated_canonical_tables": 17,
+        "parquet_export_count": 28
+      },
+      "working": {
+        "checks": 27,
+        "passed": true,
+        "all_checks_passed": true,
+        "materialized_canonical_tables": 28,
+        "populated_canonical_tables": 17,
+        "parquet_export_count": 28
+      }
+    },
+    "data_files_compared": 48,
+    "comparisons": {
+      "raw": {
+        "file_count": 13,
+        "byte_identical": true,
+        "files": [
+          {
+            "path": "data/raw/core_device.jsonl",
+            "baseline_sha256": "58502b12b6329ede2427bf553981b2d010929f246655d621bb0d57891e2d88cc",
+            "cleaned_sha256": "58502b12b6329ede2427bf553981b2d010929f246655d621bb0d57891e2d88cc",
+            "baseline_bytes": 3060,
+            "cleaned_bytes": 3060,
+            "byte_identical": true,
+            "rows": 36
+          },
+          {
+            "path": "data/raw/core_tenant.jsonl",
+            "baseline_sha256": "7154bc213244b56e70970090bf7b40469074c20f31cf5d3101a0f385d5031061",
+            "cleaned_sha256": "7154bc213244b56e70970090bf7b40469074c20f31cf5d3101a0f385d5031061",
+            "baseline_bytes": 378,
+            "cleaned_bytes": 378,
+            "byte_identical": true,
+            "rows": 3
+          },
+          {
+            "path": "data/raw/core_vehicle.jsonl",
+            "baseline_sha256": "c6dd63bfad259cf5c366c895ede7303c635dde12772352b343bf16728429307f",
+            "cleaned_sha256": "c6dd63bfad259cf5c366c895ede7303c635dde12772352b343bf16728429307f",
+            "baseline_bytes": 3600,
+            "cleaned_bytes": 3600,
+            "byte_identical": true,
+            "rows": 30
+          },
+          {
+            "path": "data/raw/core_vehicle_device_assignment.jsonl",
+            "baseline_sha256": "dc55c0174c20f022decb0a23ae2085cfdd0b2e1a99961b93f8eecf9ea7dcba63",
+            "cleaned_sha256": "dc55c0174c20f022decb0a23ae2085cfdd0b2e1a99961b93f8eecf9ea7dcba63",
+            "baseline_bytes": 258470,
+            "cleaned_bytes": 258470,
+            "byte_identical": true,
+            "rows": 686
+          },
+          {
+            "path": "data/raw/eta_facility_version.jsonl",
+            "baseline_sha256": "8f5ff3da65a2b6fd194cd9cc6b97cb0fb616d4f219c01716bd9212ad915f8164",
+            "cleaned_sha256": "8f5ff3da65a2b6fd194cd9cc6b97cb0fb616d4f219c01716bd9212ad915f8164",
+            "baseline_bytes": 4138,
+            "cleaned_bytes": 4138,
+            "byte_identical": true,
+            "rows": 12
+          },
+          {
+            "path": "data/raw/eta_promise_version.jsonl",
+            "baseline_sha256": "5e9f217e9640cb4d47c57d4b6f94b51fb1fa1abf1d3fb3abf5d79cd8a1f41661",
+            "cleaned_sha256": "5e9f217e9640cb4d47c57d4b6f94b51fb1fa1abf1d3fb3abf5d79cd8a1f41661",
+            "baseline_bytes": 44312,
+            "cleaned_bytes": 44312,
+            "byte_identical": true,
+            "rows": 131
+          },
+          {
+            "path": "data/raw/eta_route_version.jsonl",
+            "baseline_sha256": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+            "cleaned_sha256": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+            "baseline_bytes": 3913,
+            "cleaned_bytes": 3913,
+            "byte_identical": true,
+            "rows": 12
+          },
+          {
+            "path": "data/raw/eta_trip.jsonl",
+            "baseline_sha256": "e1e69e0c52e0ba8684b77f92d0deb29fe604d81a07d65617b2f748c000b8f703",
+            "cleaned_sha256": "e1e69e0c52e0ba8684b77f92d0deb29fe604d81a07d65617b2f748c000b8f703",
+            "baseline_bytes": 16080,
+            "cleaned_bytes": 16080,
+            "byte_identical": true,
+            "rows": 120
+          },
+          {
+            "path": "data/raw/eta_trip_event.jsonl",
+            "baseline_sha256": "c8f26a7c02780dbc6419eff5ab95213c12e5f7883b08abc250d8e092ec9cde46",
+            "cleaned_sha256": "c8f26a7c02780dbc6419eff5ab95213c12e5f7883b08abc250d8e092ec9cde46",
+            "baseline_bytes": 65813,
+            "cleaned_bytes": 65813,
+            "byte_identical": true,
+            "rows": 240
+          },
+          {
+            "path": "data/raw/eta_trip_outcome.jsonl",
+            "baseline_sha256": "062a849f8b17b5cd6761c662ad192adccfd1ac89e928d89afb737768f0b22045",
+            "cleaned_sha256": "062a849f8b17b5cd6761c662ad192adccfd1ac89e928d89afb737768f0b22045",
+            "baseline_bytes": 172128,
+            "cleaned_bytes": 172128,
+            "byte_identical": true,
+            "rows": 251
+          },
+          {
+            "path": "data/raw/eta_trip_plan_version.jsonl",
+            "baseline_sha256": "cc308b24bd6127b7924250fbf8227b2dfb125aeb0814e46160a2ffe9cfbaa5a8",
+            "cleaned_sha256": "cc308b24bd6127b7924250fbf8227b2dfb125aeb0814e46160a2ffe9cfbaa5a8",
+            "baseline_bytes": 48360,
+            "cleaned_bytes": 48360,
+            "byte_identical": true,
+            "rows": 120
+          },
+          {
+            "path": "data/raw/provenance_record.jsonl",
+            "baseline_sha256": "4a8a4b2028e9997971cd9606a642ddcc57d16d6f8bfe20ca7b29bb6c3b49743d",
+            "cleaned_sha256": "4a8a4b2028e9997971cd9606a642ddcc57d16d6f8bfe20ca7b29bb6c3b49743d",
+            "baseline_bytes": 21385342,
+            "cleaned_bytes": 21385342,
+            "byte_identical": true,
+            "rows": 14475
+          },
+          {
+            "path": "data/raw/telemetry_event.jsonl",
+            "baseline_sha256": "166a10337d49267a5bd7e4d20622bb7178e9cb3b8dba19d02616ddd27c48bab7",
+            "cleaned_sha256": "166a10337d49267a5bd7e4d20622bb7178e9cb3b8dba19d02616ddd27c48bab7",
+            "baseline_bytes": 10267660,
+            "cleaned_bytes": 10267660,
+            "byte_identical": true,
+            "rows": 12834
+          }
+        ]
+      },
+      "processed": {
+        "file_count": 7,
+        "byte_identical": true,
+        "files": [
+          {
+            "path": "data/processed/eta_history_reference.jsonl",
+            "baseline_sha256": "f1ff74ecf4f28a2c923ffe9d0af5718c00493460f0ddfc50ec79ee3de1f9005d",
+            "cleaned_sha256": "f1ff74ecf4f28a2c923ffe9d0af5718c00493460f0ddfc50ec79ee3de1f9005d",
+            "baseline_bytes": 3955142,
+            "cleaned_bytes": 3955142,
+            "byte_identical": true,
+            "rows": 11594
+          },
+          {
+            "path": "data/processed/eta_snapshot.jsonl",
+            "baseline_sha256": "30f78233e20a0bf8d138078857eb58e4784ee96a62d073002cab640d5b4f20e9",
+            "cleaned_sha256": "30f78233e20a0bf8d138078857eb58e4784ee96a62d073002cab640d5b4f20e9",
+            "baseline_bytes": 806727,
+            "cleaned_bytes": 806727,
+            "byte_identical": true,
+            "rows": 937
+          },
+          {
+            "path": "data/processed/eta_snapshot_label.jsonl",
+            "baseline_sha256": "6b4a33bb3840fd99359881a6c851b1d0e2a81e324a2065523db3d152a5fc236e",
+            "cleaned_sha256": "6b4a33bb3840fd99359881a6c851b1d0e2a81e324a2065523db3d152a5fc236e",
+            "baseline_bytes": 277538,
+            "cleaned_bytes": 277538,
+            "byte_identical": true,
+            "rows": 937
+          },
+          {
+            "path": "data/processed/eta_split_assignment.jsonl",
+            "baseline_sha256": "cec2e811de6b2177cb503d681ca59f266bfd696290bb87bea749b28b450de78b",
+            "cleaned_sha256": "cec2e811de6b2177cb503d681ca59f266bfd696290bb87bea749b28b450de78b",
+            "baseline_bytes": 26620,
+            "cleaned_bytes": 26620,
+            "byte_identical": true,
+            "rows": 120
+          },
+          {
+            "path": "data/processed/feature_lineage.jsonl",
+            "baseline_sha256": "c4fb8777b37bc6bcce06931d8c52ceac2d288c8061821ca6829ddbcc45aa3e86",
+            "cleaned_sha256": "c4fb8777b37bc6bcce06931d8c52ceac2d288c8061821ca6829ddbcc45aa3e86",
+            "baseline_bytes": 530432,
+            "cleaned_bytes": 530432,
+            "byte_identical": true,
+            "rows": 937
+          },
+          {
+            "path": "data/processed/provenance_record.jsonl",
+            "baseline_sha256": "917985c5c1a9c35db9a2240414d7388a891a477642344fa8bf131f502b1597b9",
+            "cleaned_sha256": "917985c5c1a9c35db9a2240414d7388a891a477642344fa8bf131f502b1597b9",
+            "baseline_bytes": 54803541,
+            "cleaned_bytes": 54803541,
+            "byte_identical": true,
+            "rows": 27943
+          },
+          {
+            "path": "data/processed/trip_membership.jsonl",
+            "baseline_sha256": "d7e97961bd8748446f7767641e96314466eaf9e166e240ec959cdc18c44e3758",
+            "cleaned_sha256": "d7e97961bd8748446f7767641e96314466eaf9e166e240ec959cdc18c44e3758",
+            "baseline_bytes": 22193,
+            "cleaned_bytes": 22193,
+            "byte_identical": true,
+            "rows": 120
+          }
+        ]
+      },
+      "parquet": {
+        "file_count": 28,
+        "byte_identical": true,
+        "files": [
+          {
+            "path": "data/parquet/core_device.parquet",
+            "baseline_sha256": "f04731bfd246b48a32c40f1ca30eef16a1c0d468827e9d82d40776503f8a12d6",
+            "cleaned_sha256": "f04731bfd246b48a32c40f1ca30eef16a1c0d468827e9d82d40776503f8a12d6",
+            "baseline_bytes": 861,
+            "cleaned_bytes": 861,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/core_tenant.parquet",
+            "baseline_sha256": "d81731dc94bff3b2fb15613a32f936938f766a06fd4199894aa018aa8899ec25",
+            "cleaned_sha256": "d81731dc94bff3b2fb15613a32f936938f766a06fd4199894aa018aa8899ec25",
+            "baseline_bytes": 826,
+            "cleaned_bytes": 826,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/core_vehicle.parquet",
+            "baseline_sha256": "1f6d3e1a317b39b533576c08e0438e27c740a3c61bc6fc6a15a58a116dd34dea",
+            "cleaned_sha256": "1f6d3e1a317b39b533576c08e0438e27c740a3c61bc6fc6a15a58a116dd34dea",
+            "baseline_bytes": 1153,
+            "cleaned_bytes": 1153,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/core_vehicle_device_assignment.parquet",
+            "baseline_sha256": "3ea2e32ccf6b181945a833d05ae3393bf2765569744c18dab3920e27be5aa367",
+            "cleaned_sha256": "3ea2e32ccf6b181945a833d05ae3393bf2765569744c18dab3920e27be5aa367",
+            "baseline_bytes": 22678,
+            "cleaned_bytes": 22678,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_action.parquet",
+            "baseline_sha256": "87c955294d030f26c46ea0abbf5e71abd28aa71910e41f262fc3d94714108adb",
+            "cleaned_sha256": "87c955294d030f26c46ea0abbf5e71abd28aa71910e41f262fc3d94714108adb",
+            "baseline_bytes": 252,
+            "cleaned_bytes": 252,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_action_followup.parquet",
+            "baseline_sha256": "e40d475ceddb14cef63d282dc6c4ae0591ab2d50f2dccef72921b61dd64698fe",
+            "cleaned_sha256": "e40d475ceddb14cef63d282dc6c4ae0591ab2d50f2dccef72921b61dd64698fe",
+            "baseline_bytes": 396,
+            "cleaned_bytes": 396,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_adoption.parquet",
+            "baseline_sha256": "fb73339a25414699b60e95bbae326eb5f43dd17bf4e7162c79e8cb36be11231e",
+            "cleaned_sha256": "fb73339a25414699b60e95bbae326eb5f43dd17bf4e7162c79e8cb36be11231e",
+            "baseline_bytes": 239,
+            "cleaned_bytes": 239,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_alert.parquet",
+            "baseline_sha256": "ef386062aa5c5351d561c9bb9d382df835be08d0fe0f9df560358c0251d78d62",
+            "cleaned_sha256": "ef386062aa5c5351d561c9bb9d382df835be08d0fe0f9df560358c0251d78d62",
+            "baseline_bytes": 308,
+            "cleaned_bytes": 308,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_alert_episode.parquet",
+            "baseline_sha256": "aefaa3d04e1ca9ff735e3b315358a5f0fe6a1521ea414d9ba6e3e80f8cb41684",
+            "cleaned_sha256": "aefaa3d04e1ca9ff735e3b315358a5f0fe6a1521ea414d9ba6e3e80f8cb41684",
+            "baseline_bytes": 328,
+            "cleaned_bytes": 328,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_alert_rule_version.parquet",
+            "baseline_sha256": "8d273c0180c6171560865305ab04528f3010afb7145b4468cd6bda5e479f2888",
+            "cleaned_sha256": "8d273c0180c6171560865305ab04528f3010afb7145b4468cd6bda5e479f2888",
+            "baseline_bytes": 263,
+            "cleaned_bytes": 263,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_evaluation_membership.parquet",
+            "baseline_sha256": "e2ca606e3e9e60fcbdfaac6eddfd5946a38ae17da850fbea773ca000e9200acf",
+            "cleaned_sha256": "e2ca606e3e9e60fcbdfaac6eddfd5946a38ae17da850fbea773ca000e9200acf",
+            "baseline_bytes": 258,
+            "cleaned_bytes": 258,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_facility_version.parquet",
+            "baseline_sha256": "c2c40376494006a65cc98dfd0ea9ef8675b8bf773d3515aa7577b89df856faca",
+            "cleaned_sha256": "c2c40376494006a65cc98dfd0ea9ef8675b8bf773d3515aa7577b89df856faca",
+            "baseline_bytes": 2706,
+            "cleaned_bytes": 2706,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_history_reference.parquet",
+            "baseline_sha256": "dabdfb50d329c6357dccbf67e4888654f353ed8fb01924be9c13964b8211b287",
+            "cleaned_sha256": "dabdfb50d329c6357dccbf67e4888654f353ed8fb01924be9c13964b8211b287",
+            "baseline_bytes": 189920,
+            "cleaned_bytes": 189920,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_model_version.parquet",
+            "baseline_sha256": "340cfa148a7472c3ba64b4451f4aa4ccd839571dda98f51038a2853fba03c98c",
+            "cleaned_sha256": "340cfa148a7472c3ba64b4451f4aa4ccd839571dda98f51038a2853fba03c98c",
+            "baseline_bytes": 393,
+            "cleaned_bytes": 393,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_notification_delivery.parquet",
+            "baseline_sha256": "6cbde15527e5a9d8af0f58f90da95798168053d7680a5d80b3c26bed35c183ca",
+            "cleaned_sha256": "6cbde15527e5a9d8af0f58f90da95798168053d7680a5d80b3c26bed35c183ca",
+            "baseline_bytes": 297,
+            "cleaned_bytes": 297,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_output_release.parquet",
+            "baseline_sha256": "30a90bf2006980641afd255f43874211e104886f92e2f08cba8869169fc85a30",
+            "cleaned_sha256": "30a90bf2006980641afd255f43874211e104886f92e2f08cba8869169fc85a30",
+            "baseline_bytes": 218,
+            "cleaned_bytes": 218,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_prediction.parquet",
+            "baseline_sha256": "5e09b99ca563ad49816ed7de0e32c203be3a364074fb75861bae9ec6203f4e27",
+            "cleaned_sha256": "5e09b99ca563ad49816ed7de0e32c203be3a364074fb75861bae9ec6203f4e27",
+            "baseline_bytes": 377,
+            "cleaned_bytes": 377,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_promise_version.parquet",
+            "baseline_sha256": "2deef617f747d8ce31d55f87ba4cc2d8ee2bdff2e40c77190fc2926fa493bba4",
+            "cleaned_sha256": "2deef617f747d8ce31d55f87ba4cc2d8ee2bdff2e40c77190fc2926fa493bba4",
+            "baseline_bytes": 7290,
+            "cleaned_bytes": 7290,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_route_version.parquet",
+            "baseline_sha256": "edd0f5ee14f7063477c664f5d167748ea517c399d181e3bdc300f500a31cda68",
+            "cleaned_sha256": "edd0f5ee14f7063477c664f5d167748ea517c399d181e3bdc300f500a31cda68",
+            "baseline_bytes": 2302,
+            "cleaned_bytes": 2302,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_snapshot.parquet",
+            "baseline_sha256": "4baa6151defc65caab1f22c7b86c4ca47a59956c5f9b3687af429f43ce9305f5",
+            "cleaned_sha256": "4baa6151defc65caab1f22c7b86c4ca47a59956c5f9b3687af429f43ce9305f5",
+            "baseline_bytes": 65806,
+            "cleaned_bytes": 65806,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_snapshot_label.parquet",
+            "baseline_sha256": "129790b9b3829df62181e99bf4dcf81faeed788fdafe4255bf46bfd463763134",
+            "cleaned_sha256": "129790b9b3829df62181e99bf4dcf81faeed788fdafe4255bf46bfd463763134",
+            "baseline_bytes": 32078,
+            "cleaned_bytes": 32078,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_split_assignment.parquet",
+            "baseline_sha256": "978e17406acc680aca98aab1fee851952e481a08e7d9341c6166f0fe7a01acd8",
+            "cleaned_sha256": "978e17406acc680aca98aab1fee851952e481a08e7d9341c6166f0fe7a01acd8",
+            "baseline_bytes": 2440,
+            "cleaned_bytes": 2440,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_trip.parquet",
+            "baseline_sha256": "188c7d3de7b58bbbd348d88576da4d665584b37856fec0dcf22b8ff951ef9a8d",
+            "cleaned_sha256": "188c7d3de7b58bbbd348d88576da4d665584b37856fec0dcf22b8ff951ef9a8d",
+            "baseline_bytes": 3577,
+            "cleaned_bytes": 3577,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_trip_event.parquet",
+            "baseline_sha256": "0773649dc7c2757e1ec7f66cd7785d9045435cd08d00d05d1ffac86273f70407",
+            "cleaned_sha256": "0773649dc7c2757e1ec7f66cd7785d9045435cd08d00d05d1ffac86273f70407",
+            "baseline_bytes": 9536,
+            "cleaned_bytes": 9536,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_trip_outcome.parquet",
+            "baseline_sha256": "d1b1c7a8e27f87293746e402e3bb5dca2d05340eff693f996fff66d50228f0dc",
+            "cleaned_sha256": "d1b1c7a8e27f87293746e402e3bb5dca2d05340eff693f996fff66d50228f0dc",
+            "baseline_bytes": 16190,
+            "cleaned_bytes": 16190,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/eta_trip_plan_version.parquet",
+            "baseline_sha256": "b5c24f5de542e3cd338ace8a9d13d23a0ee1258bd2d80897e425d6d1e9d26890",
+            "cleaned_sha256": "b5c24f5de542e3cd338ace8a9d13d23a0ee1258bd2d80897e425d6d1e9d26890",
+            "baseline_bytes": 6559,
+            "cleaned_bytes": 6559,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/provenance_record.parquet",
+            "baseline_sha256": "20c01040ed29fc4152b3008399ed82c688d209bc382c47e21946e4cd8a73fdcc",
+            "cleaned_sha256": "20c01040ed29fc4152b3008399ed82c688d209bc382c47e21946e4cd8a73fdcc",
+            "baseline_bytes": 1210666,
+            "cleaned_bytes": 1210666,
+            "byte_identical": true
+          },
+          {
+            "path": "data/parquet/telemetry_event.parquet",
+            "baseline_sha256": "f7f11bd117b91867458f9b8edb8b5747c8e2cfd3d38cc1e3aa481ba6b5cf660f",
+            "cleaned_sha256": "f7f11bd117b91867458f9b8edb8b5747c8e2cfd3d38cc1e3aa481ba6b5cf660f",
+            "baseline_bytes": 557887,
+            "cleaned_bytes": 557887,
+            "byte_identical": true
+          }
+        ]
+      },
+      "data/source_manifest.json": {
+        "byte_identical": true,
+        "baseline_sha256": "595c99245937c30895c12062103c113e778c52344b99b9ecb8c6047bbf613b9d",
+        "cleaned_sha256": "595c99245937c30895c12062103c113e778c52344b99b9ecb8c6047bbf613b9d"
+      },
+      "sql/duckdb_schema.sql": {
+        "byte_identical": true,
+        "baseline_sha256": "160a23ffd23f04fd65690e53be328d0c5bd3e9649e20e1a10a080fa5d7c812f7",
+        "cleaned_sha256": "160a23ffd23f04fd65690e53be328d0c5bd3e9649e20e1a10a080fa5d7c812f7"
+      },
+      "reports/quality_report.json": {
+        "byte_identical": true,
+        "baseline_sha256": "88b5316c5bc5637cd96c45f6e343f5eb661f7a6cf111d2568731fa4b2eebd7fe",
+        "cleaned_sha256": "88b5316c5bc5637cd96c45f6e343f5eb661f7a6cf111d2568731fa4b2eebd7fe"
+      },
+      "reports/m2_summary.json": {
+        "byte_identical": true,
+        "baseline_sha256": "470b323b01b40374bd9d7882d647b1bb14391a532c9dc654b50b9b6b5ff65032",
+        "cleaned_sha256": "470b323b01b40374bd9d7882d647b1bb14391a532c9dc654b50b9b6b5ff65032"
+      }
+    },
+    "duckdb_container_bytes_compared": false,
+    "passed": true
+  }
 }

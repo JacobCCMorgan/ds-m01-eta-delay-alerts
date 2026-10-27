@@ -52,3 +52,11 @@ Model training, interval and probability calibration, final model evaluation, al
 - Standardized technical explanations in English and retained historical M1 references separately from M2 evidence.
 - Added standalone English data-quality figure generation and a validation guide.
 - Kept historical data receipts distinct from the [current cleanup validation](../reports/public_cleanup_validation.json). The complete M2 dataset was not rebuilt during this cleanup.
+
+## 2026-10-27 — English contract metadata
+
+- Published English field labels, definitions, requirement descriptions and validation cases while retaining machine identifiers, types, nullability and input relationships.
+- Corrected time labels that conflicted with the existing seconds units; runtime units and values are unchanged.
+- Clarified inherited planning descriptions against the effective 2026 configuration.
+- Removed unused configuration metadata outside the pipeline scope.
+- Verified 341 field definitions, runtime configuration equivalence and a 120-trip compatibility replay. The replay reproduced all 48 raw, processed and Parquet files byte-for-byte; see the current cleanup validation receipt.

@@ -1,113 +1,113 @@
 [
   {
     "id": "ETA-V01",
-    "case": "預報 issued_at 在快照前，但 forecast_available_at 在快照後",
-    "expected": "排除該預報；實際本輪 retrieved_at 另存審計，不替代當時可用時間",
-    "evidence": "凍結預報原件、可用時間證據與獨立時間測試案例",
+    "case": "Forecast issued_at precedes the snapshot, but forecast_available_at follows it",
+    "expected": "Exclude the forecast; store the actual retrieved_at for this run separately for audit, without replacing the time it became available in the scenario",
+    "evidence": "Frozen original forecast, availability-time evidence, and independent temporal test cases",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V02",
-    "case": "快照後客戶延後承諾截止",
-    "expected": "快照仍連原 promise_version；原與新承諾結果分開",
-    "evidence": "手工設計的雙版本時間線",
+    "case": "The customer postpones the promise deadline after the snapshot",
+    "expected": "Keep the snapshot linked to the original promise_version; report outcomes against the original and revised promises separately",
+    "evidence": "Manually specified timeline with two promise versions",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V03",
-    "case": "取消、失聯、未完成與已到場快照",
-    "expected": "不填零剩餘時間或準時；按不適用/未知/未成熟分開",
-    "evidence": "獨立狀態真值與 censor 追蹤表",
+    "case": "Cancelled, lost-contact, incomplete, and already-arrived snapshots",
+    "expected": "Do not assign zero remaining time or an on-time outcome; distinguish not applicable, unknown, and immature labels",
+    "evidence": "Independent status truth and a censoring follow-up table",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V04",
-    "case": "門禁到場 14:00、服務開始 15:00",
-    "expected": "到場標籤採 14:00，服務事件僅後續結果",
-    "evidence": "獨立門禁與服務事件證據",
+    "case": "Gate arrival at 14:00 and service start at 15:00",
+    "expected": "Use 14:00 for the arrival label; the service event is a subsequent outcome only",
+    "evidence": "Independent gate-arrival and service-event evidence",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V05",
-    "case": "最後有效定位已過 30 分鐘或無定位",
-    "expected": "揭露陳舊/缺失並回退，不捏造位置或過窄區間",
-    "evidence": "含斷訊與補傳的事件清單",
+    "case": "The last valid position is more than 30 minutes old, or no position is available",
+    "expected": "Expose stale or missing position and apply a fallback; do not invent a position or an excessively narrow interval",
+    "evidence": "Event list including connectivity loss and delayed transmission",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V06",
-    "case": "同趟早晚快照原擬跨訓練與測試",
-    "expected": "按 tenant+trip_id 綁組；邊界行程依成熟與時點規則排除或延後",
-    "evidence": "事前凍結 split assignment",
+    "case": "Early and late snapshots from the same trip were initially assigned to training and test",
+    "expected": "Group by tenant+trip_id; exclude or defer boundary trips according to label maturity and temporal rules",
+    "evidence": "Split assignment frozen in advance",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V07",
-    "case": "未見路線與車輛",
-    "expected": "分層報告誤差、覆蓋及回退率，不混入已見群平均",
-    "evidence": "固定保留的路線與車輛 ID 清單",
+    "case": "Unseen routes and vehicles",
+    "expected": "Report error, coverage, and fallback rate by stratum; do not combine them with averages for previously seen groups",
+    "evidence": "Fixed held-out route and vehicle ID lists",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V08",
-    "case": "名目 80% 區間實測只有 60% 覆蓋",
-    "expected": "報告不足校準及區間寬度，不宣稱已達 80%",
-    "evidence": "獨立成熟標籤與凍結測試集",
+    "case": "A nominal 80% interval has only 60% observed coverage",
+    "expected": "Report undercoverage and interval width; do not claim that 80% coverage was achieved",
+    "evidence": "Independent mature labels and a frozen test set",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V09",
-    "case": "兩趟快照數差很多",
-    "expected": "每趟在同分層內合計權重為 1；另列快照級結果",
-    "evidence": "手算少量加權覆蓋與 MAE 案例",
+    "case": "Two trips have substantially different snapshot counts",
+    "expected": "Ensure weights sum to 1 for each trip within each stratum; also report snapshot-level results",
+    "evidence": "Small hand-calculated examples for weighted coverage and MAE",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V10",
-    "case": "同 episode 重送、失敗重試與部分採納",
-    "expected": "僅實際送達形成打擾計數；送達、開啟、採納、處置分開",
-    "evidence": "獨立通知回執與人工案例",
+    "case": "Repeated sends, failed retries, and partial adoption within the same episode",
+    "expected": "Count notification burden only for actual deliveries; distinguish delivery, opening, adoption, and action",
+    "evidence": "Independent notification receipts and manually specified cases",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V11",
-    "case": "延誤分類機率與到場分位數",
-    "expected": "各自評估 Brier/可靠度與區間覆蓋；不能由上下界臆造機率",
-    "evidence": "獨立延誤二元標籤及校準集",
+    "case": "Delay-classification probabilities and arrival quantiles",
+    "expected": "Evaluate Brier score/reliability and interval coverage separately; do not invent probabilities from interval bounds",
+    "evidence": "Independent binary delay labels and a calibration set",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V12",
-    "case": "夏令時間重複一小時與到場更正晚到",
-    "expected": "UTC 依 offset 消歧；原快照/訓練 cutoff 不讀晚到版本",
-    "evidence": "IANA 時區測試及更正 available_time",
+    "case": "A repeated hour during daylight-saving transition and a late-arriving arrival correction",
+    "expected": "Use the UTC offset to disambiguate timestamps; the original snapshot/training cutoff must not access the late-arriving version",
+    "evidence": "IANA timezone tests and correction available_time",
     "status": "planned",
     "execution_override": ""
   },
   {
     "id": "ETA-V13",
-    "case": "2026 實際取得與 2025 合成預報可用時間並存；公開歷史可用未知",
-    "expected": "合成依 2025 scenario 可用時間回放且保留 2026 retrieved_at；公開 unknown 禁用，不倒填為 2025",
-    "evidence": "固定雙時間案例、合成 manifest 與缺歷史接收證據案例",
+    "case": "Actual retrieval in 2026 coexists with synthetic forecast availability in 2025; historical availability of public data is unknown",
+    "expected": "Replay synthetic data using 2025 scenario availability while retaining the 2026 retrieved_at; prohibit public data with unknown availability instead of backfilling it to 2025",
+    "evidence": "Fixed dual-time cases, a synthetic manifest, and cases lacking historical receipt evidence",
     "status": "planned",
     "execution_override": "Use 2026 scenario time and actual retrieval time; no fictitious past availability."
   },
   {
     "id": "ETA-V14",
-    "case": "其他已完成行程標籤與本趟/未成熟/晚知標籤同時存在",
-    "expected": "受限歷史視圖只放行其他已完成且當時已知的核准結果；本趟、未成熟、晚知以及凍結歷史池外資料均拒用",
-    "evidence": "手工固定五種候選歷史結果、快照 cutoff 及訓練歷史池清單",
+    "case": "Other completed-trip labels coexist with current-trip, immature, and late-known labels",
+    "expected": "The restricted history view admits only approved outcomes for other completed trips that were already known at the snapshot; reject the current trip, immature or late-known labels, and data outside the frozen historical pool",
+    "evidence": "Five manually fixed candidate historical outcomes, the snapshot cutoff, and the training-history pool list",
     "status": "planned",
     "execution_override": ""
   }

@@ -70,15 +70,6 @@
     "eta_forecast_version",
     "eta_routing_response"
   ],
-  "github": {
-    "assistant_commit": false,
-    "assistant_push": false,
-    "signature_owner": "user",
-    "remote_ci_status": "not_configured",
-    "repository": "JacobCCMorgan/ds-m01-eta-delay-alerts",
-    "baseline_commit": "ff9ad674434064366c789b5d7de944bfbdb5b0d4",
-    "baseline_commit_verified": true
-  },
   "required_tables": [
     "eta_trip",
     "eta_facility_version",
@@ -119,7 +110,6 @@
     "data_generation": "m2_full_1800_configured",
     "model_training": "planned",
     "technical_validation": "m2_checks_implemented_see_actual_reports",
-    "user_acceptance": "not_started",
     "postgres_service_validation": "not_run_environment_unavailable"
   },
   "methods": {

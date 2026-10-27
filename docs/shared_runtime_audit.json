@@ -5,7 +5,6 @@
   "scope": "Read-only source audit and ten narrow verification groups, refreshed after source-manifest helpers were appended; no project data was read or written and no full integration/model acceptance is claimed.",
   "source": {
     "project_id": "DA-E01",
-    "drive_file_id": "1L4nXY0KHzD6aaXMkwtzVg9PDtwYQ5xLS",
     "zip_file": "DA-E01_v1_source.zip",
     "zip_sha256": "c6f890c1bd0724bcf3f133dde50957a259502280c05f9f4eadd2f75daacc1e0a",
     "zip_hash_independently_checked": true,
@@ -331,7 +330,7 @@
   "ds_m01_helper_observed": {
     "path": "src/ds_m01/common.py",
     "sha256": "1aa015f6f39c1ca0a7f0a4496bec6ad185f0521644c2bf7b2125a17d60b64b94",
-    "status": "Current file narrowly rechecked; existing helper bytes unchanged, new source-manifest functions inspected only.",
+    "status": "File observed at the recorded audit time was narrowly rechecked; existing helper bytes were unchanged, and new source-manifest functions were inspected only.",
     "previous_file_sha256": "2b24ce3bedab5ef6dc70d2896d92f6b303802d232d58d1b35e6282efaf140a6c",
     "unchanged_legacy_prefix_sha256": "2b24ce3bedab5ef6dc70d2896d92f6b303802d232d58d1b35e6282efaf140a6c",
     "new_functions": [
@@ -431,10 +430,6 @@
     "Treat 1,800 trips over nine months as lower sampling density than the old six-month design; do not claim equivalent month-level precision.",
     "Rerun DS-M01-specific contract, temporal availability and leakage tests in M1/M2; this audit does not replace them."
   ],
-  "github_actions": {
-    "commit_created": false,
-    "push_attempted": false
-  },
   "initial_audited_at_utc": "2026-10-27T00:30:36.925758+00:00",
   "refresh_notes": {
     "reason": "Final common.py added source-manifest helpers; previous helper bytes are identical.",
@@ -442,6 +437,7 @@
     "checks_passed": 10,
     "legacy_source_files_unchanged": 165,
     "zip_hash_reverified": true,
-    "final_generator_stability": "Owned by the main execution flow after configuration freeze; not rerun here."
-  }
+    "final_generator_stability": "Generator stability was outside this audit; later integration evidence is maintained separately."
+  },
+  "provenance_context": "Historical M0 audit record. File hashes and execution results describe the artifacts observed at the recorded audit times, not the current repository after subsequent changes. The source archive is identified by filename and SHA256."
 }

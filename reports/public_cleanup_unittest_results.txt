@@ -49,6 +49,6 @@ test_reserved_prediction_input_cannot_be_silently_accepted_or_discarded (test_wa
 test_sql_lineage_finds_missing_parent_and_future_parent_clock (test_warehouse_contract.WarehouseContractTests.test_sql_lineage_finds_missing_parent_and_future_parent_clock) ... ok
 
 ----------------------------------------------------------------------
-Ran 49 tests in 0.916s
+Ran 49 tests in 0.927s
 
 OK
