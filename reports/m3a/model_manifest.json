@@ -1,0 +1,181 @@
+{
+  "baseline_definition_version": "conditional-history-v1",
+  "batch_id": "DS-M01-M3a-20261028-v1",
+  "calibration_performed": false,
+  "delay_probability_model_fitted": false,
+  "evaluated_original_roles": [
+    "train"
+  ],
+  "feature_allowlist": [
+    "tenant_id",
+    "trip_id",
+    "snapshot_id",
+    "snapshot_time",
+    "route_id",
+    "departure_time_bucket",
+    "route_distance_km",
+    "elapsed_trip_seconds"
+  ],
+  "final_test_evaluated": false,
+  "folds": [
+    {
+      "fit_trips": 338,
+      "fold_id": "F01",
+      "historical_exclusions": {
+        "latest_outcome_not_verified": 73
+      },
+      "historical_trips": 265,
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-02-21"
+      ],
+      "training_cutoff_at": "2026-03-01T08:00:00Z",
+      "validation_departure_dates": [
+        "2026-03-01",
+        "2026-03-24"
+      ],
+      "validation_label_cutoff_at": "2026-04-01T07:00:00Z",
+      "validation_snapshots": 1277,
+      "validation_trips": 158
+    },
+    {
+      "fit_trips": 496,
+      "fold_id": "F02",
+      "historical_exclusions": {
+        "latest_outcome_not_verified": 97
+      },
+      "historical_trips": 399,
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-03-24"
+      ],
+      "training_cutoff_at": "2026-04-01T07:00:00Z",
+      "validation_departure_dates": [
+        "2026-04-01",
+        "2026-04-23"
+      ],
+      "validation_label_cutoff_at": "2026-05-01T07:00:00Z",
+      "validation_snapshots": 1230,
+      "validation_trips": 167
+    },
+    {
+      "fit_trips": 663,
+      "fold_id": "F03",
+      "historical_exclusions": {
+        "latest_outcome_not_verified": 128
+      },
+      "historical_trips": 535,
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-04-23"
+      ],
+      "training_cutoff_at": "2026-05-01T07:00:00Z",
+      "validation_departure_dates": [
+        "2026-05-01",
+        "2026-05-24"
+      ],
+      "validation_label_cutoff_at": "2026-06-01T07:00:00Z",
+      "validation_snapshots": 1304,
+      "validation_trips": 163
+    },
+    {
+      "fit_trips": 826,
+      "fold_id": "F04",
+      "historical_exclusions": {
+        "latest_outcome_not_verified": 156
+      },
+      "historical_trips": 670,
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-05-24"
+      ],
+      "training_cutoff_at": "2026-06-01T07:00:00Z",
+      "validation_departure_dates": [
+        "2026-06-01",
+        "2026-06-23"
+      ],
+      "validation_label_cutoff_at": "2026-07-01T07:00:00Z",
+      "validation_snapshots": 1352,
+      "validation_trips": 166
+    }
+  ],
+  "operational_alerts_emitted": false,
+  "original_role_trip_counts": {
+    "calibration": 171,
+    "excluded": 237,
+    "test": 400,
+    "train": 992
+  },
+  "protected_roles": [
+    "calibration",
+    "test",
+    "excluded"
+  ],
+  "settings": {
+    "baseline_definition_version": "conditional-history-v1",
+    "batch_id": "DS-M01-M3a-20261028-v1",
+    "bootstrap_samples": 500,
+    "bootstrap_seed": 20261028,
+    "distance_bin_km": 50,
+    "expected_m2_rebuild_receipt_sha256": "c08dba07e473c4a66019d3a0308472d0abe0ea0d61fb9689bdc8afb239dcd28e",
+    "expected_source_config_sha256": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+    "folds": [
+      {
+        "fold_id": "F01",
+        "train_departure_dates": [
+          "2026-01-01",
+          "2026-02-21"
+        ],
+        "training_cutoff_at": "2026-03-01T00:00:00-08:00",
+        "validation_departure_dates": [
+          "2026-03-01",
+          "2026-03-24"
+        ],
+        "validation_label_cutoff_at": "2026-04-01T00:00:00-07:00"
+      },
+      {
+        "fold_id": "F02",
+        "train_departure_dates": [
+          "2026-01-01",
+          "2026-03-24"
+        ],
+        "training_cutoff_at": "2026-04-01T00:00:00-07:00",
+        "validation_departure_dates": [
+          "2026-04-01",
+          "2026-04-23"
+        ],
+        "validation_label_cutoff_at": "2026-05-01T00:00:00-07:00"
+      },
+      {
+        "fold_id": "F03",
+        "train_departure_dates": [
+          "2026-01-01",
+          "2026-04-23"
+        ],
+        "training_cutoff_at": "2026-05-01T00:00:00-07:00",
+        "validation_departure_dates": [
+          "2026-05-01",
+          "2026-05-24"
+        ],
+        "validation_label_cutoff_at": "2026-06-01T00:00:00-07:00"
+      },
+      {
+        "fold_id": "F04",
+        "train_departure_dates": [
+          "2026-01-01",
+          "2026-05-24"
+        ],
+        "training_cutoff_at": "2026-06-01T00:00:00-07:00",
+        "validation_departure_dates": [
+          "2026-06-01",
+          "2026-06-23"
+        ],
+        "validation_label_cutoff_at": "2026-07-01T00:00:00-07:00"
+      }
+    ],
+    "min_support": 5,
+    "parameter_status": "Engineering defaults fixed before validation scores, not tuned on calibration or final test."
+  },
+  "source_dataset_id": "DS-M01-M2-2026",
+  "source_kind": "synthetic"
+}

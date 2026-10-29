@@ -1,0 +1,35 @@
+{
+  "batch_id": "DS-M01-M3a-20261028-v1",
+  "code_sha256": {
+    "baseline.py": "2f947d9219eb53eb6e7991bc4256ba86b2bfc4ed3a5c2668d9365d77aa25a8e1",
+    "baseline_metrics.py": "1d8efaa878538b063811b3d81781104801e9c62bb995d963daf8169a18d13287",
+    "baseline_run.py": "39ce8118fa8cb5c3308c331b134fbc4c2474598ee13f68281839bd4756401e4b",
+    "common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+    "model_splits.py": "d1c09f2cf8800bd006063afb1c027dfc4fd06bac6512539f44d93a7ded2dcd95",
+    "pipeline.py": "453d6760affc221cca9bd2141c61bdb677df3223fdaf9384bada8e26687438b3"
+  },
+  "executed_at_utc": "2026-10-28T20:55:47.715545+00:00",
+  "input_sha256": {
+    "data/processed/eta_snapshot.jsonl": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f",
+    "data/processed/eta_split_assignment.jsonl": "af2951c4d153ff9d3fcf0de73651a49db05d7e8bbba85a424aa90451d1e9d2cb",
+    "data/processed/feature_lineage.jsonl": "dba784ddb39e400c104e5d6679cb4a03c1b6e835a6584bf3f5e490da2611154e",
+    "data/processed/trip_membership.jsonl": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061",
+    "data/raw/eta_promise_version.jsonl": "8ccabc505c96f681051e977de1d0eae9b1b792512a03e29161699daaadd6cd91",
+    "data/raw/eta_route_version.jsonl": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+    "data/raw/eta_trip_event.jsonl": "28d1807fbd1f69cf5d22a76697f6cd03df8448336805cbc15c9ed3f934494127",
+    "data/raw/eta_trip_outcome.jsonl": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58"
+  },
+  "output_sha256": {
+    "evaluation_rows.jsonl": "17e766b4a120f3d05a99d24083d9fcdae34927dec6727bca5376b5e722082f35",
+    "frozen_history.jsonl": "5e1177841d3905cb642296f500f5284efcd9fee344e969764e85d9d09be8225a",
+    "memberships.jsonl": "079b2ef21f14ed9cc746cd563a4b71425544a7611f72dfae8199d0db302b1d96",
+    "metrics.json": "8f83ae0ffe284ed2e05ec28a726a2e63f0af57fdfc951fa42a6cf197c1231b29",
+    "model_manifest.json": "0ded55c8b5379d8803b02b3c5734a858219ab6563800f327a83db9d5a11326a3",
+    "predictions.jsonl": "096e17b6cb44dd2e46c6489c7d7850f5e451cefca6582d90ca436d10c3e69270"
+  },
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python_version": "3.12.14",
+  "settings_sha256": "8eac552ff1bed556b4e9bd29b86d230e52484ba832e96064181e85e8dc59b8df",
+  "source_config_sha256": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+  "verification": "Input hashes matched the retained M2 rebuild receipt; all fold and baseline guards passed."
+}

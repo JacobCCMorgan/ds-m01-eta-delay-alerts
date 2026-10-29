@@ -2,9 +2,30 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: M2 data milestone, application v0.2.0.** The implementation covers synthetic source generation, point-in-time features and labels, chronological splits, transport checks, and a typed analytical warehouse. Models, calibrated intervals, delay probabilities and alert policies have not been trained or evaluated.
+**Current stage: M3a historical ETA baseline on the v0.2.0 M2 data foundation.** Four training-period chronological folds now evaluate a conditional historical-duration baseline. Candidate models, calibrated intervals, delay probabilities, final-test model evaluation and alert policies remain pending.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## Historical ETA baseline
+
+The retained M3a experiment predicts remaining gate-arrival time from strictly
+prior, tenant-local durations. Route/departure groups fall back to distance bands
+or tenant history; insufficient surviving support produces an unavailable result.
+
+| Training-period validation result | Value |
+|---|---:|
+| Prediction opportunities / trips | 5,163 / 654 |
+| Available predictions over all opportunities | 3,357 / 5,163 (65.02%) |
+| Eligible, supported snapshots / scored trips | 2,347 / 511 |
+| Trip-balanced median-ETA MAE | 17.43 minutes |
+| Trip-bootstrap MAE interval (95%, synthetic sample) | 15.96–19.00 minutes |
+| Raw P10–P90 coverage / mean width | 77.84% / 67.53 minutes |
+
+The error denominator excludes unsupported and unavailable outcomes, while the
+availability denominator retains all opportunities. These synthetic,
+training-period results do not measure final-test or operational performance.
+The P10/P90 interval has not been calibrated. See the [protocol](docs/m3a_baseline.md)
+and [results, denominators and limitations](reports/m3a/README.md).
 
 ## Data and engineering results
 
@@ -45,6 +66,10 @@ The evidence is in [unit test results](reports/unittest_results.txt), [warehouse
 
 These are historical M1/M2 execution results. The documentation and reporting cleanup did not rerun the full M2 dataset; its current checks are recorded separately in [public cleanup validation](reports/public_cleanup_validation.json).
 
+M3a's fresh M2 replay, extended tests, input-hash checks and deterministic baseline
+replay are recorded separately in [M3a verification](reports/m3a/verification.json).
+The older receipts above have not been rewritten to describe the new run.
+
 ## Run locally
 
 Use Python 3.11 or later. The recorded full run used Linux and Python 3.12.14; a full macOS run has not been verified. The snapshot and local HTTP workflow requires no company files, paid APIs or credentials.
@@ -68,6 +93,15 @@ python scripts/check_rebuild.py --root . --config config/m2.json
 
 `run` replaces generated data in the selected root. Explicit `--config` selects the reproducible configuration; the CLI otherwise defaults to `config/m2.json` when present. The smaller historical configuration is [config/m1.json](config/m1.json); use a separate project copy for M1 experiments to keep M2 outputs distinct.
 
+With the frozen M2 model inputs available, run training-only baseline validation:
+
+```bash
+python -m ds_m01.baseline_run --root . --config config/m3a.json --output reports/m3a_local
+```
+
+Choose a new output directory for a subsequent run. See the [M3a protocol](docs/m3a_baseline.md)
+for the exact required inputs, output files and figure command.
+
 The complete dataset occupies approximately 12.6 GB before compression. The recorded full-run peak RSS was about 7.23 GiB; resource use varies by machine. Allow approximately 30 GB of free disk for a complete fresh rebuild and HTTP parity checks. Generated data are excluded from the source repository.
 
 Use [plot_data_quality.py](scripts/plot_data_quality.py) to regenerate the English validation figures from the retained summary reports:
@@ -83,18 +117,19 @@ The 11 reserved tables have declared types and nullability but no model, alert, 
 
 For the next modeling stage, the unseen-route-only test cohort has 29 eligible trips and the joint unseen-vehicle/unseen-route cohort has four. These sparse cohorts support descriptive reporting, not reliable deployment claims. A threshold of 30 trips is a coverage warning, not a power analysis. The training set also contains 97 eligible snapshots without a prior historical pool, requiring a defined fallback or unavailable result.
 
-Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. Subsequent work covers chronological baselines and candidate models, interval/probability calibration, frozen evaluation, and alert delivery and action follow-up.
+Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. Subsequent work covers candidate models, interval/probability calibration, frozen final evaluation, and alert delivery and action follow-up. The empirical baseline and its training-only validation are now available; they do not complete M3.
 
 ## Repository guide
 
 | Location | Purpose |
 |---|---|
-| [src/ds_m01/](src/ds_m01/) | Generator, point-in-time pipeline, warehouse, HTTP transport and PostgreSQL adapter |
+| [src/ds_m01/](src/ds_m01/) | Data pipeline, historical baseline, chronological validation, transport and PostgreSQL adapter |
 | [config/](config/), [contracts/](contracts/), [sql/](sql/) | Reproducible configurations, requirements and typed schema definitions |
 | [tests/](tests/) | Independent temporal fixtures, build invariants, transport and publication checks |
 | [scripts/](scripts/) | Rebuild, readiness, generator stability and figure generation |
 | [reports/](reports/) | Execution receipts, data summaries and validation figures |
 | [docs/m1_scope.md](docs/m1_scope.md), [docs/m2_scope.md](docs/m2_scope.md) | Historical trial scope and full data milestone scope |
+| [docs/m3a_baseline.md](docs/m3a_baseline.md) | Historical baseline, fold cutoffs, protected periods and metric denominators |
 | [docs/change_log.md](docs/change_log.md) | Implementation changes and technical findings |
 
 A full run creates `data/raw/`, `data/processed/`, `data/parquet/` and `data/ds_m01_m2.duckdb`. `data/source_manifest.json` guards the 13 raw sources with counts and SHA256 digests. Generated `validation/` artifacts contain engineering-only synthetic truth and must never become model features.

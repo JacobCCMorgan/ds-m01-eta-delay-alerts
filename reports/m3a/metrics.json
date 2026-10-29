@@ -1,0 +1,1382 @@
+{
+  "interval_status": "Raw conditional empirical P10/P90; not calibrated.",
+  "overall": {
+    "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+    "counts": {
+      "eligible_snapshots": 2358,
+      "eligible_trips": 511,
+      "snapshots": 5163,
+      "supported_eligible_snapshots": 2347,
+      "supported_eligible_trips": 511,
+      "trips": 654
+    },
+    "eligible_support_rate": 0.9953350296861747,
+    "label_eligibility_counts": {
+      "already_arrived": 638,
+      "cancelled": 55,
+      "eligible": 2358,
+      "not_mature": 2112
+    },
+    "mae_bootstrap_95pct": {
+      "bootstrap_samples": 500,
+      "bootstrap_seed": 20261028,
+      "confidence_level": 0.95,
+      "lower_minutes": 15.95603083030143,
+      "method": "trip_cluster_percentile",
+      "reason": null,
+      "trip_count": 511,
+      "upper_minutes": 18.999744899204483
+    },
+    "metric_scope": "eligible_and_supported_snapshots_only",
+    "metrics": {
+      "MAE_minutes": 17.434066458538222,
+      "RMSE_minutes": 27.427670448020027,
+      "bias_minutes": -1.5839186876273181,
+      "mean_width_minutes": 67.52534364333707,
+      "p10_p90_empirical_coverage": 0.7783690977428747,
+      "quantile_pinball_minutes": {
+        "0.1": 2.8883824308415496,
+        "0.5": 8.717033229269111,
+        "0.9": 7.307789562950645
+      }
+    },
+    "prediction_status_counts": {
+      "available": 3357,
+      "unsupported": 1806
+    },
+    "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+  },
+  "scope": "training-period chronological validation on synthetic 2026 scenarios",
+  "slices": {
+    "elapsed_slice": {
+      "0-60m": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 1022,
+          "eligible_trips": 511,
+          "snapshots": 1253,
+          "supported_eligible_snapshots": 1022,
+          "supported_eligible_trips": 511,
+          "trips": 654
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "cancelled": 55,
+          "eligible": 1022,
+          "not_mature": 176
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 17.74252583687867,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 511,
+          "upper_minutes": 22.004726889142205
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 19.84510885311481,
+          "RMSE_minutes": 32.04674203536332,
+          "bias_minutes": -6.834709578359426,
+          "mean_width_minutes": 66.34939003649708,
+          "p10_p90_empirical_coverage": 0.7710371819960861,
+          "quantile_pinball_minutes": {
+            "0.1": 3.184445589214938,
+            "0.5": 9.922554426557404,
+            "0.9": 8.552075183022504
+          }
+        },
+        "prediction_status_counts": {
+          "available": 1253
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "180-360m": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 188,
+          "eligible_trips": 77,
+          "snapshots": 904,
+          "supported_eligible_snapshots": 178,
+          "supported_eligible_trips": 74,
+          "trips": 195
+        },
+        "eligible_support_rate": 0.9468085106382979,
+        "label_eligibility_counts": {
+          "already_arrived": 188,
+          "eligible": 188,
+          "not_mature": 528
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 24.058960292150807,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 74,
+          "upper_minutes": 30.77101786705898
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 27.194805144515765,
+          "RMSE_minutes": 32.678039684045835,
+          "bias_minutes": 13.271409348216965,
+          "mean_width_minutes": 88.66250143070533,
+          "p10_p90_empirical_coverage": 0.6801801801801802,
+          "quantile_pinball_minutes": {
+            "0.1": 4.919255448824286,
+            "0.5": 13.597402572257883,
+            "0.9": 8.014056570576951
+          }
+        },
+        "prediction_status_counts": {
+          "available": 539,
+          "unsupported": 365
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "360m+": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 1,
+          "eligible_trips": 1,
+          "snapshots": 1441,
+          "supported_eligible_snapshots": 0,
+          "supported_eligible_trips": 0,
+          "trips": 121
+        },
+        "eligible_support_rate": 0.0,
+        "label_eligibility_counts": {
+          "already_arrived": 384,
+          "eligible": 1,
+          "not_mature": 1056
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": null,
+          "method": "trip_cluster_percentile",
+          "reason": "fewer_than_two_scored_trips",
+          "trip_count": 0,
+          "upper_minutes": null
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": null,
+          "RMSE_minutes": null,
+          "bias_minutes": null,
+          "mean_width_minutes": null,
+          "p10_p90_empirical_coverage": null,
+          "quantile_pinball_minutes": {
+            "0.1": null,
+            "0.5": null,
+            "0.9": null
+          }
+        },
+        "prediction_status_counts": {
+          "unsupported": 1441
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "60-180m": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 1147,
+          "eligible_trips": 478,
+          "snapshots": 1565,
+          "supported_eligible_snapshots": 1147,
+          "supported_eligible_trips": 478,
+          "trips": 569
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 66,
+          "eligible": 1147,
+          "not_mature": 352
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 15.35249678271814,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 478,
+          "upper_minutes": 18.572289604930955
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 16.989066331194792,
+          "RMSE_minutes": 26.966957013048148,
+          "bias_minutes": -1.0367051536058811,
+          "mean_width_minutes": 68.44570738981724,
+          "p10_p90_empirical_coverage": 0.7853905160390516,
+          "quantile_pinball_minutes": {
+            "0.1": 2.80086948834452,
+            "0.5": 8.494533165597396,
+            "0.9": 7.127583212746978
+          }
+        },
+        "prediction_status_counts": {
+          "available": 1565
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      }
+    },
+    "fold_id": {
+      "F01": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 559,
+          "eligible_trips": 125,
+          "snapshots": 1277,
+          "supported_eligible_snapshots": 554,
+          "supported_eligible_trips": 125,
+          "trips": 158
+        },
+        "eligible_support_rate": 0.9910554561717353,
+        "label_eligibility_counts": {
+          "already_arrived": 202,
+          "cancelled": 12,
+          "eligible": 559,
+          "not_mature": 504
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 14.520895233128435,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 125,
+          "upper_minutes": 20.8893930835224
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 17.69959471035397,
+          "RMSE_minutes": 27.470892184926903,
+          "bias_minutes": -0.978578071401587,
+          "mean_width_minutes": 64.5841648310013,
+          "p10_p90_empirical_coverage": 0.7036825396825397,
+          "quantile_pinball_minutes": {
+            "0.1": 3.183452016958783,
+            "0.5": 8.849797355176985,
+            "0.9": 7.5133678851625065
+          }
+        },
+        "prediction_status_counts": {
+          "available": 779,
+          "unsupported": 498
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "F02": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 612,
+          "eligible_trips": 131,
+          "snapshots": 1230,
+          "supported_eligible_snapshots": 607,
+          "supported_eligible_trips": 131,
+          "trips": 167
+        },
+        "eligible_support_rate": 0.9918300653594772,
+        "label_eligibility_counts": {
+          "already_arrived": 122,
+          "cancelled": 16,
+          "eligible": 612,
+          "not_mature": 480
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 14.274435149674648,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 131,
+          "upper_minutes": 20.877947123804127
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 17.354414290369217,
+          "RMSE_minutes": 27.744477320222433,
+          "bias_minutes": -3.439840615015411,
+          "mean_width_minutes": 67.48442638682425,
+          "p10_p90_empirical_coverage": 0.8079970919665577,
+          "quantile_pinball_minutes": {
+            "0.1": 2.881845881273385,
+            "0.5": 8.677207145184608,
+            "0.9": 7.0903703545207915
+          }
+        },
+        "prediction_status_counts": {
+          "available": 819,
+          "unsupported": 411
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "F03": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 557,
+          "eligible_trips": 127,
+          "snapshots": 1304,
+          "supported_eligible_snapshots": 556,
+          "supported_eligible_trips": 127,
+          "trips": 163
+        },
+        "eligible_support_rate": 0.9982046678635548,
+        "label_eligibility_counts": {
+          "already_arrived": 182,
+          "cancelled": 13,
+          "eligible": 557,
+          "not_mature": 552
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 13.400652848354952,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 127,
+          "upper_minutes": 19.83961088876199
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 16.726249240906686,
+          "RMSE_minutes": 26.813207902715853,
+          "bias_minutes": -0.8336745034894325,
+          "mean_width_minutes": 66.69086105029197,
+          "p10_p90_empirical_coverage": 0.7876359205099362,
+          "quantile_pinball_minutes": {
+            "0.1": 2.718260111841972,
+            "0.5": 8.363124620453343,
+            "0.9": 7.375058334958453
+          }
+        },
+        "prediction_status_counts": {
+          "available": 851,
+          "unsupported": 453
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "F04": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 630,
+          "eligible_trips": 128,
+          "snapshots": 1352,
+          "supported_eligible_snapshots": 630,
+          "supported_eligible_trips": 128,
+          "trips": 166
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 132,
+          "cancelled": 14,
+          "eligible": 630,
+          "not_mature": 576
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 15.027595633277882,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 128,
+          "upper_minutes": 20.627242262943856
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 17.958567936603664,
+          "RMSE_minutes": 27.66116294622869,
+          "bias_minutes": -1.0200344370483152,
+          "mean_width_minutes": 71.26742802975802,
+          "p10_p90_empirical_coverage": 0.811788363546176,
+          "quantile_pinball_minutes": {
+            "0.1": 2.7757115264799994,
+            "0.5": 8.979283968301832,
+            "0.9": 7.262801219066555
+          }
+        },
+        "prediction_status_counts": {
+          "available": 908,
+          "unsupported": 444
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      }
+    },
+    "pool": {
+      "distance_band": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 2271,
+          "eligible_trips": 505,
+          "snapshots": 2961,
+          "supported_eligible_snapshots": 2271,
+          "supported_eligible_trips": 505,
+          "trips": 648
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 74,
+          "cancelled": 54,
+          "eligible": 2271,
+          "not_mature": 562
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 16.198255998656997,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 505,
+          "upper_minutes": 19.72791849648598
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 17.944630707796076,
+          "RMSE_minutes": 28.552589511105893,
+          "bias_minutes": -2.8011261598985544,
+          "mean_width_minutes": 66.695398372299,
+          "p10_p90_empirical_coverage": 0.7718320403468918,
+          "quantile_pinball_minutes": {
+            "0.1": 2.937724362838911,
+            "0.5": 8.972315353898038,
+            "0.9": 7.672819918043573
+          }
+        },
+        "prediction_status_counts": {
+          "available": 2961
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "route_departure": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 31,
+          "eligible_trips": 9,
+          "snapshots": 44,
+          "supported_eligible_snapshots": 31,
+          "supported_eligible_trips": 9,
+          "trips": 13
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "cancelled": 1,
+          "eligible": 31,
+          "not_mature": 12
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 8.142174688055555,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 9,
+          "upper_minutes": 49.49472920166657
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 26.58103867654321,
+          "RMSE_minutes": 42.47072005803155,
+          "bias_minutes": -18.447669820987656,
+          "mean_width_minutes": 49.45829337530865,
+          "p10_p90_empirical_coverage": 0.6666666666666666,
+          "quantile_pinball_minutes": {
+            "0.1": 3.5544634920864193,
+            "0.5": 13.290519338271604,
+            "0.9": 19.611323272111107
+          }
+        },
+        "prediction_status_counts": {
+          "available": 44
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "tenant_global": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 45,
+          "eligible_trips": 26,
+          "snapshots": 352,
+          "supported_eligible_snapshots": 45,
+          "supported_eligible_trips": 26,
+          "trips": 102
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 83,
+          "eligible": 45,
+          "not_mature": 224
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 29.50042354724359,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 26,
+          "upper_minutes": 40.81823570889022
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 35.202316907051284,
+          "RMSE_minutes": 40.04769282279071,
+          "bias_minutes": 20.19832487275641,
+          "mean_width_minutes": 109.80645037403846,
+          "p10_p90_empirical_coverage": 0.592948717948718,
+          "quantile_pinball_minutes": {
+            "0.1": 5.44902936261111,
+            "0.5": 17.601158453525642,
+            "0.9": 10.049622385102564
+          }
+        },
+        "prediction_status_counts": {
+          "available": 352
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "unsupported": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 11,
+          "eligible_trips": 8,
+          "snapshots": 1806,
+          "supported_eligible_snapshots": 0,
+          "supported_eligible_trips": 0,
+          "trips": 128
+        },
+        "eligible_support_rate": 0.0,
+        "label_eligibility_counts": {
+          "already_arrived": 481,
+          "eligible": 11,
+          "not_mature": 1314
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": null,
+          "method": "trip_cluster_percentile",
+          "reason": "fewer_than_two_scored_trips",
+          "trip_count": 0,
+          "upper_minutes": null
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": null,
+          "RMSE_minutes": null,
+          "bias_minutes": null,
+          "mean_width_minutes": null,
+          "p10_p90_empirical_coverage": null,
+          "quantile_pinball_minutes": {
+            "0.1": null,
+            "0.5": null,
+            "0.9": null
+          }
+        },
+        "prediction_status_counts": {
+          "unsupported": 1806
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      }
+    },
+    "position_validity": {
+      "low_confidence": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 201,
+          "eligible_trips": 119,
+          "snapshots": 2611,
+          "supported_eligible_snapshots": 201,
+          "supported_eligible_trips": 119,
+          "trips": 239
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 617,
+          "eligible": 201,
+          "not_mature": 1793
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 9.677193702965686,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 119,
+          "upper_minutes": 12.832669408098738
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 11.153624330392157,
+          "RMSE_minutes": 14.404721909461351,
+          "bias_minutes": 4.100779508473389,
+          "mean_width_minutes": 67.04141329231095,
+          "p10_p90_empirical_coverage": 0.8613445378151261,
+          "quantile_pinball_minutes": {
+            "0.1": 2.2395408577261904,
+            "0.5": 5.5768121651960785,
+            "0.9": 5.225554876735995
+          }
+        },
+        "prediction_status_counts": {
+          "available": 816,
+          "unsupported": 1795
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "no_position": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 236,
+          "eligible_trips": 236,
+          "snapshots": 308,
+          "supported_eligible_snapshots": 236,
+          "supported_eligible_trips": 236,
+          "trips": 308
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "cancelled": 25,
+          "eligible": 236,
+          "not_mature": 47
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 18.143637888253,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 236,
+          "upper_minutes": 25.292268265274537
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 21.69222160233051,
+          "RMSE_minutes": 34.77305330097393,
+          "bias_minutes": -7.914169634745763,
+          "mean_width_minutes": 64.62950725665256,
+          "p10_p90_empirical_coverage": 0.7372881355932204,
+          "quantile_pinball_minutes": {
+            "0.1": 3.4352808257775425,
+            "0.5": 10.846110801165255,
+            "0.9": 9.089443041780365
+          }
+        },
+        "prediction_status_counts": {
+          "available": 308
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "valid": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 1921,
+          "eligible_trips": 498,
+          "snapshots": 2244,
+          "supported_eligible_snapshots": 1910,
+          "supported_eligible_trips": 498,
+          "trips": 616
+        },
+        "eligible_support_rate": 0.9942738157209786,
+        "label_eligibility_counts": {
+          "already_arrived": 21,
+          "cancelled": 30,
+          "eligible": 1921,
+          "not_mature": 272
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 15.89243896081291,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 498,
+          "upper_minutes": 19.001533439695685
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 17.448352848588453,
+          "RMSE_minutes": 27.27010086350334,
+          "bias_minutes": -1.1136765597688816,
+          "mean_width_minutes": 68.13502766804501,
+          "p10_p90_empirical_coverage": 0.7757509837329115,
+          "quantile_pinball_minutes": {
+            "0.1": 2.8904563070347886,
+            "0.5": 8.724176424294226,
+            "0.9": 7.289918851787314
+          }
+        },
+        "prediction_status_counts": {
+          "available": 2233,
+          "unsupported": 11
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      }
+    },
+    "route_id": {
+      "ROUTE-01": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 127,
+          "eligible_trips": 38,
+          "snapshots": 338,
+          "supported_eligible_snapshots": 127,
+          "supported_eligible_trips": 38,
+          "trips": 48
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 63,
+          "cancelled": 4,
+          "eligible": 127,
+          "not_mature": 144
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 7.260519551192434,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 38,
+          "upper_minutes": 16.70343800343841
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 11.472508358150584,
+          "RMSE_minutes": 23.29814554653197,
+          "bias_minutes": -6.358817232236842,
+          "mean_width_minutes": 88.64716525786551,
+          "p10_p90_empirical_coverage": 0.9342105263157895,
+          "quantile_pinball_minutes": {
+            "0.1": 2.3708961257722954,
+            "0.5": 5.736254179075292,
+            "0.9": 7.51663356801133
+          }
+        },
+        "prediction_status_counts": {
+          "available": 187,
+          "unsupported": 151
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-02": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 153,
+          "eligible_trips": 45,
+          "snapshots": 396,
+          "supported_eligible_snapshots": 152,
+          "supported_eligible_trips": 45,
+          "trips": 60
+        },
+        "eligible_support_rate": 0.9934640522875817,
+        "label_eligibility_counts": {
+          "already_arrived": 21,
+          "cancelled": 6,
+          "eligible": 153,
+          "not_mature": 216
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 11.500822601918982,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 45,
+          "upper_minutes": 20.76233882918397
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 15.690795594314373,
+          "RMSE_minutes": 26.102228080006586,
+          "bias_minutes": -1.9120198023787471,
+          "mean_width_minutes": 86.96702759817505,
+          "p10_p90_empirical_coverage": 0.8111111111111111,
+          "quantile_pinball_minutes": {
+            "0.1": 3.0699626078236335,
+            "0.5": 7.845397797157187,
+            "0.9": 7.7237227189815245
+          }
+        },
+        "prediction_status_counts": {
+          "available": 225,
+          "unsupported": 171
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-03": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 123,
+          "eligible_trips": 43,
+          "snapshots": 411,
+          "supported_eligible_snapshots": 123,
+          "supported_eligible_trips": 43,
+          "trips": 59
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 42,
+          "cancelled": 6,
+          "eligible": 123,
+          "not_mature": 240
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 13.701655840445092,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 43,
+          "upper_minutes": 20.486463842804103
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 16.943484965697678,
+          "RMSE_minutes": 22.710350653924422,
+          "bias_minutes": 9.273355909922481,
+          "mean_width_minutes": 89.42776846100388,
+          "p10_p90_empirical_coverage": 0.6728682170542636,
+          "quantile_pinball_minutes": {
+            "0.1": 2.585625048817442,
+            "0.5": 8.471742482848839,
+            "0.9": 8.382699970347543
+          }
+        },
+        "prediction_status_counts": {
+          "available": 210,
+          "unsupported": 201
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-04": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 287,
+          "eligible_trips": 57,
+          "snapshots": 563,
+          "supported_eligible_snapshots": 282,
+          "supported_eligible_trips": 57,
+          "trips": 69
+        },
+        "eligible_support_rate": 0.9825783972125436,
+        "label_eligibility_counts": {
+          "already_arrived": 57,
+          "cancelled": 3,
+          "eligible": 287,
+          "not_mature": 216
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 10.64451279040497,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 57,
+          "upper_minutes": 22.125932129089964
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 15.854773075604985,
+          "RMSE_minutes": 27.547217725763502,
+          "bias_minutes": -3.7685128694715955,
+          "mean_width_minutes": 47.600158604288225,
+          "p10_p90_empirical_coverage": 0.731077694235589,
+          "quantile_pinball_minutes": {
+            "0.1": 3.1999819687823035,
+            "0.5": 7.927386537802493,
+            "0.9": 7.264995865010345
+          }
+        },
+        "prediction_status_counts": {
+          "available": 354,
+          "unsupported": 209
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-05": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 226,
+          "eligible_trips": 42,
+          "snapshots": 575,
+          "supported_eligible_snapshots": 226,
+          "supported_eligible_trips": 42,
+          "trips": 61
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 77,
+          "cancelled": 8,
+          "eligible": 226,
+          "not_mature": 264
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 15.319892117903686,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 42,
+          "upper_minutes": 24.650740337754044
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 19.507950757728175,
+          "RMSE_minutes": 25.548710501189532,
+          "bias_minutes": 6.570988581636905,
+          "mean_width_minutes": 50.70936491057341,
+          "p10_p90_empirical_coverage": 0.7710317460317461,
+          "quantile_pinball_minutes": {
+            "0.1": 3.18363080964289,
+            "0.5": 9.753975378864087,
+            "0.9": 5.862525541594015
+          }
+        },
+        "prediction_status_counts": {
+          "available": 387,
+          "unsupported": 188
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-06": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 187,
+          "eligible_trips": 42,
+          "snapshots": 402,
+          "supported_eligible_snapshots": 187,
+          "supported_eligible_trips": 42,
+          "trips": 55
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 41,
+          "cancelled": 6,
+          "eligible": 187,
+          "not_mature": 168
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 13.287794539866674,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 42,
+          "upper_minutes": 24.227370144619766
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 19.00444074684004,
+          "RMSE_minutes": 28.38100615575881,
+          "bias_minutes": -2.890662699144465,
+          "mean_width_minutes": 70.24757935491424,
+          "p10_p90_empirical_coverage": 0.7896825396825397,
+          "quantile_pinball_minutes": {
+            "0.1": 2.74720764519195,
+            "0.5": 9.50222037342002,
+            "0.9": 7.614855178811372
+          }
+        },
+        "prediction_status_counts": {
+          "available": 291,
+          "unsupported": 111
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-07": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 151,
+          "eligible_trips": 49,
+          "snapshots": 434,
+          "supported_eligible_snapshots": 151,
+          "supported_eligible_trips": 49,
+          "trips": 61
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 87,
+          "cancelled": 4,
+          "eligible": 151,
+          "not_mature": 192
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 9.115233351334224,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 49,
+          "upper_minutes": 18.735187169627977
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 13.505456364046807,
+          "RMSE_minutes": 25.352645691402095,
+          "bias_minutes": -1.2256587607264369,
+          "mean_width_minutes": 31.431429491944847,
+          "p10_p90_empirical_coverage": 0.7434402332361516,
+          "quantile_pinball_minutes": {
+            "0.1": 1.8509217989446471,
+            "0.5": 6.752728182023404,
+            "0.9": 6.082127514141966
+          }
+        },
+        "prediction_status_counts": {
+          "available": 285,
+          "unsupported": 149
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-08": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 451,
+          "eligible_trips": 50,
+          "snapshots": 743,
+          "supported_eligible_snapshots": 449,
+          "supported_eligible_trips": 50,
+          "trips": 63
+        },
+        "eligible_support_rate": 0.9955654101995566,
+        "label_eligibility_counts": {
+          "already_arrived": 49,
+          "cancelled": 3,
+          "eligible": 451,
+          "not_mature": 240
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 22.48944209278693,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 50,
+          "upper_minutes": 33.336593213322196
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 27.45468993451301,
+          "RMSE_minutes": 34.71567515901874,
+          "bias_minutes": 1.6613726747980209,
+          "mean_width_minutes": 104.37650290738203,
+          "p10_p90_empirical_coverage": 0.844479797979798,
+          "quantile_pinball_minutes": {
+            "0.1": 3.91544532093136,
+            "0.5": 13.727344967256505,
+            "0.9": 8.894324800495262
+          }
+        },
+        "prediction_status_counts": {
+          "available": 580,
+          "unsupported": 163
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-09": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 260,
+          "eligible_trips": 56,
+          "snapshots": 445,
+          "supported_eligible_snapshots": 258,
+          "supported_eligible_trips": 56,
+          "trips": 66
+        },
+        "eligible_support_rate": 0.9923076923076923,
+        "label_eligibility_counts": {
+          "already_arrived": 60,
+          "cancelled": 5,
+          "eligible": 260,
+          "not_mature": 120
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 11.983200928310266,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 56,
+          "upper_minutes": 22.282134474737674
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 16.43724499401573,
+          "RMSE_minutes": 26.95879610280721,
+          "bias_minutes": 0.7286195622406452,
+          "mean_width_minutes": 70.34028516914961,
+          "p10_p90_empirical_coverage": 0.7500637755102041,
+          "quantile_pinball_minutes": {
+            "0.1": 2.6417981586570263,
+            "0.5": 8.218622497007866,
+            "0.9": 7.376001557779828
+          }
+        },
+        "prediction_status_counts": {
+          "available": 312,
+          "unsupported": 133
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-10": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 167,
+          "eligible_trips": 45,
+          "snapshots": 398,
+          "supported_eligible_snapshots": 167,
+          "supported_eligible_trips": 45,
+          "trips": 54
+        },
+        "eligible_support_rate": 1.0,
+        "label_eligibility_counts": {
+          "already_arrived": 84,
+          "cancelled": 3,
+          "eligible": 167,
+          "not_mature": 144
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 9.218413995107177,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 45,
+          "upper_minutes": 21.509771418399907
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 15.2358748572209,
+          "RMSE_minutes": 27.48520431136319,
+          "bias_minutes": -6.3685099053813925,
+          "mean_width_minutes": 37.22328637484241,
+          "p10_p90_empirical_coverage": 0.6842857142857143,
+          "quantile_pinball_minutes": {
+            "0.1": 2.524312805802831,
+            "0.5": 7.61793742861045,
+            "0.9": 6.698416949757249
+          }
+        },
+        "prediction_status_counts": {
+          "available": 233,
+          "unsupported": 165
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "ROUTE-11": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 226,
+          "eligible_trips": 44,
+          "snapshots": 458,
+          "supported_eligible_snapshots": 225,
+          "supported_eligible_trips": 44,
+          "trips": 58
+        },
+        "eligible_support_rate": 0.995575221238938,
+        "label_eligibility_counts": {
+          "already_arrived": 57,
+          "cancelled": 7,
+          "eligible": 226,
+          "not_mature": 168
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 14.697379706959449,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 44,
+          "upper_minutes": 26.43194210540138
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 19.9171030029329,
+          "RMSE_minutes": 30.151895236510327,
+          "bias_minutes": -13.578644665559164,
+          "mean_width_minutes": 72.98814294990261,
+          "p10_p90_empirical_coverage": 0.8668831168831169,
+          "quantile_pinball_minutes": {
+            "0.1": 3.5691540969327247,
+            "0.5": 9.95855150146645,
+            "0.9": 6.891924482935323
+          }
+        },
+        "prediction_status_counts": {
+          "available": 293,
+          "unsupported": 165
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      }
+    },
+    "tenant_id": {
+      "T01": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 690,
+          "eligible_trips": 183,
+          "snapshots": 1708,
+          "supported_eligible_snapshots": 684,
+          "supported_eligible_trips": 183,
+          "trips": 236
+        },
+        "eligible_support_rate": 0.991304347826087,
+        "label_eligibility_counts": {
+          "already_arrived": 183,
+          "cancelled": 19,
+          "eligible": 690,
+          "not_mature": 816
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 13.104859671787024,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 183,
+          "upper_minutes": 17.923899246614162
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 15.160289826165865,
+          "RMSE_minutes": 25.254800555808163,
+          "bias_minutes": -0.7853927615587861,
+          "mean_width_minutes": 75.63230385783804,
+          "p10_p90_empirical_coverage": 0.7792609940150924,
+          "quantile_pinball_minutes": {
+            "0.1": 2.8514930024653116,
+            "0.5": 7.580144913082933,
+            "0.9": 7.6926801145854276
+          }
+        },
+        "prediction_status_counts": {
+          "available": 976,
+          "unsupported": 732
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "T02": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 1015,
+          "eligible_trips": 183,
+          "snapshots": 2154,
+          "supported_eligible_snapshots": 1013,
+          "supported_eligible_trips": 183,
+          "trips": 240
+        },
+        "eligible_support_rate": 0.9980295566502463,
+        "label_eligibility_counts": {
+          "already_arrived": 254,
+          "cancelled": 21,
+          "eligible": 1015,
+          "not_mature": 864
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 17.575513348328645,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 183,
+          "upper_minutes": 22.658880651524072
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 19.95640602052355,
+          "RMSE_minutes": 28.914717413361835,
+          "bias_minutes": 0.9704100629999352,
+          "mean_width_minutes": 64.69484617281356,
+          "p10_p90_empirical_coverage": 0.7879921384019746,
+          "quantile_pinball_minutes": {
+            "0.1": 2.926571854086989,
+            "0.5": 9.978203010261774,
+            "0.9": 7.151860538113365
+          }
+        },
+        "prediction_status_counts": {
+          "available": 1543,
+          "unsupported": 611
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      },
+      "T03": {
+        "bias_direction": "positive_means_predicted_remaining_time_is_too_long",
+        "counts": {
+          "eligible_snapshots": 653,
+          "eligible_trips": 145,
+          "snapshots": 1301,
+          "supported_eligible_snapshots": 650,
+          "supported_eligible_trips": 145,
+          "trips": 178
+        },
+        "eligible_support_rate": 0.9954058192955589,
+        "label_eligibility_counts": {
+          "already_arrived": 201,
+          "cancelled": 15,
+          "eligible": 653,
+          "not_mature": 432
+        },
+        "mae_bootstrap_95pct": {
+          "bootstrap_samples": 500,
+          "bootstrap_seed": 20261028,
+          "confidence_level": 0.95,
+          "lower_minutes": 14.29496708895234,
+          "method": "trip_cluster_percentile",
+          "reason": null,
+          "trip_count": 145,
+          "upper_minutes": 20.607923165183184
+        },
+        "metric_scope": "eligible_and_supported_snapshots_only",
+        "metrics": {
+          "MAE_minutes": 17.12036289909565,
+          "RMSE_minutes": 28.124863660757512,
+          "bias_minutes": -5.815452520974413,
+          "mean_width_minutes": 60.866083766455176,
+          "p10_p90_empirical_coverage": 0.7650985221674877,
+          "quantile_pinball_minutes": {
+            "0.1": 2.886741747661798,
+            "0.5": 8.560181449547825,
+            "0.9": 7.018824325682074
+          }
+        },
+        "prediction_status_counts": {
+          "available": 838,
+          "unsupported": 463
+        },
+        "weighting": "equal_scored_trip_weight_then_equal_snapshot_weight_within_trip"
+      }
+    }
+  },
+  "weighting": "Each supported eligible trip has weight one; its snapshots share that weight."
+}

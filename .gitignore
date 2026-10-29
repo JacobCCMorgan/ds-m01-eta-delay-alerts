@@ -18,3 +18,7 @@ validation/
 .pipeline-stage-*/
 *.duckdb.wal
 *.duckdb.tmp/
+
+# Separate local baseline replays from the retained M3a evidence
+reports/m3a_local*/
+.m3a-stage-*/

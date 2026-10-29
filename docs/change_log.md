@@ -2,6 +2,29 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-10-28 — M3a historical baseline
+
+- Added four expanding, trip-grouped validation folds inside the original M2
+  training period, with separate exclusive fit and evaluation-label cutoffs.
+- Reconstructed raw outcome versions at each fit cutoff so later corrections
+  cannot replace what was known when a historical pool was frozen.
+- Implemented conditional remaining-duration P10/P50/P90, tenant-local
+  route/departure and distance/global fallbacks, and explicit unsupported output.
+- Added trip-balanced error, raw interval and support metrics with a fixed-seed
+  trip bootstrap. Predictions are emitted before evaluation labels are joined.
+- Replayed the full M2 pipeline and verified the eight consumed input hashes.
+  All 102 tests passed; six core baseline outputs matched across two executions.
+- Retained 5,163 opportunities. Of these, 3,357 had predictions; the error
+  denominator was 2,347 eligible supported snapshots from 511 trips. MAE was
+  17.43 minutes on this synthetic training-period validation only.
+- Exact route/departure history was sparse: 44 predictions used that pool,
+  compared with 2,961 distance-band and 352 tenant-global fallbacks. No tuning
+  was performed on July calibration or August–September final-test outcomes.
+
+The M3a experimental outputs do not populate the reserved model/alert schemas.
+Candidate-model fitting, calibration, final-test scoring and alerts remain
+pending. See [M3a scope](m3a_baseline.md) and [results](../reports/m3a/README.md).
+
 ## 2026-10-27 — M0 and M1 foundation
 
 - Audited shared entity identifiers and named seed behavior without modifying the reference source.

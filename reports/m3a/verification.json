@@ -1,0 +1,56 @@
+{
+  "verified_at_utc": "2026-10-28T21:02:35.621504+00:00",
+  "base_commit": "38387ebc8421048906c62adb2f4bcbac236f5dca",
+  "source_files_matched_github_blobs": 78,
+  "unit_tests_passed": 102,
+  "warehouse_replay_passed": true,
+  "warehouse_checks": 27,
+  "m2_replay_summary": {
+    "trip_count": 1800,
+    "snapshot_count": 14349,
+    "history_reference_count": 2536045,
+    "label_eligibility": {
+      "eligible": 6966,
+      "cancelled": 164,
+      "already_arrived": 2947,
+      "not_mature": 4272
+    },
+    "position_quality": {
+      "valid": 6394,
+      "no_position": 859,
+      "low_confidence": 7096
+    },
+    "trip_split_counts": {
+      "train": 992,
+      "excluded": 237,
+      "calibration": 171,
+      "test": 400
+    },
+    "candidate_horizon_hours": 12,
+    "model_trained": false,
+    "metrics_are_model_performance": false,
+    "source_kind": "synthetic",
+    "feature_definition_version": "m1-features-v1"
+  },
+  "m2_replay_execution": {
+    "finished_at_utc": "2026-10-28T20:54:17.365791+00:00",
+    "elapsed_seconds": 310.273,
+    "command": "run",
+    "config_sha256": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc"
+  },
+  "consumed_frozen_inputs_matched": 8,
+  "deterministic_core_outputs": {
+    "evaluation_rows.jsonl": "17e766b4a120f3d05a99d24083d9fcdae34927dec6727bca5376b5e722082f35",
+    "frozen_history.jsonl": "5e1177841d3905cb642296f500f5284efcd9fee344e969764e85d9d09be8225a",
+    "memberships.jsonl": "079b2ef21f14ed9cc746cd563a4b71425544a7611f72dfae8199d0db302b1d96",
+    "metrics.json": "8f83ae0ffe284ed2e05ec28a726a2e63f0af57fdfc951fa42a6cf197c1231b29",
+    "model_manifest.json": "0ded55c8b5379d8803b02b3c5734a858219ab6563800f327a83db9d5a11326a3",
+    "predictions.jsonl": "096e17b6cb44dd2e46c6489c7d7850f5e451cefca6582d90ca436d10c3e69270"
+  },
+  "replay_identical": true,
+  "membership_rows": 2977,
+  "non_training_membership_rows": 0,
+  "calibration_scored": false,
+  "final_test_scored": false,
+  "postgres_native_tested": false
+}
