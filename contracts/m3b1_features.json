@@ -1,0 +1,109 @@
+{
+  "project_id": "DS-M01",
+  "stage": "M3b.1",
+  "feature_definition_version": "m3b1-features-v1",
+  "source_feature_definition_version": "m1-features-v1",
+  "source_kind": "original synthetic fleet observations, January-September 2026",
+  "scope": "Feature projection and fold-local preprocessing only; no candidate model, label fitting, calibration or final-test scoring.",
+  "numeric_features": [
+    {
+      "name": "elapsed_trip_seconds",
+      "source": "eta_snapshot.elapsed_trip_seconds",
+      "type": "finite nonnegative number",
+      "unit": "seconds",
+      "availability": "Snapshot clock minus the departure event already known at that clock.",
+      "missing": "Required; absence or invalid input stops processing."
+    },
+    {
+      "name": "route_distance_km",
+      "source": "eta_route_version.planned_distance_km joined by tenant_id and route_version_id",
+      "type": "finite positive number",
+      "unit": "kilometers",
+      "availability": "Route known_at <= snapshot_time and valid_from <= snapshot_time < valid_to, with null valid_to open.",
+      "missing": "Required; absence or invalid input stops processing."
+    },
+    {
+      "name": "remaining_distance_km",
+      "source": "eta_snapshot.remaining_distance_km",
+      "type": "finite nonnegative number or null",
+      "unit": "kilometers",
+      "availability": "Previously computed fictional straight-route projection from valid position known by snapshot time.",
+      "missing": "Keep null when absent. Mask to null for low_confidence or no_position; do not treat imputed values as measurements.",
+      "limitation": "Not a road-network distance; bound by planned route distance with 0.001 km rounding tolerance."
+    },
+    {
+      "name": "gnss_speed_kmh",
+      "source": "eta_snapshot.gnss_speed_kmh",
+      "type": "finite nonnegative number or null",
+      "unit": "kilometers per hour",
+      "availability": "Position event_time <= available_time <= snapshot_time.",
+      "missing": "Keep null when absent. Always mask stale speed to null; zero remains a measured zero."
+    },
+    {
+      "name": "position_age_seconds",
+      "source": "eta_snapshot.position_age_seconds",
+      "type": "finite nonnegative number or null",
+      "unit": "seconds",
+      "availability": "Exactly snapshot_time minus last_position_time, to 0.000001-second tolerance.",
+      "missing": "Null only with no_position. Retain stale ages as observation-quality diagnostics; age cannot exceed elapsed trip time."
+    }
+  ],
+  "categorical_features": [
+    {
+      "name": "route_id",
+      "source": "eta_route_version.route_id",
+      "type": "nonempty string",
+      "availability": "Same known/valid tenant-scoped route join as route distance.",
+      "missing": "Required at projection. Previously unseen routes use the transformer's unknown slot without refitting.",
+      "limitation": "Tenant-local category, not a globally linkable identity or ordinal number."
+    },
+    {
+      "name": "departure_time_bucket",
+      "source": "eta_snapshot.departure_time_bucket",
+      "type": "nonempty string or null",
+      "availability": "Weekday/hour in the source tenant timezone from the known departure event.",
+      "missing": "Preserve null. Missing and unseen categories have distinct one-hot slots."
+    },
+    {
+      "name": "position_validity",
+      "source": "eta_snapshot.position_validity",
+      "type": "valid, low_confidence or no_position",
+      "availability": "Position age and source quality available at snapshot time.",
+      "missing": "Required. Unknown quality is a source-contract error.",
+      "stale_rule": "age > configured position_stale_seconds is low_confidence; equality remains valid."
+    }
+  ],
+  "audit_only_fields": [
+    "tenant_id", "trip_id", "snapshot_id", "snapshot_time", "route_version_id",
+    "feature_definition_version", "fold_id", "training_cutoff_at"
+  ],
+  "excluded_predictor_families": [
+    "actual_arrival_time, service_start_time, delivery_completed_time and all outcomes",
+    "remaining_duration_seconds, delay_outcome, label_eligibility and all target fields",
+    "validation simulator truth, scenario IDs and provenance truth",
+    "trip, snapshot, vehicle, device and record identifiers",
+    "precomputed historical duration references and historical target aggregates",
+    "latitude/longitude, optional disabled forecast and routing response fields",
+    "promise windows and promise revisions (not part of this initial ETA feature set)"
+  ],
+  "temporal_guards": [
+    "Require the exact source feature version.",
+    "Join route and lineage using tenant-scoped keys; reject mismatches.",
+    "Lineage max_source_available_time must not exceed snapshot_time or understate route/position availability.",
+    "Validate position source clocks and age before masking stale measurements.",
+    "no_position requires absent position clocks, identifiers and numeric signals.",
+    "Reject bool, NaN, infinity, negative or malformed numeric inputs.",
+    "Upstream source hashes and pipeline joins are separate controls; a lineage timestamp alone is not proof of correct derivation."
+  ],
+  "preprocessing": {
+    "scope": "Separate serialized state per tenant and chronological fold.",
+    "fit_population": "All feature opportunities in declared original-training fit trips, strictly before the fold fit cutoff; target eligibility is not consulted.",
+    "numeric": "Median imputation per feature; all-missing feature uses explicit zero fallback. Center and population standard deviation after imputation; constant scale becomes one. Always emit a missing indicator.",
+    "categorical": "Sorted training-only vocabulary with separate missing and unknown slots. No validation vocabulary fitting.",
+    "weighting": "Each fit snapshot contributes equally to preprocessing statistics; later supervised fitting/evaluation must separately declare trip weighting.",
+    "validation": "Same tenant, no declared fit-trip overlap, snapshots at or after fit cutoff, no refit and no row removal for missing signals or unknown categories.",
+    "protected_data": "July calibration and August-September test groups are excluded before feature construction and preprocessing fitting.",
+    "serialization": "Persist feature version, exact ordered feature names, statistics, vocabularies, tenant/fold/cutoff, declared fit-trip keys and fitted snapshot keys; validate on reload.",
+    "limitations": "Scaling/imputation defaults are engineering choices, not validated accuracy improvements. Candidate-model comparison remains M3b.2-M3b.3."
+  }
+}
