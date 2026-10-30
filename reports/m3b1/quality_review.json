@@ -1,0 +1,56 @@
+{
+  "project_id": "DS-M01",
+  "stage": "M3b.1",
+  "batch_id": "DS-M01-M3b1-P01-20261030-r1",
+  "review_date": "2026-10-30",
+  "source_kind": "original synthetic data",
+  "quality_dimensions": {
+    "A_data": "Passed scoped keys, source hashes, route/position availability, units, stale/missing semantics and duplicate checks.",
+    "B_model": "Passed whole-trip chronological and tenant isolation checks. No model trained; targets not opened.",
+    "C_engineering": "Passed serialized-state, source-drift, atomic publication, full unit suite and deterministic replay checks. No new third-party dependencies; pip check passed. Dedicated vulnerability scan not run for this local feature-only change.",
+    "D_business": "Retains missing-position opportunities and explicit unsupported states. No real dispatch workflow or notification action tested.",
+    "E_external_validity": "Synthetic-only; linear fictional route motion can make GPS predictors unusually informative. Real-road evaluation remains required."
+  },
+  "records": [
+    {
+      "id": "DSQ-G06",
+      "classification": "observed contract gap, not an M3a prediction bug",
+      "observed_date": "2026-10-30",
+      "source": "src/ds_m01/pipeline.py snapshot_for_trip; frozen training snapshots",
+      "finding": "Upstream low_confidence snapshots retain stale GNSS speed, while remaining distance is null.",
+      "impact": "A candidate model could misinterpret stale speed as a current measurement without an explicit boundary.",
+      "root_cause": "The snapshot stores source observations; the new model feature layer must define current-use semantics.",
+      "resolution": "New feature contract masks stale speed and remaining distance, retaining age/quality and row identity.",
+      "verification": "tests/test_features.py stale boundary/masking tests; 4,016 stale original-training rows audited as masked.",
+      "status": "addressed and verified in feature preparation",
+      "limitation": "M3a did not use GPS; no earlier baseline error or improved accuracy is claimed."
+    },
+    {
+      "id": "DSQ-L03",
+      "classification": "observed external-validity limitation",
+      "observed_date": "2026-10-30",
+      "source": "src/ds_m01/generate.py synthetic motion model; docs/generator_assumptions.md",
+      "finding": "Near-linear route progression and distance/motion-time-based speed can strongly encode the synthetic generator law.",
+      "impact": "Later GPS-based candidate gains may not generalize to real traffic, routes or reporting delays.",
+      "root_cause": "Deliberately simplified synthetic scenario construction.",
+      "resolution": "Disclose the limitation; evaluate later candidate results only within the synthetic experiment.",
+      "verification": "Read source generation logic; no real-world performance validation performed.",
+      "status": "open limitation for later modeling and real-data validation"
+    }
+  ],
+  "preventive_control": {
+    "id": "DSQ-R09",
+    "classification": "preventive risk, not observed operational failure",
+    "status": "stage controls verified; continue through candidate integration",
+    "evidence": "tests/test_features.py, test_feature_transform.py, test_feature_run.py, test_feature_publication.py; verification.json",
+    "controls": "Positive feature allowlist; no target source reads; per-fold/per-tenant fitting; protected-role gate; future-source and payload mutation tests."
+  },
+  "unperformed": [
+    "candidate model fitting",
+    "calibration and final-test scoring",
+    "native PostgreSQL integration",
+    "macOS user execution",
+    "GitHub Actions",
+    "real operational impact assessment"
+  ]
+}

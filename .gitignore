@@ -22,3 +22,7 @@ validation/
 # Separate local baseline replays from the retained M3a evidence
 reports/m3a_local*/
 .m3a-stage-*/
+
+# Separate local feature replays from the retained M3b.1 evidence
+reports/m3b1_local*/
+.m3b1-stage-*/

@@ -1,0 +1,205 @@
+{
+  "calibration_used": false,
+  "candidate_model_fitted": false,
+  "feature_definition_version": "m3b1-features-v1",
+  "feature_missing_counts": {
+    "elapsed_trip_seconds": 0,
+    "gnss_speed_kmh": 4481,
+    "position_age_seconds": 465,
+    "remaining_distance_km": 4481,
+    "route_distance_km": 0
+  },
+  "final_test_evaluated": false,
+  "fit_matrix_rows": 18343,
+  "fit_population": "All fit-trip snapshots before cutoff, independent of target availability; snapshot-weighted preprocessing.",
+  "fold_count": 4,
+  "folds": [
+    {
+      "fold_id": "F01",
+      "tenants": [
+        {
+          "fit_snapshots": 983,
+          "fit_trips": 121,
+          "output_dimensions": 65,
+          "preprocessing_status": "available",
+          "tenant_id": "T01",
+          "validation_snapshots": 504,
+          "validation_trips": 59
+        },
+        {
+          "fit_snapshots": 1006,
+          "fit_trips": 118,
+          "output_dimensions": 67,
+          "preprocessing_status": "available",
+          "tenant_id": "T02",
+          "validation_snapshots": 510,
+          "validation_trips": 59
+        },
+        {
+          "fit_snapshots": 698,
+          "fit_trips": 99,
+          "output_dimensions": 62,
+          "preprocessing_status": "available",
+          "tenant_id": "T03",
+          "validation_snapshots": 263,
+          "validation_trips": 40
+        }
+      ],
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-02-21"
+      ],
+      "training_cutoff_at": "2026-03-01T08:00:00Z",
+      "validation_departure_dates": [
+        "2026-03-01",
+        "2026-03-24"
+      ],
+      "validation_label_cutoff_at": "2026-04-01T07:00:00Z"
+    },
+    {
+      "fold_id": "F02",
+      "tenants": [
+        {
+          "fit_snapshots": 1487,
+          "fit_trips": 180,
+          "output_dimensions": 68,
+          "preprocessing_status": "available",
+          "tenant_id": "T01",
+          "validation_snapshots": 404,
+          "validation_trips": 58
+        },
+        {
+          "fit_snapshots": 1516,
+          "fit_trips": 177,
+          "output_dimensions": 68,
+          "preprocessing_status": "available",
+          "tenant_id": "T02",
+          "validation_snapshots": 482,
+          "validation_trips": 59
+        },
+        {
+          "fit_snapshots": 961,
+          "fit_trips": 139,
+          "output_dimensions": 66,
+          "preprocessing_status": "available",
+          "tenant_id": "T03",
+          "validation_snapshots": 344,
+          "validation_trips": 50
+        }
+      ],
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-03-24"
+      ],
+      "training_cutoff_at": "2026-04-01T07:00:00Z",
+      "validation_departure_dates": [
+        "2026-04-01",
+        "2026-04-23"
+      ],
+      "validation_label_cutoff_at": "2026-05-01T07:00:00Z"
+    },
+    {
+      "fold_id": "F03",
+      "tenants": [
+        {
+          "fit_snapshots": 1891,
+          "fit_trips": 238,
+          "output_dimensions": 70,
+          "preprocessing_status": "available",
+          "tenant_id": "T01",
+          "validation_snapshots": 380,
+          "validation_trips": 60
+        },
+        {
+          "fit_snapshots": 1998,
+          "fit_trips": 236,
+          "output_dimensions": 68,
+          "preprocessing_status": "available",
+          "tenant_id": "T02",
+          "validation_snapshots": 575,
+          "validation_trips": 60
+        },
+        {
+          "fit_snapshots": 1305,
+          "fit_trips": 189,
+          "output_dimensions": 67,
+          "preprocessing_status": "available",
+          "tenant_id": "T03",
+          "validation_snapshots": 349,
+          "validation_trips": 43
+        }
+      ],
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-04-23"
+      ],
+      "training_cutoff_at": "2026-05-01T07:00:00Z",
+      "validation_departure_dates": [
+        "2026-05-01",
+        "2026-05-24"
+      ],
+      "validation_label_cutoff_at": "2026-06-01T07:00:00Z"
+    },
+    {
+      "fold_id": "F04",
+      "tenants": [
+        {
+          "fit_snapshots": 2271,
+          "fit_trips": 298,
+          "output_dimensions": 70,
+          "preprocessing_status": "available",
+          "tenant_id": "T01",
+          "validation_snapshots": 420,
+          "validation_trips": 59
+        },
+        {
+          "fit_snapshots": 2573,
+          "fit_trips": 296,
+          "output_dimensions": 68,
+          "preprocessing_status": "available",
+          "tenant_id": "T02",
+          "validation_snapshots": 587,
+          "validation_trips": 62
+        },
+        {
+          "fit_snapshots": 1654,
+          "fit_trips": 232,
+          "output_dimensions": 69,
+          "preprocessing_status": "available",
+          "tenant_id": "T03",
+          "validation_snapshots": 345,
+          "validation_trips": 45
+        }
+      ],
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-05-24"
+      ],
+      "training_cutoff_at": "2026-06-01T07:00:00Z",
+      "validation_departure_dates": [
+        "2026-06-01",
+        "2026-06-23"
+      ],
+      "validation_label_cutoff_at": "2026-07-01T07:00:00Z"
+    }
+  ],
+  "original_role_trip_counts": {
+    "calibration": 171,
+    "excluded": 237,
+    "test": 400,
+    "train": 992
+  },
+  "original_training_snapshots": 7850,
+  "position_quality_counts": {
+    "low_confidence": 4016,
+    "no_position": 465,
+    "valid": 3369
+  },
+  "production_tables_populated": false,
+  "source_kind": "original synthetic data",
+  "stage": "M3b.1 feature preparation",
+  "target_files_opened": false,
+  "transformer_count": 12,
+  "unsupported_validation_rows": 0,
+  "validation_matrix_rows": 5163
+}

@@ -1,0 +1,31 @@
+{
+  "batch_id": "DS-M01-M3b1-P01-20261030-r1",
+  "code_sha256": {
+    "common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+    "feature_run.py": "3d8045fc9d824ed05d9283a670ea9ba265b4473c74df0cae02a2eb3a7b1b3891",
+    "feature_transform.py": "5911757e7985e72abf95fce53e7cc03490322af4f58c44bcd5ae580d2fa63cff",
+    "features.py": "91f2e9f1529aae6e38f1b3ab24e92d7dc9c988eedf2b2297bb8fa45e5c389a8a",
+    "model_splits.py": "d1c09f2cf8800bd006063afb1c027dfc4fd06bac6512539f44d93a7ded2dcd95"
+  },
+  "executed_at_utc": "2026-10-30T21:36:49.499651+00:00",
+  "feature_contract_sha256": "c2b57c73843ead572032337d057f097e288a6fbf7873d7f6795cc1713abfb0a0",
+  "input_sha256": {
+    "data/processed/eta_snapshot.jsonl": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f",
+    "data/processed/eta_split_assignment.jsonl": "af2951c4d153ff9d3fcf0de73651a49db05d7e8bbba85a424aa90451d1e9d2cb",
+    "data/processed/feature_lineage.jsonl": "dba784ddb39e400c104e5d6679cb4a03c1b6e835a6584bf3f5e490da2611154e",
+    "data/processed/trip_membership.jsonl": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061",
+    "data/raw/eta_route_version.jsonl": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+    "data/raw/eta_trip_event.jsonl": "28d1807fbd1f69cf5d22a76697f6cd03df8448336805cbc15c9ed3f934494127"
+  },
+  "output_sha256": {
+    "features.jsonl": "0b89d11df505aa206d301f18cd457ff4af3e474d9fa9833d352f4bb17830cbaa",
+    "matrices.jsonl": "8754fec48824adf5ecac233cb3a4209c065670a820eb93b7d3df33aa03a8353e",
+    "memberships.jsonl": "079b2ef21f14ed9cc746cd563a4b71425544a7611f72dfae8199d0db302b1d96",
+    "summary.json": "1c3252e0d1d8ff385aa03e6f877cc24d1d46cb9b089eef9162f570e2f59d7680",
+    "transformers.json": "f9772e60e8e1101f32d03cc1e8f1f8582e954ac48d34818f4518c6dff4be4e81"
+  },
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "python_version": "3.12.14",
+  "settings_sha256": "804cd7368985c4ebccb69876562f5cad1399f4cc87239d2bba5937c727d929bf",
+  "validation_scope": "Frozen six-file feature replay; no targets, model training or heldout scoring."
+}

@@ -1,10 +1,28 @@
 # DS-M01 — ETA intervals and delay alerts
 
-A reproducible data foundation for estimating fleet arrival times and identifying delay risk. The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
+A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: M3a historical ETA baseline on the v0.2.0 M2 data foundation.** Four training-period chronological folds now evaluate a conditional historical-duration baseline. Candidate models, calibrated intervals, delay probabilities, final-test model evaluation and alert policies remain pending.
+**Current stage: M3b.1 feature contracts and leakage checks on the v0.2.0 M2 data foundation.** The historical baseline is retained. Five numeric and three categorical features now have explicit temporal contracts and tenant/fold-local preprocessing. Candidate models, calibrated intervals, delay probabilities, final-test model evaluation and alert policies remain pending.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## Feature preparation
+
+The feature-only runner prepares 7,850 original-training snapshots, builds 12
+tenant/fold transformers, and retains all 5,163 chronological validation
+opportunities. Stale speed and remaining-distance signals are masked; missing
+indicators and unknown-category slots preserve observation limitations. These
+counts describe feature preparation, not model accuracy. No target file is
+opened, and calibration/final-test groups never enter feature fitting.
+
+See the [feature protocol](docs/m3b1_features.md),
+[contract](contracts/m3b1_features.json) and
+[retained verification](reports/m3b1/verification.json). With exact M2 replay
+inputs present, reproduce the five core artifacts in a new directory:
+
+```bash
+python scripts/check_feature_replay.py --root . --output reports/m3b1_local
+```
 
 ## Historical ETA baseline
 

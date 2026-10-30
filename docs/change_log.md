@@ -2,6 +2,26 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-10-30 — M3b.1 feature contracts and leakage checks
+
+- Added a positive feature contract with five numeric and three categorical
+  inputs, tenant/version/time guards and explicit stale-position masking.
+- Added tenant/fold-local median imputation, scaling, missing indicators and
+  training-only categorical vocabularies with persisted state validation.
+- Added a feature-only runner over six frozen inputs; it never opens outcome,
+  label, promise or simulator-truth files. All four M3a folds remain unchanged.
+- Retained 7,850 original-training feature rows, 12 transformers and all 5,163
+  validation opportunities. Validation rows are not filtered by future labels.
+- Documented the upstream stale-speed behavior and synthetic motion limitation.
+  The former is handled at the feature boundary; it did not affect M3a's
+  route-and-elapsed historical baseline. Neither item is a real-fleet incident.
+- Added independent temporal/tenant/target-poisoning fixtures, source drift and
+  interrupted-publication checks. See the actual test and deterministic replay
+  results in [M3b.1 verification](../reports/m3b1/verification.json).
+
+Candidate models, calibration, final scoring and operational outputs remain
+pending; this stage establishes a checked interface for those later milestones.
+
 ## 2026-10-28 — M3a historical baseline
 
 - Added four expanding, trip-grouped validation folds inside the original M2
