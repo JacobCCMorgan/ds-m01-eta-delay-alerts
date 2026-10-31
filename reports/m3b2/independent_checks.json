@@ -1,0 +1,26 @@
+{
+  "accuracy_evaluated": false,
+  "calibration_used": false,
+  "candidate_selected": false,
+  "eligible_rows": 8417,
+  "eligible_trip_fold_memberships": 1869,
+  "final_test_evaluated": false,
+  "fit_rows": 18343,
+  "model_count": 24,
+  "observed_model_hash_field": true,
+  "prediction_rows": 10326,
+  "prediction_source_counts": {
+    "gradient_boosting_quantile": {
+      "baseline_fallback": 1,
+      "candidate": 5162
+    },
+    "linear_quantile": {
+      "baseline_fallback": 24,
+      "candidate": 4669,
+      "unavailable": 470
+    }
+  },
+  "scope": "Independent target arithmetic, opportunity completeness, model binding and prediction contract reconciliation; no accuracy scoring",
+  "status": "passed",
+  "validation_opportunities": 5163
+}

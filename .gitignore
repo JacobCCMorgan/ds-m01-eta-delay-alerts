@@ -26,3 +26,7 @@ reports/m3a_local*/
 # Separate local feature replays from the retained M3b.1 evidence
 reports/m3b1_local*/
 .m3b1-stage-*/
+
+# Separate local candidate replays from the retained M3b.2 evidence
+reports/m3b2_local*/
+.m3b2-stage-*/

@@ -1,0 +1,56 @@
+{
+  "exact_core_artifacts": {
+    "summary.json": true,
+    "training_rows.jsonl": true
+  },
+  "execution_evidence": {
+    "finished_at_utc": "2026-10-30T23:39:56.950594+00:00",
+    "peak_rss_kib_linux": 442016,
+    "scope": "Isolated Python 3.12 environment; training plus retained-inference and numerical replay checks.",
+    "started_at_utc": "2026-10-30T23:39:34.050242+00:00",
+    "wall_seconds": 22.90037977099928
+  },
+  "model_artifact_byte_identical": true,
+  "note": "Execution timestamps are run-specific. Numerical equivalence is distinct from byte equality. No model accuracy, calibrated coverage or heldout scoring is asserted.",
+  "numerical_differences": {
+    "models": {
+      "compared_float_values": 33580,
+      "max_absolute_difference": 0.0,
+      "max_eta_difference_microseconds": 0.0,
+      "max_relative_difference": 0.0
+    },
+    "predictions": {
+      "compared_float_values": 60546,
+      "max_absolute_difference": 0.0,
+      "max_eta_difference_microseconds": 0.0,
+      "max_relative_difference": 0.0
+    },
+    "retained_inference": {
+      "compared_float_values": 60546,
+      "max_absolute_difference": 0.0,
+      "max_eta_difference_microseconds": 0.0,
+      "max_relative_difference": 0.0
+    }
+  },
+  "numerical_models_equal": true,
+  "numerical_predictions_equal": true,
+  "output": "reports/m3b2_local_replay",
+  "package_versions": {
+    "joblib": "1.5.3",
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0",
+    "threadpoolctl": "3.6.0"
+  },
+  "prediction_artifact_byte_identical": true,
+  "prediction_rows": 10326,
+  "retained_inference_equal": true,
+  "status": "passed",
+  "tolerances": {
+    "absolute_float": 1e-06,
+    "discrete_fields": "Exact types, identifiers, schema, decisions, counts and list order.",
+    "eta_microseconds": 50,
+    "relative_float": 1e-09
+  },
+  "validation_opportunities": 5163
+}

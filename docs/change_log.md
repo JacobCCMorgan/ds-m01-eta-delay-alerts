@@ -2,6 +2,29 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-10-30 — M3b.2 quantile candidate training and inference
+
+- Added two fixed quantile model families with per-tenant/fold fitting,
+  trip-balanced supervised weights and validated JSON model persistence.
+- Joined only mature fit-group outcome versions strictly before each fit cutoff;
+  retained all 18,343 fit opportunities with explicit eligibility reasons.
+- Trained 24 model states from 8,417 eligible fit rows and emitted 10,326
+  predictions across both families. Preserved all validation opportunities,
+  including baseline fallbacks and unavailable results, without joining labels.
+- Retained raw quantile crossings and nonpositive estimates. Positive crossed
+  estimates are sorted; invalid estimates follow the explicit fallback policy.
+  Availability is not an accuracy comparison or a model-selection decision.
+- During development review, corrected an incomplete outcome-status allowlist
+  and replaced a positional prediction join with an identity-keyed join. Their
+  regression tests cover withdrawn `lost`/`conflict` labels and reordered input.
+  These were prepublication development findings, not real-fleet incidents.
+- Added source/configuration/code drift guards, atomic publication, exact model
+  and transformer binding, and retained-inference plus numerical training replay.
+  See [M3b.2 evidence](../reports/m3b2/README.md) for results and limitations.
+
+Candidate comparison, calibration, final evaluation and operational integration
+remain later stages. The existing M3a/M3b.1 evidence has not been rewritten.
+
 ## 2026-10-30 — M3b.1 feature contracts and leakage checks
 
 - Added a positive feature contract with five numeric and three categorical

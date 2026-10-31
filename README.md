@@ -2,9 +2,43 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: M3b.1 feature contracts and leakage checks on the v0.2.0 M2 data foundation.** The historical baseline is retained. Five numeric and three categorical features now have explicit temporal contracts and tenant/fold-local preprocessing. Candidate models, calibrated intervals, delay probabilities, final-test model evaluation and alert policies remain pending.
+**Current stage: M3b.2 quantile candidate training and inference on the v0.2.0 M2 data foundation.** Two fixed model families now produce auditable P10/P50/P90 predictions with fold-local mature targets, trip-balanced training weights and explicit fallback behavior. The historical baseline and feature contracts are retained. Candidate comparison and selection, calibrated intervals, delay probabilities, final-test model evaluation and alert policies remain pending.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## Quantile candidate training and inference
+
+Linear and gradient-boosted quantile regressors use fixed defaults and the same
+twelve tenant/fold transformers. The 18,343 fit opportunities yield 8,417 eligible
+positive remaining-duration targets across 1,869 trip/fold memberships. Expanding
+folds reuse trips; these counts do not represent independent observations.
+
+Each family preserves all 5,163 validation opportunities without reading their
+outcomes. The resulting 24 model states contain 72 quantile estimators.
+
+| Prediction source, synthetic validation opportunities | Linear quantile | Gradient boosting quantile |
+|---|---:|---:|
+| Candidate prediction | 4,669 | 5,162 |
+| Historical-baseline fallback | 24 | 1 |
+| Explicitly unavailable | 470 | 0 |
+
+These are inference availability counts, **not accuracy results or a model
+ranking**. Nonpositive raw estimates trigger fallback; crossed positive quantiles
+are sorted and flagged. Raw values and all decisions remain in the artifacts.
+Intervals are uncalibrated. M3b.3 will evaluate both candidates and the baseline
+using shared labels, denominators and trip-balanced error measures.
+
+See the [candidate protocol](docs/m3b2_candidates.md),
+[retained evidence](reports/m3b2/README.md) and
+[verification](reports/m3b2/verification.json). With the frozen outcome source:
+
+```bash
+python scripts/check_candidate_replay.py --root . --output reports/m3b2_local
+```
+
+The replay checks retained JSON inference and fresh training against fixed
+numerical tolerances. It does not evaluate predictive accuracy or use July
+calibration or August–September test outcomes.
 
 ## Feature preparation
 
@@ -95,7 +129,7 @@ Use Python 3.11 or later. The recorded full run used Linux and Python 3.12.14; a
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.lock
+python -m pip install -r requirements-models.lock
 python -m pip install -e . --no-deps
 python -m unittest discover -s tests -v
 ```
@@ -135,7 +169,7 @@ The 11 reserved tables have declared types and nullability but no model, alert, 
 
 For the next modeling stage, the unseen-route-only test cohort has 29 eligible trips and the joint unseen-vehicle/unseen-route cohort has four. These sparse cohorts support descriptive reporting, not reliable deployment claims. A threshold of 30 trips is a coverage warning, not a power analysis. The training set also contains 97 eligible snapshots without a prior historical pool, requiring a defined fallback or unavailable result.
 
-Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. Subsequent work covers candidate models, interval/probability calibration, frozen final evaluation, and alert delivery and action follow-up. The empirical baseline and its training-only validation are now available; they do not complete M3.
+Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. Subsequent work covers candidate comparison and selection, interval/probability calibration, frozen final evaluation, and alert delivery and action follow-up. Candidate training and inference are available; they do not complete M3 or establish operational performance.
 
 ## Repository guide
 

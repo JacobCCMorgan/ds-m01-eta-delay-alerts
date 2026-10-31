@@ -1,0 +1,109 @@
+{
+  "A_business_and_data": {
+    "evidence": "Frozen inputs, per-fold mature gate-arrival labels, strict availability clocks, latest revision withdrawal, tenant and opportunity keys. Fractional-second training target declared; shared evaluation definition deferred to M3b.3.",
+    "status": "passed_for_this_stage"
+  },
+  "B_analysis_and_models": {
+    "evidence": "Trip-balanced fitting, fixed parameter families, strict fold/transformer binding, retained predictions and raw quantiles. No validation accuracy, selection, calibration or final-test scoring.",
+    "status": "training_and_inference_passed_evaluation_pending"
+  },
+  "C_engineering_and_delivery": {
+    "evidence": "247 unit tests, fresh isolated dependency install/pip check, independent arithmetic reconciliation, zero-difference inference and training replay, atomic publication and drift rejection. macOS and later CI/production integration pending.",
+    "status": "environment_checks_passed"
+  },
+  "D_business_applicability": {
+    "evidence": "Every dispatch prediction opportunity retained; invalid estimates cannot become unflagged positive promises. Fallback support and unavailable outcomes explicit. Notification capacity, response cost and operator adoption remain later work.",
+    "status": "design_checked_not_operationally_validated"
+  },
+  "E_external_validity": {
+    "evidence": "Synthetic near-linear motion is not real-road validation. No commercial benefit, live performance or deployment claim.",
+    "status": "open_limitation"
+  },
+  "data_kind": "original synthetic 2026 data",
+  "findings": [
+    {
+      "action": "Treat these latest versions as excluded targets without reviving older verified labels.",
+      "id": "DSQ-G07",
+      "not_claimed": "No published M3b.1 defect or operational incident.",
+      "observed_date": "2026-10-30",
+      "problem": "Initial target allowlist omitted legitimate lost/conflict outcomes.",
+      "status": "verified_correction_before_first_delivery",
+      "type": "actual_development_contract_gap",
+      "validation": "test_candidate_targets.py withdrawal/status tests passed."
+    },
+    {
+      "action": "Join by tenant/snapshot identity and require exact key coverage.",
+      "id": "DSQ-G08",
+      "not_claimed": "No erroneous public model run was released.",
+      "observed_date": "2026-10-30",
+      "problem": "Draft runner consumed sorted predictions positionally against input order.",
+      "status": "verified_correction_before_first_delivery",
+      "type": "actual_development_association_bug",
+      "validation": "Reordered-matrix and incomplete-answer regression tests passed."
+    },
+    {
+      "action": "Capture and compare settings, code and input hashes before/after fitting; reject drift before publication.",
+      "id": "DSQ-R26",
+      "problem": "Concurrent settings or code edits could bind a receipt to different bytes than those used in memory.",
+      "status": "controls_verified",
+      "type": "preventive_provenance_risk",
+      "validation": "Injected drift tests passed. No actual concurrent-edit incident is claimed."
+    },
+    {
+      "action": "Monotone sort only finite positive raw quantiles; otherwise same-fold baseline fallback or unavailable.",
+      "evidence": {
+        "gradient_boosting_quantile": {
+          "actually_sorted": 1,
+          "all_unavailable_values_null": true,
+          "final_positive_ordered": true,
+          "invalid_and_crossed": 0,
+          "raw_crossings": 1,
+          "rows": 5163,
+          "source_counts": {
+            "baseline_fallback": 1,
+            "candidate": 5162
+          }
+        },
+        "linear_quantile": {
+          "actually_sorted": 408,
+          "all_unavailable_values_null": true,
+          "final_positive_ordered": true,
+          "invalid_and_crossed": 494,
+          "raw_crossings": 902,
+          "rows": 5163,
+          "source_counts": {
+            "baseline_fallback": 24,
+            "candidate": 4669,
+            "unavailable": 470
+          }
+        }
+      },
+      "id": "DSQ-R10",
+      "status": "controls_verified_observed_invalid_estimates_retained",
+      "type": "preventive_prediction_risk"
+    },
+    {
+      "id": "DSQ-L04",
+      "next": "Compare all candidates on common labels with availability and trip-balanced errors; do not infer a winner from these counts.",
+      "problem": "494 linear and one gradient-boosting opportunity produced a nonpositive raw quantile. Linear raw crossings total 902, of which 408 are actually sorted and 494 are rejected.",
+      "root_cause": "Predictive causes and consequences have not been evaluated; functional-form/extrapolation explanations remain hypotheses.",
+      "status": "open_for_M3b3_comparison",
+      "type": "observed_candidate_limitation"
+    },
+    {
+      "id": "DSQ-L03",
+      "next": "Require separately validated real operating data before real-world claims.",
+      "problem": "Synthetic route motion may reward features that encode the generator law.",
+      "status": "open",
+      "type": "external_validity_limitation"
+    },
+    {
+      "evidence": "Candidate experiment artifacts now exist; the eleven reserved production tables remain empty. Calibration, alerts, PostgreSQL integration and CI remain later milestones.",
+      "id": "DSQ-G04",
+      "status": "partially_implemented",
+      "type": "remaining_scope"
+    }
+  ],
+  "recorded_at": "2026-10-30T16:42:35.735508-07:00",
+  "stage": "M3b.2"
+}

@@ -1,0 +1,172 @@
+{
+  "accuracy_evaluated": false,
+  "available_model_count": 24,
+  "calibration_used": false,
+  "candidate_definition_version": "m3b2-candidates-v1",
+  "candidate_ids": [
+    "linear_quantile",
+    "gradient_boosting_quantile"
+  ],
+  "candidate_selected": false,
+  "candidates": {
+    "gradient_boosting_quantile": {
+      "candidate_reason_counts": {
+        "None": 5162,
+        "nonpositive_quantile": 1
+      },
+      "crossing_rows": 1,
+      "prediction_source_counts": {
+        "baseline_fallback": 1,
+        "candidate": 5162
+      }
+    },
+    "linear_quantile": {
+      "candidate_reason_counts": {
+        "None": 4669,
+        "nonpositive_quantile": 494
+      },
+      "crossing_rows": 902,
+      "prediction_source_counts": {
+        "baseline_fallback": 24,
+        "candidate": 4669,
+        "unavailable": 470
+      }
+    }
+  },
+  "eligible_fit_rows": 8417,
+  "eligible_trip_fold_memberships": 1869,
+  "final_test_evaluated": false,
+  "fit_opportunities": 18343,
+  "folds": [
+    {
+      "fit_opportunities": 2687,
+      "fold_id": "F01",
+      "tenants": [
+        {
+          "eligible_fit_rows": 326,
+          "eligible_fit_trips": 85,
+          "tenant_id": "T01",
+          "validation_opportunities": 504
+        },
+        {
+          "eligible_fit_rows": 515,
+          "eligible_fit_trips": 96,
+          "tenant_id": "T02",
+          "validation_opportunities": 510
+        },
+        {
+          "eligible_fit_rows": 355,
+          "eligible_fit_trips": 84,
+          "tenant_id": "T03",
+          "validation_opportunities": 263
+        }
+      ],
+      "training_eligibility_counts": {
+        "already_arrived_at_snapshot": 475,
+        "latest_outcome_not_verified": 1016,
+        "verified_positive_remaining_duration": 1196
+      },
+      "validation_opportunities": 1277
+    },
+    {
+      "fit_opportunities": 3964,
+      "fold_id": "F02",
+      "tenants": [
+        {
+          "eligible_fit_rows": 528,
+          "eligible_fit_trips": 138,
+          "tenant_id": "T01",
+          "validation_opportunities": 404
+        },
+        {
+          "eligible_fit_rows": 751,
+          "eligible_fit_trips": 142,
+          "tenant_id": "T02",
+          "validation_opportunities": 482
+        },
+        {
+          "eligible_fit_rows": 509,
+          "eligible_fit_trips": 119,
+          "tenant_id": "T03",
+          "validation_opportunities": 344
+        }
+      ],
+      "training_eligibility_counts": {
+        "already_arrived_at_snapshot": 860,
+        "latest_outcome_not_verified": 1316,
+        "verified_positive_remaining_duration": 1788
+      },
+      "validation_opportunities": 1230
+    },
+    {
+      "fit_opportunities": 5194,
+      "fold_id": "F03",
+      "tenants": [
+        {
+          "eligible_fit_rows": 700,
+          "eligible_fit_trips": 185,
+          "tenant_id": "T01",
+          "validation_opportunities": 380
+        },
+        {
+          "eligible_fit_rows": 1029,
+          "eligible_fit_trips": 189,
+          "tenant_id": "T02",
+          "validation_opportunities": 575
+        },
+        {
+          "eligible_fit_rows": 692,
+          "eligible_fit_trips": 161,
+          "tenant_id": "T03",
+          "validation_opportunities": 349
+        }
+      ],
+      "training_eligibility_counts": {
+        "already_arrived_at_snapshot": 1081,
+        "latest_outcome_not_verified": 1692,
+        "verified_positive_remaining_duration": 2421
+      },
+      "validation_opportunities": 1304
+    },
+    {
+      "fit_opportunities": 6498,
+      "fold_id": "F04",
+      "tenants": [
+        {
+          "eligible_fit_rows": 886,
+          "eligible_fit_trips": 236,
+          "tenant_id": "T01",
+          "validation_opportunities": 420
+        },
+        {
+          "eligible_fit_rows": 1267,
+          "eligible_fit_trips": 237,
+          "tenant_id": "T02",
+          "validation_opportunities": 587
+        },
+        {
+          "eligible_fit_rows": 859,
+          "eligible_fit_trips": 197,
+          "tenant_id": "T03",
+          "validation_opportunities": 345
+        }
+      ],
+      "training_eligibility_counts": {
+        "already_arrived_at_snapshot": 1421,
+        "latest_outcome_not_verified": 2065,
+        "verified_positive_remaining_duration": 3012
+      },
+      "validation_opportunities": 1352
+    }
+  ],
+  "interval_status": "Raw conditional quantiles with ascending rearrangement; uncalibrated.",
+  "model_count": 24,
+  "prediction_rows": 10326,
+  "production_tables_populated": false,
+  "source_kind": "original synthetic data",
+  "stage": "M3b.2 fixed quantile candidate training and inference",
+  "target_units": "Fractional seconds from snapshot to verified arrival; strictly positive regression targets.",
+  "training_weighting": "Each eligible trip has total weight one within its tenant/fold; eligible snapshots share that weight.",
+  "validation_opportunities": 5163,
+  "validation_outcomes_used": false
+}

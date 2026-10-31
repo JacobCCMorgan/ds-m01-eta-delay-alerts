@@ -1,0 +1,121 @@
+{
+  "base_public_commit": "412f234176bd1c10097456b0edea74f3501c7bbe",
+  "checker_sha256": {
+    "scripts/check_candidate_replay.py": "792fed87db8f6cf08733b9ffb1a8cbba31c5fd673d89f0ddd5640da97323d7d3",
+    "src/ds_m01/candidate_replay.py": "42409aae7eda15aa95d015afc766cb8ffe641dada644adb7e12f756018aa45d8"
+  },
+  "environment": {
+    "packages": {
+      "duckdb": {
+        "requires_python": ">=3.9.0",
+        "version": "1.4.1"
+      },
+      "joblib": {
+        "requires_python": ">=3.9",
+        "version": "1.5.3"
+      },
+      "numpy": {
+        "requires_python": ">=3.11",
+        "version": "2.3.5"
+      },
+      "pyarrow": {
+        "requires_python": ">=3.9",
+        "version": "21.0.0"
+      },
+      "scikit-learn": {
+        "requires_python": ">=3.11",
+        "version": "1.8.0"
+      },
+      "scipy": {
+        "requires_python": ">=3.11",
+        "version": "1.17.0"
+      },
+      "threadpoolctl": {
+        "requires_python": ">=3.9",
+        "version": "3.6.0"
+      }
+    },
+    "pip_check": "passed",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "recorded_at": "2026-10-30T16:34:19.933518-07:00",
+    "scope": "Fresh isolated Linux installation. macOS model training has not yet been verified for this stage. No claim of a vulnerability audit."
+  },
+  "fresh_environment_install": "passed; requirements-models.lock plus editable package with --no-deps; pip check passed",
+  "independent_contract_reconciliation": {
+    "accuracy_evaluated": false,
+    "calibration_used": false,
+    "candidate_selected": false,
+    "eligible_rows": 8417,
+    "eligible_trip_fold_memberships": 1869,
+    "final_test_evaluated": false,
+    "fit_rows": 18343,
+    "model_count": 24,
+    "observed_model_hash_field": true,
+    "prediction_rows": 10326,
+    "prediction_source_counts": {
+      "gradient_boosting_quantile": {
+        "baseline_fallback": 1,
+        "candidate": 5162
+      },
+      "linear_quantile": {
+        "baseline_fallback": 24,
+        "candidate": 4669,
+        "unavailable": 470
+      }
+    },
+    "scope": "Independent target arithmetic, opportunity completeness, model binding and prediction contract reconciliation; no accuracy scoring",
+    "status": "passed",
+    "validation_opportunities": 5163
+  },
+  "not_performed": [
+    "Candidate accuracy comparison or selection",
+    "Calibration or final-test scoring",
+    "Real-fleet validation",
+    "macOS training verification for this stage",
+    "Production-table population",
+    "PostgreSQL integration",
+    "CI execution",
+    "Live alert deployment"
+  ],
+  "recorded_at": "2026-10-30T16:42:35.735508-07:00",
+  "replay": {
+    "exact_core_artifacts": {
+      "summary.json": true,
+      "training_rows.jsonl": true
+    },
+    "model_artifact_byte_identical_this_run": true,
+    "numerical_models_equal": true,
+    "numerical_predictions_equal": true,
+    "passed": true,
+    "prediction_artifact_byte_identical_this_run": true,
+    "retained_inference_equal": true,
+    "tolerances": {
+      "absolute_float": 1e-06,
+      "discrete_fields": "Exact types, identifiers, schema, decisions, counts and list order.",
+      "eta_microseconds": 50,
+      "relative_float": 1e-09
+    }
+  },
+  "resource_measurements": {
+    "initial_peak_rss_kib_linux": 366104,
+    "initial_run_seconds": 30.293094349002786,
+    "limits": "Single Linux environment; not a service benchmark.",
+    "replay": {
+      "finished_at_utc": "2026-10-30T23:39:56.950594+00:00",
+      "peak_rss_kib_linux": 442016,
+      "scope": "Isolated Python 3.12 environment; training plus retained-inference and numerical replay checks.",
+      "started_at_utc": "2026-10-30T23:39:34.050242+00:00",
+      "wall_seconds": 22.90037977099928
+    }
+  },
+  "stage": "M3b.2",
+  "status": "passed",
+  "unit_tests": {
+    "count": 247,
+    "log_sha256": "7c2335cb580cfcaae088b9d44de82f0ee411af3f97607d455daaefc0c160a93f",
+    "new_tests": 82,
+    "passed": true,
+    "seconds": 3.456
+  }
+}
