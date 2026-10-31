@@ -1,0 +1,8 @@
+# M3b.2 model execution environment. Python 3.11+; tested with 3.12.14.
+# Includes the original data-stage dependencies without changing their pins.
+-r requirements.lock
+numpy==2.3.5
+scipy==1.17.0
+scikit-learn==1.8.0
+joblib==1.5.3
+threadpoolctl==3.6.0
