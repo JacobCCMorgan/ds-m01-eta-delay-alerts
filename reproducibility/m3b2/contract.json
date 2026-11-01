@@ -1,0 +1,14 @@
+{
+  "files_sha256": {
+    "reproducibility/m3b2/inner_replay.py": "e349d5ae4f698663171efdebfd1b0f82330d8eaf3473ebcc630849007e4079b4",
+    "reproducibility/m3b2/runtime/.dockerignore": "cdbce99cad190e2104f9d7ebfbd65a8910f286a491f8a58ab40d6cdd411bc723",
+    "reproducibility/m3b2/runtime/Dockerfile": "24a33e47dbea38a369a0ac1d4412c5ecd4630b027f107e409bf42ff8b5c1b655",
+    "reproducibility/m3b2/runtime/requirements-linux-amd64.lock": "05d73039de2c24da08ee1bf9f7a37f0beebbbb47cb329747008c2c6c39034de2",
+    "reproducibility/m3b2/runtime_spec.json": "3bfd2d7076f98c1387e203a456e6f234674ec39858198e0a1a9628e30f34daee",
+    "reproducibility/m3b2/source_manifest.json": "7123fcad791c134a961cd213b119f22241606e350ff2d05fbb9f76ff0cb58b0c",
+    "scripts/check_canonical_candidate_replay.py": "b8cac66140532ccf05f03bddfb79467d45e56d96496444d4b1f936eeb1096962",
+    "src/ds_m01/canonical_replay.py": "142c347ca093123bf7c54944e212cf7d5d5432b200f705f10f9238b7446e2c75"
+  },
+  "protocol": "m3b2-canonical-v1",
+  "schema_version": 1
+}
