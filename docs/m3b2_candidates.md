@@ -80,13 +80,15 @@ must not publish partial results or overwrite retained evidence.
 
 Training replay, retained-model inference replay and numerical tolerances are
 documented with the retained results. A numerical replay pass is distinct from
-byte-for-byte model identity and from predictive performance.
+byte-for-byte model identity and from predictive performance. Use the
+[fixed-container replay guide](reproducibility.md) for exact retraining. Native
+macOS fitting failed the original contract; passing the unit suite or retained
+JSON inference does not make that native training path supported.
 
 ```bash
 python -m pip install -r requirements-models.lock
 python -m pip install -e . --no-deps
 python -m unittest discover -s tests -v
-python scripts/check_candidate_replay.py --root . --output reports/m3b2_local
 ```
 
 The candidate replay requires only the frozen raw
@@ -108,8 +110,12 @@ python scripts/check_candidate_replay.py --root . --inference-only
 Structural fields, identities, counts and decisions must match exactly.
 Floating values use absolute tolerance `1e-6` or relative tolerance `1e-9`;
 ETA timestamps allow at most 50 microseconds. A mismatch stops verification;
-do not increase tolerances after observing a failure. The checked Linux run was
-also byte-identical. macOS retraining has not yet been verified for this stage.
+do not increase tolerances after observing a failure. The original native Linux
+replay was byte-identical. A later fixed Linux/amd64 runtime on Mac Docker Desktop
+also produced byte-identical core artifacts in two fresh containers; native
+macOS fitting remains unsupported for exact replay. The
+[environment evidence and integrated-runner acceptance boundary](reproducibility.md#evidence-and-execution-scope)
+keep those results separate.
 Malformed vectors, including finite values beyond float32 tree-input range,
 fail closed rather than silently entering the numerical-output fallback branch.
 

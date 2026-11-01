@@ -29,16 +29,25 @@ Intervals are uncalibrated. M3b.3 will evaluate both candidates and the baseline
 using shared labels, denominators and trip-balanced error measures.
 
 See the [candidate protocol](docs/m3b2_candidates.md),
-[retained evidence](reports/m3b2/README.md) and
-[verification](reports/m3b2/verification.json). With the frozen outcome source:
+[retained evidence](reports/m3b2/README.md), historical
+[verification](reports/m3b2/verification.json) and
+[reproducibility guide](docs/reproducibility.md).
+
+Native macOS exact retraining failed the original replay contract. A fixed
+Linux/amd64 container on Mac Docker Desktop reproduced the original model and
+prediction bytes in two fresh runs. The integrated container entry point keeps
+that runtime and the original tolerances; its actual container acceptance was
+pending when the integration was prepared. Follow the reproducibility guide
+for input checks, the tested local image identity and fresh-run commands.
+
+Retained JSON inference can be checked separately without fitting:
 
 ```bash
-python scripts/check_candidate_replay.py --root . --output reports/m3b2_local
+python scripts/check_candidate_replay.py --root . --inference-only
 ```
 
-The replay checks retained JSON inference and fresh training against fixed
-numerical tolerances. It does not evaluate predictive accuracy or use July
-calibration or August–September test outcomes.
+Inference-only success does not establish training replay. Neither check evaluates
+predictive accuracy or uses July calibration or August–September test outcomes.
 
 ## Feature preparation
 
@@ -124,7 +133,7 @@ The older receipts above have not been rewritten to describe the new run.
 
 ## Run locally
 
-Use Python 3.11 or later. The recorded full run used Linux and Python 3.12.14; a full macOS run has not been verified. The snapshot and local HTTP workflow requires no company files, paid APIs or credentials.
+Use Python 3.11 or later for the native data workflow. The recorded full data run used Linux and Python 3.12.14; a full native macOS data rebuild has not been verified. M3b.2 exact training replay has its own [fixed container requirements and observed platform scope](docs/reproducibility.md). The snapshot and local HTTP workflow requires no company files, paid APIs or credentials.
 
 ```bash
 python3 -m venv .venv
@@ -178,7 +187,8 @@ Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes
 | [src/ds_m01/](src/ds_m01/) | Data pipeline, historical baseline, chronological validation, transport and PostgreSQL adapter |
 | [config/](config/), [contracts/](contracts/), [sql/](sql/) | Reproducible configurations, requirements and typed schema definitions |
 | [tests/](tests/) | Independent temporal fixtures, build invariants, transport and publication checks |
-| [scripts/](scripts/) | Rebuild, readiness, generator stability and figure generation |
+| [scripts/](scripts/) | Rebuild, readiness, generator stability, candidate replay and figure generation |
+| [reproducibility/m3b2/](reproducibility/m3b2/), [reproducibility guide](docs/reproducibility.md) | Fixed candidate runtime, integrity contract and observed execution scope |
 | [reports/](reports/) | Execution receipts, data summaries and validation figures |
 | [docs/m1_scope.md](docs/m1_scope.md), [docs/m2_scope.md](docs/m2_scope.md) | Historical trial scope and full data milestone scope |
 | [docs/m3a_baseline.md](docs/m3a_baseline.md) | Historical baseline, fold cutoffs, protected periods and metric denominators |

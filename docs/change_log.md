@@ -2,6 +2,29 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-01 — M3b.2 fixed-container replay integration
+
+- Native macOS fitting failed the original numerical replay despite unchanged
+  training rows, summary, numerical package versions and fixed seed. Retained
+  JSON inference passed separately. The observed fitting difference does not
+  establish a unique CPU, compiler or library root cause.
+- A pinned Linux/amd64 runtime on Mac Docker Desktop completed two fresh full
+  replays with the original model parameters, source bytes and tolerances.
+  Each retained 24 model states and 10,326 predictions; models, predictions,
+  training rows and summary matched the original reference byte-for-byte.
+- Added an independent container entry point with exact source and payload
+  verification, immutable local image selection, isolated read-only snapshots,
+  new output directories, full replay and direct pair comparison. Failed child
+  processes preserve diagnostics and stop subsequent runs.
+- Kept the original receipt-bound training implementation and retained outputs
+  unchanged. The integrated entry point still needs its own actual container
+  execution evidence; runtime-experiment results and host guard tests do not
+  supply that evidence automatically.
+- Documented the observed Mac Docker scope, unsupported native macOS exact
+  fitting, separate retained-inference check and untested additional hosts in
+  the [reproducibility guide](reproducibility.md). No model-quality, calibration,
+  final-test, CI or operational-performance claim is added.
+
 ## 2026-10-30 — M3b.2 quantile candidate training and inference
 
 - Added two fixed quantile model families with per-tenant/fold fitting,
