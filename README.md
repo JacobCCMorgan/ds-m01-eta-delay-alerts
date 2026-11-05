@@ -6,6 +6,28 @@ A reproducible data foundation for estimating fleet arrival times and identifyin
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
 
+## Check a saved forecast run
+
+From the repository root, create an environment and regenerate the predictions
+from the saved models. Python 3.12 was used for the recorded run. This check
+needs no Docker, raw outcome file or M2 rebuild.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-models.lock
+python -m pip install -e . --no-deps
+python scripts/check_candidate_replay.py --root . --inference-only
+```
+
+Expect `status: passed` for 10,326 prediction rows. This checks that the saved
+models yield the same forecasts; it does not fit a model or score predictions
+against actual arrivals. To run the unit suite, use
+`python -m unittest discover -s tests -v` in the same environment.
+
+For exact retraining, follow the [fixed-container guide](docs/reproducibility.md).
+For the full data build, [see the commands and disk requirements below](#run-locally).
+
 ## Quantile candidate training and inference
 
 Linear and gradient-boosted quantile regressors use fixed defaults and the same
@@ -33,21 +55,13 @@ See the [candidate protocol](docs/m3b2_candidates.md),
 [verification](reports/m3b2/verification.json) and
 [reproducibility guide](docs/reproducibility.md).
 
-Native macOS exact retraining failed the original replay contract. A fixed
-Linux/amd64 container on Mac Docker Desktop reproduced the original model and
-prediction bytes in two fresh runs. The integrated container entry point keeps
-that runtime and the original tolerances; its actual container acceptance was
-pending when the integration was prepared. Follow the reproducibility guide
-for input checks, the tested local image identity and fresh-run commands.
-
-Retained JSON inference can be checked separately without fitting:
-
-```bash
-python scripts/check_candidate_replay.py --root . --inference-only
-```
-
-Inference-only success does not establish training replay. Neither check evaluates
-predictive accuracy or uses July calibration or August–September test outcomes.
+Native macOS retraining failed the original replay check. On Mac Docker Desktop,
+two fresh Linux/amd64 containers ran the integrated training command at commit
+`0814fa1`. Both reproduced the same four files byte-for-byte: models,
+predictions, training rows and summary. The [verification summary](reports/m3b2_integrated_replay_20261031.json)
+identifies that commit, the image, the output hashes and the 285 local tests.
+These runs did not use July calibration or August–September test labels to
+evaluate the candidates.
 
 ## Feature preparation
 
@@ -133,15 +147,15 @@ The older receipts above have not been rewritten to describe the new run.
 
 ## Run locally
 
-Use Python 3.11 or later for the native data workflow. The recorded full data run used Linux and Python 3.12.14; a full native macOS data rebuild has not been verified. M3b.2 exact training replay has its own [fixed container requirements and observed platform scope](docs/reproducibility.md). The snapshot and local HTTP workflow requires no company files, paid APIs or credentials.
+The native data workflow uses Python 3.11 or later; the recorded full build
+ran on Linux with Python 3.12.14. Use the environment from
+[the saved-forecast check](#check-a-saved-forecast-run). A full native macOS
+data rebuild has not been verified.
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-models.lock
-python -m pip install -e . --no-deps
-python -m unittest discover -s tests -v
-```
+Budget about **30 GB of free disk space** for a fresh M2 rebuild and HTTP checks.
+The complete generated dataset occupies about 12.6 GB uncompressed. Peak memory
+use in the recorded build was 7.23 GiB. Generated data are excluded from Git;
+no company files, paid APIs or credentials are required.
 
 Generate the complete M2 dataset and run its checks from the repository root:
 
@@ -152,7 +166,7 @@ python scripts/check_m2_readiness.py --root .
 python scripts/check_rebuild.py --root . --config config/m2.json
 ```
 
-`run` replaces generated data in the selected root. Explicit `--config` selects the reproducible configuration; the CLI otherwise defaults to `config/m2.json` when present. The smaller historical configuration is [config/m1.json](config/m1.json); use a separate project copy for M1 experiments to keep M2 outputs distinct.
+`run` replaces generated data in the selected root, and checks can update tracked reports. Use a separate checkout to retain the published reports for comparison. Explicit `--config` selects the reproducible configuration; the CLI otherwise defaults to `config/m2.json` when present. The smaller historical configuration is [config/m1.json](config/m1.json); use a separate project copy for M1 experiments to keep M2 outputs distinct.
 
 With the frozen M2 model inputs available, run training-only baseline validation:
 
@@ -162,8 +176,6 @@ python -m ds_m01.baseline_run --root . --config config/m3a.json --output reports
 
 Choose a new output directory for a subsequent run. See the [M3a protocol](docs/m3a_baseline.md)
 for the exact required inputs, output files and figure command.
-
-The complete dataset occupies approximately 12.6 GB before compression. The recorded full-run peak RSS was about 7.23 GiB; resource use varies by machine. Allow approximately 30 GB of free disk for a complete fresh rebuild and HTTP parity checks. Generated data are excluded from the source repository.
 
 Use [plot_data_quality.py](scripts/plot_data_quality.py) to regenerate the English validation figures from the retained summary reports:
 

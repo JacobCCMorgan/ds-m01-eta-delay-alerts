@@ -2,6 +2,18 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-01 UTC — integrated training replay verified
+
+On October 31 in Los Angeles, the integrated command at `0814fa1` passed on Mac
+Docker Desktop: two new Linux/amd64 containers reproduced the reference models,
+predictions, training rows and summary byte-for-byte. Local checks at the same
+commit passed 285 tests and reproduced 10,326 predictions without refitting.
+GitHub subsequently reported valid signatures on all five commits in the batch.
+No GitHub Actions run was recorded for that commit. See the
+[verification summary](../reports/m3b2_integrated_replay_20261031.json) for
+the tree, image and output hashes. The earlier native macOS fitting failure
+still applies.
+
 ## 2026-11-01 — M3b.2 fixed-container replay integration
 
 - Native macOS fitting failed the original numerical replay despite unchanged
@@ -17,9 +29,9 @@ Entries describe implementation changes and observed test findings. Dates are ac
   new output directories, full replay and direct pair comparison. Failed child
   processes preserve diagnostics and stop subsequent runs.
 - Kept the original receipt-bound training implementation and retained outputs
-  unchanged. The integrated entry point still needs its own actual container
-  execution evidence; runtime-experiment results and host guard tests do not
-  supply that evidence automatically.
+  unchanged. At this point only the earlier runtime experiment and host guard
+  tests had run. The separate entry above records the later execution of the
+  integrated command.
 - Documented the observed Mac Docker scope, unsupported native macOS exact
   fitting, separate retained-inference check and untested additional hosts in
   the [reproducibility guide](reproducibility.md). No model-quality, calibration,

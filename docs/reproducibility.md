@@ -41,12 +41,14 @@ fresh containers used the same built image and the original full replay gate.
 | Maximum numeric and ETA difference | 0 |
 | Actual Python / compiler / libc | Python 3.12.14 / GCC 12.2.0 / glibc 2.36 |
 
-Execution receipts include run-specific timestamps, so the receipts themselves
-are not byte-identical. Source, configuration, code and dependency bindings were
-checked separately from output equivalence. The earlier experiment validates
-this runtime and replay protocol. **Actual container acceptance of the integrated
-entry point was pending when this integration was prepared**; its host-side
-guard tests do not substitute for a new execution receipt.
+Execution receipts contain run-specific timestamps; their bytes differ even when
+the four core outputs match. The initial experiment established the fixed
+runtime. A separate execution then verified the integrated entry point at
+`0814fa1`: two fresh containers each matched the reference and each other on all
+four files. The [dated verification summary](../reports/m3b2_integrated_replay_20261031.json)
+records the image ID, output hashes, 285 local tests and retained-inference
+result. This was a local run on the setup below; no GitHub Actions run was
+recorded for the tested commit.
 
 | Execution surface | Supported conclusion |
 |---|---|
@@ -70,22 +72,34 @@ The source tree must be clean. The frozen raw outcome file
 `data/raw/eta_trip_outcome.jsonl` must already be present with its recorded SHA256;
 see [candidate input requirements](m3b2_candidates.md#reproducibility-and-artifact-use).
 The remaining model inputs and reference outputs are retained in the repository.
+If generating the raw file from scratch, use the [M2 workflow](../README.md#run-locally)
+in a separate checkout and copy just the generated outcome file into the clean
+checkout used here. Preflight checks its digest before training.
 
-The recorded **local Docker image ID** is:
+If the tested image is already present in your local Docker engine, select it by
+its full immutable ID:
 
-```text
-sha256:f7e8e96ea325cadf646467291df7109d7621812109f8b2723413b280497fecbc
+```bash
+replay_image_id=sha256:f7e8e96ea325cadf646467291df7109d7621812109f8b2723413b280497fecbc
 ```
 
-This is not a published registry reference. It is usable only where that image
-is already present. The runner accepts a full immutable local image ID, rejects
-tags and checks that image inspection resolves to the requested ID. An arbitrary
-accepted ID has not thereby passed runtime or model validation.
+Otherwise, build the pinned recipe from the repository root. Docker needs
+access to the base image and locked wheels during the build. The tag below
+names the local build; the commands that run it use its resolved image ID.
+
+```bash
+docker build --platform linux/amd64 -t ds-m01-m3b2-replay:local reproducibility/m3b2/runtime
+replay_image_id="$(docker image inspect --format '{{.Id}}' ds-m01-m3b2-replay:local)"
+```
+
+The recorded ID is local to an engine that has that image; it is not a
+registry address. A new build can have a different ID. Record that ID and run
+the full check below before claiming a result for your build.
 
 Check inputs, payload integrity, the local Docker endpoint and image platform:
 
 ```bash
-python -I scripts/check_canonical_candidate_replay.py preflight --root . --image sha256:f7e8e96ea325cadf646467291df7109d7621812109f8b2723413b280497fecbc
+python -I scripts/check_canonical_candidate_replay.py preflight --root . --image "$replay_image_id"
 ```
 
 Expected status: `passed_preflight_only`. This does not run training. If a source,
@@ -97,7 +111,7 @@ below is an example of a **new absolute directory outside the repository**; it
 must not already exist.
 
 ```bash
-python -I scripts/check_canonical_candidate_replay.py run --root . --image sha256:f7e8e96ea325cadf646467291df7109d7621812109f8b2723413b280497fecbc --output "$HOME/Documents/DS-M01_M3b2_Canonical_Integration_Run01"
+python -I scripts/check_canonical_candidate_replay.py run --root . --image "$replay_image_id" --output "$HOME/Documents/DS-M01_M3b2_Canonical_Integration_Run01"
 ```
 
 Expected status: `passed_two_container_replays_and_pair_comparison`. Each run
@@ -115,12 +129,6 @@ python -I scripts/check_canonical_candidate_replay.py archive --output "$HOME/Do
 Expected status: `replay_archive_created`. The ZIP is created beside the output
 directory and must not already exist. Archiving preserves evidence; it does not
 turn a failed check into a pass. Keep the original output directory as well.
-
-For a fresh build, use the pinned Dockerfile and its runtime directory as the
-build context, with explicit `linux/amd64`. Record the resolved image ID and
-rerun the complete gate with that ID before claiming the new build verified.
-Do not replace the known local ID with a mutable tag or assume a fresh build
-must receive the same Docker identity.
 
 ## Isolation, integrity and failure behavior
 

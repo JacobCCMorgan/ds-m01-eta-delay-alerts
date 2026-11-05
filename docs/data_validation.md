@@ -1,9 +1,8 @@
 # Data validation and quality figures
 
-DS-M01 currently evaluates a data pipeline, not a trained ETA model. The retained
-receipts describe original synthetic 2026 scenarios and engineering checks. Their
-counts are not estimates of real fleet prevalence, predictive accuracy or business
-impact.
+The M1 and M2 checks on this page cover data generation, warehouse integrity and
+point-in-time availability. They use synthetic 2026 scenarios. Their counts do
+not estimate real fleet prevalence, predictive accuracy or business impact.
 
 ## Recorded data milestones
 
@@ -71,9 +70,12 @@ rebuild. Compatibility validation for the public-content revision is recorded
 separately in
 [`reports/public_cleanup_validation.json`](../reports/public_cleanup_validation.json).
 
-The warehouse defines 28 tables: 17 contain data and 11 remain empty placeholders
-for later modeling and alert workflows. No ETA model, calibrated prediction
-interval or delay-alert policy has been evaluated yet. The native PostgreSQL
+At the M2 milestone, 17 of 28 warehouse tables held data; 11 were reserved for
+modeling and alerts. Subsequent work evaluated a [historical ETA baseline](m3a_baseline.md)
+and trained [two candidate models](m3b2_candidates.md). Those experiments are
+documented separately from the data checks above.
+
+The native PostgreSQL
 roundtrip has not run in the recorded environment; the DuckDB and HTTP checks do
 not substitute for it. See
 [`postgres_runtime_note.md`](postgres_runtime_note.md) for the service check and

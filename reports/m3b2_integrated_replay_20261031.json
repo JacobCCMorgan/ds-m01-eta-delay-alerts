@@ -1,0 +1,66 @@
+{
+  "description": "Retrospective summary of the M3b.2 integration checks. Dates refer to the original observations.",
+  "observation_date_pacific": "2026-10-31",
+  "tested_commit": "0814fa1fc1f3913847477fa0d76d19d9578688db",
+  "tested_tree": "3bb60927b2fa91a1bdf5ecda87f9527847eab359",
+  "unit_tests": {
+    "status": "passed",
+    "tests_run": 285,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "retained_native_inference": {
+    "status": "passed",
+    "prediction_rows": 10326,
+    "compared_float_values": 60546,
+    "max_absolute_difference": 0.0,
+    "max_relative_difference": 0.0,
+    "max_eta_difference_microseconds": 0.0,
+    "outcome_source_opened": false,
+    "training_executed": false
+  },
+  "training_replay": {
+    "entry_point": "scripts/check_canonical_candidate_replay.py",
+    "protocol": "m3b2-canonical-v1",
+    "platform": "linux/amd64 on Apple Silicon Mac Docker Desktop",
+    "local_image_id": "sha256:f7e8e96ea325cadf646467291df7109d7621812109f8b2723413b280497fecbc",
+    "started_at_utc": "2026-11-01T01:56:28.706953+00:00",
+    "finished_at_utc": "2026-11-01T01:57:31.605536+00:00",
+    "status": "passed_two_container_replays_and_pair_comparison",
+    "fresh_containers": 2,
+    "counts_per_run": {
+      "models": 24,
+      "predictions": 10326,
+      "training_rows": 18343
+    },
+    "comparisons": [
+      "reference vs run 1",
+      "reference vs run 2",
+      "run 1 vs run 2"
+    ],
+    "original_tolerances_unchanged": true,
+    "core_files_byte_identical_to_reference_and_each_other": true,
+    "core_sha256": {
+      "models.json": "3eaf095ca4a1f769a59613c02ae5f4d3348b752f5124d73ddb95cb0608ef8af3",
+      "predictions.jsonl": "6a1a3108885280d86ce8fdab783a606cecec29e284dd535acffd591bc880b7af",
+      "summary.json": "75d9e1a7de559b6b76b15ee691d140e70b10887f31778f958db8c28f7ef5d0f5",
+      "training_rows.jsonl": "970e7670d9ab2e79d0b56b658e9ea0612f4a0040058579017884ac63ddf6a0ec"
+    },
+    "run_receipts_byte_identical": false
+  },
+  "evidence_review": {
+    "replay_archive_sha256": "d1e595a7fb013782c20991b306848cd78301cc8637fff68c3f08b1b7558b2ce2",
+    "local_test_receipt_sha256": "4dab989dbd4042b3ddada633cd7e78aa910b1d771f795a974e35894798c98ac0",
+    "basis": "Archived run outputs and the local test evidence were checked against the reference. The archive review did not itself run Docker or train models."
+  },
+  "github": {
+    "main_at_time_of_check": "0814fa1fc1f3913847477fa0d76d19d9578688db",
+    "commits_with_valid_signatures": 5,
+    "actions_runs_at_tested_commit": 0
+  },
+  "limits": [
+    "Native macOS exact retraining failed the original contract. Other Docker hosts and CPUs were not validated.",
+    "These results establish replay on the recorded setup. They do not measure model accuracy, calibration, final holdout or operational performance."
+  ]
+}
