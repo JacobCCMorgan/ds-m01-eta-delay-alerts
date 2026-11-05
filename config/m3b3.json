@@ -1,0 +1,38 @@
+{
+  "protocol_id": "m3b3-training-comparison-v1",
+  "source_protocol": "config/m3b2.json",
+  "methods": ["historical_baseline", "linear_quantile", "gradient_boosting_quantile"],
+  "folds": ["F01", "F02", "F03", "F04"],
+  "expected_opportunities_per_method": 5163,
+  "quantiles": [0.1, 0.5, 0.9],
+  "target": "Fractional seconds from snapshot time to verified gate arrival. Select the latest outcome known strictly before the fold validation-label cutoff; require positive remaining time and second or minute precision. Apply the identical unrounded target to all methods.",
+  "availability_denominator": "All frozen validation opportunities, including unknown outcomes and nonpositive remaining time. Count native, historical-baseline fallback and unavailable separately.",
+  "cohorts": {
+    "native": "Eligible opportunities on which this method emitted its own quantiles.",
+    "common_native": "Identical eligible opportunities on which all three methods emitted their own quantiles.",
+    "delivered": "Eligible opportunities on which this method delivered quantiles, including recorded fallback.",
+    "baseline_anchor": "All baseline-supported eligible opportunities. A candidate that loses any baseline-supported opportunity is ineligible for promotion. Score the published forecasts including fallback on this fixed set."
+  },
+  "weighting": "Within each reported cohort or slice first average snapshots of each tenant/trip, then give each scored trip equal weight. RMSE is the square root of the trip-weighted mean squared error.",
+  "metrics": ["median_mae_seconds", "median_rmse_seconds", "pinball_p10_seconds", "pinball_p50_seconds", "pinball_p90_seconds", "mean_pinball_seconds", "p10_p90_coverage", "p10_p90_mean_width_seconds"],
+  "strata": ["fold_id", "tenant_id", "route_support", "position_validity"],
+  "sparse_below_scored_trips": 20,
+  "bootstrap": {
+    "method": "Percentile interval for candidate minus baseline MAE on the baseline anchor. Resample whole tenant/trip contributions with replacement within each fold; preserve each fold's number of scored trips. Use the same samples for all candidates.",
+    "seed": 20261104,
+    "replicates": 1000,
+    "percentiles": [0.025, 0.975]
+  },
+  "selection": {
+    "baseline_id": "historical_baseline",
+    "max_missing_baseline_supported_opportunities": 0,
+    "minimum_native_fraction_of_baseline_supported_opportunities": 0.90,
+    "minimum_relative_anchor_mae_reduction": 0.05,
+    "maximum_anchor_mean_pinball_ratio": 1.0,
+    "require_paired_mae_interval_upper_below_zero": true,
+    "tie_relative_to_best_mae": 0.01,
+    "simplicity_order": ["historical_baseline", "linear_quantile", "gradient_boosting_quantile"],
+    "decision": "Retain the baseline unless a candidate meets every gate. Of qualifying candidates take the simplest within 1% of the lowest anchor MAE. If a gate has no denominator or paired interval it fails. Advance one method and preserve historical fallback for the next stage."
+  },
+  "scope": "Synthetic, chronological training-period validation only. No hyperparameter search or refit. July calibration, final held-out scoring, calibrated coverage, operational benefit and production acceptance require separate evidence. Gates are engineering choices for this experiment."
+}
