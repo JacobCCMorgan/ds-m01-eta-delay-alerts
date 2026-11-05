@@ -30,3 +30,7 @@ reports/m3b1_local*/
 # Separate local candidate replays from the retained M3b.2 evidence
 reports/m3b2_local*/
 .m3b2-stage-*/
+
+# Local training-period model comparisons
+reports/m3b3_local*/
+.m3b3-*/
