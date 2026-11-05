@@ -1,0 +1,162 @@
+{
+  "protocol_id": "m3c-delay-classification-v1",
+  "batch_id": "DS-M01-P04-20261104-r1",
+  "method_ids": [
+    "fold_prevalence",
+    "logistic_delay"
+  ],
+  "feature_definition_version": "m3c-promise-features-v1",
+  "feature_design": "Frozen M3b1 tenant/fold vectors plus signed snapshot-effective promise seconds remaining. Deadline mean and population standard deviation are fitted on all available fold-fit snapshots before joining labels; constant scale becomes one. Negative deadlines are retained.",
+  "logistic_parameters": {
+    "C": 1.0,
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "tol": 1e-08,
+    "fit_intercept": true,
+    "class_weight": null,
+    "random_state": 20261105,
+    "l1_ratio": 0.0
+  },
+  "minimum_fit_trips": 5,
+  "minimum_class_contributing_trips": 2,
+  "target_definition": "Verified second-precision gate arrival > snapshot-effective promise.window_end_at. Equality is on time. No grace. Snapshot remains eligible only while positive actual remaining time; unknown/immature/cancelled/already-arrived outcomes remain explicit unscored opportunities.",
+  "weighting": "Each eligible tenant/trip carries total fit weight one divided equally among its eligible available snapshots. No oversampling or class balancing. The prior is the same weighted training label mean.",
+  "fallback": "Prevalence requires at least five eligible fit trips. Logistic additionally requires at least two distinct contributing trips in each class. Logistic support failure uses the same tenant/fold prevalence if supported. Fitting/invalid input errors fail closed. Missing promise binding is a contract error. A single-class prior is valid with explicitly recorded class counts.",
+  "support_scope": "Minimum supports are engineering guards; no tuning or production acceptance inferred.",
+  "folds": [
+    {
+      "fold_id": "F01",
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-02-21"
+      ],
+      "training_cutoff_at": "2026-03-01T00:00:00-08:00",
+      "validation_departure_dates": [
+        "2026-03-01",
+        "2026-03-24"
+      ],
+      "validation_label_cutoff_at": "2026-04-01T00:00:00-07:00"
+    },
+    {
+      "fold_id": "F02",
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-03-24"
+      ],
+      "training_cutoff_at": "2026-04-01T00:00:00-07:00",
+      "validation_departure_dates": [
+        "2026-04-01",
+        "2026-04-23"
+      ],
+      "validation_label_cutoff_at": "2026-05-01T00:00:00-07:00"
+    },
+    {
+      "fold_id": "F03",
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-04-23"
+      ],
+      "training_cutoff_at": "2026-05-01T00:00:00-07:00",
+      "validation_departure_dates": [
+        "2026-05-01",
+        "2026-05-24"
+      ],
+      "validation_label_cutoff_at": "2026-06-01T00:00:00-07:00"
+    },
+    {
+      "fold_id": "F04",
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-05-24"
+      ],
+      "training_cutoff_at": "2026-06-01T00:00:00-07:00",
+      "validation_departure_dates": [
+        "2026-06-01",
+        "2026-06-23"
+      ],
+      "validation_label_cutoff_at": "2026-07-01T00:00:00-07:00"
+    }
+  ],
+  "expected_retained_sha256": {
+    "config/m2.json": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+    "config/m3a.json": "8eac552ff1bed556b4e9bd29b86d230e52484ba832e96064181e85e8dc59b8df",
+    "config/m3b1.json": "804cd7368985c4ebccb69876562f5cad1399f4cc87239d2bba5937c727d929bf",
+    "contracts/m3b1_features.json": "c2b57c73843ead572032337d057f097e288a6fbf7873d7f6795cc1713abfb0a0",
+    "reports/rebuild_report.json": "c08dba07e473c4a66019d3a0308472d0abe0ea0d61fb9689bdc8afb239dcd28e",
+    "reports/m3a/run_receipt.json": "3c1889b7a4a7d4601048ae24758327a08ac93ae84d6e2dd5103b13feba65d379",
+    "reports/m3a/frozen_history.jsonl": "5e1177841d3905cb642296f500f5284efcd9fee344e969764e85d9d09be8225a",
+    "reports/m3b1/run_receipt.json": "6426747bdd26555c0b9c89eafec8590a97d8f7ba4c14b6dffb17efc661b387d9",
+    "reports/m3b1/features.jsonl": "0b89d11df505aa206d301f18cd457ff4af3e474d9fa9833d352f4bb17830cbaa",
+    "reports/m3b1/matrices.jsonl": "8754fec48824adf5ecac233cb3a4209c065670a820eb93b7d3df33aa03a8353e",
+    "reports/m3b1/memberships.jsonl": "079b2ef21f14ed9cc746cd563a4b71425544a7611f72dfae8199d0db302b1d96",
+    "reports/m3b1/summary.json": "1c3252e0d1d8ff385aa03e6f877cc24d1d46cb9b089eef9162f570e2f59d7680",
+    "reports/m3b1/transformers.json": "f9772e60e8e1101f32d03cc1e8f1f8582e954ac48d34818f4518c6dff4be4e81",
+    "src/ds_m01/candidate_model.py": "9406f202c385764002fc4abf03dc755cf21c8ee96d12b88049b52a571c9aff5f",
+    "src/ds_m01/candidate_run.py": "4ebcb9125ca04361012af2c1ebf1e165cab0ae97ee252c283e2a0e3bec4e87b8",
+    "src/ds_m01/candidate_targets.py": "57ee05d00834edadc288658c96014f44f64ba417d922890fb6a1fccd1370e202",
+    "src/ds_m01/common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+    "src/ds_m01/features.py": "91f2e9f1529aae6e38f1b3ab24e92d7dc9c988eedf2b2297bb8fa45e5c389a8a",
+    "src/ds_m01/feature_transform.py": "5911757e7985e72abf95fce53e7cc03490322af4f58c44bcd5ae580d2fa63cff",
+    "src/ds_m01/model_splits.py": "d1c09f2cf8800bd006063afb1c027dfc4fd06bac6512539f44d93a7ded2dcd95",
+    "src/ds_m01/baseline.py": "2f947d9219eb53eb6e7991bc4256ba86b2bfc4ed3a5c2668d9365d77aa25a8e1",
+    "requirements.lock": "cfd03ba6b6b3ec4b0df5b9d0b8ff1f925350c3cf2622cae959cea30dd6ffdb7f",
+    "requirements-models.lock": "f38ee94aaee6dcf3cc5d11a76ab31f4d1dc3c7b7fd51f360d09e949971d3cb2f"
+  },
+  "expected_source_sha256": {
+    "data/raw/eta_promise_version.jsonl": "8ccabc505c96f681051e977de1d0eae9b1b792512a03e29161699daaadd6cd91",
+    "data/raw/eta_trip_outcome.jsonl": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58",
+    "data/processed/eta_snapshot.jsonl": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f"
+  },
+  "expected_validation_opportunities_per_method": 5163,
+  "evaluation": {
+    "method_ids": [
+      "fold_prevalence",
+      "logistic_delay"
+    ],
+    "reliability_bin_edges": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "sparse_below_scored_trips": 20,
+    "log_loss_epsilon": 1e-15,
+    "cohorts": [
+      "native",
+      "delivered",
+      "common_supported",
+      "baseline_anchor"
+    ],
+    "single_class_policy": "ROC AUC and average precision null with explicit reason; Brier and log loss remain available.",
+    "early_trip_cutoff_seconds": 3600,
+    "advance_bin_edges_seconds": [
+      0,
+      1800,
+      7200
+    ],
+    "advance_bin_convention": "overdue <0; 0-30m [0,1800]; 30-120m (1800,7200]; over2h >7200; missing unknown",
+    "strata": [
+      "fold_id",
+      "tenant_id",
+      "route_id",
+      "departure_time_bucket",
+      "position_validity",
+      "early_trip",
+      "deadline_advance"
+    ],
+    "decision": "Describe raw probability quality against the frozen prevalence baseline. Retain this configuration for separate July calibration; no validation-tuned threshold, model family or GPS switch."
+  },
+  "replay": {
+    "absolute_probability_tolerance": 1e-12,
+    "relative_probability_tolerance": 1e-10,
+    "scope": "Portable retained JSON inference. Full native retraining numerical equivalence requires separate evidence."
+  },
+  "protected_periods": "July calibration and August-September final-test outcomes excluded from fitting, feature selection and scoring."
+}
