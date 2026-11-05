@@ -2,6 +2,16 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-04 UTC — compare the ETA candidates across chronological folds
+
+Both candidates met the fixed availability, error and uncertainty requirements on
+the 511-trip baseline-supported cohort. The boosted model had the lowest P50
+mean absolute error, with larger errors for low-confidence or missing GPS.
+The [model comparison](m3b3_comparison.md) includes scores for all three methods,
+the common unrounded target, the paired trip bootstrap and the decision rule.
+The source-clock fix preserves fractional event times for freshness tests and
+derives stored whole seconds consistently across the data stages.
+
 ## 2026-11-01 UTC — integrated training replay verified
 
 On October 31 in Los Angeles, the integrated command at `0814fa1` passed on Mac

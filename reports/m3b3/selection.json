@@ -1,0 +1,59 @@
+{
+  "baseline_supported_eligible_snapshots": 2347,
+  "baseline_supported_opportunities": 3357,
+  "candidates": {
+    "gradient_boosting_quantile": {
+      "anchor_pinball_ratio": 0.8458650615199853,
+      "baseline_supported_opportunities_lost": 0,
+      "candidate_minus_baseline_mae_interval": {
+        "fold_trip_counts": {
+          "F01": 125,
+          "F02": 131,
+          "F03": 127,
+          "F04": 128
+        },
+        "lower_seconds": -179.02519122732522,
+        "trips": 511,
+        "upper_seconds": -59.88572653076705
+      },
+      "eligible_for_promotion": true,
+      "gates": {
+        "mae_reduction": true,
+        "paired_uncertainty": true,
+        "preserves_baseline_availability": true,
+        "quantile_loss": true,
+        "sufficient_native_coverage": true
+      },
+      "native_fraction_on_all_baseline_supported": 0.9997021149836163,
+      "relative_anchor_mae_reduction": 0.11186720871620637
+    },
+    "linear_quantile": {
+      "anchor_pinball_ratio": 0.8038764657408296,
+      "baseline_supported_opportunities_lost": 0,
+      "candidate_minus_baseline_mae_interval": {
+        "fold_trip_counts": {
+          "F01": 125,
+          "F02": 131,
+          "F03": 127,
+          "F04": 128
+        },
+        "lower_seconds": -122.35610380927267,
+        "trips": 511,
+        "upper_seconds": -6.751972856232489
+      },
+      "eligible_for_promotion": true,
+      "gates": {
+        "mae_reduction": true,
+        "paired_uncertainty": true,
+        "preserves_baseline_availability": true,
+        "quantile_loss": true,
+        "sufficient_native_coverage": true
+      },
+      "native_fraction_on_all_baseline_supported": 0.9928507596067918,
+      "relative_anchor_mae_reduction": 0.06129497672328166
+    }
+  },
+  "carry_forward_method": "gradient_boosting_quantile",
+  "decision_scope": "Training-period synthetic validation; carry forward to a separate calibration stage.",
+  "fallback_method": "historical_baseline"
+}

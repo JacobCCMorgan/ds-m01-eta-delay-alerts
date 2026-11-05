@@ -2,9 +2,27 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: M3b.2 quantile candidate training and inference on the v0.2.0 M2 data foundation.** Two fixed model families now produce auditable P10/P50/P90 predictions with fold-local mature targets, trip-balanced training weights and explicit fallback behavior. The historical baseline and feature contracts are retained. Candidate comparison and selection, calibrated intervals, delay probabilities, final-test model evaluation and alert policies remain pending.
+**Current stage: chronological model comparison (M3b.3).** Gradient boosting advances to calibration after reducing mean absolute error for the median arrival estimate from 17.43 to 15.48 minutes on 511 synthetic trips. Valid GPS readings drive the gain. The historical baseline gives smaller errors when GPS readings are stale or missing.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## Which ETA model should advance?
+
+The same 2,347 baseline-supported prediction opportunities were scored for all
+three methods. Each trip had equal weight. Linear quantile regression reached
+16.36 minutes of median-ETA error and produced the narrowest raw interval.
+Gradient boosting reached 15.48 minutes and met the decision rule fixed before
+scoring. Across all 5,163 opportunities it delivered its own forecast 5,162
+times and the historical fallback once.
+
+On snapshots with low-confidence GPS, boosting's error rose to 33.84 minutes,
+compared with 11.15 minutes for the baseline. These subgroups will need separate
+checks during calibration. The July calibration period and August–September
+final test stay reserved.
+
+![Trip-weighted ETA error by GPS quality and method](reports/m3b3/eta_error_by_gps.png)
+
+[Comparison protocol, cohort definitions and full results](docs/m3b3_comparison.md)
 
 ## Check a saved forecast run
 
@@ -47,8 +65,7 @@ outcomes. The resulting 24 model states contain 72 quantile estimators.
 These are inference availability counts, **not accuracy results or a model
 ranking**. Nonpositive raw estimates trigger fallback; crossed positive quantiles
 are sorted and flagged. Raw values and all decisions remain in the artifacts.
-Intervals are uncalibrated. M3b.3 will evaluate both candidates and the baseline
-using shared labels, denominators and trip-balanced error measures.
+The raw intervals await calibration. The comparison above uses one fractional-second target and reports separate availability and error denominators for all three methods.
 
 See the [candidate protocol](docs/m3b2_candidates.md),
 [retained evidence](reports/m3b2/README.md), historical
@@ -72,14 +89,10 @@ indicators and unknown-category slots preserve observation limitations. These
 counts describe feature preparation, not model accuracy. No target file is
 opened, and calibration/final-test groups never enter feature fitting.
 
-See the [feature protocol](docs/m3b1_features.md),
-[contract](contracts/m3b1_features.json) and
-[retained verification](reports/m3b1/verification.json). With exact M2 replay
-inputs present, reproduce the five core artifacts in a new directory:
-
-```bash
-python scripts/check_feature_replay.py --root . --output reports/m3b1_local
-```
+The [feature protocol](docs/m3b1_features.md#reproduce) gives the historical
+checkout for replaying the five recorded artifacts and the current command for
+processing fractional source clocks. See the [feature contract](contracts/m3b1_features.json)
+and [retained verification](reports/m3b1/verification.json).
 
 ## Historical ETA baseline
 
@@ -190,7 +203,7 @@ The 11 reserved tables have declared types and nullability but no model, alert, 
 
 For the next modeling stage, the unseen-route-only test cohort has 29 eligible trips and the joint unseen-vehicle/unseen-route cohort has four. These sparse cohorts support descriptive reporting, not reliable deployment claims. A threshold of 30 trips is a coverage warning, not a power analysis. The training set also contains 97 eligible snapshots without a prior historical pool, requiring a defined fallback or unavailable result.
 
-Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. Subsequent work covers candidate comparison and selection, interval/probability calibration, frozen final evaluation, and alert delivery and action follow-up. Candidate training and inference are available; they do not complete M3 or establish operational performance.
+Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. The next stage defines delay relative to the promise available at prediction time and evaluates classifiers within the training period. Later stages cover probability and interval calibration, frozen final evaluation, alert delivery and action follow-up.
 
 ## Repository guide
 

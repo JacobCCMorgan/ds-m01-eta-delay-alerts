@@ -1,0 +1,46 @@
+{
+  "absolute_tolerance_seconds_or_rate": 1e-08,
+  "checks_by_section": {
+    "bootstrap": 8,
+    "overall_availability": 33,
+    "overall_labels": 2,
+    "overall_metrics": 132,
+    "selection": 15,
+    "selection_gates": 10,
+    "slice_data": 8448,
+    "slice_integrity": 2,
+    "slice_sparse": 384
+  },
+  "core_output_sha256_checked": {
+    "metrics.json": "438fe18b16245ad754820a04025ee8417d3b2a56144868d4fa7bfc275bf57bae",
+    "selection.json": "09b9def7b5c9d335cbc9caad1c5ed87324498e871f5d3ed1a02330b2d2824d4e",
+    "slices.csv": "ad72246bf5283da67cf854a83410c53b98a62841b80097d038d71503950d6abb"
+  },
+  "distinct_slices": 384,
+  "label_blind_denominators": {
+    "all_opportunities": 5163,
+    "baseline_supported_all": 3357,
+    "baseline_supported_eligible": 2347,
+    "positive_label_eligible": 2358
+  },
+  "largest_absolute_float_difference_by_section": {
+    "bootstrap": 2.842170943040401e-14,
+    "overall_availability": 1.1102230246251565e-16,
+    "overall_metrics": 4.547473508864641e-13,
+    "selection": 2.220446049250313e-16,
+    "slice_data": 9.094947017729282e-13
+  },
+  "mismatch_count": 0,
+  "mismatches": [],
+  "native_on_baseline_supported_all": {
+    "gradient_boosting_quantile": 3356,
+    "linear_quantile": 3333
+  },
+  "notes": "Private reference source uses SQL and standard-library parsing, never the public model/scoring functions. All sparser groups, source counts, availability, metrics, eligibility, paired intervals and selection are included.",
+  "protocol_sha256": "ce7dc122d8ed79cede3c3b7f605e0ba40b24c871ed3b1b47436235084b389966",
+  "relative_tolerance": 1e-12,
+  "result": "passed",
+  "slice_rows": 384,
+  "total_value_or_set_comparisons": 9034,
+  "winner": "gradient_boosting_quantile"
+}

@@ -1,0 +1,46 @@
+{
+  "core_output_sha256": {
+    "metrics.json": "438fe18b16245ad754820a04025ee8417d3b2a56144868d4fa7bfc275bf57bae",
+    "selection.json": "09b9def7b5c9d335cbc9caad1c5ed87324498e871f5d3ed1a02330b2d2824d4e",
+    "slices.csv": "ad72246bf5283da67cf854a83410c53b98a62841b80097d038d71503950d6abb"
+  },
+  "execution": "Frozen forecast comparison; no model fitting or calibration/test scoring.",
+  "implementation_sha256": {
+    "src/ds_m01/baseline_metrics.py": "1d8efaa878538b063811b3d81781104801e9c62bb995d963daf8169a18d13287",
+    "src/ds_m01/common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+    "src/ds_m01/comparison_inputs.py": "38098a44f5c9c8d70dd8dbba56e09a6a8d5a3d8178185e82c2585cb72536d685",
+    "src/ds_m01/comparison_metrics.py": "10d7a46cdb32a2e53d2118ba454bcd7a4ad071c82bb58ecb11a1c8596c37b59b",
+    "src/ds_m01/comparison_run.py": "6073a299cb61242615993a72a4d864bc378689d75d80643441c4a51e5d776cc7",
+    "src/ds_m01/model_splits.py": "d1c09f2cf8800bd006063afb1c027dfc4fd06bac6512539f44d93a7ded2dcd95"
+  },
+  "inputs": {
+    "eligible_fractional_second_targets": 2358,
+    "input_sha256": {
+      "config/m2.json": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+      "config/m3a.json": "8eac552ff1bed556b4e9bd29b86d230e52484ba832e96064181e85e8dc59b8df",
+      "config/m3b2.json": "0159f50769a010caafa2e901f50db56263440d5fdeda156ad46e610bd33b6b96",
+      "data/raw/eta_trip_outcome.jsonl": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58",
+      "reports/m3a/evaluation_rows.jsonl": "17e766b4a120f3d05a99d24083d9fcdae34927dec6727bca5376b5e722082f35",
+      "reports/m3a/memberships.jsonl": "079b2ef21f14ed9cc746cd563a4b71425544a7611f72dfae8199d0db302b1d96",
+      "reports/m3a/predictions.jsonl": "096e17b6cb44dd2e46c6489c7d7850f5e451cefca6582d90ca436d10c3e69270",
+      "reports/m3a/run_receipt.json": "3c1889b7a4a7d4601048ae24758327a08ac93ae84d6e2dd5103b13feba65d379",
+      "reports/m3b1/features.jsonl": "0b89d11df505aa206d301f18cd457ff4af3e474d9fa9833d352f4bb17830cbaa",
+      "reports/m3b1/memberships.jsonl": "079b2ef21f14ed9cc746cd563a4b71425544a7611f72dfae8199d0db302b1d96",
+      "reports/m3b1/run_receipt.json": "6426747bdd26555c0b9c89eafec8590a97d8f7ba4c14b6dffb17efc661b387d9",
+      "reports/m3b2/predictions.jsonl": "6a1a3108885280d86ce8fdab783a606cecec29e284dd535acffd591bc880b7af",
+      "reports/m3b2/run_receipt.json": "88896cbba603c44a253278d5fa2224a28ce60b9c5df299c19d69c05d335c372f"
+    },
+    "label_status_counts": {
+      "already_arrived": 638,
+      "cancelled": 55,
+      "eligible": 2358,
+      "not_mature": 2112
+    },
+    "m3a_reference": "Outcome version, eligibility and integer target reconciled per opportunity; all methods score the same fractional seconds.",
+    "opportunities": 5163,
+    "outcome_use": "Only frozen original-training validation groups and versions known strictly before each fold cutoff; protected source bytes hashed, no protected targets used.",
+    "validation_trips": 654
+  },
+  "protocol_id": "m3b3-training-comparison-v1",
+  "protocol_sha256": "ce7dc122d8ed79cede3c3b7f605e0ba40b24c871ed3b1b47436235084b389966"
+}

@@ -1,0 +1,219 @@
+{
+  "label_status_counts": {
+    "already_arrived": 638,
+    "cancelled": 55,
+    "eligible": 2358,
+    "not_mature": 2112
+  },
+  "methods": {
+    "gradient_boosting_quantile": {
+      "availability": {
+        "baseline_fallback_eligible_opportunities": 1,
+        "baseline_fallback_opportunities": 1,
+        "delivered_fraction": 1.0,
+        "eligible_opportunities": 2358,
+        "native_eligible_opportunities": 2357,
+        "native_fraction": 0.999806314158435,
+        "native_opportunities": 5162,
+        "opportunities": 5163,
+        "trips": 654,
+        "unavailable_eligible_opportunities": 0,
+        "unavailable_opportunities": 0
+      },
+      "cohorts": {
+        "baseline_anchor": {
+          "cohort_snapshots": 2347,
+          "mean_pinball_seconds": 319.9485495055285,
+          "median_mae_seconds": 928.986683744256,
+          "median_rmse_seconds": 1643.7445862430666,
+          "p10_p90_coverage": 0.8210323814042014,
+          "p10_p90_mean_width_seconds": 3832.893689213594,
+          "pinball_p10_seconds": 216.1258734886419,
+          "pinball_p50_seconds": 464.493341872128,
+          "pinball_p90_seconds": 279.22643315581564,
+          "scored_snapshots": 2347,
+          "scored_trips": 511
+        },
+        "common_native": {
+          "cohort_snapshots": 2345,
+          "mean_pinball_seconds": 319.9550227137209,
+          "median_mae_seconds": 928.8832649190242,
+          "median_rmse_seconds": 1643.6022084843557,
+          "p10_p90_coverage": 0.820997435919158,
+          "p10_p90_mean_width_seconds": 3833.5212803235127,
+          "pinball_p10_seconds": 216.2994482757039,
+          "pinball_p50_seconds": 464.4416324595121,
+          "pinball_p90_seconds": 279.1239874059467,
+          "scored_snapshots": 2345,
+          "scored_trips": 511
+        },
+        "delivered": {
+          "cohort_snapshots": 2358,
+          "mean_pinball_seconds": 317.60115779309973,
+          "median_mae_seconds": 921.1037800405396,
+          "median_rmse_seconds": 1628.818010076375,
+          "p10_p90_coverage": 0.8221207146843155,
+          "p10_p90_mean_width_seconds": 3825.7235584295354,
+          "pinball_p10_seconds": 214.65376271188066,
+          "pinball_p50_seconds": 460.5518900202698,
+          "pinball_p90_seconds": 277.59782064714864,
+          "scored_snapshots": 2358,
+          "scored_trips": 511
+        },
+        "native": {
+          "cohort_snapshots": 2357,
+          "mean_pinball_seconds": 317.5569924418915,
+          "median_mae_seconds": 920.7464615883391,
+          "median_rmse_seconds": 1628.5371137795662,
+          "p10_p90_coverage": 0.8220857691992721,
+          "p10_p90_mean_width_seconds": 3826.1014908922803,
+          "pinball_p10_seconds": 214.77072387330404,
+          "pinball_p50_seconds": 460.37323079416956,
+          "pinball_p90_seconds": 277.52702265820096,
+          "scored_snapshots": 2357,
+          "scored_trips": 511
+        }
+      }
+    },
+    "historical_baseline": {
+      "availability": {
+        "baseline_fallback_eligible_opportunities": 0,
+        "baseline_fallback_opportunities": 0,
+        "delivered_fraction": 0.6502033701336432,
+        "eligible_opportunities": 2358,
+        "native_eligible_opportunities": 2347,
+        "native_fraction": 0.6502033701336433,
+        "native_opportunities": 3357,
+        "opportunities": 5163,
+        "trips": 654,
+        "unavailable_eligible_opportunities": 11,
+        "unavailable_opportunities": 1806
+      },
+      "cohorts": {
+        "baseline_anchor": {
+          "cohort_snapshots": 2347,
+          "mean_pinball_seconds": 378.25010638291866,
+          "median_mae_seconds": 1045.9997568622684,
+          "median_rmse_seconds": 1645.7073315357845,
+          "p10_p90_coverage": 0.7783690977428747,
+          "p10_p90_mean_width_seconds": 4051.520618600224,
+          "pinball_p10_seconds": 173.28974524210443,
+          "pinball_p50_seconds": 522.9998784311342,
+          "pinball_p90_seconds": 438.46069547551735,
+          "scored_snapshots": 2347,
+          "scored_trips": 511
+        },
+        "common_native": {
+          "cohort_snapshots": 2345,
+          "mean_pinball_seconds": 378.24761401060783,
+          "median_mae_seconds": 1045.9862243324249,
+          "median_rmse_seconds": 1645.6898961637892,
+          "p10_p90_coverage": 0.7783690977428747,
+          "p10_p90_mean_width_seconds": 4051.5135100801162,
+          "pinball_p10_seconds": 173.2912868634645,
+          "pinball_p50_seconds": 522.9931121662124,
+          "pinball_p90_seconds": 438.45844300214657,
+          "scored_snapshots": 2345,
+          "scored_trips": 511
+        },
+        "delivered": {
+          "cohort_snapshots": 2347,
+          "mean_pinball_seconds": 378.25010638291866,
+          "median_mae_seconds": 1045.9997568622684,
+          "median_rmse_seconds": 1645.7073315357845,
+          "p10_p90_coverage": 0.7783690977428747,
+          "p10_p90_mean_width_seconds": 4051.520618600224,
+          "pinball_p10_seconds": 173.28974524210443,
+          "pinball_p50_seconds": 522.9998784311342,
+          "pinball_p90_seconds": 438.46069547551735,
+          "scored_snapshots": 2347,
+          "scored_trips": 511
+        },
+        "native": {
+          "cohort_snapshots": 2347,
+          "mean_pinball_seconds": 378.25010638291866,
+          "median_mae_seconds": 1045.9997568622684,
+          "median_rmse_seconds": 1645.7073315357845,
+          "p10_p90_coverage": 0.7783690977428747,
+          "p10_p90_mean_width_seconds": 4051.520618600224,
+          "pinball_p10_seconds": 173.28974524210443,
+          "pinball_p50_seconds": 522.9998784311342,
+          "pinball_p90_seconds": 438.46069547551735,
+          "scored_snapshots": 2347,
+          "scored_trips": 511
+        }
+      }
+    },
+    "linear_quantile": {
+      "availability": {
+        "baseline_fallback_eligible_opportunities": 1,
+        "baseline_fallback_opportunities": 24,
+        "delivered_fraction": 0.9089676544644587,
+        "eligible_opportunities": 2358,
+        "native_eligible_opportunities": 2357,
+        "native_fraction": 0.9043191942668991,
+        "native_opportunities": 4669,
+        "opportunities": 5163,
+        "trips": 654,
+        "unavailable_eligible_opportunities": 0,
+        "unavailable_opportunities": 470
+      },
+      "cohorts": {
+        "baseline_anchor": {
+          "cohort_snapshots": 2347,
+          "mean_pinball_seconds": 304.06635868519345,
+          "median_mae_seconds": 981.8852261128375,
+          "median_rmse_seconds": 1681.4790997822697,
+          "p10_p90_coverage": 0.8044993547439732,
+          "p10_p90_mean_width_seconds": 2911.0499385694275,
+          "pinball_p10_seconds": 161.94147954666116,
+          "pinball_p50_seconds": 490.94261305641874,
+          "pinball_p90_seconds": 259.3149834525005,
+          "scored_snapshots": 2347,
+          "scored_trips": 511
+        },
+        "common_native": {
+          "cohort_snapshots": 2345,
+          "mean_pinball_seconds": 304.0798422881783,
+          "median_mae_seconds": 982.0921612696377,
+          "median_rmse_seconds": 1681.733389964226,
+          "p10_p90_coverage": 0.8047556216342909,
+          "p10_p90_mean_width_seconds": 2910.725518097046,
+          "pinball_p10_seconds": 161.97591341721736,
+          "pinball_p50_seconds": 491.04608063481885,
+          "pinball_p90_seconds": 259.21753281249886,
+          "scored_snapshots": 2345,
+          "scored_trips": 511
+        },
+        "delivered": {
+          "cohort_snapshots": 2358,
+          "mean_pinball_seconds": 301.8854400613446,
+          "median_mae_seconds": 974.0535615999019,
+          "median_rmse_seconds": 1666.746499680458,
+          "p10_p90_coverage": 0.8056002868625177,
+          "p10_p90_mean_width_seconds": 2911.0515073262272,
+          "pinball_p10_seconds": 160.9106122559411,
+          "pinball_p50_seconds": 487.0267807999509,
+          "pinball_p90_seconds": 257.7189271281417,
+          "scored_snapshots": 2358,
+          "scored_trips": 511
+        },
+        "native": {
+          "cohort_snapshots": 2357,
+          "mean_pinball_seconds": 301.8388939978751,
+          "median_mae_seconds": 973.9646122338432,
+          "median_rmse_seconds": 1666.8227821178207,
+          "p10_p90_coverage": 0.8059264447229222,
+          "p10_p90_mean_width_seconds": 2910.4514742154865,
+          "pinball_p10_seconds": 160.94600789060812,
+          "pinball_p50_seconds": 486.9823061169216,
+          "pinball_p90_seconds": 257.58836798609565,
+          "scored_snapshots": 2357,
+          "scored_trips": 511
+        }
+      }
+    }
+  },
+  "opportunities_per_method": 5163,
+  "protocol_id": "m3b3-training-comparison-v1"
+}

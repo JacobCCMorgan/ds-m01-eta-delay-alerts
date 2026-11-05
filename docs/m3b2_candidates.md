@@ -1,5 +1,7 @@
 # Quantile ETA candidates
 
+The subsequent [chronological model comparison](m3b3_comparison.md) evaluates these frozen predictions against the same validation targets.
+
 This stage trains candidate P10/P50/P90 remaining gate-arrival time models and
 records their predictions on the frozen training-period validation opportunities.
 It is an **Engineering and Method Demonstration — Synthetic Data**, using the
