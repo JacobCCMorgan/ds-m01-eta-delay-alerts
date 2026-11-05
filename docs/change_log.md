@@ -2,6 +2,28 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-05 UTC — classify delay against the snapshot promise
+
+Added an independent logistic classifier and tenant/fold prevalence baseline
+with a fixed, versioned promise-deadline feature. The target preserves the
+promise known at each snapshot and uses the latest verified gate-arrival
+outcome strictly before the relevant fold cutoff. Unknown, cancelled and
+already-arrived outcomes remain explicit. Binary deadline labels require
+second precision and add no grace period.
+
+The recorded run produced 10,326 raw probabilities. On 511 scored trips,
+logistic regression reduced Brier error from 0.2393 to 0.2061. Stale/missing GPS
+and 0–30-minute advance snapshots remained weaker than the baseline. Results
+retain those regressions, fixed-bin reliability and class support. No warning
+threshold or subgroup switch was selected.
+
+Development review strengthened fit-time visibility, complete preprocessing
+membership, equal per-trip snapshot weights and identity-keyed target joins.
+Portable JSON inference and source-derived label/score replay are checked
+separately from fitting. See the [delay results](../reports/m3c/README.md) and
+[independent checks](../reports/m3c/independent_checks.json). July calibration
+and final-test scoring remain pending.
+
 ## 2026-11-04 UTC — compare the ETA candidates across chronological folds
 
 Both candidates met the fixed availability, error and uncertainty requirements on

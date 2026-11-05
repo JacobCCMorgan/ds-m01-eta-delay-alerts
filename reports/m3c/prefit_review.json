@@ -1,0 +1,19 @@
+{
+  "event": "blind_protocol_review_and_pre_fit_freeze",
+  "reviewed_at_utc": "2026-11-05T06:43:14.309801+00:00",
+  "protocol_sha256": "df9895e9b9c7854d2deb7ed0489ba0cb00bb2794c87dadea13a0b206620ef989",
+  "protocol_path": "config/m3c.json",
+  "batch_id": "DS-M01-P04-20261104-r1",
+  "status": "passed_ready_for_first_fit",
+  "label_distribution_read_for_design": false,
+  "classifier_validation_scores_read": false,
+  "july_or_final_test_targets_used": false,
+  "pinned_source_checks": 26,
+  "explicit_regularization": "L2: l1_ratio=0.0, C=1, lbfgs, 2000 iterations, tol1e-8",
+  "promise_target": "Latest promise known_at<=snapshot; strict arrival>deadline; no grace; no final-promise substitution.",
+  "eligibility_change_from_eta": "Second-only arrivals are an explicit conservative binary-boundary contract; ETA accepted second/minute. Do not claim identical eligibility. Positive fractional remaining time and independent gate evidence are required.",
+  "feature_preprocessing": "New deadline feature mean/popSD uses available fold-fit snapshots before labels; frozen M3b1 vectors unchanged. No validation-fitting.",
+  "class_support": "Prior requires5eligiblefittrips, allows single-class. Logistic also requires2contributingtrips per class. Empty/insufficient support explicit; numerical/training errors fail.",
+  "validation": "Frozen training-only four chronological folds, whole trip weights and predefined metrics/slices; raw probabilities and regression interval coverage remain distinct. M3c.2 is validation; July calibration is M3d.1.",
+  "next_action": "First fit may run with exactly these config bytes. No protocol change after scores without recording a separate exploratory experiment."
+}

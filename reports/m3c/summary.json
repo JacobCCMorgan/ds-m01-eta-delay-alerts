@@ -1,0 +1,33 @@
+{
+  "available_models": 24,
+  "calibration_used": false,
+  "eligible_fit_opportunities": 8417,
+  "eligible_trip_fold_memberships": 1869,
+  "final_test_evaluated": false,
+  "fit_opportunities": 18343,
+  "method_ids": [
+    "fold_prevalence",
+    "logistic_delay"
+  ],
+  "models": 24,
+  "prediction_rows": 10326,
+  "prediction_sources": {
+    "fold_prevalence": {
+      "model": 5163
+    },
+    "logistic_delay": {
+      "model": 5163
+    }
+  },
+  "probability_state": "Raw independent classification probabilities before calibration.",
+  "stage": "M3c.1 fold delay classification",
+  "training_eligibility_counts": {
+    "already_arrived_at_snapshot": 3837,
+    "latest_outcome_cancelled": 209,
+    "latest_outcome_incomplete": 5184,
+    "latest_outcome_pending": 696,
+    "verified_gate_arrival": 8417
+  },
+  "validation_opportunities_per_method": 5163,
+  "validation_targets_used_in_fitting": false
+}

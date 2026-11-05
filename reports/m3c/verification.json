@@ -1,0 +1,59 @@
+{
+  "fit_environment": {
+    "package_versions": {
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0"
+    },
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python_version": "3.12.14"
+  },
+  "independent_checks_sha256": "7d925814ba37a4333fdee5cda1e0dad151dcddc4171ea7ad09a4075ace5e3a83",
+  "limits": "Recorded Linux execution with pinned dependencies. Portable saved-JSON inference and source-derived target/metric replay passed. Native macOS exact retraining, CI and operational acceptance are not established by this receipt.",
+  "protected_scope": {
+    "canonical_model_prediction_tables_populated": false,
+    "final_test_evaluated": false,
+    "july_calibration_executed": false,
+    "threshold_selected": false
+  },
+  "protocol_sha256": "df9895e9b9c7854d2deb7ed0489ba0cb00bb2794c87dadea13a0b206620ef989",
+  "recorded_fit_executed_at_utc": "2026-11-05T06:51:17.897174+00:00",
+  "replay_implementation_sha256": "da04dc3dd216c8b8d779c0f3e76f936c5871da6f6adeb20837a7e3242d9fbd03",
+  "retained_inference": {
+    "absolute_tolerance": 1e-12,
+    "calibration_used": false,
+    "differences": 0,
+    "final_test_evaluated": false,
+    "metrics_verified": false,
+    "outcomes_opened": false,
+    "prediction_rows": 10326,
+    "relative_tolerance": 1e-10,
+    "status": "passed",
+    "targets_verified": false,
+    "training_executed": false
+  },
+  "run_receipt_sha256": "62ac7af9c28ba44f04a33a18864145962d1bb3f79e7b25b64199534e9cfb869b",
+  "source_base_commit": "a4ed78111927112055a2907076bb009fb2477482",
+  "source_label_and_metric_replay": {
+    "absolute_tolerance": 1e-12,
+    "calibration_used": false,
+    "differences": 0,
+    "final_test_evaluated": false,
+    "metrics_verified": true,
+    "outcomes_opened": true,
+    "prediction_rows": 10326,
+    "relative_tolerance": 1e-10,
+    "status": "passed",
+    "targets_verified": true,
+    "training_executed": false
+  },
+  "status": "passed_local_tests_inference_and_source_replay",
+  "unit_tests": {
+    "log": "reports/m3c/unittest_results.txt",
+    "log_sha256": "c1df5da726c67b93108e6a4781e0e7056989ea3a19cd4ba128276e153c4aef3e",
+    "passed": 356,
+    "seconds": 4.224
+  }
+}

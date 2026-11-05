@@ -1,0 +1,545 @@
+{
+  "class_support_scope": "validation labels; a trip can appear in both class counts when promises change",
+  "deadline_advance_bands": "overdue<0; 0-30m=[0,1800]; 30-120m=(1800,7200]; over-2h>7200",
+  "early_trip_seconds": 3600.0,
+  "evaluation_scope": "training-period forward validation; raw probabilities, no calibration or alert threshold",
+  "fixed_reliability_bin_edges": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "methods": {
+    "fold_prevalence": {
+      "all_opportunities": {
+        "counts": {
+          "available_snapshots": 5163,
+          "eligible_snapshots": 2358,
+          "excluded_snapshots": 2805,
+          "log_loss_clipped_snapshots": 0,
+          "opportunities": 5163,
+          "scored_snapshots": 2358,
+          "scored_trips": 511,
+          "trips": 654,
+          "unavailable_eligible_snapshots": 0
+        },
+        "eligible_class_support": {
+          "mixed_label_trips": 16,
+          "negative_snapshots": 1209,
+          "negative_trips": 312,
+          "positive_snapshots": 1149,
+          "positive_trips": 215
+        },
+        "exclusion_reason_counts": {
+          "already_arrived_at_snapshot": 638,
+          "latest_outcome_cancelled": 55,
+          "latest_outcome_incomplete": 1392,
+          "latest_outcome_pending": 720
+        },
+        "label_status_counts": {
+          "cancelled": 55,
+          "incomplete": 1392,
+          "pending": 720,
+          "verified": 2996
+        },
+        "log_loss_epsilon": 1e-15,
+        "metrics": {
+          "average_precision": 0.4153021325233542,
+          "brier_score": 0.23926697547981662,
+          "fixed_bin_ece": 0.009835052999435084,
+          "log_loss": 0.6714147807110022,
+          "mean_probability": 0.3981609383914461,
+          "roc_auc": 0.5327121132715352,
+          "weighted_event_rate": 0.4016307893020222
+        },
+        "probability_scope": "raw_uncalibrated_probabilities",
+        "ranking_undefined_reason": null,
+        "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+        "scored_class_support": {
+          "mixed_label_trips": 16,
+          "negative_snapshots": 1209,
+          "negative_trips": 312,
+          "positive_snapshots": 1149,
+          "positive_trips": 215
+        },
+        "sparse": false,
+        "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+      },
+      "availability": {
+        "delivered_fraction": 1.0,
+        "eligible_opportunities": 2358,
+        "model_eligible_opportunities": 2358,
+        "model_opportunities": 5163,
+        "opportunities": 5163,
+        "prevalence_fallback_eligible_opportunities": 0,
+        "prevalence_fallback_opportunities": 0,
+        "unavailable_eligible_opportunities": 0,
+        "unavailable_opportunities": 0
+      },
+      "cohorts": {
+        "baseline_anchor": {
+          "cohort_complete": true,
+          "cohort_snapshots": 2358,
+          "counts": {
+            "available_snapshots": 2358,
+            "eligible_snapshots": 2358,
+            "excluded_snapshots": 0,
+            "log_loss_clipped_snapshots": 0,
+            "opportunities": 2358,
+            "scored_snapshots": 2358,
+            "scored_trips": 511,
+            "trips": 511,
+            "unavailable_eligible_snapshots": 0
+          },
+          "eligible_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "exclusion_reason_counts": {},
+          "label_status_counts": {
+            "verified": 2358
+          },
+          "log_loss_epsilon": 1e-15,
+          "metrics": {
+            "average_precision": 0.4153021325233542,
+            "brier_score": 0.23926697547981662,
+            "fixed_bin_ece": 0.009835052999435084,
+            "log_loss": 0.6714147807110022,
+            "mean_probability": 0.3981609383914461,
+            "roc_auc": 0.5327121132715352,
+            "weighted_event_rate": 0.4016307893020222
+          },
+          "probability_scope": "raw_uncalibrated_probabilities",
+          "ranking_undefined_reason": null,
+          "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+          "scored_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "sparse": false,
+          "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+        },
+        "common_supported": {
+          "cohort_complete": true,
+          "cohort_snapshots": 2358,
+          "counts": {
+            "available_snapshots": 2358,
+            "eligible_snapshots": 2358,
+            "excluded_snapshots": 0,
+            "log_loss_clipped_snapshots": 0,
+            "opportunities": 2358,
+            "scored_snapshots": 2358,
+            "scored_trips": 511,
+            "trips": 511,
+            "unavailable_eligible_snapshots": 0
+          },
+          "eligible_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "exclusion_reason_counts": {},
+          "label_status_counts": {
+            "verified": 2358
+          },
+          "log_loss_epsilon": 1e-15,
+          "metrics": {
+            "average_precision": 0.4153021325233542,
+            "brier_score": 0.23926697547981662,
+            "fixed_bin_ece": 0.009835052999435084,
+            "log_loss": 0.6714147807110022,
+            "mean_probability": 0.3981609383914461,
+            "roc_auc": 0.5327121132715352,
+            "weighted_event_rate": 0.4016307893020222
+          },
+          "probability_scope": "raw_uncalibrated_probabilities",
+          "ranking_undefined_reason": null,
+          "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+          "scored_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "sparse": false,
+          "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+        },
+        "delivered": {
+          "cohort_complete": true,
+          "cohort_snapshots": 2358,
+          "counts": {
+            "available_snapshots": 2358,
+            "eligible_snapshots": 2358,
+            "excluded_snapshots": 0,
+            "log_loss_clipped_snapshots": 0,
+            "opportunities": 2358,
+            "scored_snapshots": 2358,
+            "scored_trips": 511,
+            "trips": 511,
+            "unavailable_eligible_snapshots": 0
+          },
+          "eligible_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "exclusion_reason_counts": {},
+          "label_status_counts": {
+            "verified": 2358
+          },
+          "log_loss_epsilon": 1e-15,
+          "metrics": {
+            "average_precision": 0.4153021325233542,
+            "brier_score": 0.23926697547981662,
+            "fixed_bin_ece": 0.009835052999435084,
+            "log_loss": 0.6714147807110022,
+            "mean_probability": 0.3981609383914461,
+            "roc_auc": 0.5327121132715352,
+            "weighted_event_rate": 0.4016307893020222
+          },
+          "probability_scope": "raw_uncalibrated_probabilities",
+          "ranking_undefined_reason": null,
+          "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+          "scored_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "sparse": false,
+          "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+        },
+        "native": {
+          "cohort_complete": true,
+          "cohort_snapshots": 2358,
+          "counts": {
+            "available_snapshots": 2358,
+            "eligible_snapshots": 2358,
+            "excluded_snapshots": 0,
+            "log_loss_clipped_snapshots": 0,
+            "opportunities": 2358,
+            "scored_snapshots": 2358,
+            "scored_trips": 511,
+            "trips": 511,
+            "unavailable_eligible_snapshots": 0
+          },
+          "eligible_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "exclusion_reason_counts": {},
+          "label_status_counts": {
+            "verified": 2358
+          },
+          "log_loss_epsilon": 1e-15,
+          "metrics": {
+            "average_precision": 0.4153021325233542,
+            "brier_score": 0.23926697547981662,
+            "fixed_bin_ece": 0.009835052999435084,
+            "log_loss": 0.6714147807110022,
+            "mean_probability": 0.3981609383914461,
+            "roc_auc": 0.5327121132715352,
+            "weighted_event_rate": 0.4016307893020222
+          },
+          "probability_scope": "raw_uncalibrated_probabilities",
+          "ranking_undefined_reason": null,
+          "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+          "scored_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "sparse": false,
+          "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+        }
+      }
+    },
+    "logistic_delay": {
+      "all_opportunities": {
+        "counts": {
+          "available_snapshots": 5163,
+          "eligible_snapshots": 2358,
+          "excluded_snapshots": 2805,
+          "log_loss_clipped_snapshots": 0,
+          "opportunities": 5163,
+          "scored_snapshots": 2358,
+          "scored_trips": 511,
+          "trips": 654,
+          "unavailable_eligible_snapshots": 0
+        },
+        "eligible_class_support": {
+          "mixed_label_trips": 16,
+          "negative_snapshots": 1209,
+          "negative_trips": 312,
+          "positive_snapshots": 1149,
+          "positive_trips": 215
+        },
+        "exclusion_reason_counts": {
+          "already_arrived_at_snapshot": 638,
+          "latest_outcome_cancelled": 55,
+          "latest_outcome_incomplete": 1392,
+          "latest_outcome_pending": 720
+        },
+        "label_status_counts": {
+          "cancelled": 55,
+          "incomplete": 1392,
+          "pending": 720,
+          "verified": 2996
+        },
+        "log_loss_epsilon": 1e-15,
+        "metrics": {
+          "average_precision": 0.627378945129194,
+          "brier_score": 0.20614364948316682,
+          "fixed_bin_ece": 0.026178883761708738,
+          "log_loss": 0.5988126959318449,
+          "mean_probability": 0.3983354717778069,
+          "roc_auc": 0.7178085088657821,
+          "weighted_event_rate": 0.4016307893020222
+        },
+        "probability_scope": "raw_uncalibrated_probabilities",
+        "ranking_undefined_reason": null,
+        "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+        "scored_class_support": {
+          "mixed_label_trips": 16,
+          "negative_snapshots": 1209,
+          "negative_trips": 312,
+          "positive_snapshots": 1149,
+          "positive_trips": 215
+        },
+        "sparse": false,
+        "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+      },
+      "availability": {
+        "delivered_fraction": 1.0,
+        "eligible_opportunities": 2358,
+        "model_eligible_opportunities": 2358,
+        "model_opportunities": 5163,
+        "opportunities": 5163,
+        "prevalence_fallback_eligible_opportunities": 0,
+        "prevalence_fallback_opportunities": 0,
+        "unavailable_eligible_opportunities": 0,
+        "unavailable_opportunities": 0
+      },
+      "cohorts": {
+        "baseline_anchor": {
+          "cohort_complete": true,
+          "cohort_snapshots": 2358,
+          "counts": {
+            "available_snapshots": 2358,
+            "eligible_snapshots": 2358,
+            "excluded_snapshots": 0,
+            "log_loss_clipped_snapshots": 0,
+            "opportunities": 2358,
+            "scored_snapshots": 2358,
+            "scored_trips": 511,
+            "trips": 511,
+            "unavailable_eligible_snapshots": 0
+          },
+          "eligible_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "exclusion_reason_counts": {},
+          "label_status_counts": {
+            "verified": 2358
+          },
+          "log_loss_epsilon": 1e-15,
+          "metrics": {
+            "average_precision": 0.627378945129194,
+            "brier_score": 0.20614364948316682,
+            "fixed_bin_ece": 0.026178883761708738,
+            "log_loss": 0.5988126959318449,
+            "mean_probability": 0.3983354717778069,
+            "roc_auc": 0.7178085088657821,
+            "weighted_event_rate": 0.4016307893020222
+          },
+          "probability_scope": "raw_uncalibrated_probabilities",
+          "ranking_undefined_reason": null,
+          "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+          "scored_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "sparse": false,
+          "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+        },
+        "common_supported": {
+          "cohort_complete": true,
+          "cohort_snapshots": 2358,
+          "counts": {
+            "available_snapshots": 2358,
+            "eligible_snapshots": 2358,
+            "excluded_snapshots": 0,
+            "log_loss_clipped_snapshots": 0,
+            "opportunities": 2358,
+            "scored_snapshots": 2358,
+            "scored_trips": 511,
+            "trips": 511,
+            "unavailable_eligible_snapshots": 0
+          },
+          "eligible_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "exclusion_reason_counts": {},
+          "label_status_counts": {
+            "verified": 2358
+          },
+          "log_loss_epsilon": 1e-15,
+          "metrics": {
+            "average_precision": 0.627378945129194,
+            "brier_score": 0.20614364948316682,
+            "fixed_bin_ece": 0.026178883761708738,
+            "log_loss": 0.5988126959318449,
+            "mean_probability": 0.3983354717778069,
+            "roc_auc": 0.7178085088657821,
+            "weighted_event_rate": 0.4016307893020222
+          },
+          "probability_scope": "raw_uncalibrated_probabilities",
+          "ranking_undefined_reason": null,
+          "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+          "scored_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "sparse": false,
+          "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+        },
+        "delivered": {
+          "cohort_complete": true,
+          "cohort_snapshots": 2358,
+          "counts": {
+            "available_snapshots": 2358,
+            "eligible_snapshots": 2358,
+            "excluded_snapshots": 0,
+            "log_loss_clipped_snapshots": 0,
+            "opportunities": 2358,
+            "scored_snapshots": 2358,
+            "scored_trips": 511,
+            "trips": 511,
+            "unavailable_eligible_snapshots": 0
+          },
+          "eligible_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "exclusion_reason_counts": {},
+          "label_status_counts": {
+            "verified": 2358
+          },
+          "log_loss_epsilon": 1e-15,
+          "metrics": {
+            "average_precision": 0.627378945129194,
+            "brier_score": 0.20614364948316682,
+            "fixed_bin_ece": 0.026178883761708738,
+            "log_loss": 0.5988126959318449,
+            "mean_probability": 0.3983354717778069,
+            "roc_auc": 0.7178085088657821,
+            "weighted_event_rate": 0.4016307893020222
+          },
+          "probability_scope": "raw_uncalibrated_probabilities",
+          "ranking_undefined_reason": null,
+          "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+          "scored_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "sparse": false,
+          "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+        },
+        "native": {
+          "cohort_complete": true,
+          "cohort_snapshots": 2358,
+          "counts": {
+            "available_snapshots": 2358,
+            "eligible_snapshots": 2358,
+            "excluded_snapshots": 0,
+            "log_loss_clipped_snapshots": 0,
+            "opportunities": 2358,
+            "scored_snapshots": 2358,
+            "scored_trips": 511,
+            "trips": 511,
+            "unavailable_eligible_snapshots": 0
+          },
+          "eligible_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "exclusion_reason_counts": {},
+          "label_status_counts": {
+            "verified": 2358
+          },
+          "log_loss_epsilon": 1e-15,
+          "metrics": {
+            "average_precision": 0.627378945129194,
+            "brier_score": 0.20614364948316682,
+            "fixed_bin_ece": 0.026178883761708738,
+            "log_loss": 0.5988126959318449,
+            "mean_probability": 0.3983354717778069,
+            "roc_auc": 0.7178085088657821,
+            "weighted_event_rate": 0.4016307893020222
+          },
+          "probability_scope": "raw_uncalibrated_probabilities",
+          "ranking_undefined_reason": null,
+          "reliability_weighting": "fixed_cohort_trip_weights_conditioned_on_probability_bin",
+          "scored_class_support": {
+            "mixed_label_trips": 16,
+            "negative_snapshots": 1209,
+            "negative_trips": 312,
+            "positive_snapshots": 1149,
+            "positive_trips": 215
+          },
+          "sparse": false,
+          "weighting": "equal_scored_tenant_trip_then_equal_scored_snapshot_within_trip"
+        }
+      }
+    }
+  },
+  "opportunities_per_method": 5163,
+  "ranking_policy": "weighted tied-score ROC AUC and noninterpolated AP; both null for one-class groups"
+}

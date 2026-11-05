@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "prediction_rows": 10326,
+  "differences": 0,
+  "outcomes_opened": true,
+  "training_executed": false,
+  "targets_verified": true,
+  "metrics_verified": true,
+  "calibration_used": false,
+  "final_test_evaluated": false,
+  "absolute_tolerance": 1e-12,
+  "relative_tolerance": 1e-10
+}

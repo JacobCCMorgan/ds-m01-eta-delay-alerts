@@ -1,0 +1,76 @@
+{
+  "audited_artifact_sha256": {
+    "reports/m3c/evaluation_rows.jsonl": "7f67b709df7d2250e7011ecf14a3057fd4e42b2bac62cd1ee0562e230e6b6c62",
+    "reports/m3c/metrics.json": "d2fb4653497fc7ddab6e1dddc2db52c13b0562ffb93fb1c570a92edefeba8ad7",
+    "reports/m3c/models.json": "2ae35df4e26028f351e70cae342245a040767e78f0150db4f017182c55139652",
+    "reports/m3c/reliability.csv": "2834ca3326aab69d28666d7967c6fe009e3a39c734fee9307800beda59076c82",
+    "reports/m3c/slices.csv": "dd8eacda4c31663d31076f06dbe46714e9ac7db02a1ab336ef04457878b34bb3",
+    "reports/m3c/training_rows.jsonl": "e341b14653b264f5c52f94d7785046dfef3fe705de526fb2aee5968769befe14"
+  },
+  "limits": "Independent source, support and metric checks. These checks do not establish calibrated probabilities, an alert policy, production performance or final-test acceptance.",
+  "null_and_support_rules": {
+    "class_support": "Positive, negative and mixed-label distinct trips are retained, alongside snapshot counts.",
+    "empty_reliability_bin": "Zero weight; mean probability and observed event rate are null.",
+    "incomplete_fixed_cohort": "All probability metrics are null; incomplete support is explicit.",
+    "ranking": "Both ROC AUC and noninterpolated AP null for one-class/no-scored-label groups; probability losses retained when a scored label exists.",
+    "sparse_groups": "Fewer than 20 scored distinct tenant/trips is flagged; valid probability losses are retained.",
+    "unscored_outcomes": "Unknown, pending, incomplete, cancelled and already-arrived outcomes do not become negative labels."
+  },
+  "probability_metric_checks": {
+    "absolute_tolerance": 1e-12,
+    "cohorts": [
+      "native",
+      "delivered",
+      "common_supported",
+      "baseline_anchor"
+    ],
+    "comparisons": 23984,
+    "comparisons_by_section": {
+      "availability": 20,
+      "cohorts": 296,
+      "overall": 84,
+      "reliability": 1280,
+      "slices": 22304
+    },
+    "independent_script_sha256": "8cafa85da2bf2f38684e7502cc778790cf0e05d66066eaa716925e72c74b61f3",
+    "maximum_absolute_error": 4.218847493575595e-15,
+    "methods": 2,
+    "mismatches": 0,
+    "opportunities_per_method": 5163,
+    "reference_library_versions": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "sklearn": "1.8.0"
+    },
+    "reference_method": "scikit-learn weighted probability metrics; pandas trip and fixed-bin grouping; no repository scorer imports",
+    "relative_tolerance": 1e-12,
+    "reliability_rows": 80,
+    "slice_rows": 656
+  },
+  "protected_targets_used": false,
+  "protocol_sha256": "df9895e9b9c7854d2deb7ed0489ba0cb00bb2794c87dadea13a0b206620ef989",
+  "scope": "Original-training-period forward-fold raw delay probabilities; no calibration or alert-threshold selection.",
+  "source_and_target_checks": {
+    "field_comparisons": 839418,
+    "independent_reference_sha256": "e44dd6353cd76565603d68387f4190e0f5746bbcbb5244f8bf3bed26f4b853d2",
+    "independent_script_sha256": "b022ad90d96f30f0482bf3319c2c1fc76417cefb6fa0ad961d75cbde1f5cb5a0",
+    "mismatches": 0,
+    "reference_method": "Independent sqlite as-of source joins, explicit trip and availability gates; no ds_m01 imports.",
+    "retained_training_and_evaluation_records": 28669,
+    "target_code_sha256": "89155dafbc835674478cf1a39128765cc791204284464cdda535562578839ea9",
+    "unique_target_opportunities": 23506
+  },
+  "status": "passed",
+  "time_boundary_checks": {
+    "cases": 10,
+    "field_comparisons": 286,
+    "mismatches": 0,
+    "records": 11
+  },
+  "training_support_and_prevalence_checks": {
+    "comparisons": 240,
+    "mismatches": 0,
+    "models": 24,
+    "reference_method": "Binary prior computed as exact rational per-trip mean; new deadline scaling from source clocks using 50-digit Decimal moments; model support and fitted groups compared independently."
+  }
+}
