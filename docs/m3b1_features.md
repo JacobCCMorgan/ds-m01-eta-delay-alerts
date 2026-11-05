@@ -89,23 +89,45 @@ dimensions can differ across tenant/fold models and must not be mixed later.
 
 ## Reproduce
 
-From the repository root, use the pinned environment in the main README. Obtain
-the six frozen inputs by running the existing M2 generation/build workflow, or
-restore an exact verified replay snapshot. No customer data or credentials are
-needed. The feature stage itself needs only the Python standard library.
+For the **original M3b.1 replay**, use its historical source in a separate
+checkout. The checker verifies the five module hashes in the original receipt;
+the current feature runner has since added support for fractional source clocks.
 
 ```bash
-python -m unittest discover -s tests -v
-python scripts/check_feature_replay.py --root . --output reports/m3b1_local
+git worktree add --detach ../ds-m01-m3b1-replay 0814fa1fc1f3913847477fa0d76d19d9578688db
+cd ../ds-m01-m3b1-replay
 ```
 
-Use a new output directory each time. The replay checker checks code, config,
-contract and retained evidence before recreating five deterministic artifacts.
-It excludes run-specific execution timestamps from equality. For an explicitly
-new experiment rather than exact retained replay, the direct command is:
+In that checkout, generate/build the frozen M2 data or restore just the six
+files listed under `input_sha256` in
+[`run_receipt.json`](../reports/m3b1/run_receipt.json) at their original relative
+paths. These are ignored files; adding a worktree does not copy them. Pin the
+import path to that checkout so an editable install cannot select newer code:
 
 ```bash
-python -m ds_m01.feature_run --root . --config config/m3b1.json --output reports/m3b1_local_new
+PYTHONPATH="$PWD/src" python scripts/check_feature_replay.py --root . --output reports/m3b1_local
+```
+
+Use a new output directory each time. The checker compares the five core
+artifacts byte-for-byte; execution timestamps are specific to each run.
+
+### Current snapshot duration policy
+
+The current `ds_m01.feature_run.build_snapshot_feature_row` takes the explicit
+departure event, selected snapshot, route, and lineage. The loader calls this
+function for each training snapshot. Stored GPS age and trip elapsed time count
+completed seconds: at 10:00:00, a 09:55:00.500 observation has age **299**.
+Source event and availability clocks keep their microseconds. Freshness uses
+exact age: with a 300-second limit, 300 seconds is valid; 300.000001 seconds is
+stale, even though both stored ages are 300. Model features keep the stored
+whole seconds. The original `ds_m01.features.build_feature_row` projector and
+M3b.2 replay manifest remain bound to the historical protocol.
+
+From the **current** checkout, regenerate features with the current reader
+and a new output path:
+
+```bash
+PYTHONPATH="$PWD/src" python -m ds_m01.feature_run --root . --config config/m3b1.json --output reports/m3b1_local_new
 ```
 
 The runner stages output atomically and refuses to overwrite existing output.

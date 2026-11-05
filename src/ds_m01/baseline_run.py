@@ -78,11 +78,17 @@ def load_training_inputs(root, source_config):
         if event['event_type'] in ('departure','departed'):
             departures[_key(event)].append(event)
     trips = []
+    departure_known_at = {}
     for key in sorted(allowed):
         if not departures[key]:
             raise ValueError(f'Missing explicit departure for {key}')
         trip = dict(membership[key])
-        trip['departure_time'] = utc(min(parse_ts(e['occurred_at']) for e in departures[key]))
+        depart = min(parse_ts(e['occurred_at']) for e in departures[key])
+        available = min(parse_ts(e['available_at']) for e in departures[key] if parse_ts(e['occurred_at']) == depart)
+        if available < depart:
+            raise ValueError('Departure availability precedes its event')
+        trip['departure_time'] = utc(depart)
+        departure_known_at[key] = available
         trips.append(trip)
     snapshots = list(_read_scoped(root/'data/processed/eta_snapshot.jsonl', allowed))
     _unique(snapshots, ('tenant_id','snapshot_id'))
@@ -91,6 +97,8 @@ def load_training_inputs(root, source_config):
     enriched = []
     for snapshot in snapshots:
         at = parse_ts(snapshot['snapshot_time'])
+        if departure_known_at[_key(snapshot)] > at:
+            raise ValueError('Snapshot departure was not available at its clock')
         route = routes[(snapshot['tenant_id'], snapshot['route_version_id'])]
         if (parse_ts(route['known_at']) > at
                 or (route.get('valid_from') and parse_ts(route['valid_from']) > at)
@@ -132,6 +140,7 @@ def freeze_history(inputs, fit_keys, cutoff):
     """
     limit = parse_ts(cutoff)
     history, exclusion_counts = [], Counter()
+    departures = {_key(trip): parse_ts(trip['departure_time']) for trip in inputs['trips']}
     for key in sorted(fit_keys):
         first = inputs['first_snapshot'].get(key)
         if first is None or parse_ts(first['snapshot_time']) >= limit:
@@ -149,7 +158,9 @@ def freeze_history(inputs, fit_keys, cutoff):
             exclusion_counts['insufficient_arrival_precision'] += 1
             continue
         arrival = parse_ts(outcome['actual_arrival_time'])
-        departure = parse_ts(first['snapshot_time']) - timedelta(seconds=first['elapsed_trip_seconds'])
+        departure = departures[key]
+        if first['elapsed_trip_seconds'] != (parse_ts(first['snapshot_time']) - departure) // timedelta(seconds=1):
+            raise ValueError('First snapshot elapsed time disagrees with explicit departure')
         if arrival >= limit or arrival <= departure:
             exclusion_counts['arrival_outside_fit_or_nonpositive_duration'] += 1
             continue

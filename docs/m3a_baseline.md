@@ -104,6 +104,13 @@ files listed in `baseline_run.INPUT_FILES`, `config/m2.json` and the retained
 python -m ds_m01.baseline_run --root . --config config/m3a.json --output reports/m3a_local
 ```
 
+The current runner takes historical departure from the explicit trip event
+known at the snapshot, preserving any fractional second. It records the code
+hashes actually used. To reproduce the **original implementation** and its
+module hashes, run the same command in the [historical checkout](m3b1_features.md#reproduce)
+with the eight baseline inputs restored; use `PYTHONPATH="$PWD/src"` to select
+that checkout. Keep the original receipt as the record of the original run.
+
 The command checks the frozen configuration and receipt hashes, then compares
 each consumed input against the retained M2 hashes. Drift fails closed. A new
 dataset needs a separately reviewed protocol; silently relaxing these checks

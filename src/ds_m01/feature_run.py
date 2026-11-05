@@ -7,7 +7,7 @@ candidate training, calibration, final-test evaluation or an alert deployment.
 
 import argparse
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import json
 from pathlib import Path
 import platform
@@ -61,6 +61,32 @@ def _scoped_rows(path, allowed):
                 row = json.loads(line)
                 if _key(row) in allowed:
                     yield row
+
+
+def build_snapshot_feature_row(snapshot, route, lineage, *, departure_event, position_stale_seconds=900):
+    """Project stored BIGINT durations using the unrounded source clocks."""
+    if (_key(departure_event) != _key(snapshot)
+            or departure_event.get('event_type') not in ('departure', 'departed')):
+        raise ValueError('Expected the departure event for this snapshot trip')
+    at = parse_ts(snapshot['snapshot_time'])
+    depart = parse_ts(departure_event['occurred_at'])
+    if not depart <= parse_ts(departure_event['available_at']) <= at:
+        raise ValueError('Snapshot departure was not available at its clock')
+    durations = {'elapsed_trip_seconds': at - depart}
+    if snapshot.get('last_position_time') is not None:
+        durations['position_age_seconds'] = at - parse_ts(snapshot['last_position_time'])
+    # The frozen feature projector checks exact age, trip chronology and the
+    # stale threshold. Give it clock differences, not rounded storage values.
+    exact = dict(snapshot)
+    for field, delta in durations.items():
+        stored = snapshot.get(field)
+        if type(stored) is not int or stored < 0 or stored != delta // timedelta(seconds=1):
+            raise ValueError(f'{field} disagrees with whole seconds between source clocks')
+        exact[field] = delta.total_seconds()
+    result = build_feature_row(exact, route, lineage, position_stale_seconds=position_stale_seconds)
+    for field in durations:
+        result['numeric'][field] = float(snapshot[field])
+    return result
 
 
 def load_feature_inputs(root, source_config):
@@ -133,13 +159,12 @@ def load_feature_inputs(root, source_config):
             raise ValueError('Snapshot requires a vehicle for heldout checks')
         at = parse_ts(snapshot['snapshot_time'])
         depart = parse_ts(trip_by_key[key]['departure_time'])
-        if snapshot.get('elapsed_trip_seconds') != (at - depart).total_seconds():
-            raise ValueError('Snapshot elapsed time disagrees with explicit trip departure')
-        if not any(parse_ts(e['occurred_at']) == depart and parse_ts(e['available_at']) <= at
-                   for e in departures[key]):
+        event = next((e for e in departures[key] if parse_ts(e['occurred_at']) == depart
+                      and parse_ts(e['available_at']) <= at), None)
+        if event is None:
             raise ValueError('Snapshot departure was not available at its clock')
-        rows.append(build_feature_row(
-            snapshot, route, lineage[(snapshot['tenant_id'], snapshot['snapshot_id'])],
+        rows.append(build_snapshot_feature_row(
+            snapshot, route, lineage[(snapshot['tenant_id'], snapshot['snapshot_id'])], departure_event=event,
             position_stale_seconds=source_config.get('position_stale_seconds', 900)))
     return dict(trips=trips, feature_rows=rows,
                 original_role_trip_counts=dict(sorted(Counter(r['split_role'] for r in assignments.values()).items())))

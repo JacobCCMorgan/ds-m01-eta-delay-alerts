@@ -114,9 +114,9 @@ def snapshot_for_trip(tenant_id, trip_id, snapshot_time, tables):
         if len(mapping)==1:
             valid.append(row)
     pos=max(valid,key=lambda r:(parse_ts(r['event_time']),parse_ts(r['available_time']),r['canonical_event_id'])) if valid else None
-    age=int((at-parse_ts(pos['event_time'])).total_seconds()) if pos else None
+    age = at - parse_ts(pos['event_time']) if pos else None
     stale_seconds=tables.get('_settings',{}).get('position_stale_seconds',900)
-    quality='no_position' if pos is None else ('low_confidence' if age>stale_seconds else 'valid')
+    quality='no_position' if pos is None else ('low_confidence' if age > timedelta(seconds=stale_seconds) else 'valid')
     tz=next((x['report_timezone'] for x in _tenant(tables.get('core_tenant',[]),tenant_id)), 'America/Los_Angeles')
     local_dep=depart.astimezone(ZoneInfo(tz))
     sid='S-'+ident(tenant_id,trip_id,utc(at),'m1-features-v1')
@@ -127,10 +127,10 @@ def snapshot_for_trip(tenant_id, trip_id, snapshot_time, tables):
                 snapshot_time=utc(at),trip_status_as_of=status,latitude_deg=pos['latitude_deg'] if pos else None,
                 longitude_deg=pos['longitude_deg'] if pos else None,last_position_time=pos['event_time'] if pos else None,
                 position_available_at=pos['available_time'] if pos else None,position_validity=quality,
-                gnss_speed_kmh=pos.get('gnss_speed_kmh') if pos else None,position_age_seconds=age,
+                gnss_speed_kmh=pos.get('gnss_speed_kmh') if pos else None,position_age_seconds=age // timedelta(seconds=1) if pos else None,
                 remaining_distance_km=_remaining_distance(route,_tenant(tables.get('eta_facility_version',[]),tenant_id),pos['latitude_deg'],pos['longitude_deg'],at) if quality=='valid' else None,
                 departure_time_bucket=f'{local_dep.isoweekday()}-{local_dep.hour:02d}@{tz}',
-                elapsed_trip_seconds=int((at-depart).total_seconds()),feature_definition_version='m1-features-v1',
+                elapsed_trip_seconds=(at-depart) // timedelta(seconds=1),feature_definition_version='m1-features-v1',
                 forecast_id=None,routing_response_id=None)
 
 

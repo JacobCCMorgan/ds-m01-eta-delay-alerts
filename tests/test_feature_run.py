@@ -7,8 +7,9 @@ import tempfile
 import unittest
 
 from ds_m01.common import write_jsonl
+from ds_m01.pipeline import snapshot_for_trip
 from ds_m01.feature_run import (
-    FEATURE_INPUT_FILES, load_feature_inputs, prepare_folds, run,
+    FEATURE_INPUT_FILES, build_snapshot_feature_row, load_feature_inputs, prepare_folds, run,
 )
 
 
@@ -91,6 +92,40 @@ def prepared(root):
 
 
 class FeatureRunnerTests(unittest.TestCase):
+    def test_fractional_source_clocks_survive_snapshot_and_feature_loading(self):
+        case = json.loads((PROJECT / 'tests/fixtures/point_in_time_case.json').read_text())
+        tables = case['tables']
+        tables['_settings'] = {'position_stale_seconds': 300}
+        departure = tables['eta_trip_event'][0]
+        departure.update(occurred_at='2026-06-23T09:00:00.500Z', available_at='2026-06-23T09:00:01Z')
+        group = dict(tenant_id='T01', trip_id='TRIP-1', split_role='train')
+        for event_clock, age, quality in (
+            ('09:55:00.500000', 299, 'valid'), ('09:55:00.000000', 300, 'valid'),
+            ('09:54:59.999999', 300, 'low_confidence'), ('09:54:59.500000', 300, 'low_confidence'),
+        ):
+            with self.subTest(clock=event_clock), tempfile.TemporaryDirectory() as tmp:
+                tables['telemetry_event'][0]['event_time'] = f'2026-06-23T{event_clock}Z'
+                snapshot = snapshot_for_trip('T01', 'TRIP-1', case['snapshot_time'], tables)
+                self.assertEqual(snapshot['elapsed_trip_seconds'], 3599)
+                self.assertEqual(snapshot['position_age_seconds'], age)
+                self.assertEqual(snapshot['position_validity'], quality)
+                lineage = dict(tenant_id='T01', snapshot_id=snapshot['snapshot_id'],
+                               max_source_available_time='2026-06-23T09:56:00Z')
+                for path, records in zip(FEATURE_INPUT_FILES, (
+                    [departure], tables['eta_route_version'], [snapshot], [group], [group], [lineage],
+                )):
+                    write_jsonl(Path(tmp) / path, records)
+                feature, = load_feature_inputs(tmp, tables['_settings'])['feature_rows']
+                self.assertEqual(feature['numeric']['elapsed_trip_seconds'], 3599)
+                self.assertEqual(feature['numeric']['position_age_seconds'], age)
+                self.assertEqual(feature['numeric']['gnss_speed_kmh'], 60 if quality == 'valid' else None)
+                self.assertEqual(feature['categorical']['position_validity'], quality)
+                for field in ('position_age_seconds', 'elapsed_trip_seconds'):
+                    wrong = dict(snapshot, **{field: snapshot[field] + 1})
+                    with self.assertRaisesRegex(ValueError, field):
+                        build_snapshot_feature_row(wrong, tables['eta_route_version'][0], lineage,
+                                                   departure_event=departure, position_stale_seconds=300)
+
     def test_snapshot_vehicle_must_be_nonempty_identifier(self):
         for value in (None, '', ' ', 123):
             with self.subTest(value=value), tempfile.TemporaryDirectory() as tmp:

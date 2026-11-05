@@ -131,6 +131,24 @@ class BaselineRunnerTests(unittest.TestCase):
         later_history, _ = freeze_history(inputs, {("T1", "FIT")}, "2026-04-01T07:00:00Z")
         self.assertEqual(later_history[0]["historical_outcome_version_id"], "late-v2")
 
+    def test_history_uses_exact_known_departure_not_integer_elapsed_reconstruction(self):
+        inputs = hand_inputs()
+        inputs['trips'][0]['departure_time'] = '2026-01-10T08:00:00.500000-08:00'
+        inputs['snapshots'][0]['elapsed_trip_seconds'] = 1799
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_scoped_fixture(root, inputs)
+            loaded = load_training_inputs(root, source_config())
+            history, _ = freeze_history(loaded, {('T1', 'FIT')}, '2026-03-01T08:00:00Z')
+            self.assertEqual(history[0]['departure_time'], '2026-01-10T16:00:00.500000Z')
+            self.assertEqual(history[0]['duration_seconds'], 7199.5)
+            path = root / 'data/raw/eta_trip_event.jsonl'
+            events = [json.loads(line) for line in path.read_text().splitlines()]
+            events[0]['available_at'] = '2026-01-11T00:00:00Z'
+            write_jsonl(path, events)
+            with self.assertRaisesRegex(ValueError, 'not available'):
+                load_training_inputs(root, source_config())
+
     def test_latest_conflict_does_not_resurrect_older_verified_outcome(self):
         inputs = hand_inputs()
         original = inputs["outcomes"][("T1", "FIT")][0]

@@ -19,6 +19,16 @@ KEYS={
  'eta_history_reference':['tenant_id','snapshot_id','historical_trip_id']}
 
 
+# Counting crossed second boundaries overstates intervals such as
+# 09:55:00.500 -> 10:00:00.000. Storage uses completed seconds.
+POSITION_AGE_VIOLATIONS = """
+    SELECT count(*) FROM eta_snapshot
+    WHERE position_age_seconds IS DISTINCT FROM
+        (date_diff('microsecond', last_position_time, snapshot_time) // 1000000)
+       OR last_position_time > snapshot_time
+"""
+
+
 def quote(name):
     if not re.fullmatch(r'[a-z_][a-z_0-9]*',name):raise ValueError(name)
     return '"'+name+'"'
@@ -129,17 +139,17 @@ def build_warehouse(root,config):
     check('snapshot_plan_known_at', '''SELECT count(*) FROM eta_snapshot s LEFT JOIN eta_trip_plan_version p ON s.tenant_id=p.tenant_id AND s.trip_version_id=p.trip_version_id WHERE p.trip_version_id IS NULL OR p.plan_known_at>s.snapshot_time OR p.trip_id<>s.trip_id OR p.vehicle_id<>s.vehicle_id''')
     check('snapshot_promise_known_at', '''SELECT count(*) FROM eta_snapshot s LEFT JOIN eta_promise_version p ON s.tenant_id=p.tenant_id AND s.promise_version_id=p.promise_version_id WHERE p.promise_version_id IS NULL OR p.known_at>s.snapshot_time OR p.trip_id<>s.trip_id''')
     check('snapshot_position_known_at', '''SELECT count(*) FROM eta_snapshot s LEFT JOIN telemetry_event p ON s.tenant_id=p.tenant_id AND s.selected_position_event_id=p.canonical_event_id WHERE s.selected_position_event_id IS NOT NULL AND (p.canonical_event_id IS NULL OR p.available_time>s.snapshot_time OR p.event_time>s.snapshot_time OR p.vehicle_id<>s.vehicle_id OR p.device_id<>s.device_id)''')
-    check('position_age_calculation', '''SELECT count(*) FROM eta_snapshot WHERE position_age_seconds<>date_diff('second',last_position_time,snapshot_time) OR position_age_seconds<0''')
+    check('position_age_calculation', POSITION_AGE_VIOLATIONS)
     check('snapshot_position_validity', '''SELECT count(*) FROM eta_snapshot WHERE (position_validity='no_position' AND (latitude_deg IS NOT NULL OR selected_position_event_id IS NOT NULL)) OR latitude_deg NOT BETWEEN -90 AND 90 OR longitude_deg NOT BETWEEN -180 AND 180 OR remaining_distance_km<0''')
     check('snapshots_have_one_label', '''SELECT count(*) FROM eta_snapshot s LEFT JOIN eta_snapshot_label l USING(tenant_id,snapshot_id) WHERE l.snapshot_id IS NULL''')
     check('labels_match_snapshot_promise', '''SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) WHERE l.promise_version_id<>s.promise_version_id''')
     check('label_cutoff_is_exclusive', '''SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_split_assignment sp USING(tenant_id,trip_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE o.label_available_time>=sp.label_cutoff_at''')
     check('latest_outcome_before_cutoff', '''SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_split_assignment sp USING(tenant_id,trip_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE EXISTS(SELECT 1 FROM eta_trip_outcome later WHERE later.tenant_id=s.tenant_id AND later.trip_id=s.trip_id AND later.label_available_time<sp.label_cutoff_at AND later.label_available_time>o.label_available_time)''')
-    check('eligible_targets_use_arrival_not_service', '''SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE l.label_eligibility='eligible' AND (o.label_status<>'verified' OR o.arrival_time_precision NOT IN ('second','minute') OR l.remaining_duration_seconds<>date_diff('second',s.snapshot_time,o.actual_arrival_time) OR l.remaining_duration_seconds<=0 OR l.delay_outcome IS NULL)''')
+    check('eligible_targets_use_arrival_not_service', '''SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE l.label_eligibility='eligible' AND (o.label_status<>'verified' OR o.arrival_time_precision NOT IN ('second','minute') OR l.remaining_duration_seconds<>(date_diff('microsecond',s.snapshot_time,o.actual_arrival_time) // 1000000) OR l.remaining_duration_seconds<=0 OR l.delay_outcome IS NULL)''')
     check('delay_uses_frozen_promise', '''SELECT count(*) FROM eta_snapshot_label l JOIN eta_promise_version p USING(tenant_id,promise_version_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE l.label_eligibility='eligible' AND l.delay_outcome<>(o.actual_arrival_time>p.window_end_at)''')
     check('unknown_not_zero_or_on_time', '''SELECT count(*) FROM eta_snapshot_label WHERE label_eligibility<>'eligible' AND (remaining_duration_seconds IS NOT NULL OR delay_outcome IS NOT NULL)''')
     check('history_training_only_no_self', '''SELECT count(*) FROM eta_history_reference h JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_split_assignment sp ON h.tenant_id=sp.tenant_id AND h.historical_trip_id=sp.trip_id WHERE sp.split_role<>'train' OR h.historical_trip_id=s.trip_id OR h.historical_label_known_at>=s.snapshot_time OR h.historical_label_known_at>=TIMESTAMPTZ '2026-07-01T07:00:00Z' ''')
-    check('history_independent_departure_duration', '''SELECT count(*) FROM eta_history_reference h JOIN eta_trip_outcome o ON h.tenant_id=o.tenant_id AND h.historical_outcome_version_id=o.outcome_version_id WHERE o.arrival_time_precision NOT IN ('second','minute') OR h.historical_duration_seconds<>(SELECT date_diff('second',min(e.occurred_at),o.actual_arrival_time) FROM eta_trip_event e WHERE e.tenant_id=h.tenant_id AND e.trip_id=h.historical_trip_id AND e.event_type='departure')''')
+    check('history_independent_departure_duration', '''SELECT count(*) FROM eta_history_reference h JOIN eta_trip_outcome o ON h.tenant_id=o.tenant_id AND h.historical_outcome_version_id=o.outcome_version_id WHERE o.arrival_time_precision NOT IN ('second','minute') OR h.historical_duration_seconds<>(SELECT (date_diff('microsecond',min(e.occurred_at),o.actual_arrival_time) // 1000000) FROM eta_trip_event e WHERE e.tenant_id=h.tenant_id AND e.trip_id=h.historical_trip_id AND e.event_type='departure')''')
     check('provenance_fk_snapshots_labels_history', '''SELECT count(*) FROM (SELECT provenance_id FROM eta_snapshot UNION ALL SELECT provenance_id FROM eta_snapshot_label UNION ALL SELECT provenance_id FROM eta_history_reference) d LEFT JOIN provenance_record p USING(provenance_id) WHERE p.provenance_id IS NULL''')
     check('snapshot_derived_availability', '''SELECT count(*) FROM eta_snapshot s JOIN provenance_record p USING(provenance_id) WHERE p.available_time<>s.snapshot_time OR p.origin_type<>'derived' ''')
     check('source_availability_after_event', '''SELECT count(*) FROM telemetry_event WHERE available_time<event_time''')

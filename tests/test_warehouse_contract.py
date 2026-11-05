@@ -8,7 +8,7 @@ import unittest
 import duckdb
 
 from ds_m01.pipeline import RAW_TABLES, DERIVED_TABLES
-from ds_m01.warehouse import materialize_tables, provenance_violations
+from ds_m01.warehouse import POSITION_AGE_VIOLATIONS, materialize_tables, provenance_violations
 
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -78,6 +78,22 @@ class WarehouseContractTests(unittest.TestCase):
         self.assertEqual(set(counts), set(self.active))
         self.assertEqual(len(counts), 17)
         self.assertNotIn("eta_prediction", status)
+
+    def test_position_age_counts_complete_seconds_not_clock_boundaries(self):
+        self.con.execute("CREATE TABLE eta_snapshot(snapshot_time TIMESTAMPTZ, last_position_time TIMESTAMPTZ, position_age_seconds BIGINT)")
+        self.con.execute("""
+            INSERT INTO eta_snapshot VALUES
+              ('2026-01-01T10:00:00Z', '2026-01-01T09:55:00.500Z', 299),
+              ('2026-01-01T10:00:00Z', NULL, NULL)
+        """)
+        self.assertEqual(self.con.execute(POSITION_AGE_VIOLATIONS).fetchone()[0], 0)
+        self.con.execute("""
+            INSERT INTO eta_snapshot VALUES
+              ('2026-01-01T10:00:00Z', '2026-01-01T09:55:00.500Z', 300),
+              ('2026-01-01T10:00:00Z', '2026-01-01T10:00:00.000001Z', 0),
+              ('2026-01-01T10:00:00Z', '2026-01-01T09:55:00.500Z', NULL)
+        """)
+        self.assertEqual(self.con.execute(POSITION_AGE_VIOLATIONS).fetchone()[0], 3)
 
     def test_sql_lineage_finds_missing_parent_and_future_parent_clock(self):
         self.con.execute("CREATE TABLE provenance_record(provenance_id VARCHAR, available_time TIMESTAMPTZ, parent_provenance_ids JSON)")
