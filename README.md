@@ -205,6 +205,8 @@ For the next modeling stage, the unseen-route-only test cohort has 29 eligible t
 
 Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. The next stage defines delay relative to the promise available at prediction time and evaluates classifiers within the training period. Later stages cover probability and interval calibration, frozen final evaluation, alert delivery and action follow-up.
 
+The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
+
 ## Repository guide
 
 | Location | Purpose |
