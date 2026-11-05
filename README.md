@@ -2,9 +2,33 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: chronological model comparison (M3b.3).** Gradient boosting advances to calibration after reducing mean absolute error for the median arrival estimate from 17.43 to 15.48 minutes on 511 synthetic trips. Valid GPS readings drive the gain. The historical baseline gives smaller errors when GPS readings are stale or missing.
+**Current stage: delay classification and probability validation (M3c.1–M3c.2).** An independent logistic classifier estimates delay against the promise known at each snapshot. On 511 synthetic validation trips, its Brier score is 0.2061, compared with 0.2393 for the training delay-rate baseline. The classifier remains weaker when GPS is stale or missing and in the final 30 minutes before the promise deadline. Its probabilities await calibration.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## Can the classifier identify delay risk?
+
+Both methods preserve all 5,163 validation opportunities. Scoring uses 2,358
+snapshots with mature, independently verified gate-arrival outcomes. Later
+reschedules leave earlier snapshot deadlines unchanged. Cancelled, incomplete,
+pending and already-arrived cases retain explicit unscored states.
+
+| Raw probability metric, equal weight per trip | Training delay rate | Logistic classifier |
+|---|---:|---:|
+| Brier score, lower is better | 0.2393 | 0.2061 |
+| Log loss, lower is better | 0.6714 | 0.5988 |
+| Average precision | 0.4153 | 0.6274 |
+| ROC AUC | 0.5327 | 0.7178 |
+
+The gain is not uniform. Stale GPS, missing GPS and the 0–30-minute advance
+stratum have higher probability error than the baseline. Snapshots after the
+deadline are reported separately because their lateness is already observable.
+These checks do not choose a warning threshold or establish calibrated risk.
+
+![Raw delay probability reliability and error by GPS quality](reports/m3c/delay_probability_quality.png)
+
+See the [delay protocol](docs/m3c_delay.md), [results and reproduction](reports/m3c/README.md)
+and [independent checks](reports/m3c/independent_checks.json).
 
 ## Which ETA model should advance?
 
@@ -203,7 +227,7 @@ The 11 reserved tables have declared types and nullability but no model, alert, 
 
 For the next modeling stage, the unseen-route-only test cohort has 29 eligible trips and the joint unseen-vehicle/unseen-route cohort has four. These sparse cohorts support descriptive reporting, not reliable deployment claims. A threshold of 30 trips is a coverage warning, not a power analysis. The training set also contains 97 eligible snapshots without a prior historical pool, requiring a defined fallback or unavailable result.
 
-Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. The next stage defines delay relative to the promise available at prediction time and evaluates classifiers within the training period. Later stages cover probability and interval calibration, frozen final evaluation, alert delivery and action follow-up.
+Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. The next stage assigns July roles for fitting and assessing probability and ETA-interval calibration. Frozen final evaluation, alert delivery and action follow-up remain later stages.
 
 The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
 
