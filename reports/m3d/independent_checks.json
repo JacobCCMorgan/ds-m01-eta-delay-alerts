@@ -1,0 +1,668 @@
+{
+  "auditor_source_sha256": "7c8cce1c0d7eac54f07da17d964699c0cc96b290feec7c127bbef3b7df4ab4ff",
+  "calibrator_recomputation": [
+    {
+      "eligible_fit_snapshots": 63,
+      "eligible_fit_trips": 18,
+      "expansion_seconds": 246.0722877333178,
+      "kind": "interval",
+      "order_statistic_rank": 16,
+      "tenant_id": "T01"
+    },
+    {
+      "eligible_fit_snapshots": 101,
+      "eligible_fit_trips": 17,
+      "expansion_seconds": 2671.9435047541992,
+      "kind": "interval",
+      "order_statistic_rank": 15,
+      "tenant_id": "T02"
+    },
+    {
+      "eligible_fit_snapshots": 78,
+      "eligible_fit_trips": 18,
+      "expansion_seconds": 500.0984670143325,
+      "kind": "interval",
+      "order_statistic_rank": 16,
+      "tenant_id": "T03"
+    },
+    {
+      "a": 0.7098887483246263,
+      "analytic_gradient": [
+        1.2322587394919537e-09,
+        -1.2129320325904303e-09
+      ],
+      "b": -0.3482402065387726,
+      "eligible_fit_snapshots": 63,
+      "eligible_fit_trips": 18,
+      "kind": "probability",
+      "objective": 10.36217162190296,
+      "projected_gradient_infinity_norm": 1.2322587394919537e-09,
+      "strong_convexity_parameter_error_bound": 1.7290649833763483e-09,
+      "tenant_id": "T01"
+    },
+    {
+      "a": 0.652009444390293,
+      "analytic_gradient": [
+        1.3158860667772387e-09,
+        1.7225331092052265e-09
+      ],
+      "b": 0.058794666260227064,
+      "eligible_fit_snapshots": 101,
+      "eligible_fit_trips": 17,
+      "kind": "probability",
+      "objective": 11.36274021232309,
+      "projected_gradient_infinity_norm": 1.7225331092052265e-09,
+      "strong_convexity_parameter_error_bound": 2.167643064032152e-09,
+      "tenant_id": "T02"
+    },
+    {
+      "a": 0.555910467398478,
+      "analytic_gradient": [
+        5.7777356898824905e-08,
+        -4.717864238862335e-08
+      ],
+      "b": -0.057486342018754695,
+      "eligible_fit_snapshots": 78,
+      "eligible_fit_trips": 18,
+      "kind": "probability",
+      "objective": 12.191239729485925,
+      "projected_gradient_infinity_norm": 5.7777356898824905e-08,
+      "strong_convexity_parameter_error_bound": 7.459254163686741e-08,
+      "tenant_id": "T03"
+    }
+  ],
+  "comparisons": 213496,
+  "current_code_matches_execution_receipt_checked": true,
+  "failure_count": 0,
+  "failures": [],
+  "implementation": "No ds_m01 imports; per-trip arithmetic, NumPy, SciPy stable sigmoid and sklearn weighted ranking.",
+  "independent_overall_metrics": {
+    "eta": {
+      "calibrated": {
+        "calibration_reason_counts": {
+          "None": 341
+        },
+        "counts": {
+          "all_eligible_snapshots_covered_trips": 19,
+          "available_snapshots": 341,
+          "calibration_applied_snapshots": 341,
+          "eligible_snapshots": 143,
+          "eligible_trips": 29,
+          "excluded_snapshots": 198,
+          "fully_available_eligible_trips": 29,
+          "opportunities": 341,
+          "scored_snapshots": 143,
+          "scored_trips": 29,
+          "trips": 42,
+          "unavailable_eligible_snapshots": 0,
+          "unsupported_calibration_opportunities": 0
+        },
+        "exclusion_reason_counts": {
+          "already_arrived_at_snapshot": 1,
+          "latest_outcome_cancelled": 5,
+          "latest_outcome_incomplete": 120,
+          "latest_outcome_pending": 72
+        },
+        "metrics": {
+          "mean_interval_score_seconds": 5878.117480724746,
+          "mean_width_seconds": 5385.082857151347,
+          "median_mae_seconds": 1033.9339455642296,
+          "trip_all_eligible_snapshots_coverage": 0.6551724137931034,
+          "trip_all_snapshots_coverage_given_full_availability": 0.6551724137931034,
+          "trip_weighted_snapshot_coverage": 0.9211412151067324
+        },
+        "prediction_source_counts": {
+          "native": 341
+        },
+        "sparse": false
+      },
+      "raw": {
+        "calibration_reason_counts": {
+          "raw_forecast": 341
+        },
+        "counts": {
+          "all_eligible_snapshots_covered_trips": 9,
+          "available_snapshots": 341,
+          "calibration_applied_snapshots": 0,
+          "eligible_snapshots": 143,
+          "eligible_trips": 29,
+          "excluded_snapshots": 198,
+          "fully_available_eligible_trips": 29,
+          "opportunities": 341,
+          "scored_snapshots": 143,
+          "scored_trips": 29,
+          "trips": 42,
+          "unavailable_eligible_snapshots": 0,
+          "unsupported_calibration_opportunities": 0
+        },
+        "exclusion_reason_counts": {
+          "already_arrived_at_snapshot": 1,
+          "latest_outcome_cancelled": 5,
+          "latest_outcome_incomplete": 120,
+          "latest_outcome_pending": 72
+        },
+        "metrics": {
+          "mean_interval_score_seconds": 5041.04120125502,
+          "mean_width_seconds": 3751.7068589025266,
+          "median_mae_seconds": 1033.9339455642296,
+          "trip_all_eligible_snapshots_coverage": 0.3103448275862069,
+          "trip_all_snapshots_coverage_given_full_availability": 0.3103448275862069,
+          "trip_weighted_snapshot_coverage": 0.7663519430760812
+        },
+        "prediction_source_counts": {
+          "native": 341
+        },
+        "sparse": false
+      }
+    },
+    "probability": {
+      "calibrated": {
+        "calibration_applied_snapshots": 341,
+        "calibration_reason_counts": {
+          "None": 341
+        },
+        "counts": {
+          "available_snapshots": 341,
+          "eligible_snapshots": 143,
+          "excluded_snapshots": 198,
+          "log_loss_clipped_snapshots": 0,
+          "opportunities": 341,
+          "scored_snapshots": 143,
+          "scored_trips": 29,
+          "trips": 42,
+          "unavailable_eligible_snapshots": 0,
+          "unsupported_calibration_opportunities": 0
+        },
+        "eligible_class_support": {
+          "mixed_label_trips": 2,
+          "negative_snapshots": 46,
+          "negative_trips": 13,
+          "positive_snapshots": 97,
+          "positive_trips": 18
+        },
+        "exclusion_reason_counts": {
+          "already_arrived_at_snapshot": 1,
+          "latest_outcome_cancelled": 5,
+          "latest_outcome_incomplete": 120,
+          "latest_outcome_pending": 72
+        },
+        "label_status_counts": {
+          "cancelled": 5,
+          "incomplete": 120,
+          "pending": 72,
+          "verified": 144
+        },
+        "metrics": {
+          "average_precision": 0.7969543935525663,
+          "brier_score": 0.22080372263059023,
+          "fixed_bin_ece": 0.15092096396365265,
+          "log_loss": 0.6302839462372019,
+          "mean_probability": 0.44132674728843174,
+          "roc_auc": 0.7545686144828303,
+          "weighted_event_rate": 0.5862068965517241
+        },
+        "ranking_undefined_reason": null,
+        "reliability": [
+          {
+            "bin_index": 0,
+            "cohort_weight": 0.0,
+            "cohort_weight_fraction": 0.0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 0,
+            "negative_trips": 0,
+            "observed_event_rate": null,
+            "positive_snapshots": 0,
+            "positive_trips": 0,
+            "snapshots": 0,
+            "sparse": true,
+            "trips": 0,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 1,
+            "cohort_weight": 1.5595238095238093,
+            "cohort_weight_fraction": 0.053776683087027904,
+            "lower": 0.1,
+            "mean_probability": 0.14776879622166972,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 4,
+            "negative_trips": 4,
+            "observed_event_rate": 0.09160305343511452,
+            "positive_snapshots": 1,
+            "positive_trips": 1,
+            "snapshots": 5,
+            "sparse": true,
+            "trips": 5,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 2,
+            "cohort_weight": 6.283333333333333,
+            "cohort_weight_fraction": 0.21666666666666667,
+            "lower": 0.2,
+            "mean_probability": 0.25133524314778477,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 16,
+            "negative_trips": 10,
+            "observed_event_rate": 0.2519893899204244,
+            "positive_snapshots": 8,
+            "positive_trips": 3,
+            "snapshots": 24,
+            "sparse": true,
+            "trips": 13,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 3,
+            "cohort_weight": 3.475,
+            "cohort_weight_fraction": 0.11982758620689656,
+            "lower": 0.3,
+            "mean_probability": 0.3537670702233513,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 5,
+            "negative_trips": 4,
+            "observed_event_rate": 0.6810551558752996,
+            "positive_snapshots": 11,
+            "positive_trips": 5,
+            "snapshots": 16,
+            "sparse": true,
+            "trips": 9,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 4,
+            "cohort_weight": 7.163095238095237,
+            "cohort_weight_fraction": 0.24700328407224956,
+            "lower": 0.4,
+            "mean_probability": 0.4610047596749096,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 11,
+            "negative_trips": 8,
+            "observed_event_rate": 0.6428452717300981,
+            "positive_snapshots": 23,
+            "positive_trips": 9,
+            "snapshots": 34,
+            "sparse": true,
+            "trips": 17,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 5,
+            "cohort_weight": 6.032936507936508,
+            "cohort_weight_fraction": 0.20803229337712098,
+            "lower": 0.5,
+            "mean_probability": 0.5471064345854535,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 6,
+            "negative_trips": 5,
+            "observed_event_rate": 0.7610340064460962,
+            "positive_snapshots": 24,
+            "positive_trips": 13,
+            "snapshots": 30,
+            "sparse": true,
+            "trips": 18,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 6,
+            "cohort_weight": 1.863888888888889,
+            "cohort_weight_fraction": 0.064272030651341,
+            "lower": 0.6,
+            "mean_probability": 0.6441540747393742,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 3,
+            "negative_trips": 3,
+            "observed_event_rate": 0.69150521609538,
+            "positive_snapshots": 11,
+            "positive_trips": 4,
+            "snapshots": 14,
+            "sparse": true,
+            "trips": 7,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 7,
+            "cohort_weight": 2.4111111111111114,
+            "cohort_weight_fraction": 0.08314176245210729,
+            "lower": 0.7,
+            "mean_probability": 0.7357980928003932,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 1,
+            "negative_trips": 1,
+            "observed_event_rate": 0.9170506912442398,
+            "positive_snapshots": 17,
+            "positive_trips": 6,
+            "snapshots": 18,
+            "sparse": true,
+            "trips": 7,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 8,
+            "cohort_weight": 0.2111111111111111,
+            "cohort_weight_fraction": 0.0072796934865900385,
+            "lower": 0.8,
+            "mean_probability": 0.8614471916147427,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 0,
+            "negative_trips": 0,
+            "observed_event_rate": 1.0,
+            "positive_snapshots": 2,
+            "positive_trips": 2,
+            "snapshots": 2,
+            "sparse": true,
+            "trips": 2,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 9,
+            "cohort_weight": 0.0,
+            "cohort_weight_fraction": 0.0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 0,
+            "negative_trips": 0,
+            "observed_event_rate": null,
+            "positive_snapshots": 0,
+            "positive_trips": 0,
+            "snapshots": 0,
+            "sparse": true,
+            "trips": 0,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "scored_class_support": {
+          "mixed_label_trips": 2,
+          "negative_snapshots": 46,
+          "negative_trips": 13,
+          "positive_snapshots": 97,
+          "positive_trips": 18
+        },
+        "sparse": false
+      },
+      "raw": {
+        "calibration_applied_snapshots": 0,
+        "calibration_reason_counts": {
+          "raw_forecast": 341
+        },
+        "counts": {
+          "available_snapshots": 341,
+          "eligible_snapshots": 143,
+          "excluded_snapshots": 198,
+          "log_loss_clipped_snapshots": 0,
+          "opportunities": 341,
+          "scored_snapshots": 143,
+          "scored_trips": 29,
+          "trips": 42,
+          "unavailable_eligible_snapshots": 0,
+          "unsupported_calibration_opportunities": 0
+        },
+        "eligible_class_support": {
+          "mixed_label_trips": 2,
+          "negative_snapshots": 46,
+          "negative_trips": 13,
+          "positive_snapshots": 97,
+          "positive_trips": 18
+        },
+        "exclusion_reason_counts": {
+          "already_arrived_at_snapshot": 1,
+          "latest_outcome_cancelled": 5,
+          "latest_outcome_incomplete": 120,
+          "latest_outcome_pending": 72
+        },
+        "label_status_counts": {
+          "cancelled": 5,
+          "incomplete": 120,
+          "pending": 72,
+          "verified": 144
+        },
+        "metrics": {
+          "average_precision": 0.795369415228175,
+          "brier_score": 0.21286087607940887,
+          "fixed_bin_ece": 0.13273604540784661,
+          "log_loss": 0.6120105101077398,
+          "mean_probability": 0.47060891088842555,
+          "roc_auc": 0.7465606520385935,
+          "weighted_event_rate": 0.5862068965517241
+        },
+        "ranking_undefined_reason": null,
+        "reliability": [
+          {
+            "bin_index": 0,
+            "cohort_weight": 0.8333333333333333,
+            "cohort_weight_fraction": 0.028735632183908042,
+            "lower": 0.0,
+            "mean_probability": 0.0976926633250897,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 2,
+            "negative_trips": 2,
+            "observed_event_rate": 0.0,
+            "positive_snapshots": 0,
+            "positive_trips": 0,
+            "snapshots": 2,
+            "sparse": true,
+            "trips": 2,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 1,
+            "cohort_weight": 2.8095238095238093,
+            "cohort_weight_fraction": 0.09688013136288998,
+            "lower": 0.1,
+            "mean_probability": 0.17161037009903746,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 9,
+            "negative_trips": 6,
+            "observed_event_rate": 0.1694915254237288,
+            "positive_snapshots": 4,
+            "positive_trips": 2,
+            "snapshots": 13,
+            "sparse": true,
+            "trips": 8,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 2,
+            "cohort_weight": 4.416666666666667,
+            "cohort_weight_fraction": 0.15229885057471265,
+            "lower": 0.2,
+            "mean_probability": 0.2425335368211373,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 8,
+            "negative_trips": 7,
+            "observed_event_rate": 0.46415094339622637,
+            "positive_snapshots": 10,
+            "positive_trips": 4,
+            "snapshots": 18,
+            "sparse": true,
+            "trips": 11,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 3,
+            "cohort_weight": 3.8500000000000005,
+            "cohort_weight_fraction": 0.1327586206896552,
+            "lower": 0.3,
+            "mean_probability": 0.34675569584518584,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 7,
+            "negative_trips": 5,
+            "observed_event_rate": 0.49350649350649334,
+            "positive_snapshots": 7,
+            "positive_trips": 5,
+            "snapshots": 14,
+            "sparse": true,
+            "trips": 10,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 4,
+            "cohort_weight": 3.6416666666666666,
+            "cohort_weight_fraction": 0.12557471264367817,
+            "lower": 0.4,
+            "mean_probability": 0.4615350542708859,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 7,
+            "negative_trips": 4,
+            "observed_event_rate": 0.6407322654462242,
+            "positive_snapshots": 12,
+            "positive_trips": 6,
+            "snapshots": 19,
+            "sparse": true,
+            "trips": 10,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 5,
+            "cohort_weight": 5.228571428571429,
+            "cohort_weight_fraction": 0.18029556650246306,
+            "lower": 0.5,
+            "mean_probability": 0.5485895366283859,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 8,
+            "negative_trips": 7,
+            "observed_event_rate": 0.5824225865209471,
+            "positive_snapshots": 16,
+            "positive_trips": 8,
+            "snapshots": 24,
+            "sparse": true,
+            "trips": 15,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 6,
+            "cohort_weight": 3.4869047619047624,
+            "cohort_weight_fraction": 0.12023809523809526,
+            "lower": 0.6,
+            "mean_probability": 0.6452000187205421,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 1,
+            "negative_trips": 1,
+            "observed_event_rate": 0.9641515875725504,
+            "positive_snapshots": 19,
+            "positive_trips": 10,
+            "snapshots": 20,
+            "sparse": true,
+            "trips": 11,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 7,
+            "cohort_weight": 2.2,
+            "cohort_weight_fraction": 0.07586206896551725,
+            "lower": 0.7,
+            "mean_probability": 0.7550628949823073,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 3,
+            "negative_trips": 3,
+            "observed_event_rate": 0.681818181818182,
+            "positive_snapshots": 12,
+            "positive_trips": 3,
+            "snapshots": 15,
+            "sparse": true,
+            "trips": 6,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 8,
+            "cohort_weight": 2.322222222222222,
+            "cohort_weight_fraction": 0.08007662835249041,
+            "lower": 0.8,
+            "mean_probability": 0.8688509532220434,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 1,
+            "negative_trips": 1,
+            "observed_event_rate": 0.9138755980861245,
+            "positive_snapshots": 15,
+            "positive_trips": 7,
+            "snapshots": 16,
+            "sparse": true,
+            "trips": 8,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bin_index": 9,
+            "cohort_weight": 0.2111111111111111,
+            "cohort_weight_fraction": 0.0072796934865900385,
+            "lower": 0.9,
+            "mean_probability": 0.9485736998848973,
+            "mixed_label_trips": 0,
+            "negative_snapshots": 0,
+            "negative_trips": 0,
+            "observed_event_rate": 1.0,
+            "positive_snapshots": 2,
+            "positive_trips": 2,
+            "snapshots": 2,
+            "sparse": true,
+            "trips": 2,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "scored_class_support": {
+          "mixed_label_trips": 2,
+          "negative_snapshots": 46,
+          "negative_trips": 13,
+          "positive_snapshots": 97,
+          "positive_trips": 18
+        },
+        "sparse": false
+      }
+    }
+  },
+  "maximum_absolute_numeric_difference": 3.637978807091713e-12,
+  "numeric_tolerances": {
+    "KKT_infinity_norm": 1e-05,
+    "absolute": 1e-09,
+    "relative": 1e-09
+  },
+  "report_directory": "work/m3d1/reports/m3d",
+  "source_inputs": "Frozen source hashes and metadata, raw snapshots, promise versions and only calibration_fit/assessment cutoff-known outcome payloads.",
+  "source_target_audit": {
+    "protected_target_payloads_selected": false,
+    "roles": {
+      "assessment": {
+        "eta_eligible": 143,
+        "probability_eligible": 143,
+        "snapshot_opportunities": 341,
+        "trips": 42
+      },
+      "calibration_fit": {
+        "eta_eligible": 242,
+        "probability_eligible": 242,
+        "snapshot_opportunities": 636,
+        "trips": 78
+      }
+    },
+    "selection_method": "SQLite as-of queries with integer microsecond clocks; complete raw snapshot inventory",
+    "self_test_assertions": 11,
+    "target_payload_roles": [
+      "calibration_fit",
+      "assessment"
+    ]
+  },
+  "status": "passed",
+  "target_audit_scope": "All calibration-fit and assessment opportunities: independent latest outcome and snapshot-effective promise selection, exclusions and target/provenance fields."
+}

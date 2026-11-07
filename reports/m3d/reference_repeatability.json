@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-05T22:48:18.099605+00:00",
+  "comparison": "Independent full original-training refit/raw July prediction runs, followed by same fixed calibrator fitting; same Linux runtime only. Not evidence of native Mac retraining equivalence.",
+  "artifacts": {
+    "refit_eta_models.json": {
+      "sha256": "8397ed902d214d52bac0becfa002412928ff269b921ab4e55bda2ba7f8874bc8",
+      "byte_identical": true
+    },
+    "refit_delay_models.json": {
+      "sha256": "b2f972863fa9ef74265c522bca7f89c16af7299cd3d80efe0bf09df55d52132f",
+      "byte_identical": true
+    },
+    "refit_transformers.json": {
+      "sha256": "af99a28bb1f7774a94b37261cecdcc5bbbf760f18047a3d39947039d282cdc99",
+      "byte_identical": true
+    },
+    "refit_frozen_history.json": {
+      "sha256": "429b12d21a136ce72da305a8e0190e4726fd5a551d3f5b5c0fb33d5d94204eed",
+      "byte_identical": true
+    },
+    "eta_predictions.jsonl": {
+      "sha256": "b8a4e4b0186b44683354c614e115ee26bd4018ab940dfd4c39222c873a862083",
+      "byte_identical": true
+    },
+    "baseline_predictions.jsonl": {
+      "sha256": "a40722346382676b88fa53bc175ff9ed35e2572e0842f7095c2fe7cf92ca98e1",
+      "byte_identical": true
+    },
+    "delay_predictions.jsonl": {
+      "sha256": "83d8e189af2f96c946e6d8f6f28f79c2feecb205a86ddb3528e12823f6f1905b",
+      "byte_identical": true
+    },
+    "eta_training_rows.jsonl": {
+      "sha256": "0eb3cdd8ac534cea45dd68c81a222dd648fc9a57be84c11e5945d1ffa598d809",
+      "byte_identical": true
+    },
+    "delay_training_rows.jsonl": {
+      "sha256": "e6e8db75be570e15f7b109a8552b351224eab361099c266f2bd1747255bced0e",
+      "byte_identical": true
+    },
+    "calibrators.json": {
+      "sha256": "d558b13fb14d94d351ebecc4089ad3eeddb1d0caaf3abb1eee4196c77701aff1",
+      "byte_identical": true
+    }
+  },
+  "all_compared_byte_identical": true,
+  "final_test_evaluated": false
+}

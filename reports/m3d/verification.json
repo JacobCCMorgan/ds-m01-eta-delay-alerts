@@ -1,0 +1,52 @@
+{
+  "status": "passed_engineering_checks_not_quality_acceptance",
+  "checked_at_utc": "2026-11-05T22:50:35.189328+00:00",
+  "unit_tests": {
+    "tests": 416,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runtime_seconds": 23.234,
+    "log": "unittest_results.txt"
+  },
+  "replay": {
+    "retained_models_and_calibrators": "replay_inference.json",
+    "july_source_targets": "replay_source.json",
+    "independent_numeric_and_source_audit": "independent_checks.json",
+    "repeated_reference_models": "reference_repeatability.json"
+  },
+  "independent_audit": {
+    "comparisons": 213496,
+    "failures": 0,
+    "max_numeric_difference": 3.637978807091713e-12
+  },
+  "source_replay_scope": "Rebuild complete original metadata/features and July fit/assessment targets; not an independent refit of base estimators or calibrators.",
+  "calibration_quality": {
+    "nominal_whole_trip_coverage": 0.8,
+    "observed_whole_trip_coverage": 0.6551724137931034,
+    "nominal_target_attained": false,
+    "probability_brier_improved": false,
+    "probability_log_loss_improved": false,
+    "operational_acceptance": false,
+    "policy_threshold_selected": false,
+    "assessment_driven_method_switch": false
+  },
+  "protected_scope": {
+    "buffer_targets_used": false,
+    "final_test_evaluated": false
+  },
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "system": "Linux",
+    "machine": "x86_64",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "duckdb": "1.4.1",
+      "pyarrow": "21.0.0"
+    }
+  },
+  "reproduction_boundary": "Reference model retraining repeated in this Linux runtime; retained JSON inference/calibration/metric replay is portable. Native Mac refitting equivalence and a P05 container replay are not claimed.",
+  "user_adoption": "Not established by this engineering-verification receipt; publication and signature verification are recorded separately."
+}

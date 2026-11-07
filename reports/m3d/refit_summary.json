@@ -1,0 +1,20 @@
+{
+  "delay_models": 6,
+  "eta_models": 3,
+  "fit_snapshots": 7850,
+  "history_exclusions": {
+    "latest_outcome_not_verified": 187
+  },
+  "july_opportunities": 1358,
+  "july_outcomes_used_in_refit": false,
+  "july_roles": {
+    "assessment": 341,
+    "calibration_buffer": 381,
+    "calibration_fit": 636
+  },
+  "test_outcomes_used": false,
+  "training_cutoff_at": "2026-07-01T07:00:00Z",
+  "training_history_trips": 805,
+  "training_id": "R01",
+  "training_trips": 992
+}

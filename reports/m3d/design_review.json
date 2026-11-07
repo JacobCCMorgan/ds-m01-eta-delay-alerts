@@ -1,0 +1,87 @@
+{
+  "reviewed_at_utc": "2026-11-05T22:43:50.057709+00:00",
+  "scope": "Independent source review, synthetic tests only; no July target values inspected by reviewer",
+  "reviewed_sha256": {
+    "src/ds_m01/calibration_run.py": "b294cf9d4da6b1760a96b68d981658c46ad08857ba6d193a29fddebb952cf221",
+    "src/ds_m01/calibration_targets.py": "e115fa7f1e7e30c553bcae8fb3ac5d8a3fd7441515454523f7fc8bf19664548d",
+    "src/ds_m01/calibration_metrics.py": "81afcafa4e88d8988c90fcf138ca450440791d1f017b7ce28c533863b016c895"
+  },
+  "frozen_protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+  "tests": {
+    "command": "PYTHONPATH=src ../venv/bin/python -m unittest discover -s tests -p 'test_calibration_*.py' -v",
+    "passed": 60
+  },
+  "confirmed": [
+    "Target selectors gate group identity and label availability before payload values",
+    "Latest known withdrawal does not fall back to an older verified target",
+    "Calibrator application rejects declared fit trip identities and pre-fit-cutoff snapshots",
+    "No before/after calibration-fit evaluation",
+    "ETA simultaneous trip coverage includes unavailable eligible snapshots as misses",
+    "Scored snapshot weights sum to one per scored trip",
+    "ETA second/minute eligibility and probability second-only eligibility remain distinct",
+    "Whole-trip calibration fitting permits July10 departures with later snapshots before July15 cutoff"
+  ],
+  "requested_before_finalization": [
+    {
+      "id": "R1",
+      "priority": "high",
+      "finding": "prepared_refit trusted; expected July opportunities derive from mutable retained features",
+      "remedy": "Bind prepared refit to source-reconstructed metadata/features inventory or verified pinned receipt; preserve separate base-fit execution provenance",
+      "resolution": "Resolved in focused source recheck after integration hardening"
+    },
+    {
+      "id": "R2",
+      "priority": "high",
+      "finding": "Tenant/snapshot joins do not verify trip/time/fold/context parity across ETA/probability/promise records",
+      "remedy": "Reject inconsistent complete identity and shared covariates before joining target records",
+      "resolution": "Resolved in focused source recheck after integration hardening"
+    },
+    {
+      "id": "R3",
+      "priority": "medium",
+      "finding": "Public unsupported calibration status and support counters not yet aligned (implementation in progress at initial review)",
+      "remedy": "Map primitive identity to unsupported, distinguish unavailable, and retain explicit public status counts",
+      "resolution": "Resolved in focused source recheck after integration hardening"
+    },
+    {
+      "id": "R4",
+      "priority": "medium",
+      "finding": "Source digests checked before join but no end-of-join recheck",
+      "remedy": "Rehash immutable source set before accepting completed outputs",
+      "resolution": "Resolved in focused source recheck after integration hardening"
+    },
+    {
+      "id": "R5",
+      "priority": "low",
+      "finding": "Paired metric checks omit route/GPS/elapsed/deadline strata fields",
+      "remedy": "Reject raw/calibrated stratum mutation before slicing",
+      "resolution": "Resolved in focused source recheck after integration hardening"
+    }
+  ],
+  "state": "passed_focused_recheck_no_remaining_blocker",
+  "rechecked_at_utc": "2026-11-05T22:47:36.188708+00:00",
+  "rechecked_sha256": {
+    "src/ds_m01/calibration_run.py": "0f427c27bdbc391e9c118b267ac55478437981fadd34a3dbcd194852f82ef9ee",
+    "src/ds_m01/calibration_targets.py": "e115fa7f1e7e30c553bcae8fb3ac5d8a3fd7441515454523f7fc8bf19664548d",
+    "src/ds_m01/calibration_metrics.py": "e36303e0065475d28b432f8e40aea4a3a531492ae49de5d7fc98956bea592da0",
+    "src/ds_m01/calibration_replay.py": "b6011a52a171ac8a4c5ceb3370f9699811256c50f237e10c0c3f2dc4a5d474b9"
+  },
+  "full_run_source_replay": {
+    "report": "work/p05_review/full_run_01",
+    "status": "passed",
+    "differences": 0,
+    "raw_eta_opportunities": 1358,
+    "raw_probability_rows": 2716,
+    "assessment_opportunities": 341,
+    "calibrators": 6,
+    "retained_inference_equal": true,
+    "calibration_application_equal": true,
+    "metrics_verified": true,
+    "july_source_targets_verified": true,
+    "base_model_training_executed": false,
+    "calibrator_fitting_executed": false,
+    "buffer_targets_used": false,
+    "final_test_evaluated": false
+  },
+  "scope_precision_note": "Source-enabled replay independently rebuilds July fit/assessment targets from pinned sources, but does not independently regenerate original-training target tables. This boundary is documented in the report and protocol."
+}

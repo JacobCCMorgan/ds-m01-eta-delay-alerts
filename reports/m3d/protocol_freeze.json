@@ -1,0 +1,9 @@
+{
+  "status": "protocol_frozen_before_july_outcome_use",
+  "protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+  "recorded_at_utc": "2026-11-05T22:37:30.035138+00:00",
+  "base_commit": "0a1255222dd82a14596d2a033b779d55b633542c",
+  "july_outcomes_used_before_this_freeze": false,
+  "final_test_outcomes_used": false,
+  "review": "Root blind protocol review and independent methodological review completed; source pinning only, no July target or score inspection."
+}

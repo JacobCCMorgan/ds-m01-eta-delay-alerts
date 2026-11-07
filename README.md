@@ -2,11 +2,53 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: delay classification and probability validation (M3c.1–M3c.2).** An independent logistic classifier estimates delay against the promise known at each snapshot. On 511 synthetic validation trips, its Brier score is 0.2061, compared with 0.2393 for the training delay-rate baseline. The classifier remains weaker when GPS is stale or missing and in the final 30 minutes before the promise deadline. Its probabilities await calibration.
+**Current stage: July calibration assessment (M3d.1).** Fixed per-tenant interval expansion and probability calibration were fitted on early July trips and assessed on later July trips. Intervals covered every eligible snapshot on 19 of 29 scored trips (65.5%), below the nominal 80% target. Probability calibration increased Brier error from 0.2129 to 0.2208. The experiment records these limitations; it does not approve an alert policy.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
 
-## Can the classifier identify delay risk?
+## Did July calibration improve the forecasts?
+
+The selected ETA model and independent delay classifier were refitted on the
+original training cohort, using only information available before July 1.
+Calibration used July 1–10 departures with labels known before July 15. July
+11–14 formed a buffer; July 15–24 supplied assessment trips with labels known
+before August 1. All cutoffs use Los Angeles time and keep trips intact.
+
+Assessment retained 341 opportunities from 42 trips. Both targets were scorable
+at 143 snapshots from 29 trips; 198 excluded-label opportunities remained visible.
+The table compares raw and calibrated outputs on that same eligible cohort.
+
+| July assessment metric | Raw pipeline | Calibrated pipeline |
+|---|---:|---:|
+| Trips with every eligible snapshot covered | 9/29 (31.0%) | 19/29 (65.5%) |
+| Trip-weighted snapshot coverage | 76.6% | 92.1% |
+| Mean interval width | 62.53 min | 89.75 min |
+| Brier score, lower is better | 0.2129 | 0.2208 |
+| Log loss, lower is better | 0.6120 | 0.6303 |
+
+The higher snapshot coverage does not establish the 80% whole-trip target.
+Intervals widened, and their mean interval score also worsened. The raw median
+was unchanged. Probability loss and fixed-bin reliability error increased, so
+calibration is not presented as a quality improvement. The methods were not
+retuned or switched after these results.
+
+All three tenants had enough support to fit both calibrators in this run.
+If a calibrator lacks support, the implementation preserves the raw output and
+marks it unsupported/uncalibrated. No assessment fallback occurred here.
+See the [fixed protocol](docs/m3d_calibration.md),
+[results, denominators and reproduction](reports/m3d/README.md), and
+[independent checks](reports/m3d/independent_checks.json).
+
+![July interval coverage and probability calibration assessment](reports/m3d/calibration_quality.png)
+
+This July assessment cohort is also reserved for P06 policy development. It
+cannot then serve as an independent final-policy test. August–September
+final-test outcomes have not been used for fitting, selection or scoring.
+
+## Training-period delay validation (P04)
+
+The following results belong to the earlier chronological training folds. Their
+models and cohort differ from the July refit and assessment above.
 
 Both methods preserve all 5,163 validation opportunities. Scoring uses 2,358
 snapshots with mature, independently verified gate-arrival outcomes. Later
@@ -30,7 +72,7 @@ These checks do not choose a warning threshold or establish calibrated risk.
 See the [delay protocol](docs/m3c_delay.md), [results and reproduction](reports/m3c/README.md)
 and [independent checks](reports/m3c/independent_checks.json).
 
-## Which ETA model should advance?
+## Training-period ETA selection (P03)
 
 The same 2,347 baseline-supported prediction opportunities were scored for all
 three methods. Each trip had equal weight. Linear quantile regression reached
@@ -41,8 +83,9 @@ times and the historical fallback once.
 
 On snapshots with low-confidence GPS, boosting's error rose to 33.84 minutes,
 compared with 11.15 minutes for the baseline. These subgroups will need separate
-checks during calibration. The July calibration period and August–September
-final test stay reserved.
+checks during calibration. July was reserved when this selection was made;
+its later calibration assessment is reported above. August–September remains
+the protected final test.
 
 ![Trip-weighted ETA error by GPS quality and method](reports/m3b3/eta_error_by_gps.png)
 
@@ -50,21 +93,21 @@ final test stay reserved.
 
 ## Check a saved forecast run
 
-From the repository root, create an environment and regenerate the predictions
-from the saved models. Python 3.12 was used for the recorded run. This check
-needs no Docker, raw outcome file or M2 rebuild.
+From the repository root, create an environment and replay the saved P05
+forecasts, calibration application and assessment metrics. Python 3.12 was used
+for the recorded run. This check needs no Docker, raw outcome file or M2 rebuild.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-models.lock
 python -m pip install -e . --no-deps
-python scripts/check_candidate_replay.py --root . --inference-only
+python -m ds_m01.calibration_replay --root . --report reports/m3d
 ```
 
-Expect `status: passed` for 10,326 prediction rows. This checks that the saved
-models yield the same forecasts; it does not fit a model or score predictions
-against actual arrivals. To run the unit suite, use
+Expect `status: passed`, `differences: 0` and 341 assessment opportunities.
+The check uses saved model/calibrator states and retained assessment labels; it
+does not fit either model or open the raw outcome source. To run the unit suite, use
 `python -m unittest discover -s tests -v` in the same environment.
 
 For exact retraining, follow the [fixed-container guide](docs/reproducibility.md).
@@ -89,7 +132,7 @@ outcomes. The resulting 24 model states contain 72 quantile estimators.
 These are inference availability counts, **not accuracy results or a model
 ranking**. Nonpositive raw estimates trigger fallback; crossed positive quantiles
 are sorted and flagged. Raw values and all decisions remain in the artifacts.
-The raw intervals await calibration. The comparison above uses one fractional-second target and reports separate availability and error denominators for all three methods.
+These retained fold intervals are raw. P05 separately refits the selected model and calibrates its July forecasts. The training-period comparison uses one fractional-second target and reports separate availability and error denominators for all three methods.
 
 See the [candidate protocol](docs/m3b2_candidates.md),
 [retained evidence](reports/m3b2/README.md), historical
@@ -227,7 +270,7 @@ The 11 reserved tables have declared types and nullability but no model, alert, 
 
 For the next modeling stage, the unseen-route-only test cohort has 29 eligible trips and the joint unseen-vehicle/unseen-route cohort has four. These sparse cohorts support descriptive reporting, not reliable deployment claims. A threshold of 30 trips is a coverage warning, not a power analysis. The training set also contains 97 eligible snapshots without a prior historical pool, requiring a defined fallback or unavailable result.
 
-Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. The next stage assigns July roles for fitting and assessing probability and ETA-interval calibration. Frozen final evaluation, alert delivery and action follow-up remain later stages.
+Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. The next stage develops an alert policy using the declared July assessment cohort, with explicit burden and notice-time constraints. That reuse does not create an independent policy test. Frozen final evaluation, alert delivery and action follow-up remain later stages.
 
 The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
 

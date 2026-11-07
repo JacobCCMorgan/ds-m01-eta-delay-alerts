@@ -2,6 +2,29 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-05 UTC — assess fixed July interval and probability calibration
+
+Refitted the selected ETA model and independent delay classifier on the original
+training cohort with a July 1 knowledge cutoff. Froze separate July calibration
+fit, maturity-buffer and assessment roles before using their targets. A tenant's
+interval calibrator uses one maximum residual score per fit trip; its probability
+calibrator uses a nonnegative-slope sigmoid with a fixed identity penalty.
+
+On 143 scored snapshots from 29 later July trips, interval expansion increased
+whole-trip coverage from 9/29 to 19/29, still below the nominal 80% target.
+Trip-weighted snapshot coverage increased from 76.6% to 92.1%; mean width grew
+from 62.53 to 89.75 minutes and interval score worsened. Median forecasts were
+unchanged. Brier score increased from 0.2129 to 0.2208 and log loss from 0.6120
+to 0.6303. The fixed methods were retained without a results-driven switch.
+
+All six tenant calibrators had sufficient support in this run. Support failure
+retains raw output with an explicit unsupported calibration status; invalid
+inputs or optimization failures stop execution. The [results](../reports/m3d/README.md)
+separate fitted transformations, measured assessment behavior and remaining
+limits. P06 may use this assessment cohort for policy development. No alert
+threshold, operational release or August–September final evaluation follows
+from this experiment.
+
 ## 2026-11-05 UTC — classify delay against the snapshot promise
 
 Added an independent logistic classifier and tenant/fold prevalence baseline

@@ -1,0 +1,3670 @@
+{
+  "eta": [
+    {
+      "coverage_scope": "No coverage guarantee under temporal synthetic shift.",
+      "coverage_target": 0.8,
+      "definition_version": "m3d-trip-max-cqr-v1",
+      "expansion_seconds": 246.0722877333178,
+      "fit_metadata": {
+        "fit_trip_keys": [
+          [
+            "T01",
+            "T01-TRIP-001203"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001206"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001207"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001215"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001216"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001220"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001225"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001227"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001230"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001232"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001233"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001237"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001242"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001246"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001249"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001251"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001254"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001256"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001263"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001268"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001272"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001274"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001279"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001286"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001287"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001288"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001290"
+          ]
+        ],
+        "label_cutoff_at": "2026-07-15T07:00:00Z",
+        "snapshot_end_at": "2026-07-15T07:00:00Z",
+        "snapshot_start_at": "2026-07-01T07:00:00Z"
+      },
+      "fit_rows_sha256": "d7061d044f61c767642fb05859ad16d741687ce72ceff2c5b742f64b58c956a5",
+      "fit_snapshot_count": 63,
+      "fit_trip_count": 18,
+      "fitted_snapshot_keys": [
+        [
+          "T01",
+          "S-0528a6b717752716198c8c95"
+        ],
+        [
+          "T01",
+          "S-0aa28c008594027d66762ba0"
+        ],
+        [
+          "T01",
+          "S-0c1a2014a130c26e1cb71fe9"
+        ],
+        [
+          "T01",
+          "S-0cfa36cbaa3f36e4216682b1"
+        ],
+        [
+          "T01",
+          "S-0fcae8f75d77963e421b040a"
+        ],
+        [
+          "T01",
+          "S-123d6a9f89f74089b09a985f"
+        ],
+        [
+          "T01",
+          "S-1bd88edf1c8963ee20d5aac4"
+        ],
+        [
+          "T01",
+          "S-1c1812020f022c105ac20ed9"
+        ],
+        [
+          "T01",
+          "S-1e8ef115dfe9ec3c09b99d5d"
+        ],
+        [
+          "T01",
+          "S-1fc296ea94717ad689e4e210"
+        ],
+        [
+          "T01",
+          "S-2431200bb6790cad33db38e8"
+        ],
+        [
+          "T01",
+          "S-262679dd3a72d4acc8f1e7f4"
+        ],
+        [
+          "T01",
+          "S-27109081e0ba294ec3ba5e60"
+        ],
+        [
+          "T01",
+          "S-2cab431811347f80d38b25ca"
+        ],
+        [
+          "T01",
+          "S-2e3822102392e37cdfb51731"
+        ],
+        [
+          "T01",
+          "S-3950796106d4fa5e62901206"
+        ],
+        [
+          "T01",
+          "S-396f214e6a0cac7c01672f44"
+        ],
+        [
+          "T01",
+          "S-3bcd4e928b26ef29e5f83464"
+        ],
+        [
+          "T01",
+          "S-40a8f649965e4e31312ed20a"
+        ],
+        [
+          "T01",
+          "S-43220f84c07d12f7215088f6"
+        ],
+        [
+          "T01",
+          "S-44b82c5766fa338fc95429ff"
+        ],
+        [
+          "T01",
+          "S-4a26926dafa62dd2e0b04a02"
+        ],
+        [
+          "T01",
+          "S-4a9f7c1d920fe2cbc23c2665"
+        ],
+        [
+          "T01",
+          "S-4ecc7be458befa787533da37"
+        ],
+        [
+          "T01",
+          "S-517f02810c0bf2c8d1ac7d23"
+        ],
+        [
+          "T01",
+          "S-528bdf58231dd046dfb372dc"
+        ],
+        [
+          "T01",
+          "S-6c7d96ceaf085ce32075bd72"
+        ],
+        [
+          "T01",
+          "S-7061bb753d68989a05eed547"
+        ],
+        [
+          "T01",
+          "S-7dbf7eab3fb7d3f394b2c20b"
+        ],
+        [
+          "T01",
+          "S-7e146fedba6fd2122ede2a08"
+        ],
+        [
+          "T01",
+          "S-81ecbe22c7c1f012a512d7c5"
+        ],
+        [
+          "T01",
+          "S-87114349d4d6fd3eab5fa704"
+        ],
+        [
+          "T01",
+          "S-8a83e332febd158970ed9c09"
+        ],
+        [
+          "T01",
+          "S-8db43f879fd5b8fe55f7086b"
+        ],
+        [
+          "T01",
+          "S-9303cf0e9d9da0b09a45e978"
+        ],
+        [
+          "T01",
+          "S-9529243cac786caf518cfff6"
+        ],
+        [
+          "T01",
+          "S-969f0189670e5b9f451cc7a7"
+        ],
+        [
+          "T01",
+          "S-9e5c0563814f0cbef0f4277f"
+        ],
+        [
+          "T01",
+          "S-9e9b9e373078894ce9e07b1f"
+        ],
+        [
+          "T01",
+          "S-9f61247c52dd5829e8f3ae1e"
+        ],
+        [
+          "T01",
+          "S-ad10bcd3e7c9416f874b78dd"
+        ],
+        [
+          "T01",
+          "S-b4e1ba694c7e152b8564ca1b"
+        ],
+        [
+          "T01",
+          "S-b89e3ef49da62d244241fd69"
+        ],
+        [
+          "T01",
+          "S-bc63eb8849b0fb2b2fb35e18"
+        ],
+        [
+          "T01",
+          "S-c06927718dabf71185096936"
+        ],
+        [
+          "T01",
+          "S-c0a1470a9e3a014bad873861"
+        ],
+        [
+          "T01",
+          "S-c17c776af0c1b797b8f41c1e"
+        ],
+        [
+          "T01",
+          "S-c1aabf2d405e87260ca376f8"
+        ],
+        [
+          "T01",
+          "S-c8c23bcb28b8c5593b55c097"
+        ],
+        [
+          "T01",
+          "S-cf71b89a50f998b8c6981ac6"
+        ],
+        [
+          "T01",
+          "S-d241d765d3214a9e20af408c"
+        ],
+        [
+          "T01",
+          "S-dbcce41b1edb076d633803b3"
+        ],
+        [
+          "T01",
+          "S-dccedd0007d44dd592e704a0"
+        ],
+        [
+          "T01",
+          "S-dd780caa97599a7ccee0a234"
+        ],
+        [
+          "T01",
+          "S-e3f282e134ca2b90630bd9ab"
+        ],
+        [
+          "T01",
+          "S-e4e5a475d6465f3fa04c5992"
+        ],
+        [
+          "T01",
+          "S-e5d7b5080db19bb5448b76f9"
+        ],
+        [
+          "T01",
+          "S-e8c9f5a4b6007dae01812aeb"
+        ],
+        [
+          "T01",
+          "S-ec15e9d8fbc460b2a435ca02"
+        ],
+        [
+          "T01",
+          "S-ef3f38b32e9d8e6e22035763"
+        ],
+        [
+          "T01",
+          "S-f27eaa7b179aa44283fd0cef"
+        ],
+        [
+          "T01",
+          "S-fc32193b8bd8f8b2760b6644"
+        ],
+        [
+          "T01",
+          "S-fd5b612ef40c681879715ec1"
+        ]
+      ],
+      "fitted_trip_keys": [
+        [
+          "T01",
+          "T01-TRIP-001203"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001206"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001215"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001216"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001225"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001227"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001230"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001232"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001233"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001237"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001249"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001254"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001256"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001263"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001272"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001274"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001287"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001288"
+        ]
+      ],
+      "kind": "interval",
+      "minimum_fit_trips": 10,
+      "ordered_trip_scores_seconds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        22.816317715767923,
+        111.4851288797221,
+        147.68953973331782,
+        165.47823830210615,
+        221.88001630210613,
+        246.0722877333178,
+        642.6993953545125,
+        5864.370528613339
+      ],
+      "quantile_rank": 16,
+      "reason": null,
+      "source_bindings": {
+        "delay_models_sha256": "2a12fb09ae81fadb36665d1841257a72b905890cd713bdb64fd6309c9b82b942",
+        "eta_models_sha256": "d219f28e4a06206a57e3848991034aa05df318f6d1770ba20356a7fae3280bfb",
+        "history_sha256": "0dd131df7f647ea10867518bef7ed2a0a4fdba48183eceb0215f0f36100c4b9a",
+        "protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+        "source_files_sha256": "8cf439d13c0e80b564972ab67a47f20be5aac4cf64f8e84aa3a2eba7e9d881a5",
+        "transformers_sha256": "ac8a6336feaf65d2b8b0ea186df50cdc837618d0c16e80a72fafeb96a482f5f4"
+      },
+      "status": "fitted",
+      "tenant_id": "T01",
+      "trip_scores": [
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001203"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001206"
+        },
+        {
+          "max_score_seconds": 111.4851288797221,
+          "snapshot_count": 4,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001215"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001216"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001225"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001227"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001230"
+        },
+        {
+          "max_score_seconds": 165.47823830210615,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001232"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 2,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001233"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001237"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 4,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001249"
+        },
+        {
+          "max_score_seconds": 221.88001630210613,
+          "snapshot_count": 5,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001254"
+        },
+        {
+          "max_score_seconds": 5864.370528613339,
+          "snapshot_count": 8,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001256"
+        },
+        {
+          "max_score_seconds": 246.0722877333178,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001263"
+        },
+        {
+          "max_score_seconds": 642.6993953545125,
+          "snapshot_count": 4,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001272"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001274"
+        },
+        {
+          "max_score_seconds": 147.68953973331782,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001287"
+        },
+        {
+          "max_score_seconds": 22.816317715767923,
+          "snapshot_count": 3,
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001288"
+        }
+      ]
+    },
+    {
+      "coverage_scope": "No coverage guarantee under temporal synthetic shift.",
+      "coverage_target": 0.8,
+      "definition_version": "m3d-trip-max-cqr-v1",
+      "expansion_seconds": 2671.9435047541992,
+      "fit_metadata": {
+        "fit_trip_keys": [
+          [
+            "T02",
+            "T02-TRIP-001208"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001210"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001213"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001214"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001218"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001223"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001224"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001226"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001229"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001234"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001236"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001241"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001245"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001247"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001250"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001253"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001257"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001259"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001262"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001264"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001269"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001270"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001273"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001278"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001280"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001284"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001289"
+          ]
+        ],
+        "label_cutoff_at": "2026-07-15T07:00:00Z",
+        "snapshot_end_at": "2026-07-15T07:00:00Z",
+        "snapshot_start_at": "2026-07-01T07:00:00Z"
+      },
+      "fit_rows_sha256": "33fb097de31055c6376810f5aaf7455cf83fe3d7858b9ece3b5bfd1c8454143b",
+      "fit_snapshot_count": 101,
+      "fit_trip_count": 17,
+      "fitted_snapshot_keys": [
+        [
+          "T02",
+          "S-0188265b7f255447d5fda873"
+        ],
+        [
+          "T02",
+          "S-02e80b45db4ebdfc810600bf"
+        ],
+        [
+          "T02",
+          "S-0393fcd6d97aee3ce19e05d6"
+        ],
+        [
+          "T02",
+          "S-0574c10d81f532752da56474"
+        ],
+        [
+          "T02",
+          "S-06aba6c777210f49382ef3bc"
+        ],
+        [
+          "T02",
+          "S-07b7a75b60a9f88b93d34e53"
+        ],
+        [
+          "T02",
+          "S-0d250c077ac9d1db921ecd92"
+        ],
+        [
+          "T02",
+          "S-121a8ae8caa3fc3c364fe549"
+        ],
+        [
+          "T02",
+          "S-149cf567616717988c484c33"
+        ],
+        [
+          "T02",
+          "S-169c3889f0492a231c5ce2d2"
+        ],
+        [
+          "T02",
+          "S-16a1b2e8b2c4b214bad5f465"
+        ],
+        [
+          "T02",
+          "S-189359392aa8b257a381c5f5"
+        ],
+        [
+          "T02",
+          "S-1abba7c7710867c37b4dd1e9"
+        ],
+        [
+          "T02",
+          "S-1ba2b5f0f07af34a2f3ce225"
+        ],
+        [
+          "T02",
+          "S-25816a36341579b52152e462"
+        ],
+        [
+          "T02",
+          "S-27bb41b995ad2da91ca6e3c6"
+        ],
+        [
+          "T02",
+          "S-2ad42ddcc843323643337b98"
+        ],
+        [
+          "T02",
+          "S-2d7ac190e23cb35d800b879e"
+        ],
+        [
+          "T02",
+          "S-2de933b15e2dfa1bf3e47326"
+        ],
+        [
+          "T02",
+          "S-317b9a30bd42c278e03e1dd0"
+        ],
+        [
+          "T02",
+          "S-3259dab06c95f46173ebdb20"
+        ],
+        [
+          "T02",
+          "S-353541223973cb50a9434099"
+        ],
+        [
+          "T02",
+          "S-356cc5426d61966ca4d1ce2b"
+        ],
+        [
+          "T02",
+          "S-39097364fd40e14879c5f1b8"
+        ],
+        [
+          "T02",
+          "S-40c138971803f283dacfc6bc"
+        ],
+        [
+          "T02",
+          "S-452836e7db2226fc5c365938"
+        ],
+        [
+          "T02",
+          "S-45b1f1066e389726fcf8825d"
+        ],
+        [
+          "T02",
+          "S-4889938581a7860714ec0b89"
+        ],
+        [
+          "T02",
+          "S-49616364219f1df99c27faec"
+        ],
+        [
+          "T02",
+          "S-4a03c2a51aeae7615cdb6e82"
+        ],
+        [
+          "T02",
+          "S-4a0dd6ea7363f45e9c24b0d8"
+        ],
+        [
+          "T02",
+          "S-4a833bbfc37ca92546d0ec02"
+        ],
+        [
+          "T02",
+          "S-4ca781854c94556ab46e1e9e"
+        ],
+        [
+          "T02",
+          "S-4ebe664bee6fb77c782215ea"
+        ],
+        [
+          "T02",
+          "S-58584b45cb5603acd405c6ca"
+        ],
+        [
+          "T02",
+          "S-5c7504bbb5e43532f218bded"
+        ],
+        [
+          "T02",
+          "S-5d2881bbc64cfae6a1df348b"
+        ],
+        [
+          "T02",
+          "S-5f386c5cf4032e2ba6dba3b2"
+        ],
+        [
+          "T02",
+          "S-65e585fd440b79e261e23cd1"
+        ],
+        [
+          "T02",
+          "S-674e2fe667e97566ba18894d"
+        ],
+        [
+          "T02",
+          "S-678613ae2cdbd4504df5e544"
+        ],
+        [
+          "T02",
+          "S-68145cf39b52af594000d9f8"
+        ],
+        [
+          "T02",
+          "S-6bd2e722f721dfcc82abd552"
+        ],
+        [
+          "T02",
+          "S-702f001fc6074ff9b2d9aadb"
+        ],
+        [
+          "T02",
+          "S-70fd9818ae37c9c9b1e4790e"
+        ],
+        [
+          "T02",
+          "S-7220c962791775e4ba6bedb3"
+        ],
+        [
+          "T02",
+          "S-740ccd74088e8779819197e8"
+        ],
+        [
+          "T02",
+          "S-7e4372608dcdecced1a7b898"
+        ],
+        [
+          "T02",
+          "S-7f1bd1208b18ce06d7eb816e"
+        ],
+        [
+          "T02",
+          "S-8090069756fd2edf36114f22"
+        ],
+        [
+          "T02",
+          "S-80bbf4f01cf03ae1aa5a0763"
+        ],
+        [
+          "T02",
+          "S-815c1dc222707e20dcc2ab64"
+        ],
+        [
+          "T02",
+          "S-819d6ca1521755478a10ac3b"
+        ],
+        [
+          "T02",
+          "S-86f886f7b2d8f3545f523651"
+        ],
+        [
+          "T02",
+          "S-8d51de624cca510936981378"
+        ],
+        [
+          "T02",
+          "S-8dbe317ae67b6e8c7f79d33f"
+        ],
+        [
+          "T02",
+          "S-941aee58e33550cbcfa54f40"
+        ],
+        [
+          "T02",
+          "S-997895da7d6894ae27ccf18a"
+        ],
+        [
+          "T02",
+          "S-9bbbdb16f1615a53d7c644ef"
+        ],
+        [
+          "T02",
+          "S-9e2582ab10522c3675ece03b"
+        ],
+        [
+          "T02",
+          "S-a1aad3a98e347b80a7201d1a"
+        ],
+        [
+          "T02",
+          "S-a2a25363f595934291991c96"
+        ],
+        [
+          "T02",
+          "S-a3436cf741311f9a2977b08d"
+        ],
+        [
+          "T02",
+          "S-aa0a6efa681d2f5357f716b5"
+        ],
+        [
+          "T02",
+          "S-aa0c9c3baddd7bcf76d724ed"
+        ],
+        [
+          "T02",
+          "S-aad6bd7c221bc54b4a954369"
+        ],
+        [
+          "T02",
+          "S-ab4b8f6b79d9ec64c6ba859c"
+        ],
+        [
+          "T02",
+          "S-ad7499eece7a670f7090bc15"
+        ],
+        [
+          "T02",
+          "S-b2af41db3cd81d75e9c7fa09"
+        ],
+        [
+          "T02",
+          "S-b4da3b48de722d5eae16f7c4"
+        ],
+        [
+          "T02",
+          "S-b5dca39214311cc1f2a3667d"
+        ],
+        [
+          "T02",
+          "S-b982f4205e710bdb72945888"
+        ],
+        [
+          "T02",
+          "S-ba1145747046e2bd175ea71e"
+        ],
+        [
+          "T02",
+          "S-c02420aad81258ca1a4e6f89"
+        ],
+        [
+          "T02",
+          "S-c49c959c9072f662aa1c8fa9"
+        ],
+        [
+          "T02",
+          "S-c7004b0a0d7d50eb759e49a1"
+        ],
+        [
+          "T02",
+          "S-c769285a89b961d634aa2a69"
+        ],
+        [
+          "T02",
+          "S-c8a42fda8779ca2d06f81cf0"
+        ],
+        [
+          "T02",
+          "S-ca5f134054d65f1aee50a18e"
+        ],
+        [
+          "T02",
+          "S-cb0bc548076b66994bedc45f"
+        ],
+        [
+          "T02",
+          "S-cec60b1074746d00a6afefb1"
+        ],
+        [
+          "T02",
+          "S-cf4ef7b608fc690bd238967e"
+        ],
+        [
+          "T02",
+          "S-d32f0ff7204f22d66ab49517"
+        ],
+        [
+          "T02",
+          "S-d3e9b9c2c2ed4d1779b729a8"
+        ],
+        [
+          "T02",
+          "S-d4654a457a5254d6c788b0eb"
+        ],
+        [
+          "T02",
+          "S-d57d3332ef81739e8331bc26"
+        ],
+        [
+          "T02",
+          "S-d6547a5ce6a5609754f28fc4"
+        ],
+        [
+          "T02",
+          "S-d65e8ae310b5106b0ae5d127"
+        ],
+        [
+          "T02",
+          "S-dc6f323aae3f932f697f4165"
+        ],
+        [
+          "T02",
+          "S-e11cdd0739552938923e00f8"
+        ],
+        [
+          "T02",
+          "S-e454d0d9c1439ccbcf195fd1"
+        ],
+        [
+          "T02",
+          "S-e4cfa5471e89edbc2f2f682f"
+        ],
+        [
+          "T02",
+          "S-e701a89d65f2ffcf6e9dbd51"
+        ],
+        [
+          "T02",
+          "S-e738683b8e96755b8e15eb3a"
+        ],
+        [
+          "T02",
+          "S-e7c9d07c43e1094e85fcafc2"
+        ],
+        [
+          "T02",
+          "S-ea63b9a1bf61e8a42c956fca"
+        ],
+        [
+          "T02",
+          "S-ebb818155521d519e39da094"
+        ],
+        [
+          "T02",
+          "S-f12146b8f74fdcdbfbd978ac"
+        ],
+        [
+          "T02",
+          "S-f320312a00bc9561e40dda3f"
+        ],
+        [
+          "T02",
+          "S-f5f0ebb874393cf832b44046"
+        ],
+        [
+          "T02",
+          "S-fb4ac418867f3d5e36e322d5"
+        ]
+      ],
+      "fitted_trip_keys": [
+        [
+          "T02",
+          "T02-TRIP-001208"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001210"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001214"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001223"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001226"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001234"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001236"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001241"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001245"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001247"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001250"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001259"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001269"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001270"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001278"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001280"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001289"
+        ]
+      ],
+      "kind": "interval",
+      "minimum_fit_trips": 10,
+      "ordered_trip_scores_seconds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        48.14093378815372,
+        124.84000157663763,
+        145.03909880869003,
+        390.5694575947068,
+        423.63805833039805,
+        461.9589381108399,
+        495.4263221125675,
+        1590.122344562791,
+        1740.3303061688957,
+        2277.9883406361896,
+        2671.9435047541992,
+        3370.927535754199,
+        4362.8985057541995
+      ],
+      "quantile_rank": 15,
+      "reason": null,
+      "source_bindings": {
+        "delay_models_sha256": "2a12fb09ae81fadb36665d1841257a72b905890cd713bdb64fd6309c9b82b942",
+        "eta_models_sha256": "d219f28e4a06206a57e3848991034aa05df318f6d1770ba20356a7fae3280bfb",
+        "history_sha256": "0dd131df7f647ea10867518bef7ed2a0a4fdba48183eceb0215f0f36100c4b9a",
+        "protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+        "source_files_sha256": "8cf439d13c0e80b564972ab67a47f20be5aac4cf64f8e84aa3a2eba7e9d881a5",
+        "transformers_sha256": "ac8a6336feaf65d2b8b0ea186df50cdc837618d0c16e80a72fafeb96a482f5f4"
+      },
+      "status": "fitted",
+      "tenant_id": "T02",
+      "trip_scores": [
+        {
+          "max_score_seconds": 48.14093378815372,
+          "snapshot_count": 6,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001208"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 5,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001210"
+        },
+        {
+          "max_score_seconds": 423.63805833039805,
+          "snapshot_count": 6,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001214"
+        },
+        {
+          "max_score_seconds": 4362.8985057541995,
+          "snapshot_count": 8,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001223"
+        },
+        {
+          "max_score_seconds": 124.84000157663763,
+          "snapshot_count": 4,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001226"
+        },
+        {
+          "max_score_seconds": 1740.3303061688957,
+          "snapshot_count": 5,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001234"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001236"
+        },
+        {
+          "max_score_seconds": 145.03909880869003,
+          "snapshot_count": 3,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001241"
+        },
+        {
+          "max_score_seconds": 1590.122344562791,
+          "snapshot_count": 6,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001245"
+        },
+        {
+          "max_score_seconds": 495.4263221125675,
+          "snapshot_count": 8,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001247"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 8,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001250"
+        },
+        {
+          "max_score_seconds": 2277.9883406361896,
+          "snapshot_count": 9,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001259"
+        },
+        {
+          "max_score_seconds": 461.9589381108399,
+          "snapshot_count": 6,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001269"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 5,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001270"
+        },
+        {
+          "max_score_seconds": 3370.927535754199,
+          "snapshot_count": 8,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001278"
+        },
+        {
+          "max_score_seconds": 390.5694575947068,
+          "snapshot_count": 4,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001280"
+        },
+        {
+          "max_score_seconds": 2671.9435047541992,
+          "snapshot_count": 7,
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001289"
+        }
+      ]
+    },
+    {
+      "coverage_scope": "No coverage guarantee under temporal synthetic shift.",
+      "coverage_target": 0.8,
+      "definition_version": "m3d-trip-max-cqr-v1",
+      "expansion_seconds": 500.0984670143325,
+      "fit_metadata": {
+        "fit_trip_keys": [
+          [
+            "T03",
+            "T03-TRIP-001201"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001202"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001205"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001209"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001211"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001217"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001219"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001221"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001222"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001231"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001235"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001239"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001240"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001243"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001244"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001261"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001265"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001266"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001267"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001275"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001277"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001281"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001283"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001285"
+          ]
+        ],
+        "label_cutoff_at": "2026-07-15T07:00:00Z",
+        "snapshot_end_at": "2026-07-15T07:00:00Z",
+        "snapshot_start_at": "2026-07-01T07:00:00Z"
+      },
+      "fit_rows_sha256": "a63ff26f4c6546fca7d29af5b4d211c1f8af4e66969e96bfb90042a33291871e",
+      "fit_snapshot_count": 78,
+      "fit_trip_count": 18,
+      "fitted_snapshot_keys": [
+        [
+          "T03",
+          "S-07c71abb958d850bd3def998"
+        ],
+        [
+          "T03",
+          "S-0db112407e8200367d96f14f"
+        ],
+        [
+          "T03",
+          "S-13162a3a5ca095e8e379bee1"
+        ],
+        [
+          "T03",
+          "S-1e51eee5463cc9442e863a01"
+        ],
+        [
+          "T03",
+          "S-24f1998771fcd1b278e1342c"
+        ],
+        [
+          "T03",
+          "S-2ab9819e498fe03f4bb92eda"
+        ],
+        [
+          "T03",
+          "S-2c7a4fa46ddfc392cff16324"
+        ],
+        [
+          "T03",
+          "S-2f97db48c644fcb2a61e9d89"
+        ],
+        [
+          "T03",
+          "S-2fdfd1f23983e8aaafdbc436"
+        ],
+        [
+          "T03",
+          "S-350318ae88b3b14779fed0bf"
+        ],
+        [
+          "T03",
+          "S-359353785cf98e7433ff2df9"
+        ],
+        [
+          "T03",
+          "S-35cc83446bf5eddb4867bb0e"
+        ],
+        [
+          "T03",
+          "S-382a377bea7b7ad5166bbec6"
+        ],
+        [
+          "T03",
+          "S-3a1f988e2fe74bf06e7e8016"
+        ],
+        [
+          "T03",
+          "S-3a3559a77d41eb5a17115083"
+        ],
+        [
+          "T03",
+          "S-40c385902b4577d25fb2b92f"
+        ],
+        [
+          "T03",
+          "S-476d45ff2fc7ab00f4b197ad"
+        ],
+        [
+          "T03",
+          "S-4930fdc62952d9365a09379f"
+        ],
+        [
+          "T03",
+          "S-4ad406f07774c326c3203ae7"
+        ],
+        [
+          "T03",
+          "S-4f048c8a86bf15eb80c4cb9d"
+        ],
+        [
+          "T03",
+          "S-517b0c154c3a505cff70a796"
+        ],
+        [
+          "T03",
+          "S-524f00912df2bac8e28ce28f"
+        ],
+        [
+          "T03",
+          "S-5290b1c7e792350d4dab390e"
+        ],
+        [
+          "T03",
+          "S-5a0e39ae3fe881bbc5a19b55"
+        ],
+        [
+          "T03",
+          "S-5a842698ee29e90235ede581"
+        ],
+        [
+          "T03",
+          "S-5e20fffe35ccf22287abaeb8"
+        ],
+        [
+          "T03",
+          "S-6345406f2e256f4a895798b5"
+        ],
+        [
+          "T03",
+          "S-651248bed8c7fdfbc53e47a2"
+        ],
+        [
+          "T03",
+          "S-674fca064a10c0ad43d7c813"
+        ],
+        [
+          "T03",
+          "S-68ae35d1e1488e17ca47f78b"
+        ],
+        [
+          "T03",
+          "S-6b08ed3814d656fea1315817"
+        ],
+        [
+          "T03",
+          "S-6e2c0349117ffc206ea8a4b2"
+        ],
+        [
+          "T03",
+          "S-6eef784b0d1840894f283eab"
+        ],
+        [
+          "T03",
+          "S-72b5dc4a200ef0db08c71763"
+        ],
+        [
+          "T03",
+          "S-756f9ee0be97cdc05045b32f"
+        ],
+        [
+          "T03",
+          "S-7739ab377d90e3f6150e398b"
+        ],
+        [
+          "T03",
+          "S-77cc085536e0b254ac47e305"
+        ],
+        [
+          "T03",
+          "S-7def145d15457c6abb70c123"
+        ],
+        [
+          "T03",
+          "S-8ad236b2e6ab1a09830e81fe"
+        ],
+        [
+          "T03",
+          "S-988dcc9f734a64c8d8b2f8e0"
+        ],
+        [
+          "T03",
+          "S-98b485d7d4050a415c78b945"
+        ],
+        [
+          "T03",
+          "S-992b4c482368ef3236f94fd7"
+        ],
+        [
+          "T03",
+          "S-9d765d71005a1ad530b0b790"
+        ],
+        [
+          "T03",
+          "S-a048affd4a6199b8766021e7"
+        ],
+        [
+          "T03",
+          "S-a898f729f9d5eac3c16fd235"
+        ],
+        [
+          "T03",
+          "S-a9c22da702ed5f9173a284cc"
+        ],
+        [
+          "T03",
+          "S-ab59ddd45cadd71a0fe700a4"
+        ],
+        [
+          "T03",
+          "S-ab992836186a910a4178e346"
+        ],
+        [
+          "T03",
+          "S-afe2218db5adf50cfbacb414"
+        ],
+        [
+          "T03",
+          "S-b31e1fb0eba0de4b21774170"
+        ],
+        [
+          "T03",
+          "S-b3e0f42331cac86ba969a6e5"
+        ],
+        [
+          "T03",
+          "S-b46faef7459303f5c37502cf"
+        ],
+        [
+          "T03",
+          "S-b8544dda9161187f57dc4224"
+        ],
+        [
+          "T03",
+          "S-b9219a4731e96fcbd6d54753"
+        ],
+        [
+          "T03",
+          "S-beb38ea031a2d25d39371ece"
+        ],
+        [
+          "T03",
+          "S-bfeb1e6fd7c50f457de72dc1"
+        ],
+        [
+          "T03",
+          "S-c2be77a40b3bae978b2c36f9"
+        ],
+        [
+          "T03",
+          "S-c77dcd57806146683eac017b"
+        ],
+        [
+          "T03",
+          "S-c880bd289680c562787c2b6a"
+        ],
+        [
+          "T03",
+          "S-ca0d680e348459fac5d0bc4e"
+        ],
+        [
+          "T03",
+          "S-ce64f7fe170615bbdcc6576e"
+        ],
+        [
+          "T03",
+          "S-cfdded4a07899a14ae4e0350"
+        ],
+        [
+          "T03",
+          "S-d3cce4027076f4278d349070"
+        ],
+        [
+          "T03",
+          "S-d4c7bd7c6affa47d77c8a211"
+        ],
+        [
+          "T03",
+          "S-d913619cfc6cafff9b2b142c"
+        ],
+        [
+          "T03",
+          "S-db15393ad627d8ed1f173d7b"
+        ],
+        [
+          "T03",
+          "S-dd710e96002a3f777fa7a353"
+        ],
+        [
+          "T03",
+          "S-dff9cd8dc1ae275d818f2cc2"
+        ],
+        [
+          "T03",
+          "S-e126dd4cc174d41da9ec9603"
+        ],
+        [
+          "T03",
+          "S-e6036e1b35627f0a0a750103"
+        ],
+        [
+          "T03",
+          "S-e9a68c7626b71864fc7dcfc2"
+        ],
+        [
+          "T03",
+          "S-f0d1a8509deaae0dfda56f1a"
+        ],
+        [
+          "T03",
+          "S-f6e87a07080347a940d166cd"
+        ],
+        [
+          "T03",
+          "S-f7bcb1eac85a5bfe2c41e786"
+        ],
+        [
+          "T03",
+          "S-f90b206d307f9e207baf15cf"
+        ],
+        [
+          "T03",
+          "S-fd34f16750b0ea850553b513"
+        ],
+        [
+          "T03",
+          "S-fd6c8e74626c0022906711e6"
+        ],
+        [
+          "T03",
+          "S-fe36160ddfaea2e5ba80ff0b"
+        ]
+      ],
+      "fitted_trip_keys": [
+        [
+          "T03",
+          "T03-TRIP-001201"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001205"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001211"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001217"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001219"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001221"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001222"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001239"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001243"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001244"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001261"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001265"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001266"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001267"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001277"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001281"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001283"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001285"
+        ]
+      ],
+      "kind": "interval",
+      "minimum_fit_trips": 10,
+      "ordered_trip_scores_seconds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        30.64511757078958,
+        108.08694072510076,
+        137.6447111526668,
+        144.90981488364037,
+        500.0984670143325,
+        2661.1324963354027,
+        5180.997488335403
+      ],
+      "quantile_rank": 16,
+      "reason": null,
+      "source_bindings": {
+        "delay_models_sha256": "2a12fb09ae81fadb36665d1841257a72b905890cd713bdb64fd6309c9b82b942",
+        "eta_models_sha256": "d219f28e4a06206a57e3848991034aa05df318f6d1770ba20356a7fae3280bfb",
+        "history_sha256": "0dd131df7f647ea10867518bef7ed2a0a4fdba48183eceb0215f0f36100c4b9a",
+        "protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+        "source_files_sha256": "8cf439d13c0e80b564972ab67a47f20be5aac4cf64f8e84aa3a2eba7e9d881a5",
+        "transformers_sha256": "ac8a6336feaf65d2b8b0ea186df50cdc837618d0c16e80a72fafeb96a482f5f4"
+      },
+      "status": "fitted",
+      "tenant_id": "T03",
+      "trip_scores": [
+        {
+          "max_score_seconds": 2661.1324963354027,
+          "snapshot_count": 6,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001201"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 4,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001205"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 4,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001211"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001217"
+        },
+        {
+          "max_score_seconds": 144.90981488364037,
+          "snapshot_count": 3,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001219"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 4,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001221"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001222"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 5,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001239"
+        },
+        {
+          "max_score_seconds": 137.6447111526668,
+          "snapshot_count": 5,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001243"
+        },
+        {
+          "max_score_seconds": 30.64511757078958,
+          "snapshot_count": 5,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001244"
+        },
+        {
+          "max_score_seconds": 500.0984670143325,
+          "snapshot_count": 5,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001261"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 4,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001265"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 4,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001266"
+        },
+        {
+          "max_score_seconds": 5180.997488335403,
+          "snapshot_count": 8,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001267"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 4,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001277"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 3,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001281"
+        },
+        {
+          "max_score_seconds": 108.08694072510076,
+          "snapshot_count": 4,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001283"
+        },
+        {
+          "max_score_seconds": 0.0,
+          "snapshot_count": 4,
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001285"
+        }
+      ]
+    }
+  ],
+  "probability": [
+    {
+      "a": 0.7098887483246263,
+      "b": -0.3482402065387726,
+      "class_support": {
+        "false": {
+          "snapshots": 41,
+          "trips": 13
+        },
+        "true": {
+          "snapshots": 22,
+          "trips": 5
+        }
+      },
+      "clipped_fit_snapshots": 0,
+      "definition_version": "m3d-sigmoid-v1",
+      "fit_metadata": {
+        "fit_trip_keys": [
+          [
+            "T01",
+            "T01-TRIP-001203"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001206"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001207"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001215"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001216"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001220"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001225"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001227"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001230"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001232"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001233"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001237"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001242"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001246"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001249"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001251"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001254"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001256"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001263"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001268"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001272"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001274"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001279"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001286"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001287"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001288"
+          ],
+          [
+            "T01",
+            "T01-TRIP-001290"
+          ]
+        ],
+        "label_cutoff_at": "2026-07-15T07:00:00Z",
+        "snapshot_end_at": "2026-07-15T07:00:00Z",
+        "snapshot_start_at": "2026-07-01T07:00:00Z"
+      },
+      "fit_rows_sha256": "750a2872cf1cc6152b3715046a29c61639c6ab2e1b60eccbd12f6584269aad2c",
+      "fit_snapshot_count": 63,
+      "fit_trip_count": 18,
+      "fitted_snapshot_keys": [
+        [
+          "T01",
+          "S-0528a6b717752716198c8c95"
+        ],
+        [
+          "T01",
+          "S-0aa28c008594027d66762ba0"
+        ],
+        [
+          "T01",
+          "S-0c1a2014a130c26e1cb71fe9"
+        ],
+        [
+          "T01",
+          "S-0cfa36cbaa3f36e4216682b1"
+        ],
+        [
+          "T01",
+          "S-0fcae8f75d77963e421b040a"
+        ],
+        [
+          "T01",
+          "S-123d6a9f89f74089b09a985f"
+        ],
+        [
+          "T01",
+          "S-1bd88edf1c8963ee20d5aac4"
+        ],
+        [
+          "T01",
+          "S-1c1812020f022c105ac20ed9"
+        ],
+        [
+          "T01",
+          "S-1e8ef115dfe9ec3c09b99d5d"
+        ],
+        [
+          "T01",
+          "S-1fc296ea94717ad689e4e210"
+        ],
+        [
+          "T01",
+          "S-2431200bb6790cad33db38e8"
+        ],
+        [
+          "T01",
+          "S-262679dd3a72d4acc8f1e7f4"
+        ],
+        [
+          "T01",
+          "S-27109081e0ba294ec3ba5e60"
+        ],
+        [
+          "T01",
+          "S-2cab431811347f80d38b25ca"
+        ],
+        [
+          "T01",
+          "S-2e3822102392e37cdfb51731"
+        ],
+        [
+          "T01",
+          "S-3950796106d4fa5e62901206"
+        ],
+        [
+          "T01",
+          "S-396f214e6a0cac7c01672f44"
+        ],
+        [
+          "T01",
+          "S-3bcd4e928b26ef29e5f83464"
+        ],
+        [
+          "T01",
+          "S-40a8f649965e4e31312ed20a"
+        ],
+        [
+          "T01",
+          "S-43220f84c07d12f7215088f6"
+        ],
+        [
+          "T01",
+          "S-44b82c5766fa338fc95429ff"
+        ],
+        [
+          "T01",
+          "S-4a26926dafa62dd2e0b04a02"
+        ],
+        [
+          "T01",
+          "S-4a9f7c1d920fe2cbc23c2665"
+        ],
+        [
+          "T01",
+          "S-4ecc7be458befa787533da37"
+        ],
+        [
+          "T01",
+          "S-517f02810c0bf2c8d1ac7d23"
+        ],
+        [
+          "T01",
+          "S-528bdf58231dd046dfb372dc"
+        ],
+        [
+          "T01",
+          "S-6c7d96ceaf085ce32075bd72"
+        ],
+        [
+          "T01",
+          "S-7061bb753d68989a05eed547"
+        ],
+        [
+          "T01",
+          "S-7dbf7eab3fb7d3f394b2c20b"
+        ],
+        [
+          "T01",
+          "S-7e146fedba6fd2122ede2a08"
+        ],
+        [
+          "T01",
+          "S-81ecbe22c7c1f012a512d7c5"
+        ],
+        [
+          "T01",
+          "S-87114349d4d6fd3eab5fa704"
+        ],
+        [
+          "T01",
+          "S-8a83e332febd158970ed9c09"
+        ],
+        [
+          "T01",
+          "S-8db43f879fd5b8fe55f7086b"
+        ],
+        [
+          "T01",
+          "S-9303cf0e9d9da0b09a45e978"
+        ],
+        [
+          "T01",
+          "S-9529243cac786caf518cfff6"
+        ],
+        [
+          "T01",
+          "S-969f0189670e5b9f451cc7a7"
+        ],
+        [
+          "T01",
+          "S-9e5c0563814f0cbef0f4277f"
+        ],
+        [
+          "T01",
+          "S-9e9b9e373078894ce9e07b1f"
+        ],
+        [
+          "T01",
+          "S-9f61247c52dd5829e8f3ae1e"
+        ],
+        [
+          "T01",
+          "S-ad10bcd3e7c9416f874b78dd"
+        ],
+        [
+          "T01",
+          "S-b4e1ba694c7e152b8564ca1b"
+        ],
+        [
+          "T01",
+          "S-b89e3ef49da62d244241fd69"
+        ],
+        [
+          "T01",
+          "S-bc63eb8849b0fb2b2fb35e18"
+        ],
+        [
+          "T01",
+          "S-c06927718dabf71185096936"
+        ],
+        [
+          "T01",
+          "S-c0a1470a9e3a014bad873861"
+        ],
+        [
+          "T01",
+          "S-c17c776af0c1b797b8f41c1e"
+        ],
+        [
+          "T01",
+          "S-c1aabf2d405e87260ca376f8"
+        ],
+        [
+          "T01",
+          "S-c8c23bcb28b8c5593b55c097"
+        ],
+        [
+          "T01",
+          "S-cf71b89a50f998b8c6981ac6"
+        ],
+        [
+          "T01",
+          "S-d241d765d3214a9e20af408c"
+        ],
+        [
+          "T01",
+          "S-dbcce41b1edb076d633803b3"
+        ],
+        [
+          "T01",
+          "S-dccedd0007d44dd592e704a0"
+        ],
+        [
+          "T01",
+          "S-dd780caa97599a7ccee0a234"
+        ],
+        [
+          "T01",
+          "S-e3f282e134ca2b90630bd9ab"
+        ],
+        [
+          "T01",
+          "S-e4e5a475d6465f3fa04c5992"
+        ],
+        [
+          "T01",
+          "S-e5d7b5080db19bb5448b76f9"
+        ],
+        [
+          "T01",
+          "S-e8c9f5a4b6007dae01812aeb"
+        ],
+        [
+          "T01",
+          "S-ec15e9d8fbc460b2a435ca02"
+        ],
+        [
+          "T01",
+          "S-ef3f38b32e9d8e6e22035763"
+        ],
+        [
+          "T01",
+          "S-f27eaa7b179aa44283fd0cef"
+        ],
+        [
+          "T01",
+          "S-fc32193b8bd8f8b2760b6644"
+        ],
+        [
+          "T01",
+          "S-fd5b612ef40c681879715ec1"
+        ]
+      ],
+      "fitted_trip_keys": [
+        [
+          "T01",
+          "T01-TRIP-001203"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001206"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001215"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001216"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001225"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001227"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001230"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001232"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001233"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001237"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001249"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001254"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001256"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001263"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001272"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001274"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001287"
+        ],
+        [
+          "T01",
+          "T01-TRIP-001288"
+        ]
+      ],
+      "kind": "probability",
+      "minimum_class_contributing_trips": 2,
+      "minimum_fit_trips": 10,
+      "objective": "sum_trip_balanced_cross_entropy_plus_half_squared_distance_from_identity",
+      "objective_value": 10.362171621902961,
+      "optimizer": {
+        "initial": [
+          1.0,
+          0.0
+        ],
+        "iterations": 5,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "method": "L-BFGS-B",
+        "options": {
+          "ftol": 1e-12,
+          "gtol": 1e-09,
+          "maxiter": 2000,
+          "maxls": 50
+        },
+        "projected_bound": "a>=0",
+        "success": true
+      },
+      "probability_clip": 1e-06,
+      "reason": null,
+      "source_bindings": {
+        "delay_models_sha256": "2a12fb09ae81fadb36665d1841257a72b905890cd713bdb64fd6309c9b82b942",
+        "eta_models_sha256": "d219f28e4a06206a57e3848991034aa05df318f6d1770ba20356a7fae3280bfb",
+        "history_sha256": "0dd131df7f647ea10867518bef7ed2a0a4fdba48183eceb0215f0f36100c4b9a",
+        "protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+        "source_files_sha256": "8cf439d13c0e80b564972ab67a47f20be5aac4cf64f8e84aa3a2eba7e9d881a5",
+        "transformers_sha256": "ac8a6336feaf65d2b8b0ea186df50cdc837618d0c16e80a72fafeb96a482f5f4"
+      },
+      "status": "fitted",
+      "tenant_id": "T01",
+      "weight_sum": 18.0
+    },
+    {
+      "a": 0.652009444390293,
+      "b": 0.058794666260227064,
+      "class_support": {
+        "false": {
+          "snapshots": 42,
+          "trips": 8
+        },
+        "true": {
+          "snapshots": 59,
+          "trips": 9
+        }
+      },
+      "clipped_fit_snapshots": 0,
+      "definition_version": "m3d-sigmoid-v1",
+      "fit_metadata": {
+        "fit_trip_keys": [
+          [
+            "T02",
+            "T02-TRIP-001208"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001210"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001213"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001214"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001218"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001223"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001224"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001226"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001229"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001234"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001236"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001241"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001245"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001247"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001250"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001253"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001257"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001259"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001262"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001264"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001269"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001270"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001273"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001278"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001280"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001284"
+          ],
+          [
+            "T02",
+            "T02-TRIP-001289"
+          ]
+        ],
+        "label_cutoff_at": "2026-07-15T07:00:00Z",
+        "snapshot_end_at": "2026-07-15T07:00:00Z",
+        "snapshot_start_at": "2026-07-01T07:00:00Z"
+      },
+      "fit_rows_sha256": "8446b4e536423cc53f2470c6542c52e10ab62a55bfd9ddffe55719072a969ce4",
+      "fit_snapshot_count": 101,
+      "fit_trip_count": 17,
+      "fitted_snapshot_keys": [
+        [
+          "T02",
+          "S-0188265b7f255447d5fda873"
+        ],
+        [
+          "T02",
+          "S-02e80b45db4ebdfc810600bf"
+        ],
+        [
+          "T02",
+          "S-0393fcd6d97aee3ce19e05d6"
+        ],
+        [
+          "T02",
+          "S-0574c10d81f532752da56474"
+        ],
+        [
+          "T02",
+          "S-06aba6c777210f49382ef3bc"
+        ],
+        [
+          "T02",
+          "S-07b7a75b60a9f88b93d34e53"
+        ],
+        [
+          "T02",
+          "S-0d250c077ac9d1db921ecd92"
+        ],
+        [
+          "T02",
+          "S-121a8ae8caa3fc3c364fe549"
+        ],
+        [
+          "T02",
+          "S-149cf567616717988c484c33"
+        ],
+        [
+          "T02",
+          "S-169c3889f0492a231c5ce2d2"
+        ],
+        [
+          "T02",
+          "S-16a1b2e8b2c4b214bad5f465"
+        ],
+        [
+          "T02",
+          "S-189359392aa8b257a381c5f5"
+        ],
+        [
+          "T02",
+          "S-1abba7c7710867c37b4dd1e9"
+        ],
+        [
+          "T02",
+          "S-1ba2b5f0f07af34a2f3ce225"
+        ],
+        [
+          "T02",
+          "S-25816a36341579b52152e462"
+        ],
+        [
+          "T02",
+          "S-27bb41b995ad2da91ca6e3c6"
+        ],
+        [
+          "T02",
+          "S-2ad42ddcc843323643337b98"
+        ],
+        [
+          "T02",
+          "S-2d7ac190e23cb35d800b879e"
+        ],
+        [
+          "T02",
+          "S-2de933b15e2dfa1bf3e47326"
+        ],
+        [
+          "T02",
+          "S-317b9a30bd42c278e03e1dd0"
+        ],
+        [
+          "T02",
+          "S-3259dab06c95f46173ebdb20"
+        ],
+        [
+          "T02",
+          "S-353541223973cb50a9434099"
+        ],
+        [
+          "T02",
+          "S-356cc5426d61966ca4d1ce2b"
+        ],
+        [
+          "T02",
+          "S-39097364fd40e14879c5f1b8"
+        ],
+        [
+          "T02",
+          "S-40c138971803f283dacfc6bc"
+        ],
+        [
+          "T02",
+          "S-452836e7db2226fc5c365938"
+        ],
+        [
+          "T02",
+          "S-45b1f1066e389726fcf8825d"
+        ],
+        [
+          "T02",
+          "S-4889938581a7860714ec0b89"
+        ],
+        [
+          "T02",
+          "S-49616364219f1df99c27faec"
+        ],
+        [
+          "T02",
+          "S-4a03c2a51aeae7615cdb6e82"
+        ],
+        [
+          "T02",
+          "S-4a0dd6ea7363f45e9c24b0d8"
+        ],
+        [
+          "T02",
+          "S-4a833bbfc37ca92546d0ec02"
+        ],
+        [
+          "T02",
+          "S-4ca781854c94556ab46e1e9e"
+        ],
+        [
+          "T02",
+          "S-4ebe664bee6fb77c782215ea"
+        ],
+        [
+          "T02",
+          "S-58584b45cb5603acd405c6ca"
+        ],
+        [
+          "T02",
+          "S-5c7504bbb5e43532f218bded"
+        ],
+        [
+          "T02",
+          "S-5d2881bbc64cfae6a1df348b"
+        ],
+        [
+          "T02",
+          "S-5f386c5cf4032e2ba6dba3b2"
+        ],
+        [
+          "T02",
+          "S-65e585fd440b79e261e23cd1"
+        ],
+        [
+          "T02",
+          "S-674e2fe667e97566ba18894d"
+        ],
+        [
+          "T02",
+          "S-678613ae2cdbd4504df5e544"
+        ],
+        [
+          "T02",
+          "S-68145cf39b52af594000d9f8"
+        ],
+        [
+          "T02",
+          "S-6bd2e722f721dfcc82abd552"
+        ],
+        [
+          "T02",
+          "S-702f001fc6074ff9b2d9aadb"
+        ],
+        [
+          "T02",
+          "S-70fd9818ae37c9c9b1e4790e"
+        ],
+        [
+          "T02",
+          "S-7220c962791775e4ba6bedb3"
+        ],
+        [
+          "T02",
+          "S-740ccd74088e8779819197e8"
+        ],
+        [
+          "T02",
+          "S-7e4372608dcdecced1a7b898"
+        ],
+        [
+          "T02",
+          "S-7f1bd1208b18ce06d7eb816e"
+        ],
+        [
+          "T02",
+          "S-8090069756fd2edf36114f22"
+        ],
+        [
+          "T02",
+          "S-80bbf4f01cf03ae1aa5a0763"
+        ],
+        [
+          "T02",
+          "S-815c1dc222707e20dcc2ab64"
+        ],
+        [
+          "T02",
+          "S-819d6ca1521755478a10ac3b"
+        ],
+        [
+          "T02",
+          "S-86f886f7b2d8f3545f523651"
+        ],
+        [
+          "T02",
+          "S-8d51de624cca510936981378"
+        ],
+        [
+          "T02",
+          "S-8dbe317ae67b6e8c7f79d33f"
+        ],
+        [
+          "T02",
+          "S-941aee58e33550cbcfa54f40"
+        ],
+        [
+          "T02",
+          "S-997895da7d6894ae27ccf18a"
+        ],
+        [
+          "T02",
+          "S-9bbbdb16f1615a53d7c644ef"
+        ],
+        [
+          "T02",
+          "S-9e2582ab10522c3675ece03b"
+        ],
+        [
+          "T02",
+          "S-a1aad3a98e347b80a7201d1a"
+        ],
+        [
+          "T02",
+          "S-a2a25363f595934291991c96"
+        ],
+        [
+          "T02",
+          "S-a3436cf741311f9a2977b08d"
+        ],
+        [
+          "T02",
+          "S-aa0a6efa681d2f5357f716b5"
+        ],
+        [
+          "T02",
+          "S-aa0c9c3baddd7bcf76d724ed"
+        ],
+        [
+          "T02",
+          "S-aad6bd7c221bc54b4a954369"
+        ],
+        [
+          "T02",
+          "S-ab4b8f6b79d9ec64c6ba859c"
+        ],
+        [
+          "T02",
+          "S-ad7499eece7a670f7090bc15"
+        ],
+        [
+          "T02",
+          "S-b2af41db3cd81d75e9c7fa09"
+        ],
+        [
+          "T02",
+          "S-b4da3b48de722d5eae16f7c4"
+        ],
+        [
+          "T02",
+          "S-b5dca39214311cc1f2a3667d"
+        ],
+        [
+          "T02",
+          "S-b982f4205e710bdb72945888"
+        ],
+        [
+          "T02",
+          "S-ba1145747046e2bd175ea71e"
+        ],
+        [
+          "T02",
+          "S-c02420aad81258ca1a4e6f89"
+        ],
+        [
+          "T02",
+          "S-c49c959c9072f662aa1c8fa9"
+        ],
+        [
+          "T02",
+          "S-c7004b0a0d7d50eb759e49a1"
+        ],
+        [
+          "T02",
+          "S-c769285a89b961d634aa2a69"
+        ],
+        [
+          "T02",
+          "S-c8a42fda8779ca2d06f81cf0"
+        ],
+        [
+          "T02",
+          "S-ca5f134054d65f1aee50a18e"
+        ],
+        [
+          "T02",
+          "S-cb0bc548076b66994bedc45f"
+        ],
+        [
+          "T02",
+          "S-cec60b1074746d00a6afefb1"
+        ],
+        [
+          "T02",
+          "S-cf4ef7b608fc690bd238967e"
+        ],
+        [
+          "T02",
+          "S-d32f0ff7204f22d66ab49517"
+        ],
+        [
+          "T02",
+          "S-d3e9b9c2c2ed4d1779b729a8"
+        ],
+        [
+          "T02",
+          "S-d4654a457a5254d6c788b0eb"
+        ],
+        [
+          "T02",
+          "S-d57d3332ef81739e8331bc26"
+        ],
+        [
+          "T02",
+          "S-d6547a5ce6a5609754f28fc4"
+        ],
+        [
+          "T02",
+          "S-d65e8ae310b5106b0ae5d127"
+        ],
+        [
+          "T02",
+          "S-dc6f323aae3f932f697f4165"
+        ],
+        [
+          "T02",
+          "S-e11cdd0739552938923e00f8"
+        ],
+        [
+          "T02",
+          "S-e454d0d9c1439ccbcf195fd1"
+        ],
+        [
+          "T02",
+          "S-e4cfa5471e89edbc2f2f682f"
+        ],
+        [
+          "T02",
+          "S-e701a89d65f2ffcf6e9dbd51"
+        ],
+        [
+          "T02",
+          "S-e738683b8e96755b8e15eb3a"
+        ],
+        [
+          "T02",
+          "S-e7c9d07c43e1094e85fcafc2"
+        ],
+        [
+          "T02",
+          "S-ea63b9a1bf61e8a42c956fca"
+        ],
+        [
+          "T02",
+          "S-ebb818155521d519e39da094"
+        ],
+        [
+          "T02",
+          "S-f12146b8f74fdcdbfbd978ac"
+        ],
+        [
+          "T02",
+          "S-f320312a00bc9561e40dda3f"
+        ],
+        [
+          "T02",
+          "S-f5f0ebb874393cf832b44046"
+        ],
+        [
+          "T02",
+          "S-fb4ac418867f3d5e36e322d5"
+        ]
+      ],
+      "fitted_trip_keys": [
+        [
+          "T02",
+          "T02-TRIP-001208"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001210"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001214"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001223"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001226"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001234"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001236"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001241"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001245"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001247"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001250"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001259"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001269"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001270"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001278"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001280"
+        ],
+        [
+          "T02",
+          "T02-TRIP-001289"
+        ]
+      ],
+      "kind": "probability",
+      "minimum_class_contributing_trips": 2,
+      "minimum_fit_trips": 10,
+      "objective": "sum_trip_balanced_cross_entropy_plus_half_squared_distance_from_identity",
+      "objective_value": 11.362740212323088,
+      "optimizer": {
+        "initial": [
+          1.0,
+          0.0
+        ],
+        "iterations": 6,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "method": "L-BFGS-B",
+        "options": {
+          "ftol": 1e-12,
+          "gtol": 1e-09,
+          "maxiter": 2000,
+          "maxls": 50
+        },
+        "projected_bound": "a>=0",
+        "success": true
+      },
+      "probability_clip": 1e-06,
+      "reason": null,
+      "source_bindings": {
+        "delay_models_sha256": "2a12fb09ae81fadb36665d1841257a72b905890cd713bdb64fd6309c9b82b942",
+        "eta_models_sha256": "d219f28e4a06206a57e3848991034aa05df318f6d1770ba20356a7fae3280bfb",
+        "history_sha256": "0dd131df7f647ea10867518bef7ed2a0a4fdba48183eceb0215f0f36100c4b9a",
+        "protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+        "source_files_sha256": "8cf439d13c0e80b564972ab67a47f20be5aac4cf64f8e84aa3a2eba7e9d881a5",
+        "transformers_sha256": "ac8a6336feaf65d2b8b0ea186df50cdc837618d0c16e80a72fafeb96a482f5f4"
+      },
+      "status": "fitted",
+      "tenant_id": "T02",
+      "weight_sum": 17.0
+    },
+    {
+      "a": 0.555910467398478,
+      "b": -0.057486342018754695,
+      "class_support": {
+        "false": {
+          "snapshots": 34,
+          "trips": 9
+        },
+        "true": {
+          "snapshots": 44,
+          "trips": 9
+        }
+      },
+      "clipped_fit_snapshots": 0,
+      "definition_version": "m3d-sigmoid-v1",
+      "fit_metadata": {
+        "fit_trip_keys": [
+          [
+            "T03",
+            "T03-TRIP-001201"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001202"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001205"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001209"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001211"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001217"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001219"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001221"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001222"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001231"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001235"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001239"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001240"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001243"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001244"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001261"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001265"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001266"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001267"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001275"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001277"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001281"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001283"
+          ],
+          [
+            "T03",
+            "T03-TRIP-001285"
+          ]
+        ],
+        "label_cutoff_at": "2026-07-15T07:00:00Z",
+        "snapshot_end_at": "2026-07-15T07:00:00Z",
+        "snapshot_start_at": "2026-07-01T07:00:00Z"
+      },
+      "fit_rows_sha256": "8f54b984bb884457ae851a82017d23726dfa792a2003c73f569ba4a04c920c63",
+      "fit_snapshot_count": 78,
+      "fit_trip_count": 18,
+      "fitted_snapshot_keys": [
+        [
+          "T03",
+          "S-07c71abb958d850bd3def998"
+        ],
+        [
+          "T03",
+          "S-0db112407e8200367d96f14f"
+        ],
+        [
+          "T03",
+          "S-13162a3a5ca095e8e379bee1"
+        ],
+        [
+          "T03",
+          "S-1e51eee5463cc9442e863a01"
+        ],
+        [
+          "T03",
+          "S-24f1998771fcd1b278e1342c"
+        ],
+        [
+          "T03",
+          "S-2ab9819e498fe03f4bb92eda"
+        ],
+        [
+          "T03",
+          "S-2c7a4fa46ddfc392cff16324"
+        ],
+        [
+          "T03",
+          "S-2f97db48c644fcb2a61e9d89"
+        ],
+        [
+          "T03",
+          "S-2fdfd1f23983e8aaafdbc436"
+        ],
+        [
+          "T03",
+          "S-350318ae88b3b14779fed0bf"
+        ],
+        [
+          "T03",
+          "S-359353785cf98e7433ff2df9"
+        ],
+        [
+          "T03",
+          "S-35cc83446bf5eddb4867bb0e"
+        ],
+        [
+          "T03",
+          "S-382a377bea7b7ad5166bbec6"
+        ],
+        [
+          "T03",
+          "S-3a1f988e2fe74bf06e7e8016"
+        ],
+        [
+          "T03",
+          "S-3a3559a77d41eb5a17115083"
+        ],
+        [
+          "T03",
+          "S-40c385902b4577d25fb2b92f"
+        ],
+        [
+          "T03",
+          "S-476d45ff2fc7ab00f4b197ad"
+        ],
+        [
+          "T03",
+          "S-4930fdc62952d9365a09379f"
+        ],
+        [
+          "T03",
+          "S-4ad406f07774c326c3203ae7"
+        ],
+        [
+          "T03",
+          "S-4f048c8a86bf15eb80c4cb9d"
+        ],
+        [
+          "T03",
+          "S-517b0c154c3a505cff70a796"
+        ],
+        [
+          "T03",
+          "S-524f00912df2bac8e28ce28f"
+        ],
+        [
+          "T03",
+          "S-5290b1c7e792350d4dab390e"
+        ],
+        [
+          "T03",
+          "S-5a0e39ae3fe881bbc5a19b55"
+        ],
+        [
+          "T03",
+          "S-5a842698ee29e90235ede581"
+        ],
+        [
+          "T03",
+          "S-5e20fffe35ccf22287abaeb8"
+        ],
+        [
+          "T03",
+          "S-6345406f2e256f4a895798b5"
+        ],
+        [
+          "T03",
+          "S-651248bed8c7fdfbc53e47a2"
+        ],
+        [
+          "T03",
+          "S-674fca064a10c0ad43d7c813"
+        ],
+        [
+          "T03",
+          "S-68ae35d1e1488e17ca47f78b"
+        ],
+        [
+          "T03",
+          "S-6b08ed3814d656fea1315817"
+        ],
+        [
+          "T03",
+          "S-6e2c0349117ffc206ea8a4b2"
+        ],
+        [
+          "T03",
+          "S-6eef784b0d1840894f283eab"
+        ],
+        [
+          "T03",
+          "S-72b5dc4a200ef0db08c71763"
+        ],
+        [
+          "T03",
+          "S-756f9ee0be97cdc05045b32f"
+        ],
+        [
+          "T03",
+          "S-7739ab377d90e3f6150e398b"
+        ],
+        [
+          "T03",
+          "S-77cc085536e0b254ac47e305"
+        ],
+        [
+          "T03",
+          "S-7def145d15457c6abb70c123"
+        ],
+        [
+          "T03",
+          "S-8ad236b2e6ab1a09830e81fe"
+        ],
+        [
+          "T03",
+          "S-988dcc9f734a64c8d8b2f8e0"
+        ],
+        [
+          "T03",
+          "S-98b485d7d4050a415c78b945"
+        ],
+        [
+          "T03",
+          "S-992b4c482368ef3236f94fd7"
+        ],
+        [
+          "T03",
+          "S-9d765d71005a1ad530b0b790"
+        ],
+        [
+          "T03",
+          "S-a048affd4a6199b8766021e7"
+        ],
+        [
+          "T03",
+          "S-a898f729f9d5eac3c16fd235"
+        ],
+        [
+          "T03",
+          "S-a9c22da702ed5f9173a284cc"
+        ],
+        [
+          "T03",
+          "S-ab59ddd45cadd71a0fe700a4"
+        ],
+        [
+          "T03",
+          "S-ab992836186a910a4178e346"
+        ],
+        [
+          "T03",
+          "S-afe2218db5adf50cfbacb414"
+        ],
+        [
+          "T03",
+          "S-b31e1fb0eba0de4b21774170"
+        ],
+        [
+          "T03",
+          "S-b3e0f42331cac86ba969a6e5"
+        ],
+        [
+          "T03",
+          "S-b46faef7459303f5c37502cf"
+        ],
+        [
+          "T03",
+          "S-b8544dda9161187f57dc4224"
+        ],
+        [
+          "T03",
+          "S-b9219a4731e96fcbd6d54753"
+        ],
+        [
+          "T03",
+          "S-beb38ea031a2d25d39371ece"
+        ],
+        [
+          "T03",
+          "S-bfeb1e6fd7c50f457de72dc1"
+        ],
+        [
+          "T03",
+          "S-c2be77a40b3bae978b2c36f9"
+        ],
+        [
+          "T03",
+          "S-c77dcd57806146683eac017b"
+        ],
+        [
+          "T03",
+          "S-c880bd289680c562787c2b6a"
+        ],
+        [
+          "T03",
+          "S-ca0d680e348459fac5d0bc4e"
+        ],
+        [
+          "T03",
+          "S-ce64f7fe170615bbdcc6576e"
+        ],
+        [
+          "T03",
+          "S-cfdded4a07899a14ae4e0350"
+        ],
+        [
+          "T03",
+          "S-d3cce4027076f4278d349070"
+        ],
+        [
+          "T03",
+          "S-d4c7bd7c6affa47d77c8a211"
+        ],
+        [
+          "T03",
+          "S-d913619cfc6cafff9b2b142c"
+        ],
+        [
+          "T03",
+          "S-db15393ad627d8ed1f173d7b"
+        ],
+        [
+          "T03",
+          "S-dd710e96002a3f777fa7a353"
+        ],
+        [
+          "T03",
+          "S-dff9cd8dc1ae275d818f2cc2"
+        ],
+        [
+          "T03",
+          "S-e126dd4cc174d41da9ec9603"
+        ],
+        [
+          "T03",
+          "S-e6036e1b35627f0a0a750103"
+        ],
+        [
+          "T03",
+          "S-e9a68c7626b71864fc7dcfc2"
+        ],
+        [
+          "T03",
+          "S-f0d1a8509deaae0dfda56f1a"
+        ],
+        [
+          "T03",
+          "S-f6e87a07080347a940d166cd"
+        ],
+        [
+          "T03",
+          "S-f7bcb1eac85a5bfe2c41e786"
+        ],
+        [
+          "T03",
+          "S-f90b206d307f9e207baf15cf"
+        ],
+        [
+          "T03",
+          "S-fd34f16750b0ea850553b513"
+        ],
+        [
+          "T03",
+          "S-fd6c8e74626c0022906711e6"
+        ],
+        [
+          "T03",
+          "S-fe36160ddfaea2e5ba80ff0b"
+        ]
+      ],
+      "fitted_trip_keys": [
+        [
+          "T03",
+          "T03-TRIP-001201"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001205"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001211"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001217"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001219"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001221"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001222"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001239"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001243"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001244"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001261"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001265"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001266"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001267"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001277"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001281"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001283"
+        ],
+        [
+          "T03",
+          "T03-TRIP-001285"
+        ]
+      ],
+      "kind": "probability",
+      "minimum_class_contributing_trips": 2,
+      "minimum_fit_trips": 10,
+      "objective": "sum_trip_balanced_cross_entropy_plus_half_squared_distance_from_identity",
+      "objective_value": 12.191239729485925,
+      "optimizer": {
+        "initial": [
+          1.0,
+          0.0
+        ],
+        "iterations": 6,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "method": "L-BFGS-B",
+        "options": {
+          "ftol": 1e-12,
+          "gtol": 1e-09,
+          "maxiter": 2000,
+          "maxls": 50
+        },
+        "projected_bound": "a>=0",
+        "success": true
+      },
+      "probability_clip": 1e-06,
+      "reason": null,
+      "source_bindings": {
+        "delay_models_sha256": "2a12fb09ae81fadb36665d1841257a72b905890cd713bdb64fd6309c9b82b942",
+        "eta_models_sha256": "d219f28e4a06206a57e3848991034aa05df318f6d1770ba20356a7fae3280bfb",
+        "history_sha256": "0dd131df7f647ea10867518bef7ed2a0a4fdba48183eceb0215f0f36100c4b9a",
+        "protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+        "source_files_sha256": "8cf439d13c0e80b564972ab67a47f20be5aac4cf64f8e84aa3a2eba7e9d881a5",
+        "transformers_sha256": "ac8a6336feaf65d2b8b0ea186df50cdc837618d0c16e80a72fafeb96a482f5f4"
+      },
+      "status": "fitted",
+      "tenant_id": "T03",
+      "weight_sum": 18.0
+    }
+  ]
+}
