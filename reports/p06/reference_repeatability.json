@@ -1,0 +1,173 @@
+{
+  "calibrator_fitting_executed": false,
+  "canonical_and_auxiliary_jsonl": [
+    {
+      "equal": true,
+      "rows": 0,
+      "table": "eta_action"
+    },
+    {
+      "equal": true,
+      "rows": 0,
+      "table": "eta_action_followup"
+    },
+    {
+      "equal": true,
+      "rows": 0,
+      "table": "eta_adoption"
+    },
+    {
+      "equal": true,
+      "rows": 0,
+      "table": "eta_alert"
+    },
+    {
+      "equal": true,
+      "rows": 0,
+      "table": "eta_alert_episode"
+    },
+    {
+      "equal": true,
+      "rows": 1,
+      "table": "eta_alert_rule_version"
+    },
+    {
+      "equal": true,
+      "rows": 341,
+      "table": "eta_evaluation_membership"
+    },
+    {
+      "equal": true,
+      "rows": 3,
+      "table": "eta_model_version"
+    },
+    {
+      "equal": true,
+      "rows": 0,
+      "table": "eta_notification_delivery"
+    },
+    {
+      "equal": true,
+      "rows": 341,
+      "table": "eta_output_release"
+    },
+    {
+      "equal": true,
+      "rows": 341,
+      "table": "eta_prediction"
+    },
+    {
+      "equal": true,
+      "rows": 9,
+      "table": "p06_candidate_audit"
+    },
+    {
+      "equal": true,
+      "rows": 341,
+      "table": "p06_decision_audit"
+    },
+    {
+      "equal": true,
+      "rows": 35,
+      "table": "p06_episode_audit"
+    },
+    {
+      "equal": true,
+      "rows": 3,
+      "table": "p06_model_binding"
+    },
+    {
+      "equal": true,
+      "rows": 341,
+      "table": "p06_opportunity_audit"
+    },
+    {
+      "equal": true,
+      "rows": 730,
+      "table": "p06_provenance_reference"
+    },
+    {
+      "equal": true,
+      "rows": 1,
+      "table": "p06_rule_audit"
+    },
+    {
+      "equal": true,
+      "rows": 341,
+      "table": "p06_source_snapshot"
+    },
+    {
+      "equal": true,
+      "rows": 42,
+      "table": "p06_source_trip"
+    }
+  ],
+  "canonical_generated_at": [
+    "2026-11-07T04:44:14.287648+00:00",
+    "2026-11-07T04:45:25.851988+00:00"
+  ],
+  "code_sha256": {
+    "alert_inputs.py": "56cd2305f64a60fe9ce8abd5a61cd66684aa28d174ed4eb7b45ff24998f03dbc",
+    "alert_metrics.py": "8f4d75f054d4d2b9e6e5196a5eb23fc587d4b3cc5578b6294686a0282e7e6ab1",
+    "alert_policy.py": "4ca048fbb96380728c1e0cb34f73224a6177f31b97b5af0f784d141fe7e9df6d",
+    "alert_replay.py": "74ce1a6f93d299ac80541c2db11e33221279a0d373c952ee7f207648737b449a",
+    "alert_run.py": "dbcef06fd8088ee37e5b8b55f5ca2052879c7868dabffdfae1814d0f2884923d",
+    "baseline.py": "2f947d9219eb53eb6e7991bc4256ba86b2bfc4ed3a5c2668d9365d77aa25a8e1",
+    "baseline_metrics.py": "1d8efaa878538b063811b3d81781104801e9c62bb995d963daf8169a18d13287",
+    "baseline_run.py": "d1a7da992e01c5f9d4f79407edbcb87be9ae74ab7493eab966699d4bb2b612c3",
+    "calibration_metrics.py": "e36303e0065475d28b432f8e40aea4a3a531492ae49de5d7fc98956bea592da0",
+    "calibration_models.py": "b06803a2c55c03f7ca65f44dee214ab7199ae472e5d16f06b24063f995c6a2a1",
+    "calibration_refit.py": "5ee0a0b58df5b72fbb90ebe49a14f94046793d58e6fac81b2cc26b8322eaba0e",
+    "calibration_replay.py": "b6011a52a171ac8a4c5ceb3370f9699811256c50f237e10c0c3f2dc4a5d474b9",
+    "calibration_run.py": "0f427c27bdbc391e9c118b267ac55478437981fadd34a3dbcd194852f82ef9ee",
+    "calibration_split.py": "e428fb1e9cc6484e9121965645c71b7a3d72723a869447fc916dab1b31120d1f",
+    "calibration_targets.py": "e115fa7f1e7e30c553bcae8fb3ac5d8a3fd7441515454523f7fc8bf19664548d",
+    "candidate_model.py": "9406f202c385764002fc4abf03dc755cf21c8ee96d12b88049b52a571c9aff5f",
+    "candidate_run.py": "4ebcb9125ca04361012af2c1ebf1e165cab0ae97ee252c283e2a0e3bec4e87b8",
+    "candidate_targets.py": "57ee05d00834edadc288658c96014f44f64ba417d922890fb6a1fccd1370e202",
+    "common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+    "delay_metrics.py": "3294a139d2ab5641cd243b73c4810c118768b600fd8ee83bb5cbcafa7c9e643f",
+    "delay_model.py": "7a86e75135317eb20def811cb76f96cbfcbc4946df54d604f7ce6b9ee1408868",
+    "delay_replay.py": "da04dc3dd216c8b8d779c0f3e76f936c5871da6f6adeb20837a7e3242d9fbd03",
+    "delay_run.py": "0340f7bbf80f7338035aedba5b1d98649531354a5810f7c3e7cfcf7f4d49901f",
+    "delay_targets.py": "89155dafbc835674478cf1a39128765cc791204284464cdda535562578839ea9",
+    "feature_run.py": "1259d964aad6fbdbeadb4885d37567d0ebe88be2b7624e58faacc878606013d3",
+    "feature_transform.py": "5911757e7985e72abf95fce53e7cc03490322af4f58c44bcd5ae580d2fa63cff",
+    "features.py": "91f2e9f1529aae6e38f1b3ab24e92d7dc9c988eedf2b2297bb8fa45e5c389a8a",
+    "model_splits.py": "d1c09f2cf8800bd006063afb1c027dfc4fd06bac6512539f44d93a7ded2dcd95",
+    "release_store.py": "8f6fa1910abfb259b53c7bee96054b9144ee5469b5d17105ea7bd07de117325d"
+  },
+  "comparison_scope": "All 14 deterministic core files byte-identical; all 20 JSONL tables identical after normalizing only actual execution clocks and their verified derived digests. Database/Parquet byte identity is not claimed.",
+  "derived_digest_normalization": "Each offline_output provenance source_sha256 first verified against its exact eta_output_release row, then recomputed after removing released_at. All other source hashes compared unchanged.",
+  "deterministic_core_files": {
+    "candidates.jsonl": "6541ca37b1eb17fcce8c2fb6790b04631cece1f29e79c45dbaa214d0aca38ad4",
+    "decisions.jsonl": "d3b7291aab16db3f16aaa80dcb5a1ea33b9cf5788ef8f5a1a45e693175e9395d",
+    "episodes.jsonl": "44193c2a0e624bf24b7b37625d96b402b9f03a36ebe20d156414a10c00768806",
+    "metrics.json": "4e4bc444604958230c0d7e95e751752b8c773f748104b5815810611319140f75",
+    "model_registry.json": "4b1b1f2373173957915358a8917295c58d73b32076a217d884fb153798da12c2",
+    "opportunities.jsonl": "cd327568efff3eec644d5c60d5da0a851d3672d340348cf4a37ab714ecb40420",
+    "policy_trials.json": "277925fc859a5140bacaa32b5390bd10da03e63a9e938e8836153d1ba4165b99",
+    "selected_policy.json": "530b3d97838fc764809ba7494bce5c251bc11f1866306e1301e5bd0c8c2101ea",
+    "selection_manifest.json": "8378dc1fbc9231635c7709edc16ea5080835380b25310ffad14c9ab577f8ef2a",
+    "simulation_summary.json": "e7ba52e5955f27459a32deee8508655af12bee4bb89cdef3cff6cbdac1ab4d5b",
+    "source_context.json": "cc1211a15ec3cab3ab1b16cd817cfd342fb49dd4a4b13adcfdd82e6bb81e6db6",
+    "source_replay.json": "9627f95e06b07c4e25f9ca0a69d8c376259220fcdb9f2300bbec282c5ee5a382",
+    "summary.json": "1fbc46ed5c4e45e5af6e4ff088f7c16882c97122d090dbe807ad5c5803c87e43",
+    "targets.jsonl": "9419350ab545351dd29e79b7afd5c66da148e88fdbe94225918a9f9140533464"
+  },
+  "final_test_evaluated": false,
+  "first_run_receipt_sha256": "28bfd30a251b4d32e6d6a1e9c13511f77c8064071184674113a2952a3fd8b3ef",
+  "model_training_executed": false,
+  "normalized_execution_clock_fields": {
+    "eta_output_release": "released_at",
+    "eta_prediction": "generated_at",
+    "p06_candidate_audit": "created_at",
+    "p06_opportunity_audit": "generated_at",
+    "p06_provenance_reference": "recorded_at"
+  },
+  "notification_delivery_executed": false,
+  "protocol_sha256": "7b7dbe70ec1d44199bd971607eeec9a029fdee5567a3c4fa1f42f7fac9ee0470",
+  "repeat_run_receipt_sha256": "94f7cae04e02e82f609a4507a760bfb5515cc5f7d917378b623494db643f4315",
+  "runs": 2,
+  "status": "passed"
+}

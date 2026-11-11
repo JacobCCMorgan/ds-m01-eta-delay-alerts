@@ -2,9 +2,47 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: July calibration assessment (M3d.1).** Fixed per-tenant interval expansion and probability calibration were fitted on early July trips and assessed on later July trips. Intervals covered every eligible snapshot on 19 of 29 scored trips (65.5%), below the nominal 80% target. Probability calibration increased Brier error from 0.2129 to 0.2208. The experiment records these limitations; it does not approve an alert policy.
+**Current stage: alert-policy development and formal offline outputs (M3d.2 / M4.1).** A frozen July sweep selected a 0.55 probability threshold and produced nine candidates across 42 monitored trips. It captured only 4 of 18 actionable delayed trips (22.2%). Five canonical output tables are materialized in a separate offline store. This development result does not approve deployment or resolve the earlier calibration quality limits.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## What did the alert-policy experiment show?
+
+The rule uses a 30-minute minimum prospective notice, 30-minute repeat
+suppression and a cap of two candidates per tenant per local day. These limits
+and the budget of 50 candidates per 100 monitored trips are hypothetical research
+settings, fixed before the sweep after P05's July assessment results were known.
+
+| July policy-development measure | Result |
+|---|---:|
+| Probability threshold | 0.55 |
+| Admitted candidates / monitored trips | 9 / 42 |
+| Confirmed actionable delayed trips captured | 4 / 18 (22.2%) |
+| Conditional first-candidate precision | 4 / 6 (66.7%) |
+| Unresolved first candidates | 1 of 7 |
+| Candidate burden per 100 monitored trips | 21.43 |
+
+The precision fraction covers only first candidates with eligible targets.
+Across all seven first candidates, usefulness is bounded by 4/7 to 5/7;
+these are identification bounds, not confidence intervals. Unknown outcomes
+and two repeat candidates still count toward burden. No notification was sent.
+
+All 21 thresholds and the disabled reference are retained. Selection reuses
+the P05 assessment cohort, so these figures are subject to selection optimism
+and cannot serve as independent final-policy performance. August–September
+final-test outcomes remain outside fitting, selection and scoring.
+
+See the [policy protocol](docs/p06_alert_policy.md),
+[results, denominators and reproduction](reports/p06/README.md), and
+[typed-store checks](reports/p06/store/verification.json).
+
+![July candidate burden and actionable-trip recall across frozen thresholds](reports/p06/policy_tradeoff.png)
+
+The [engineering verification](reports/p06/verification.json) records 489
+passing unit tests, zero differences in retained and source-assisted replay,
+and 163,968 independent reference comparisons with no failures. These checks
+establish reproducible implementation behavior; they do not approve model or
+policy quality.
 
 ## Did July calibration improve the forecasts?
 
@@ -41,8 +79,8 @@ See the [fixed protocol](docs/m3d_calibration.md),
 
 ![July interval coverage and probability calibration assessment](reports/m3d/calibration_quality.png)
 
-This July assessment cohort is also reserved for P06 policy development. It
-cannot then serve as an independent final-policy test. August–September
+This July assessment cohort is reused for P06 policy development. It
+cannot also serve as an independent final-policy test. August–September
 final-test outcomes have not been used for fitting, selection or scoring.
 
 ## Training-period delay validation (P04)
@@ -93,21 +131,23 @@ the protected final test.
 
 ## Check a saved forecast run
 
-From the repository root, create an environment and replay the saved P05
-forecasts, calibration application and assessment metrics. Python 3.12 was used
-for the recorded run. This check needs no Docker, raw outcome file or M2 rebuild.
+From the repository root, create an environment and replay the saved P06
+policy selection and typed outputs, including the retained P05 forecasts and
+calibration checks. Python 3.12 was used for the recorded run. This check needs
+no Docker, raw outcome file or M2 rebuild.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-models.lock
 python -m pip install -e . --no-deps
-python -m ds_m01.calibration_replay --root . --report reports/m3d
+python -m ds_m01.alert_replay --root . --report reports/p06
 ```
 
-Expect `status: passed`, `differences: 0` and 341 assessment opportunities.
-The check uses saved model/calibrator states and retained assessment labels; it
-does not fit either model or open the raw outcome source. To run the unit suite, use
+Expect `status: passed`, `differences: 0`, 341 opportunities, 42 monitored trips
+and 22 policy trials. The check uses saved model/calibrator states, retained
+source context and saved July labels; it does not fit models or calibrators,
+open the raw outcome source or deliver notifications. To run the unit suite, use
 `python -m unittest discover -s tests -v` in the same environment.
 
 For exact retraining, follow the [fixed-container guide](docs/reproducibility.md).
@@ -266,11 +306,23 @@ python scripts/plot_data_quality.py --root .
 
 ## Scope and limitations
 
-The 11 reserved tables have declared types and nullability but no model, alert, notification or action records. Their population and later-stage behavior remain unimplemented. Native PostgreSQL verification is also pending; see the [PostgreSQL runtime note](docs/postgres_runtime_note.md). DuckDB and HTTP validation do not establish PostgreSQL integration.
+The historical M2 warehouse populated 17 data-stage tables. P06 separately
+materializes five canonical model, membership, prediction, rule and offline-release
+tables with typed JSONL, DuckDB and Parquet outputs. It does not rebuild a combined
+M2 warehouse. Six canonical alert-episode, alert, notification, adoption, action
+and follow-up tables remain empty; auxiliary candidate audits are not delivered
+alerts. Native PostgreSQL verification is also pending; see the
+[PostgreSQL runtime note](docs/postgres_runtime_note.md). DuckDB and HTTP validation
+do not establish PostgreSQL integration.
 
 For the next modeling stage, the unseen-route-only test cohort has 29 eligible trips and the joint unseen-vehicle/unseen-route cohort has four. These sparse cohorts support descriptive reporting, not reliable deployment claims. A threshold of 30 trips is a coverage warning, not a power analysis. The training set also contains 97 eligible snapshots without a prior historical pool, requiring a defined fallback or unavailable result.
 
-Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes or count snapshots from the same trip as independent trips. The next stage develops an alert policy using the declared July assessment cohort, with explicit burden and notice-time constraints. That reuse does not create an independent policy test. Frozen final evaluation, alert delivery and action follow-up remain later stages.
+Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes
+or count snapshots from the same trip as independent trips. P06's July selection
+does not provide an independent policy test; its 22.2% actionable recall and
+the unmet P05 calibration targets remain quality limitations. Frozen final
+evaluation, alert delivery and action follow-up remain later stages requiring
+their own evidence and authorization.
 
 The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
 

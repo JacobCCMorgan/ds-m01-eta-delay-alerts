@@ -2,6 +2,39 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-07 UTC — develop an alert rule and materialize offline outputs
+
+Reused the declared July assessment cohort for a frozen 21-threshold policy
+sweep plus a disabled reference. The 30-minute notice/suppression settings,
+two-candidate tenant/day cap and 50-candidates-per-100-trips budget are research
+assumptions fixed before this sweep, after the P05 assessment results were known.
+Neither models nor calibrators were refitted or reselected.
+
+The selected 0.55 threshold generated nine candidates across 42 monitored trips
+and captured 4/18 actionable delayed trips. Conditional first-candidate precision
+was 4/6; one of seven first candidates had an unresolved target. Candidate burden
+includes that unknown outcome and two repeats. These are development measurements
+subject to selection optimism, not independent policy performance or delivered
+notification metrics.
+
+Materialized five canonical output tables in a separate DuckDB/Parquet/JSONL
+store, retaining all 341 opportunities in typed audits and membership. Six later
+alert/delivery/adoption/action tables remain empty. Added complete policy-trial
+replay, source-context reconstruction, key/relationship/rounding checks and fresh
+output publication. Historical M2 and P05 receipts remain unchanged.
+
+The reference environment passed 489 unit tests, both retained/source replays
+with zero differences, and 163,968 independent reference comparisons with no
+failures. Two executions reproduced 14 deterministic files byte-for-byte;
+20 JSONL tables matched after documented execution-clock and derived-digest
+normalization. Database/Parquet byte identity, CI and user-machine execution
+are not implied by these checks.
+
+The [results](../reports/p06/README.md) retain sparse tenant slices, the missed
+actionable trips and the unresolved P05 coverage/probability limitations.
+August–September targets remain protected; there is no operational approval,
+notification delivery or measured fleet benefit.
+
 ## 2026-11-05 UTC — assess fixed July interval and probability calibration
 
 Refitted the selected ETA model and independent delay classifier on the original

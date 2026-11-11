@@ -1,0 +1,18 @@
+{
+  "assessment_opportunities": 341,
+  "base_model_training_executed": false,
+  "buffer_targets_used": false,
+  "calibration_application_equal": true,
+  "calibrator_fitting_executed": false,
+  "calibrators": 6,
+  "differences": 0,
+  "final_test_evaluated": false,
+  "metrics_verified": true,
+  "outcome_source_opened": true,
+  "protocol_sha256": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+  "raw_eta_opportunities": 1358,
+  "raw_probability_rows": 2716,
+  "retained_inference_equal": true,
+  "source_targets_verified": true,
+  "status": "passed"
+}

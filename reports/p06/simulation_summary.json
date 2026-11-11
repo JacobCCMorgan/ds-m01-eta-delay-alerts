@@ -1,0 +1,49 @@
+{
+  "admitted_candidates": 9,
+  "censored_episodes": 22,
+  "closed_episodes": 13,
+  "daily_candidate_counts": [
+    {
+      "candidates": 2,
+      "local_date": "2026-07-17",
+      "tenant_id": "T01"
+    },
+    {
+      "candidates": 1,
+      "local_date": "2026-07-20",
+      "tenant_id": "T01"
+    },
+    {
+      "candidates": 2,
+      "local_date": "2026-07-17",
+      "tenant_id": "T02"
+    },
+    {
+      "candidates": 2,
+      "local_date": "2026-07-17",
+      "tenant_id": "T03"
+    },
+    {
+      "candidates": 2,
+      "local_date": "2026-07-20",
+      "tenant_id": "T03"
+    }
+  ],
+  "decision_status_counts": {
+    "admitted": 9,
+    "below_threshold": 132,
+    "capacity_exhausted": 23,
+    "insufficient_lead": 177
+  },
+  "definition_version": "p06-chronological-candidate-policy-v1",
+  "delivery_simulated": false,
+  "duplicate_records_ignored": 0,
+  "enabled": true,
+  "episodes": 35,
+  "input_records": 341,
+  "labels_used": false,
+  "monitored_trips": 42,
+  "opportunities": 341,
+  "policy_version": "P06-RULE-36e4955032b25e4e8fd2045d",
+  "scope": "research_candidates_not_deliveries"
+}

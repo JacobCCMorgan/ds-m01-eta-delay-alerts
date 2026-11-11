@@ -1,0 +1,49 @@
+{
+  "assessment_reused_for_policy_development": true,
+  "budget_basis": "Synthetic research assumptions; not measured fleet capacity or business cost.",
+  "budget_max_candidates_per_100_monitored_trips": 50,
+  "daily_candidate_cap_per_tenant": 2,
+  "final_test_evaluated": false,
+  "model_or_calibrator_reselected": false,
+  "no_post_sweep_grid_or_budget_changes": true,
+  "operational_approval": false,
+  "opportunity_records_sha256": "050bec0af9b0d5cf3cd4dce956a8f313f405c381cb3e5a72cddb85e6c7e97219",
+  "protocol_version": "p06-alert-policy-v1",
+  "selected_trial_id": "threshold_0.55",
+  "selection_ordering": [
+    "maximize_confirmed_actionable_true_alert_trips",
+    "minimize_all_admitted_candidates",
+    "prefer_higher_threshold"
+  ],
+  "settings_content_sha256": "7200ad41ff239170261c83f5b6246da5f4dc43ed31ebbc3da8395dba7f60716f",
+  "support_checks": {
+    "minimum_actionable_positive_trips": true,
+    "minimum_negative_trips": true,
+    "minimum_scored_trips": true
+  },
+  "target_records_sha256": "5ab5ab096d25120ddac9755395feae721742b2dd68ef720544679a115be23f75",
+  "threshold_grid": [
+    "0.00",
+    "0.05",
+    "0.10",
+    "0.15",
+    "0.20",
+    "0.25",
+    "0.30",
+    "0.35",
+    "0.40",
+    "0.45",
+    "0.50",
+    "0.55",
+    "0.60",
+    "0.65",
+    "0.70",
+    "0.75",
+    "0.80",
+    "0.85",
+    "0.90",
+    "0.95",
+    "1.00"
+  ],
+  "trials_retained": 22
+}

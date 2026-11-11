@@ -1,0 +1,177 @@
+{
+  "auxiliary_tables": [
+    "p06_model_binding",
+    "p06_source_trip",
+    "p06_provenance_reference",
+    "p06_source_snapshot",
+    "p06_rule_audit",
+    "p06_opportunity_audit",
+    "p06_episode_audit",
+    "p06_candidate_audit",
+    "p06_decision_audit"
+  ],
+  "canonical_predictions": 341,
+  "canonical_tables": [
+    "eta_model_version",
+    "eta_evaluation_membership",
+    "eta_prediction",
+    "eta_alert_rule_version",
+    "eta_output_release"
+  ],
+  "checks": [
+    {
+      "name": "complete_opportunity_accounting",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "release_covers_every_opportunity",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "prediction_support_and_projection",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "no_extra_prediction_rows",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "membership_weights_and_model_split",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "tenant_trip_and_decision_bindings",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "model_and_source_clocks",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "disabled_rule_is_explicit",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "candidate_and_decision_correspondence",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "candidate_scope_and_clock",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "probabilities_in_range",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "provenance_reference_parents_resolve",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "source_provenance_kinds",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "parquet_roundtrip_all_tables",
+      "passed": true,
+      "violations": 0
+    }
+  ],
+  "counts": {
+    "eta_action": 0,
+    "eta_action_followup": 0,
+    "eta_adoption": 0,
+    "eta_alert": 0,
+    "eta_alert_episode": 0,
+    "eta_alert_rule_version": 1,
+    "eta_evaluation_membership": 341,
+    "eta_model_version": 3,
+    "eta_notification_delivery": 0,
+    "eta_output_release": 341,
+    "eta_prediction": 341,
+    "p06_candidate_audit": 9,
+    "p06_decision_audit": 341,
+    "p06_episode_audit": 35,
+    "p06_model_binding": 3,
+    "p06_opportunity_audit": 341,
+    "p06_provenance_reference": 730,
+    "p06_rule_audit": 1,
+    "p06_source_snapshot": 341,
+    "p06_source_trip": 42
+  },
+  "engine": "DuckDB",
+  "engine_version": "1.4.1",
+  "final_test_evaluated": false,
+  "foreign_keys_enforced": true,
+  "full_m2_warehouse_rebuilt": false,
+  "notifications_sent": false,
+  "opportunities": 341,
+  "output_sha256": {
+    "experiment.duckdb": "405196c610eea728725381c7f7ce9f0bcbccb0ce49ebe27d5b23a6787ceb8f9f",
+    "jsonl/eta_action.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jsonl/eta_action_followup.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jsonl/eta_adoption.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jsonl/eta_alert.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jsonl/eta_alert_episode.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jsonl/eta_alert_rule_version.jsonl": "ce2a708e5d7a86398e32168b0b5511b3ee1ce1c5a41b42091624095fa0ac421f",
+    "jsonl/eta_evaluation_membership.jsonl": "99e5a9abf00bb7a9bfafb6555d542afa953ee30492f993603571c37b746b7d78",
+    "jsonl/eta_model_version.jsonl": "09ec932610ebf747b31e85b77a2367c58ef036d69c082bb2e9c3f13e78afe471",
+    "jsonl/eta_notification_delivery.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jsonl/eta_output_release.jsonl": "87a26e58ea15040d57e2011fa2357ce33b6b42c768e470281fc8eac9315e2ed8",
+    "jsonl/eta_prediction.jsonl": "fe1bbbf2287e5653731e032e04b7bb8e98ab0ed83e9829a72f3ea6d276767445",
+    "jsonl/p06_candidate_audit.jsonl": "3c4af77523b75d17108b99265d5b00503ac7180d3eb468b7ca09df76016d3ed1",
+    "jsonl/p06_decision_audit.jsonl": "6ff87e6c637ea65233a174aebef614795ce4e732767f01117bd247f6280dfa74",
+    "jsonl/p06_episode_audit.jsonl": "b7ada33bb5e7b2912ca691335938498b8e440b90ac353d486f547571ebcc1981",
+    "jsonl/p06_model_binding.jsonl": "c95dbf339f40dbf2bd204dd7b62c0184b1a7870b4be9582225854cc754e3783f",
+    "jsonl/p06_opportunity_audit.jsonl": "2ecc1bec7dc14afd6edd7abfa961849b4c8287aecbcdfcff22c5f08937e82b83",
+    "jsonl/p06_provenance_reference.jsonl": "aeba77c8f2f0b3f20d39fa4add52ba669c85080a3731a0492849c4dcaf1586d3",
+    "jsonl/p06_rule_audit.jsonl": "acf521e5c1124adb3d8b9239d7d3ce618f4d13dbe37d79e38566c382f0c97d77",
+    "jsonl/p06_source_snapshot.jsonl": "fc05a3f876305f4bc3eb2aea5555c6fd1889e55d874e0d18da8bded099fc68b4",
+    "jsonl/p06_source_trip.jsonl": "493c3bc6a78d0a7b804f8ab1818a67b0dd0e1121a2f95f6fee0a927b67aee4ee",
+    "parquet/eta_action.parquet": "87c955294d030f26c46ea0abbf5e71abd28aa71910e41f262fc3d94714108adb",
+    "parquet/eta_action_followup.parquet": "e40d475ceddb14cef63d282dc6c4ae0591ab2d50f2dccef72921b61dd64698fe",
+    "parquet/eta_adoption.parquet": "fb73339a25414699b60e95bbae326eb5f43dd17bf4e7162c79e8cb36be11231e",
+    "parquet/eta_alert.parquet": "ef386062aa5c5351d561c9bb9d382df835be08d0fe0f9df560358c0251d78d62",
+    "parquet/eta_alert_episode.parquet": "aefaa3d04e1ca9ff735e3b315358a5f0fe6a1521ea414d9ba6e3e80f8cb41684",
+    "parquet/eta_alert_rule_version.parquet": "98f8029979e11c1ec70d9dda618595c15fbe15185bbf312639134572d10910ef",
+    "parquet/eta_evaluation_membership.parquet": "fb818f2312907388734b5a5fcb38517150f250b630957994b4dd7433faff8e19",
+    "parquet/eta_model_version.parquet": "22778ab9db7011651fef840868fa38ecb093384f097fd76d6f5da4afc9216552",
+    "parquet/eta_notification_delivery.parquet": "6cbde15527e5a9d8af0f58f90da95798168053d7680a5d80b3c26bed35c183ca",
+    "parquet/eta_output_release.parquet": "b5eba1b2fceb25a860ffde931de9a74e94870009a6e7f433caa715b5f39e5c93",
+    "parquet/eta_prediction.parquet": "ac9f5b90bb8499e7a7016c50ce057880c4ea7f8fa75920e82013386eb2353af5",
+    "parquet/p06_candidate_audit.parquet": "e1c9d07aa9728ae31ff692837d7f842fe091d530b7e1dcf871113230b9505167",
+    "parquet/p06_decision_audit.parquet": "8a8c51411fa4ced970dc1efc60876a5011a54e7e75620da9e30d253e3843431a",
+    "parquet/p06_episode_audit.parquet": "7df9b49ffbcc172c62036c82f4428b2dc20b7fc3d8fb9b776d3a4e9a8936b771",
+    "parquet/p06_model_binding.parquet": "4f279c60d37d9b288dc8974243a1bfca8d18dededcf96cb76fe7993489d1d401",
+    "parquet/p06_opportunity_audit.parquet": "ea3737ecf458b8b985f4a7ae9200b58f57211e504714108fb22e5da7feed9c21",
+    "parquet/p06_provenance_reference.parquet": "4f9cb4c9809172d5185066abe84b129819c08b3475038d57f76daeb9736a991e",
+    "parquet/p06_rule_audit.parquet": "0f26c0733609e10b3b0fc4262332acf3fb0fd722414609c1da7abd5d5635fe9e",
+    "parquet/p06_source_snapshot.parquet": "b7eb13129d8c61572234f5a67b1395cc0d5ec0a70017a3b93006ac79b25bf265",
+    "parquet/p06_source_trip.parquet": "cb637bee215c6e682284c357ab3aeb7030a5aeeb83e2062b7c4727627fb39057",
+    "schema.sql": "1099c900be4cf1072892e6ef8d3da4f583010ce4a26e7af34f208a98ee09d971"
+  },
+  "parquet_roundtrip_verified": true,
+  "release_mode": "offline_replay",
+  "reserved_empty_tables": [
+    "eta_alert_episode",
+    "eta_alert",
+    "eta_notification_delivery",
+    "eta_adoption",
+    "eta_action",
+    "eta_action_followup"
+  ],
+  "status": "passed"
+}

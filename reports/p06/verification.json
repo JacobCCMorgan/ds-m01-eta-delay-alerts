@@ -1,0 +1,46 @@
+{
+  "base_model_training_executed": false,
+  "calibrator_fitting_executed": false,
+  "ci_execution_verified": false,
+  "engineering_verification_only": true,
+  "evidence_sha256": {
+    "independent_checks.json": "9737306977e055b1cc2c0c63b0ebfae1e663ece70eb3a43d457a18b54a5b6c2e",
+    "reference_repeatability.json": "06f314b6e7551969334102d9b9ad4bc45f1d2692244c2c35ca914c15ec03b68a",
+    "replay_guard_checks.json": "fd5bf81e9f355c5a4fbad60ff133170c40e94e41cfcd16954eb6a2e6c54ab04e",
+    "retained_replay_verification.json": "0b393fb1ab5ffda4584cec471803bd244b4ee65b5bee631c24ea4f1b442c2a96",
+    "source_replay_verification.json": "c4b08f75910dd4e9e756e5a4bc0bff74ba814f520530d0ffaf4e57a6c4b6cadd"
+  },
+  "final_test_evaluated": false,
+  "independent_policy_test": false,
+  "independent_reference": {
+    "auditor_source_sha256": "6c5f8669f9a147428425b88f43eed1bc265ced5060f110830ff7b5e276d662ec",
+    "comparisons": 163968,
+    "failures": 0,
+    "hand_fixtures": {
+      "assertions": 21,
+      "cases": 8,
+      "status": "passed"
+    },
+    "maximum_absolute_numeric_difference": 0.0
+  },
+  "notification_delivery_executed": false,
+  "protocol_sha256": "7b7dbe70ec1d44199bd971607eeec9a029fdee5567a3c4fa1f42f7fac9ee0470",
+  "publication_verified": false,
+  "quality_accepted": false,
+  "repeatability": {
+    "equal_deterministic_files": 14,
+    "equal_tables_after_documented_clock_normalization": 20,
+    "runs": 2
+  },
+  "replay_guard_mutations_rejected": 6,
+  "retained_and_source_replays": {
+    "differences": 0,
+    "typed_store_logical_rows_each": 8610
+  },
+  "run_receipt_sha256": "28bfd30a251b4d32e6d6a1e9c13511f77c8064071184674113a2952a3fd8b3ef",
+  "status": "passed_engineering_checks",
+  "test_count": 489,
+  "test_log_sha256": "3c6ccbd62d69efa59ca0c2d693f6b43b96640c717e78b65995b25812f97807c4",
+  "user_local_execution_verified": false,
+  "verified_at_utc": "2026-11-07T04:48:58.652221+00:00"
+}

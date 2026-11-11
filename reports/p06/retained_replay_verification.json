@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "protocol_sha256": "7b7dbe70ec1d44199bd971607eeec9a029fdee5567a3c4fa1f42f7fac9ee0470",
+  "differences": 0,
+  "opportunities": 341,
+  "monitored_trips": 42,
+  "policy_trials": 22,
+  "admitted_candidates": 9,
+  "canonical_tables": 5,
+  "reserved_tables": 6,
+  "source_context_verified": false,
+  "july_source_targets_verified": false,
+  "retained_forecasts_verified": true,
+  "policy_selection_replayed": true,
+  "typed_store_logical_rows_compared": 8610,
+  "base_model_training_executed": false,
+  "calibrator_fitting_executed": false,
+  "notification_delivery_executed": false,
+  "final_test_evaluated": false,
+  "quality_accepted": false
+}

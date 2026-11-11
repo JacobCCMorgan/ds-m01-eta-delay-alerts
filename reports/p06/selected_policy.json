@@ -1,0 +1,9 @@
+{
+  "daily_candidate_cap_per_tenant": 2,
+  "enabled": true,
+  "minimum_action_lead_seconds": 1800,
+  "policy_version": "P06-RULE-36e4955032b25e4e8fd2045d",
+  "repeat_suppression_seconds": 1800,
+  "threshold": "0.550000",
+  "timezone": "America/Los_Angeles"
+}

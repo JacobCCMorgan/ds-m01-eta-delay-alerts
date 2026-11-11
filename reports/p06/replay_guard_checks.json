@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "case": "execution_clock",
+      "reason": "Execution receipt timestamps are out of order",
+      "rejected": true
+    },
+    {
+      "case": "complete_inventory",
+      "reason": "Retained replay differs: complete output inventory",
+      "rejected": true
+    },
+    {
+      "case": "metrics_after_rehash",
+      "reason": "Retained replay differs: metrics",
+      "rejected": true
+    },
+    {
+      "case": "source_claim_after_rehash",
+      "reason": "Retained replay differs: original P05 source replay receipt",
+      "rejected": true
+    },
+    {
+      "case": "outer_store_claim_after_rehash",
+      "reason": "Retained replay differs: inner and outer store receipts",
+      "rejected": true
+    },
+    {
+      "case": "both_store_claims_after_rehash",
+      "reason": "Retained store verification claims differ from inspected evidence",
+      "rejected": true
+    }
+  ],
+  "final_test_evaluated": false,
+  "notification_delivery_executed": false,
+  "original_report_unchanged": true,
+  "status": "passed",
+  "training_executed": false
+}

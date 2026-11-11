@@ -1,0 +1,9 @@
+{
+  "status": "frozen_before_p06_threshold_comparison",
+  "frozen_at_utc": "2026-11-07T04:26:20.636897+00:00",
+  "protocol_sha256": "7b7dbe70ec1d44199bd971607eeec9a029fdee5567a3c4fa1f42f7fac9ee0470",
+  "scope": "P05 aggregate outcomes were already reported. This freezes P06 budgets, grid and selection before its threshold comparison; not a blind outcome protocol.",
+  "source_head": "04354b54432fc19ffa445151ae8b9aef0a45a816",
+  "quality_limits_retained": true,
+  "final_test_outcomes_used": false
+}

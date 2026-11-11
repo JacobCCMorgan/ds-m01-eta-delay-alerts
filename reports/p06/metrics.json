@@ -1,0 +1,317 @@
+{
+  "candidate_unresolved_reason_counts": {
+    "latest_outcome_cancelled": 1
+  },
+  "counts": {
+    "actionable_positive_trips": 18,
+    "additional_candidates_per_trip": 2,
+    "alerted_trips": 7,
+    "all_admitted_candidates": 9,
+    "confirmed_actionable_true_alert_trips": 4,
+    "confirmed_true_candidates": 6,
+    "confirmed_true_first_candidates": 4,
+    "eligible_target_snapshots": 143,
+    "episodes_with_candidates": 7,
+    "eta_unavailable_opportunities": 0,
+    "excluded_target_snapshots": 198,
+    "first_candidates": 7,
+    "known_false_candidates": 2,
+    "known_false_first_candidates": 2,
+    "mixed_promise_label_trips": 2,
+    "monitored_trips": 42,
+    "negative_trips": 13,
+    "observed_positive_trips": 18,
+    "opportunities": 341,
+    "probability_unavailable_opportunities": 0,
+    "repeated_candidates_within_episode": 2,
+    "retrospectively_post_arrival_candidates": 0,
+    "retrospectively_post_arrival_first_candidates": 0,
+    "risk_episodes": 35,
+    "scored_trips": 29,
+    "unresolved_candidates": 1,
+    "unresolved_first_candidates": 1,
+    "unsupported_calibration_opportunities": 0,
+    "usable_forecast_label_trips": 29,
+    "usable_forecast_opportunities": 341
+  },
+  "decision_reason_counts": {
+    "promise_lead_below_minimum": 177,
+    "supported_probability_below_threshold": 132,
+    "tenant_local_day_candidate_cap": 23,
+    "threshold_support_lead_cooldown_capacity_passed": 9
+  },
+  "decision_status_counts": {
+    "admitted": 9,
+    "below_threshold": 132,
+    "capacity_exhausted": 23,
+    "insufficient_lead": 177
+  },
+  "denominators": {
+    "actionable_trip_recall": 18,
+    "all_candidates_per_100_monitored_trips": 42,
+    "all_observed_positive_trip_recall": 18,
+    "candidate_target_coverage": 9,
+    "conditional_first_candidate_precision": 6,
+    "first_candidate_precision_bounds": 7,
+    "first_candidate_target_coverage": 7
+  },
+  "final_test_evaluated": false,
+  "first_candidate_precision_bounds_interpretation": "All-first-candidate usefulness identification bounds, not confidence intervals. Unresolved first candidates can be useful or non-useful; known post-arrival first candidates are non-useful. Conditional precision instead conditions on mature eligible first targets.",
+  "independent_policy_test": false,
+  "metrics": {
+    "actionable_trip_recall": 0.2222222222222222,
+    "alerted_trip_fraction": 0.16666666666666666,
+    "all_candidates_per_100_monitored_trips": 21.428571428571427,
+    "all_observed_positive_trip_recall": 0.2222222222222222,
+    "candidate_target_coverage": 0.8888888888888888,
+    "conditional_first_candidate_precision": 0.6666666666666666,
+    "first_candidate_precision_bounds": {
+      "lower": 0.5714285714285714,
+      "upper": 0.7142857142857143
+    },
+    "first_candidate_target_coverage": 0.8571428571428571
+  },
+  "operational_benefit_established": false,
+  "scope": "July_policy_development_reused_P05_assessment",
+  "scored_trip_definition": "At least one mature eligible label, irrespective forecast availability.",
+  "sparse": false,
+  "target_exclusion_reason_counts": {
+    "already_arrived_at_snapshot": 1,
+    "latest_outcome_cancelled": 5,
+    "latest_outcome_incomplete": 120,
+    "latest_outcome_pending": 72
+  },
+  "tenant_slices": [
+    {
+      "candidate_unresolved_reason_counts": {},
+      "counts": {
+        "actionable_positive_trips": 7,
+        "additional_candidates_per_trip": 1,
+        "alerted_trips": 2,
+        "all_admitted_candidates": 3,
+        "confirmed_actionable_true_alert_trips": 1,
+        "confirmed_true_candidates": 2,
+        "confirmed_true_first_candidates": 1,
+        "eligible_target_snapshots": 55,
+        "episodes_with_candidates": 2,
+        "eta_unavailable_opportunities": 0,
+        "excluded_target_snapshots": 74,
+        "first_candidates": 2,
+        "known_false_candidates": 1,
+        "known_false_first_candidates": 1,
+        "mixed_promise_label_trips": 2,
+        "monitored_trips": 17,
+        "negative_trips": 8,
+        "observed_positive_trips": 7,
+        "opportunities": 129,
+        "probability_unavailable_opportunities": 0,
+        "repeated_candidates_within_episode": 1,
+        "retrospectively_post_arrival_candidates": 0,
+        "retrospectively_post_arrival_first_candidates": 0,
+        "risk_episodes": 10,
+        "scored_trips": 13,
+        "unresolved_candidates": 0,
+        "unresolved_first_candidates": 0,
+        "unsupported_calibration_opportunities": 0,
+        "usable_forecast_label_trips": 13,
+        "usable_forecast_opportunities": 129
+      },
+      "decision_reason_counts": {
+        "promise_lead_below_minimum": 66,
+        "supported_probability_below_threshold": 58,
+        "tenant_local_day_candidate_cap": 2,
+        "threshold_support_lead_cooldown_capacity_passed": 3
+      },
+      "decision_status_counts": {
+        "admitted": 3,
+        "below_threshold": 58,
+        "capacity_exhausted": 2,
+        "insufficient_lead": 66
+      },
+      "denominators": {
+        "actionable_trip_recall": 7,
+        "all_candidates_per_100_monitored_trips": 17,
+        "all_observed_positive_trip_recall": 7,
+        "candidate_target_coverage": 3,
+        "conditional_first_candidate_precision": 2,
+        "first_candidate_precision_bounds": 2,
+        "first_candidate_target_coverage": 2
+      },
+      "metrics": {
+        "actionable_trip_recall": 0.14285714285714285,
+        "alerted_trip_fraction": 0.11764705882352941,
+        "all_candidates_per_100_monitored_trips": 17.647058823529413,
+        "all_observed_positive_trip_recall": 0.14285714285714285,
+        "candidate_target_coverage": 1.0,
+        "conditional_first_candidate_precision": 0.5,
+        "first_candidate_precision_bounds": {
+          "lower": 0.5,
+          "upper": 0.5
+        },
+        "first_candidate_target_coverage": 1.0
+      },
+      "sparse": true,
+      "target_exclusion_reason_counts": {
+        "already_arrived_at_snapshot": 1,
+        "latest_outcome_cancelled": 1,
+        "latest_outcome_incomplete": 24,
+        "latest_outcome_pending": 48
+      },
+      "tenant_id": "T01"
+    },
+    {
+      "candidate_unresolved_reason_counts": {
+        "latest_outcome_cancelled": 1
+      },
+      "counts": {
+        "actionable_positive_trips": 3,
+        "additional_candidates_per_trip": 0,
+        "alerted_trips": 2,
+        "all_admitted_candidates": 2,
+        "confirmed_actionable_true_alert_trips": 0,
+        "confirmed_true_candidates": 0,
+        "confirmed_true_first_candidates": 0,
+        "eligible_target_snapshots": 43,
+        "episodes_with_candidates": 2,
+        "eta_unavailable_opportunities": 0,
+        "excluded_target_snapshots": 98,
+        "first_candidates": 2,
+        "known_false_candidates": 1,
+        "known_false_first_candidates": 1,
+        "mixed_promise_label_trips": 0,
+        "monitored_trips": 13,
+        "negative_trips": 4,
+        "observed_positive_trips": 3,
+        "opportunities": 141,
+        "probability_unavailable_opportunities": 0,
+        "repeated_candidates_within_episode": 0,
+        "retrospectively_post_arrival_candidates": 0,
+        "retrospectively_post_arrival_first_candidates": 0,
+        "risk_episodes": 13,
+        "scored_trips": 7,
+        "unresolved_candidates": 1,
+        "unresolved_first_candidates": 1,
+        "unsupported_calibration_opportunities": 0,
+        "usable_forecast_label_trips": 7,
+        "usable_forecast_opportunities": 141
+      },
+      "decision_reason_counts": {
+        "promise_lead_below_minimum": 82,
+        "supported_probability_below_threshold": 42,
+        "tenant_local_day_candidate_cap": 15,
+        "threshold_support_lead_cooldown_capacity_passed": 2
+      },
+      "decision_status_counts": {
+        "admitted": 2,
+        "below_threshold": 42,
+        "capacity_exhausted": 15,
+        "insufficient_lead": 82
+      },
+      "denominators": {
+        "actionable_trip_recall": 3,
+        "all_candidates_per_100_monitored_trips": 13,
+        "all_observed_positive_trip_recall": 3,
+        "candidate_target_coverage": 2,
+        "conditional_first_candidate_precision": 1,
+        "first_candidate_precision_bounds": 2,
+        "first_candidate_target_coverage": 2
+      },
+      "metrics": {
+        "actionable_trip_recall": 0.0,
+        "alerted_trip_fraction": 0.15384615384615385,
+        "all_candidates_per_100_monitored_trips": 15.384615384615385,
+        "all_observed_positive_trip_recall": 0.0,
+        "candidate_target_coverage": 0.5,
+        "conditional_first_candidate_precision": 0.0,
+        "first_candidate_precision_bounds": {
+          "lower": 0.0,
+          "upper": 0.5
+        },
+        "first_candidate_target_coverage": 0.5
+      },
+      "sparse": true,
+      "target_exclusion_reason_counts": {
+        "latest_outcome_cancelled": 2,
+        "latest_outcome_incomplete": 72,
+        "latest_outcome_pending": 24
+      },
+      "tenant_id": "T02"
+    },
+    {
+      "candidate_unresolved_reason_counts": {},
+      "counts": {
+        "actionable_positive_trips": 8,
+        "additional_candidates_per_trip": 1,
+        "alerted_trips": 3,
+        "all_admitted_candidates": 4,
+        "confirmed_actionable_true_alert_trips": 3,
+        "confirmed_true_candidates": 4,
+        "confirmed_true_first_candidates": 3,
+        "eligible_target_snapshots": 45,
+        "episodes_with_candidates": 3,
+        "eta_unavailable_opportunities": 0,
+        "excluded_target_snapshots": 26,
+        "first_candidates": 3,
+        "known_false_candidates": 0,
+        "known_false_first_candidates": 0,
+        "mixed_promise_label_trips": 0,
+        "monitored_trips": 12,
+        "negative_trips": 1,
+        "observed_positive_trips": 8,
+        "opportunities": 71,
+        "probability_unavailable_opportunities": 0,
+        "repeated_candidates_within_episode": 1,
+        "retrospectively_post_arrival_candidates": 0,
+        "retrospectively_post_arrival_first_candidates": 0,
+        "risk_episodes": 12,
+        "scored_trips": 9,
+        "unresolved_candidates": 0,
+        "unresolved_first_candidates": 0,
+        "unsupported_calibration_opportunities": 0,
+        "usable_forecast_label_trips": 9,
+        "usable_forecast_opportunities": 71
+      },
+      "decision_reason_counts": {
+        "promise_lead_below_minimum": 29,
+        "supported_probability_below_threshold": 32,
+        "tenant_local_day_candidate_cap": 6,
+        "threshold_support_lead_cooldown_capacity_passed": 4
+      },
+      "decision_status_counts": {
+        "admitted": 4,
+        "below_threshold": 32,
+        "capacity_exhausted": 6,
+        "insufficient_lead": 29
+      },
+      "denominators": {
+        "actionable_trip_recall": 8,
+        "all_candidates_per_100_monitored_trips": 12,
+        "all_observed_positive_trip_recall": 8,
+        "candidate_target_coverage": 4,
+        "conditional_first_candidate_precision": 3,
+        "first_candidate_precision_bounds": 3,
+        "first_candidate_target_coverage": 3
+      },
+      "metrics": {
+        "actionable_trip_recall": 0.375,
+        "alerted_trip_fraction": 0.25,
+        "all_candidates_per_100_monitored_trips": 33.333333333333336,
+        "all_observed_positive_trip_recall": 0.375,
+        "candidate_target_coverage": 1.0,
+        "conditional_first_candidate_precision": 1.0,
+        "first_candidate_precision_bounds": {
+          "lower": 1.0,
+          "upper": 1.0
+        },
+        "first_candidate_target_coverage": 1.0
+      },
+      "sparse": true,
+      "target_exclusion_reason_counts": {
+        "latest_outcome_cancelled": 2,
+        "latest_outcome_incomplete": 24
+      },
+      "tenant_id": "T03"
+    }
+  ],
+  "trip_weighting": "Each tenant/trip contributes at most one recall hit; all admitted candidates count toward burden."
+}
