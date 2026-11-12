@@ -1,0 +1,213 @@
+{
+  "base_public_commit": "75a9a24bc4d3b02a667db64b4696b2b9bc4856da",
+  "base_public_tree": "90c06bdbbe39c1549849edf7924cf776a084ba14",
+  "delivery": {
+    "counts_as_of": "2026-08-01T07:00:00Z",
+    "latency_seconds": [
+      5,
+      60
+    ],
+    "max_attempts": 3,
+    "minimum_action_lead_seconds": 1800,
+    "outcome_basis_points": {
+      "delivered": 8000,
+      "permanent_failure": 300,
+      "transient_failure": 1500,
+      "unknown": 200
+    },
+    "receipt_lag_seconds": [
+      0,
+      15
+    ],
+    "repeat_suppression_seconds": 1800,
+    "retry_backoff_seconds": [
+      30,
+      120
+    ],
+    "seed": "DS-M01-P07-20261111",
+    "ttl_seconds": 600,
+    "unknown_timeout_seconds": 120,
+    "version": "p07-delivery-v1"
+  },
+  "delivery_semantics": {
+    "assumption_basis": "Illustrative research transport assumptions fixed before this delivery simulation; not measured service rates or fitted from July/final outcomes.",
+    "causal_ties": "Priority orders events already queued at the same timestamp. An event created by another event, such as a zero-lag receipt created by service, necessarily follows its cause before competing with other queued events.",
+    "clocks": "Historical July events are synthetic counterfactual replay clocks. Actual artifact execution/materialization timestamps are recorded separately. No real July notifications or recipient behavior are asserted.",
+    "cutoff": "Known receipts at or before counts_as_of count; future confirmations remain queued/not_mature. Timeout is unresolved, not evidence of a negative response.",
+    "draw": "SHA256 of compact UTF-8 JSON array [seed,version,tenant_id,candidate_id,attempt_index,dimension], first eight bytes unsigned big-endian modulo domain size; independent outcome/latency/receipt_lag dimensions.",
+    "gates": "At dispatch and service: original snapshot deadline minus time >=1800, not closed, time <=creation+TTL, and time since previous successful service delivery for tenant/trip >=1800. Equality passes. Promise or episode changes never reset cooldown.",
+    "identity": "candidate_id maps to one alert; delivery_id is an attempt; identical duplicated input is idempotent, conflicting duplicate rejected.",
+    "ordering": [
+      "timestamp",
+      "known_episode_closure",
+      "receipt",
+      "candidate",
+      "dispatch",
+      "service",
+      "tenant_id",
+      "trip_id",
+      "candidate_id",
+      "attempt_index"
+    ],
+    "population": "All frozen selected-rule risk episodes and candidates; missing feed censors risk, it does not establish closure.",
+    "probability_order": [
+      "delivered",
+      "transient_failure",
+      "permanent_failure",
+      "unknown"
+    ],
+    "retry": "Only confirmed transient failure retries, after receipt and backoff. Unknown stops unresolved; never assume undelivered. Stop after service success. Maximum attempts and 600-second TTL bound all work.",
+    "unknown_states": "No recipient opening, adoption, action or followup is generated in P07."
+  },
+  "field_contract_sha256": "3bf382e0b24442afe73872f8b1bd9d12e2383bbb155eec2e116b48cc3bd0addc",
+  "input_sha256": {
+    "data/processed/eta_snapshot.jsonl": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f",
+    "data/processed/eta_split_assignment.jsonl": "af2951c4d153ff9d3fcf0de73651a49db05d7e8bbba85a424aa90451d1e9d2cb",
+    "data/processed/feature_lineage.jsonl": "dba784ddb39e400c104e5d6679cb4a03c1b6e835a6584bf3f5e490da2611154e",
+    "data/processed/trip_membership.jsonl": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061",
+    "data/raw/eta_promise_version.jsonl": "8ccabc505c96f681051e977de1d0eae9b1b792512a03e29161699daaadd6cd91",
+    "data/raw/eta_route_version.jsonl": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+    "data/raw/eta_trip_event.jsonl": "28d1807fbd1f69cf5d22a76697f6cd03df8448336805cbc15c9ed3f934494127",
+    "data/raw/eta_trip_outcome.jsonl": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58"
+  },
+  "metrics": {
+    "actionable_positive_trip": "Frozen P06 eligible positive snapshot with original deadline-snapshot >=1800, independent of forecast/delivery availability.",
+    "burden": "All confirmed successful deliveries per100 monitored trips; attempts/retries/failures/unknown and additional deliveries are separate counts.",
+    "first_success": "Earliest successful service delivery per tenant/trip; failed first candidate does not select the scoring promise for a later successful alert.",
+    "precision": "Useful first deliveries / all known-assessable first deliveries. Eligible positive/negative targets, verified exact already-arrived targets, and deliveries with insufficient prospective lead are assessable; known post-arrival and too-late deliveries remain non-useful in denominator even when a delay label is unavailable. Other unresolved labels remain separate and enter identification bounds only when potentially useful.",
+    "sparse_trip_threshold": 20,
+    "uncertainty": "Exact support counts and unresolved-outcome identification bounds; no independent-trip confidence claim for capacity-coupled policy results.",
+    "useful_delivery": "Confirmed service delivery known by cutoff, eligible positive original-snapshot promise target, deadline-delivered >=1800 and actual arrival strictly after delivery."
+  },
+  "policy": {
+    "daily_candidate_cap_per_tenant": 2,
+    "minimum_action_lead_seconds": 1800,
+    "repeat_suppression_seconds": 1800,
+    "reselection": false,
+    "selected_policy_version": "P06-RULE-36e4955032b25e4e8fd2045d",
+    "threshold": "0.550000"
+  },
+  "population": {
+    "departure_dates": [
+      "2026-07-15",
+      "2026-07-24"
+    ],
+    "expected_opportunities": 341,
+    "expected_trips": 42,
+    "interpretation": "Policy-development reuse of the P05 assessment cohort; not an independent policy test.",
+    "label_cutoff_exclusive": "2026-08-01T07:00:00Z",
+    "role": "assessment"
+  },
+  "project_id": "DS-M01",
+  "protocol_version": "p07-delivery-v1",
+  "quality_limits": {
+    "final_test_evaluated": false,
+    "july_selection_reuse": true,
+    "operational_benefit_established": false,
+    "p05_probability_losses_worsened": true,
+    "p05_trip_coverage_target_unmet": true,
+    "p06_actionable_recall_low": true,
+    "quality_accepted": false
+  },
+  "release": {
+    "atomic_fresh_output": true,
+    "canonical_tables": [
+      "eta_model_version",
+      "eta_evaluation_membership",
+      "eta_prediction",
+      "eta_alert_rule_version",
+      "eta_output_release",
+      "eta_alert_episode",
+      "eta_alert",
+      "eta_notification_delivery"
+    ],
+    "delivery_mode": "synthetic_scenario",
+    "formats": [
+      "JSONL",
+      "DuckDB",
+      "Parquet"
+    ],
+    "operational_approval": false,
+    "release_mode": "offline_replay",
+    "remaining_reserved_tables": [
+      "eta_adoption",
+      "eta_action",
+      "eta_action_followup"
+    ]
+  },
+  "source_protocol_sha256": "7b7dbe70ec1d44199bd971607eeec9a029fdee5567a3c4fa1f42f7fac9ee0470",
+  "source_report": "reports/p06",
+  "source_report_sha256": {
+    "README.md": "0f3e8e18ef38fdb121b9ebd3b4b11253299ffa650acb5f18755bd2a258e4d8b3",
+    "candidates.jsonl": "6541ca37b1eb17fcce8c2fb6790b04631cece1f29e79c45dbaa214d0aca38ad4",
+    "decisions.jsonl": "d3b7291aab16db3f16aaa80dcb5a1ea33b9cf5788ef8f5a1a45e693175e9395d",
+    "episodes.jsonl": "44193c2a0e624bf24b7b37625d96b402b9f03a36ebe20d156414a10c00768806",
+    "independent_checks.json": "9737306977e055b1cc2c0c63b0ebfae1e663ece70eb3a43d457a18b54a5b6c2e",
+    "metrics.json": "4e4bc444604958230c0d7e95e751752b8c773f748104b5815810611319140f75",
+    "model_registry.json": "4b1b1f2373173957915358a8917295c58d73b32076a217d884fb153798da12c2",
+    "opportunities.jsonl": "cd327568efff3eec644d5c60d5da0a851d3672d340348cf4a37ab714ecb40420",
+    "policy_tradeoff.png": "dc4564816bf8f8a04e10445361bc3239643d859599859083299c1774d2108a6e",
+    "policy_trials.json": "277925fc859a5140bacaa32b5390bd10da03e63a9e938e8836153d1ba4165b99",
+    "protocol_freeze.json": "8441bc34bd8cfd12863008b72a6f6b4b3de7243a451de329158ce75929052335",
+    "reference_repeatability.json": "06f314b6e7551969334102d9b9ad4bc45f1d2692244c2c35ca914c15ec03b68a",
+    "repeat_run_receipt.json": "94f7cae04e02e82f609a4507a760bfb5515cc5f7d917378b623494db643f4315",
+    "replay_guard_checks.json": "fd5bf81e9f355c5a4fbad60ff133170c40e94e41cfcd16954eb6a2e6c54ab04e",
+    "retained_replay_verification.json": "0b393fb1ab5ffda4584cec471803bd244b4ee65b5bee631c24ea4f1b442c2a96",
+    "run_receipt.json": "28bfd30a251b4d32e6d6a1e9c13511f77c8064071184674113a2952a3fd8b3ef",
+    "selected_policy.json": "530b3d97838fc764809ba7494bce5c251bc11f1866306e1301e5bd0c8c2101ea",
+    "selection_manifest.json": "8378dc1fbc9231635c7709edc16ea5080835380b25310ffad14c9ab577f8ef2a",
+    "simulation_summary.json": "e7ba52e5955f27459a32deee8508655af12bee4bb89cdef3cff6cbdac1ab4d5b",
+    "source_context.json": "cc1211a15ec3cab3ab1b16cd817cfd342fb49dd4a4b13adcfdd82e6bb81e6db6",
+    "source_replay.json": "9627f95e06b07c4e25f9ca0a69d8c376259220fcdb9f2300bbec282c5ee5a382",
+    "source_replay_verification.json": "c4b08f75910dd4e9e756e5a4bc0bff74ba814f520530d0ffaf4e57a6c4b6cadd",
+    "store/experiment.duckdb": "405196c610eea728725381c7f7ce9f0bcbccb0ce49ebe27d5b23a6787ceb8f9f",
+    "store/jsonl/eta_action.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "store/jsonl/eta_action_followup.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "store/jsonl/eta_adoption.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "store/jsonl/eta_alert.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "store/jsonl/eta_alert_episode.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "store/jsonl/eta_alert_rule_version.jsonl": "ce2a708e5d7a86398e32168b0b5511b3ee1ce1c5a41b42091624095fa0ac421f",
+    "store/jsonl/eta_evaluation_membership.jsonl": "99e5a9abf00bb7a9bfafb6555d542afa953ee30492f993603571c37b746b7d78",
+    "store/jsonl/eta_model_version.jsonl": "09ec932610ebf747b31e85b77a2367c58ef036d69c082bb2e9c3f13e78afe471",
+    "store/jsonl/eta_notification_delivery.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "store/jsonl/eta_output_release.jsonl": "87a26e58ea15040d57e2011fa2357ce33b6b42c768e470281fc8eac9315e2ed8",
+    "store/jsonl/eta_prediction.jsonl": "fe1bbbf2287e5653731e032e04b7bb8e98ab0ed83e9829a72f3ea6d276767445",
+    "store/jsonl/p06_candidate_audit.jsonl": "3c4af77523b75d17108b99265d5b00503ac7180d3eb468b7ca09df76016d3ed1",
+    "store/jsonl/p06_decision_audit.jsonl": "6ff87e6c637ea65233a174aebef614795ce4e732767f01117bd247f6280dfa74",
+    "store/jsonl/p06_episode_audit.jsonl": "b7ada33bb5e7b2912ca691335938498b8e440b90ac353d486f547571ebcc1981",
+    "store/jsonl/p06_model_binding.jsonl": "c95dbf339f40dbf2bd204dd7b62c0184b1a7870b4be9582225854cc754e3783f",
+    "store/jsonl/p06_opportunity_audit.jsonl": "2ecc1bec7dc14afd6edd7abfa961849b4c8287aecbcdfcff22c5f08937e82b83",
+    "store/jsonl/p06_provenance_reference.jsonl": "aeba77c8f2f0b3f20d39fa4add52ba669c85080a3731a0492849c4dcaf1586d3",
+    "store/jsonl/p06_rule_audit.jsonl": "acf521e5c1124adb3d8b9239d7d3ce618f4d13dbe37d79e38566c382f0c97d77",
+    "store/jsonl/p06_source_snapshot.jsonl": "fc05a3f876305f4bc3eb2aea5555c6fd1889e55d874e0d18da8bded099fc68b4",
+    "store/jsonl/p06_source_trip.jsonl": "493c3bc6a78d0a7b804f8ab1818a67b0dd0e1121a2f95f6fee0a927b67aee4ee",
+    "store/parquet/eta_action.parquet": "87c955294d030f26c46ea0abbf5e71abd28aa71910e41f262fc3d94714108adb",
+    "store/parquet/eta_action_followup.parquet": "e40d475ceddb14cef63d282dc6c4ae0591ab2d50f2dccef72921b61dd64698fe",
+    "store/parquet/eta_adoption.parquet": "fb73339a25414699b60e95bbae326eb5f43dd17bf4e7162c79e8cb36be11231e",
+    "store/parquet/eta_alert.parquet": "ef386062aa5c5351d561c9bb9d382df835be08d0fe0f9df560358c0251d78d62",
+    "store/parquet/eta_alert_episode.parquet": "aefaa3d04e1ca9ff735e3b315358a5f0fe6a1521ea414d9ba6e3e80f8cb41684",
+    "store/parquet/eta_alert_rule_version.parquet": "98f8029979e11c1ec70d9dda618595c15fbe15185bbf312639134572d10910ef",
+    "store/parquet/eta_evaluation_membership.parquet": "fb818f2312907388734b5a5fcb38517150f250b630957994b4dd7433faff8e19",
+    "store/parquet/eta_model_version.parquet": "22778ab9db7011651fef840868fa38ecb093384f097fd76d6f5da4afc9216552",
+    "store/parquet/eta_notification_delivery.parquet": "6cbde15527e5a9d8af0f58f90da95798168053d7680a5d80b3c26bed35c183ca",
+    "store/parquet/eta_output_release.parquet": "b5eba1b2fceb25a860ffde931de9a74e94870009a6e7f433caa715b5f39e5c93",
+    "store/parquet/eta_prediction.parquet": "ac9f5b90bb8499e7a7016c50ce057880c4ea7f8fa75920e82013386eb2353af5",
+    "store/parquet/p06_candidate_audit.parquet": "e1c9d07aa9728ae31ff692837d7f842fe091d530b7e1dcf871113230b9505167",
+    "store/parquet/p06_decision_audit.parquet": "8a8c51411fa4ced970dc1efc60876a5011a54e7e75620da9e30d253e3843431a",
+    "store/parquet/p06_episode_audit.parquet": "7df9b49ffbcc172c62036c82f4428b2dc20b7fc3d8fb9b776d3a4e9a8936b771",
+    "store/parquet/p06_model_binding.parquet": "4f279c60d37d9b288dc8974243a1bfca8d18dededcf96cb76fe7993489d1d401",
+    "store/parquet/p06_opportunity_audit.parquet": "ea3737ecf458b8b985f4a7ae9200b58f57211e504714108fb22e5da7feed9c21",
+    "store/parquet/p06_provenance_reference.parquet": "4f9cb4c9809172d5185066abe84b129819c08b3475038d57f76daeb9736a991e",
+    "store/parquet/p06_rule_audit.parquet": "0f26c0733609e10b3b0fc4262332acf3fb0fd722414609c1da7abd5d5635fe9e",
+    "store/parquet/p06_source_snapshot.parquet": "b7eb13129d8c61572234f5a67b1395cc0d5ec0a70017a3b93006ac79b25bf265",
+    "store/parquet/p06_source_trip.parquet": "cb637bee215c6e682284c357ab3aeb7030a5aeeb83e2062b7c4727627fb39057",
+    "store/schema.sql": "1099c900be4cf1072892e6ef8d3da4f583010ce4a26e7af34f208a98ee09d971",
+    "store/verification.json": "d708b5070b9b4e415a2883f1051dde216cdd797e2d6af67be5be652a61f9d988",
+    "store_verification.json": "d708b5070b9b4e415a2883f1051dde216cdd797e2d6af67be5be652a61f9d988",
+    "summary.json": "1fbc46ed5c4e45e5af6e4ff088f7c16882c97122d090dbe807ad5c5803c87e43",
+    "targets.jsonl": "9419350ab545351dd29e79b7afd5c66da148e88fdbe94225918a9f9140533464",
+    "unittest_results.txt": "3c6ccbd62d69efa59ca0c2d693f6b43b96640c717e78b65995b25812f97807c4",
+    "verification.json": "84f9205fb75fa88db2425ae21021ae4782b697fdf2e8d67fbe61fc2062468b1c"
+  },
+  "stage": "M4.2 delivery; final-evaluation protocol freeze"
+}
