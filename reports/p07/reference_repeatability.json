@@ -1,0 +1,150 @@
+{
+  "deterministic_core_files": {
+    "alerts.jsonl": "423f278d2e0d2e6737008cd24d7f6d31aa3f1f986417461abd248106a5f4d8a5",
+    "attempts.jsonl": "ecd63a8916b36772a64d118ac3354c55e8ce5241270d4665b88f9d47e4006d4c",
+    "episodes.jsonl": "30fe749c2d2e4c71c0b13f8f0a777d9bb869cad9ee4c008dc5600137ba7548e8",
+    "events.jsonl": "7c0486733baa9255ddc547acae3e8d77e9de778c335c30859db0bddf17fef9db",
+    "metrics.json": "22fa566f2f8c3463b12799f86ebe11c9dd2511f2da951acda39542bfdaea7e1c",
+    "protocol_freeze.json": "d6977480869d81e98cf3e551af8411a0ac18acbfd4978130b07877995103de2d",
+    "simulation_summary.json": "ecd152ba84f02b32f752be762011121e6ae9c90c0b3e92ce639cd5534ba305a2",
+    "summary.json": "1c81d2a20d90f78cfff8fd1a1a7c249687fde9dcd43677f2f4f60b0f4a0873a5"
+  },
+  "differences": 0,
+  "final_test_evaluated": false,
+  "first_run_source_assisted": true,
+  "normalization": "Only P07 materialized_at and P07 provenance recorded_at are replaced by a named actual-execution-clock token; all scenario clocks, IDs, statuses, values, source digests and historical P06 rows remain exact.",
+  "normalized_store_tables": {
+    "eta_action": {
+      "normalized_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "rows": 0
+    },
+    "eta_action_followup": {
+      "normalized_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "rows": 0
+    },
+    "eta_adoption": {
+      "normalized_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "rows": 0
+    },
+    "eta_alert": {
+      "normalized_sha256": "0115e32709e05a8d8c817fda6c53cc173ef60b0c8974f06ec9b0c1c01204a7c1",
+      "rows": 9
+    },
+    "eta_alert_episode": {
+      "normalized_sha256": "62505bd20af72d2c19246055ecdac6f389e0006f0f4cee543fe7d0b8cf13c0cc",
+      "rows": 35
+    },
+    "eta_alert_rule_version": {
+      "normalized_sha256": "441de5623617542861f4b0f5fa8705ababb26727be5d9b8c282b807f9c7db1b3",
+      "rows": 1
+    },
+    "eta_evaluation_membership": {
+      "normalized_sha256": "33448fd80fc10ac4432a2b7f444b0baaf13a4eca124a3a66952c64d651f5d28c",
+      "rows": 341
+    },
+    "eta_model_version": {
+      "normalized_sha256": "5aa3b008a758084471f1f0a043ca1a67856c00624a380cc6d5f8ff74cb57e74c",
+      "rows": 3
+    },
+    "eta_notification_delivery": {
+      "normalized_sha256": "1e7d8f8fa70eba25584a1764dcdf2ed2c67afe8b47fc1128936bd75305577a7a",
+      "rows": 8
+    },
+    "eta_output_release": {
+      "normalized_sha256": "6a6e421dcf962e9c3b9d5e6213d6d9f7eb624fac4f972265a4cf0339ffa91b51",
+      "rows": 341
+    },
+    "eta_prediction": {
+      "normalized_sha256": "acfdb3088fc1d3c58bc7ce578bc8ecae4e8621232cd8393a4313a9e397811848",
+      "rows": 341
+    },
+    "p06_candidate_audit": {
+      "normalized_sha256": "18c9bf275dcf66728e6965a92b21ef6e0da284641d41bfddfed3bbc212aefb19",
+      "rows": 9
+    },
+    "p06_decision_audit": {
+      "normalized_sha256": "1f4a0e31ed09bdce10c2218314509d440a3273dfb886d1d9e9451e32bba6ed80",
+      "rows": 341
+    },
+    "p06_episode_audit": {
+      "normalized_sha256": "b3554aefe8061e9077344bc530f76276a57865beab84d5fe94d1c223d5250f58",
+      "rows": 35
+    },
+    "p06_model_binding": {
+      "normalized_sha256": "2e6f727eabed94e92fb3375a7550d44e6a13c0e25794974c5d3fe1814cb04ad7",
+      "rows": 3
+    },
+    "p06_opportunity_audit": {
+      "normalized_sha256": "bbf341e6fcbfa2233a698b2a386804447689f37bac8c72cab715d2ebe4b7fb20",
+      "rows": 341
+    },
+    "p06_provenance_reference": {
+      "normalized_sha256": "002e4a9e966d320abc3e359fe47bc6cf4bcf5e2c6b4f76e8a2d0d73b132f3adb",
+      "rows": 730
+    },
+    "p06_rule_audit": {
+      "normalized_sha256": "a748e50c71cd6e341ee0b24e286f834262e8e557ecb24f47bb25c6918fb82484",
+      "rows": 1
+    },
+    "p06_source_snapshot": {
+      "normalized_sha256": "7e5778dcc9c58c91a1cf20cab29dd63d7d9d77b1165814105d60681c84c51e54",
+      "rows": 341
+    },
+    "p06_source_trip": {
+      "normalized_sha256": "751f8d9de034ffb79d911a9b5beb59a5643db1c1cbda5037315f957666c1a79c",
+      "rows": 42
+    },
+    "p07_alert_audit": {
+      "normalized_sha256": "98f59736713d1fc114843f1fd06779b003ffafd9784a40e36404b6dbd44fccc0",
+      "rows": 9
+    },
+    "p07_attempt_audit": {
+      "normalized_sha256": "729aba55d262e6b9fd19f1a3a73885a5061f2a1d4a89c12f8b2aa43b25958dc0",
+      "rows": 8
+    },
+    "p07_episode_audit": {
+      "normalized_sha256": "df44057645330447e44190967def60ac4869c29965b4d47e9cd24b504318649e",
+      "rows": 35
+    },
+    "p07_event_audit": {
+      "normalized_sha256": "2240644e7ccd255aded5c5a7d21fb07b86f9566ed66f07922206d96aad77eb40",
+      "rows": 48
+    },
+    "p07_provenance_reference": {
+      "normalized_sha256": "72267b339a1c05d1a6703e2035d50190fc446a3b167e5b7480bbc5568bf09d3c",
+      "rows": 8
+    },
+    "p07_run_audit": {
+      "normalized_sha256": "8568ca5c0f90f418bed7a44a2ce0a5db32ede219a3affb3bc6c64466087039f4",
+      "rows": 1
+    }
+  },
+  "real_notifications_sent": false,
+  "recorded_at_utc": "2026-11-11T19:58:20.535323+00:00",
+  "runs": 2,
+  "second_run_receipt_sha256": "22131fec11f678e5addb3463abb5caad1c1ce2a1e01a68eb74e29d767f137349",
+  "second_run_source_assisted": false,
+  "second_run_verification": {
+    "attempts": 8,
+    "candidate_alerts": 9,
+    "canonical_tables": 8,
+    "delivery_replayed": true,
+    "differences": 0,
+    "final_test_evaluated": false,
+    "july_source_targets_verified": false,
+    "metrics_verified": true,
+    "model_or_calibrator_refitted": false,
+    "opportunities": 341,
+    "parent_policy_replayed": true,
+    "policy_reselected": false,
+    "protocol_sha256": "589d96fe09e60059eafa1f984a578098e52880c6c114dbb8621a6f7ce40c3399",
+    "quality_accepted": false,
+    "real_notifications_sent": false,
+    "reserved_tables": 3,
+    "risk_episodes": 35,
+    "status": "passed",
+    "typed_store_logical_rows_compared": 9093
+  },
+  "status": "passed",
+  "typed_store_logical_rows_verified_per_run": 9093
+}

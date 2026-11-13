@@ -2,6 +2,43 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-11 UTC — simulate delivery and freeze final-evaluation requirements
+
+Retained the P06 policy, models, calibrators and July development population.
+Froze transport assumptions and the P08 evaluation specification before the
+first P07 simulation. The protocol does not pretend July outcomes were unseen:
+the P05/P06 assessment results were already known.
+
+The fixed scenario turned nine candidate alerts into eight attempts and seven
+confirmed synthetic deliveries across 42 monitored trips. Two alerts were
+suppressed by delivery cooldown; one transient failure led to one successful
+retry. There were no delivered repeats. Four of 18 actionable delayed trips
+received a useful delivery. Conditional useful-first precision was 4/6; one
+of seven first deliveries had an unresolved target. These are simulated July
+development results, not real notifications or independent final performance.
+
+Added three canonical alert/episode/delivery tables to the five P06 output
+tables, while retaining the adoption/action/follow-up schemas without rows.
+Delivery clocks belong to the synthetic July scenario; inherited offline output
+releases retain their actual November execution timestamps. Transport receipts
+do not establish recipient opening or adoption.
+
+The reference run passed 576 unit tests. Both replay modes found zero differences
+in 9,093 cross-format logical row comparisons, and an independent reference
+passed 9,226 comparisons with no failures. Two executions reproduced eight core
+files exactly and all 26 tables after normalizing only P07 materialization and
+provenance recording clocks. Scenario clocks and inherited P06 records remained
+exact; database/Parquet byte identity and GitHub CI are not implied.
+
+The [P08 protocol](p08_evaluation_protocol.md) fixes final cohorts, target
+knowledge cutoffs, frozen pipeline versions, metrics, descriptive uncertainty
+and outcome-independent stress transformations. A later readiness record binds
+the validated P07 implementation to that specification. The future P08 evaluator
+still needs its own implementation and passing pre-target conformance gate.
+No August–September final outcome was used for fitting, selection or scoring.
+P05 undercoverage and probability loss, plus P06 low recall, remain unresolved.
+See the [delivery protocol](p07_delivery.md) and [run results](../reports/p07/README.md).
+
 ## 2026-11-07 UTC — develop an alert rule and materialize offline outputs
 
 Reused the declared July assessment cohort for a frozen 21-threshold policy

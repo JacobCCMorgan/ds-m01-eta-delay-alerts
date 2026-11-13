@@ -1,20 +1,70 @@
 # What has been demonstrated?
 
-The historical M2 warehouse has 17 populated synthetic tables. P06 adds a separate offline DuckDB/JSONL/Parquet store with five populated canonical output tables; it does not rebuild the combined M2 warehouse. Six later alert/delivery/adoption/action tables remain empty. Earlier model experiments and the new research candidate/episode audits remain separately identified. There is no independent final-policy test, operationally approved delay probability, delivered alert or measured fleet outcome.
+The historical M2 warehouse has 17 populated synthetic tables. P06 added a
+separate offline store with five canonical output tables; P07 adds canonical
+alert episodes, alerts and notification-delivery attempts to that store. Eight
+canonical tables now have rows, while adoption, action and follow-up remain
+empty. This does not rebuild the combined M2 warehouse. Earlier experimental
+artifacts and dated receipts remain available. Synthetic service delivery does
+not establish recipient opening, independent final-policy performance,
+operational approval or a measured fleet outcome.
 
 | Evidence index | What a row tells you |
 |---|---|
-| [110 original field requirements](../contracts/current_requirement_evidence.csv) | The original ID, field ID, canonical table/column, original condition and intended output; what actually exists; the source, test or receipt to examine; and the remaining boundary. |
-| [28 required and 2 optional tables](../contracts/current_table_evidence.csv) | Whether a canonical table has data-stage rows, formal offline rows, only a schema, related experiment evidence, or was disabled. M2 and P06-store counts are separate. A blank P06 count means that canonical table is not part of the separate P06 store; zero means an empty reserved table. |
-| [14 validation scenarios](../contracts/current_validation_evidence.csv) | Which behaviors were exercised, where specific tests passed, whether only part of the scenario was tested, and which cases remain unexecuted. |
+| [110 original field requirements](../contracts/current_requirement_evidence.csv) | The original ID, field ID, canonical table/column, condition and intended output; observed evidence; and the remaining boundary. |
+| [28 required and 2 optional tables](../contracts/current_table_evidence.csv) | Data-stage rows, formal offline rows, required schemas or disabled inputs. M2, P06 and P07 counts describe separate retained stores. A blank phase count means the table is outside that store; zero means an empty reserved table. |
+| [14 validation scenarios](../contracts/current_validation_evidence.csv) | Specifically exercised behaviors, test definitions and passing receipts, with partial or unexecuted scope stated separately. |
 
-Of the 110 field mappings, 60 have a synthetic data-stage implementation and two have partial source semantics: a version attribute does not demonstrate multi-revision telemetry, and a configured synthetic receipt clock does not demonstrate an external acquisition. Eighteen mappings now have materialized canonical rows in the separate P06 offline store. Two have only related candidate/episode experiment evidence; twelve have only a required schema; another 16 belong to disabled forecast or routing contracts. These counts describe evidence types, not a completion percentage. A populated field does not establish operational use, and a populated table does not mean every nullable value is present. Two requirements can validly reference the same column, such as origin and destination latitude through different facility joins.
+Of the 110 field mappings, 60 have a synthetic data-stage implementation and two
+have partial source semantics. A version attribute does not demonstrate
+multi-revision telemetry; a configured synthetic receipt clock does not prove
+external acquisition. Twenty-two mappings have materialized canonical offline
+rows. Ten retain only required schemas or unobserved nullable semantics; another
+16 belong to disabled forecast or routing contracts. These evidence categories
+are not a completion percentage. Populating a table does not prove every field
+was observed: all eight P07 `received_or_opened_at` values remain null. Two
+requirements can validly map to the same column through different facility joins.
 
-The four fully exercised data-behavior cases cover target states, gate-arrival semantics, split grouping and restricted history. Six cases have partial evidence, one has separately tested components, one remains planned and two depend on disabled optional inputs. An individual test is named only when its definition and its recorded passing result can be located. Historical receipts remain evidence for their original runs: the [P04 suite](../reports/m3c/unittest_results.txt) records 356 passing tests, the [P05 suite](../reports/m3d/unittest_results.txt) 416, and the [P06 suite](../reports/p06/unittest_results.txt) 489. The earlier receipts are not rewritten. P06's [independent reference](../reports/p06/independent_checks.json) records 163,968 comparisons with no failures; [engineering verification](../reports/p06/verification.json) separately states replay and repeatability scope. See [known issues](known_issues.md) for inputs and failure modes outside the retained case.
+Four validation cases have fully exercised data behavior, seven are partially
+tested, one has separately tested components and two depend on disabled optional
+inputs. ETA-V10 now has synthetic retry/repetition evidence but still lacks the
+partial-adoption part of its original scenario; it is not fully complete. Named
+tests are linked only when both the definition and passing result are retained.
+
+Historical suites remain tied to their original runs: [P04](../reports/m3c/unittest_results.txt)
+records 356 passing tests, [P05](../reports/m3d/unittest_results.txt) 416,
+[P06](../reports/p06/unittest_results.txt) 489 and [P07](../reports/p07/unittest_results.txt)
+576. The earlier receipts are not rewritten. The [P06 independent reference](../reports/p06/independent_checks.json)
+retains 163,968 passing comparisons; the [P07 reference](../reports/p07/independent_checks.json)
+adds 9,226 with no failures. P07 [engineering verification](../reports/p07/verification.json)
+records zero differences in both replay modes, while [typed-store checks](../reports/p07/store/verification.json)
+and [repeatability](../reports/p07/reference_repeatability.json) state format and
+clock-normalization scope separately from quality acceptance. See [known issues](known_issues.md) for inputs
+and failure modes outside the retained case.
+
+For synthetic delivery, start with the [P07 results](../reports/p07/README.md),
+[fixed transport protocol](p07_delivery.md), [delivery metrics](../reports/p07/metrics.json)
+and [typed-store checks](../reports/p07/store/verification.json). Nine candidate
+alerts led to eight attempts and seven confirmed synthetic deliveries across
+42 monitored trips. Two alerts were suppressed by delivery cooldown; one
+transient failure led to a successful retry. Four of 18 actionable delayed trips
+received a useful delivery. Conditional useful-first precision is 4/6; one of
+seven first deliveries has an unresolved target. Across all first deliveries,
+usefulness is bounded by 4/7 to 5/7. These are identification bounds, not confidence
+intervals, and selection still reuses the known July development cohort.
+
+P07 adds 35 canonical episodes, nine alerts and eight delivery-attempt rows to
+the inherited P06 canonical records. Its successful delivered-repeat counts are
+zero; P06's two repeated candidates remain distinct historical evidence. The
+simulated July transport clocks and actual November output-release clocks have
+separate provenance domains. Recipient opening, adoption, operator actions and
+follow-up remain absent. The [P08 protocol](p08_evaluation_protocol.md) is frozen,
+but its inference/evaluation implementation and pre-target conformance gate are
+still required. Final-test results and complete M4.2 acceptance are not claimed.
 
 For policy development and formal outputs, start with the [P06 results](../reports/p06/README.md), [frozen protocol](p06_alert_policy.md), [all threshold trials](../reports/p06/policy_trials.json), [selection record](../reports/p06/selection_manifest.json) and [typed-store checks](../reports/p06/store/verification.json). The 0.55 threshold produces nine candidates across 42 monitored trips and captures 4/18 actionable delayed trips. First-candidate precision is 4/6 conditional on eligible targets; one of seven first candidates is unresolved. The 50-per-100-trip budget and two-per-tenant-day cap are hypothetical research settings, not measured capacity. Selection and reporting reuse the known July assessment outcomes, so they are not independent final-policy performance.
 
-The five P06 canonical tables contain three model versions, 341 memberships, 341 predictions, one rule version and 341 offline releases. JSONL, DuckDB and Parquet rows are checked together. Candidate/episode audits are auxiliary; actual notifications, delivery retries, adoption, operator actions and follow-up remain unexecuted. In particular, the original ETA-V10 delivery/adoption scenario stays planned. Historical M2 count columns remain unchanged; the new P06 columns identify the separate store only.
+The historical P06 store contains three model versions, 341 memberships, 341 predictions, one rule version and 341 offline releases. Its candidate/episode audits remain auxiliary and its six workflow schemas remain empty in that retained store. P07 subsequently promotes the three delivery-related contracts in a new store, as described above. Historical M2 and P06 count columns and execution receipts remain unchanged; the P07 column identifies the later store separately.
 
 For the modeling decision, start with the [comparison receipt](../reports/m3b3/run_receipt.json), [cohort metrics](../reports/m3b3/metrics.json), [slice results](../reports/m3b3/slices.csv) and [selection record](../reports/m3b3/selection.json). All methods are compared on training-period validation opportunities; the common anchor is the set the baseline can score. Availability on all opportunities is reported separately. The selected candidate is an input to later calibration, not a dispatch policy.
 

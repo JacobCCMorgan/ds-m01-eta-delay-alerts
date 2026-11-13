@@ -2,9 +2,59 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: alert-policy development and formal offline outputs (M3d.2 / M4.1).** A frozen July sweep selected a 0.55 probability threshold and produced nine candidates across 42 monitored trips. It captured only 4 of 18 actionable delayed trips (22.2%). Five canonical output tables are materialized in a separate offline store. This development result does not approve deployment or resolve the earlier calibration quality limits.
+**Current stage: synthetic notification delivery and a frozen final-evaluation specification (P07, the first part of M4.2).** The fixed July policy produced nine candidates; a reproducible transport scenario confirmed seven deliveries across 42 monitored trips. Four of 18 actionable delayed trips received a useful alert (22.2%). Eight canonical output tables are materialized in a separate offline store. These development results do not approve deployment or resolve the earlier calibration and policy quality limits.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## What did the synthetic delivery experiment show?
+
+The existing 0.55 rule, models and calibrators were retained. A fixed transport
+scenario adds service latency, receipt lag, at most three attempts and retries
+only after confirmed transient failure. Dispatch and service both check the
+original promise, minimum notice, episode state, lifetime and delivery cooldown.
+The scenario probabilities are hypothetical; no messaging service was contacted.
+
+| July delivery-development measure | Result |
+|---|---:|
+| Candidate alerts / monitored trips | 9 / 42 |
+| Transport attempts, including one retry | 8 |
+| Confirmed synthetic deliveries / delivered trips | 7 / 7 |
+| Useful delivered alerts / actionable delayed trips | 4 / 18 (22.2%) |
+| Conditional useful-first-delivery precision | 4 / 6 (66.7%) |
+| Unresolved first-delivery targets | 1 of 7 |
+| Successful deliveries per 100 monitored trips | 16.67 |
+
+Two candidate alerts were suppressed by the delivery cooldown. One transient
+failure was followed by a successful retry. All seven confirmed deliveries
+were to different trips, so there were no delivered repeats. The unresolved
+first delivery has an unknown target, not an unknown transport status.
+
+A useful alert must be delivered before the trip's actual arrival and at least
+30 minutes before its original promise deadline. Precision conditions on six
+known-assessable first successful deliveries; across all seven, usefulness is
+bounded by 4/7 to 5/7. These are identification bounds, not confidence intervals.
+The first successful delivery supplies its own promise and service clock;
+failed attempts are not counted as duplicate disturbances.
+
+These figures reuse the July policy-development cohort and are subject to its
+selection optimism. They do not establish independent policy performance,
+recipient opening, adoption or fleet benefit. The copied P06 output-release
+records retain actual November execution times; the new July alert and transport
+clocks are explicitly synthetic scenario times.
+
+See the [delivery protocol](docs/p07_delivery.md),
+[results and reproduction](reports/p07/README.md), and
+[typed-store checks](reports/p07/store/verification.json).
+The [final-evaluation protocol](docs/p08_evaluation_protocol.md) freezes
+August–September cohorts, metrics, uncertainty and stress cases. P08 still
+requires a separate inference/evaluation implementation and conformance gate
+before final outcomes are used; writing the specification does not complete
+that evaluation.
+
+The [P07 engineering verification](reports/p07/verification.json) records 576
+passing unit tests, zero differences in retained and source-assisted replay,
+and 9,226 independent reference comparisons with no failures. Reproduction and
+its clock-normalization limits are documented with the saved results.
 
 ## What did the alert-policy experiment show?
 
@@ -131,23 +181,24 @@ the protected final test.
 
 ## Check a saved forecast run
 
-From the repository root, create an environment and replay the saved P06
-policy selection and typed outputs, including the retained P05 forecasts and
-calibration checks. Python 3.12 was used for the recorded run. This check needs
-no Docker, raw outcome file or M2 rebuild.
+From the repository root, create an environment and replay the saved P07
+synthetic deliveries and typed outputs, including the retained P06 policy and
+P05 forecast/calibration checks. Python 3.12 was used for the recorded run.
+This check needs no Docker, raw outcome file or M2 rebuild.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-models.lock
 python -m pip install -e . --no-deps
-python -m ds_m01.alert_replay --root . --report reports/p06
+python -m ds_m01.delivery_replay --root . --report reports/p07
 ```
 
-Expect `status: passed`, `differences: 0`, 341 opportunities, 42 monitored trips
-and 22 policy trials. The check uses saved model/calibrator states, retained
-source context and saved July labels; it does not fit models or calibrators,
-open the raw outcome source or deliver notifications. To run the unit suite, use
+Expect `status: passed`, `differences: 0`, 341 opportunities, nine candidate
+alerts, 35 risk episodes and eight transport attempts. The check uses saved
+model/calibrator states, retained source context and saved July labels; it does
+not fit models or calibrators, open the raw outcome source or send notifications.
+To run the unit suite, use
 `python -m unittest discover -s tests -v` in the same environment.
 
 For exact retraining, follow the [fixed-container guide](docs/reproducibility.md).
@@ -307,11 +358,12 @@ python scripts/plot_data_quality.py --root .
 ## Scope and limitations
 
 The historical M2 warehouse populated 17 data-stage tables. P06 separately
-materializes five canonical model, membership, prediction, rule and offline-release
-tables with typed JSONL, DuckDB and Parquet outputs. It does not rebuild a combined
-M2 warehouse. Six canonical alert-episode, alert, notification, adoption, action
-and follow-up tables remain empty; auxiliary candidate audits are not delivered
-alerts. Native PostgreSQL verification is also pending; see the
+materialized five canonical model, membership, prediction, rule and offline-release
+tables. P07 adds alert episodes, alerts and notification-delivery records to that
+separate JSONL/DuckDB/Parquet store. It does not rebuild the combined M2 warehouse.
+Adoption, action and follow-up tables remain empty; recipient opening is not
+simulated. Delivery rows describe synthetic service outcomes, not messages sent
+to fleet users. Native PostgreSQL verification is also pending; see the
 [PostgreSQL runtime note](docs/postgres_runtime_note.md). DuckDB and HTTP validation
 do not establish PostgreSQL integration.
 
@@ -320,9 +372,10 @@ For the next modeling stage, the unseen-route-only test cohort has 29 eligible t
 Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes
 or count snapshots from the same trip as independent trips. P06's July selection
 does not provide an independent policy test; its 22.2% actionable recall and
-the unmet P05 calibration targets remain quality limitations. Frozen final
-evaluation, alert delivery and action follow-up remain later stages requiring
-their own evidence and authorization.
+the unmet P05 calibration targets remain quality limitations. P07 tests
+synthetic transport and freezes the P08 evaluation specification; it does not
+complete M4.2 or approve the policy. Independent final evaluation, recipient
+adoption, operator actions, follow-up and the viewer remain later stages.
 
 The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
 

@@ -1,0 +1,963 @@
+{
+  "actions_evaluated": false,
+  "adoption_evaluated": false,
+  "alert_status_counts": {
+    "delivered": 7,
+    "suppressed": 2
+  },
+  "attempt_status_counts": {
+    "delivered": 7,
+    "failed": 1
+  },
+  "bounds_definition": "All-first-success usefulness identification bounds, not confidence intervals; only unresolved deliveries that could still be useful increase the upper bound.",
+  "conditional_precision_definition": "Useful first successes divided by all known-assessable first successes (classification other than unresolved). Known post-arrival or insufficient-lead deliveries are non-useful even when their original target is excluded.",
+  "counts": {
+    "actionable_positive_trips": 18,
+    "additional_deliveries_per_trip": 0,
+    "additional_successes_same_alert": 0,
+    "attempts": 8,
+    "candidate_alerts": 9,
+    "candidate_trips": 7,
+    "confirmed_useful_deliveries": 4,
+    "confirmed_useful_delivery_trips": 4,
+    "delivered_alerts": 7,
+    "delivered_trips": 7,
+    "eligible_target_snapshots": 143,
+    "episodes_with_delivery": 7,
+    "excluded_target_snapshots": 198,
+    "failed_attempts": 1,
+    "first_successful_deliveries": 7,
+    "insufficient_lead_deliveries": 0,
+    "insufficient_lead_first_deliveries": 0,
+    "known_assessable_deliveries": 6,
+    "known_assessable_first_deliveries": 6,
+    "known_false_deliveries": 2,
+    "known_false_first_deliveries": 2,
+    "mature_eligible_deliveries": 6,
+    "mature_eligible_first_deliveries": 6,
+    "mixed_promise_label_trips": 2,
+    "monitored_trips": 42,
+    "negative_trips": 13,
+    "observed_positive_trips": 18,
+    "opportunities": 341,
+    "post_arrival_deliveries": 0,
+    "post_arrival_first_deliveries": 0,
+    "queued_attempts": 0,
+    "repeated_deliveries_within_episode": 0,
+    "retained_attempt_records": 8,
+    "retry_attempts": 1,
+    "risk_episodes": 35,
+    "scored_trips": 29,
+    "successful_confirmed_deliveries": 7,
+    "unknown_attempts": 0,
+    "unresolved_deliveries": 1,
+    "unresolved_first_deliveries": 1,
+    "useful_first_deliveries": 4
+  },
+  "counts_as_of": "2026-08-01T07:00:00Z",
+  "delivery_class_counts": {
+    "known_false": 2,
+    "unresolved": 1,
+    "useful_true": 4
+  },
+  "delivery_rows": [
+    {
+      "alert_episode_id": "P06-EP-5097babbcaa7eb0c85328eb0",
+      "alert_id": "P07-ALERT-d9fcf98270c91856feeb9d7c",
+      "candidate_id": "P06-CAND-5d105b93600e289b1882c581",
+      "candidate_to_delivery_seconds": 6.0,
+      "classification": "useful_true",
+      "deadline_at": "2026-07-17T15:17:06.186207Z",
+      "delay_label": true,
+      "delivered_at": "2026-07-17T13:13:26Z",
+      "delivery_id": "P07-DELIVERY-47661a582d4a5ff08aa1aabe",
+      "first_successful_delivery_for_trip": true,
+      "promise_version_id": "T03-TRIP-001354-PROMISE-V1",
+      "prospective_deadline_lead_seconds": 7420.186207,
+      "receipt_known_at": "2026-07-17T13:13:32Z",
+      "retrospective_arrival_lead_seconds": 8022.160091,
+      "snapshot_id": "S-07e3885a08a3e0c0186c044d",
+      "successful_attempt_latency_seconds": 6.0,
+      "target_eligibility": "eligible",
+      "target_reason": "verified_gate_arrival",
+      "tenant_id": "T03",
+      "trip_id": "T03-TRIP-001354"
+    },
+    {
+      "alert_episode_id": "P06-EP-440ca815a9d9806b284aade8",
+      "alert_id": "P07-ALERT-2732f09acc2dc75959a0a2d2",
+      "candidate_id": "P06-CAND-bd74f381818442a81d7ad933",
+      "candidate_to_delivery_seconds": 24.0,
+      "classification": "known_false",
+      "deadline_at": "2026-07-17T17:23:19.758621Z",
+      "delay_label": false,
+      "delivered_at": "2026-07-17T13:13:44Z",
+      "delivery_id": "P07-DELIVERY-39e4c38e1a38af3c0bd594b0",
+      "first_successful_delivery_for_trip": true,
+      "promise_version_id": "T02-TRIP-001380-PROMISE-V1",
+      "prospective_deadline_lead_seconds": 14975.758621,
+      "receipt_known_at": "2026-07-17T13:13:44Z",
+      "retrospective_arrival_lead_seconds": 13553.291766,
+      "snapshot_id": "S-0dbe5f31af8d8759448d0ded",
+      "successful_attempt_latency_seconds": 24.0,
+      "target_eligibility": "eligible",
+      "target_reason": "verified_gate_arrival",
+      "tenant_id": "T02",
+      "trip_id": "T02-TRIP-001380"
+    },
+    {
+      "alert_episode_id": "P06-EP-0593852e0b3582a336e9c6b5",
+      "alert_id": "P07-ALERT-1a42e5eba4ae9ee00a14ac39",
+      "candidate_id": "P06-CAND-430ed5fbdfaa08e663b13770",
+      "candidate_to_delivery_seconds": 32.0,
+      "classification": "useful_true",
+      "deadline_at": "2026-07-17T16:26:06.186207Z",
+      "delay_label": true,
+      "delivered_at": "2026-07-17T14:19:52Z",
+      "delivery_id": "P07-DELIVERY-655eb25db3c83e8f9bad2009",
+      "first_successful_delivery_for_trip": true,
+      "promise_version_id": "T03-TRIP-001355-PROMISE-V1",
+      "prospective_deadline_lead_seconds": 7574.186207,
+      "receipt_known_at": "2026-07-17T14:19:58Z",
+      "retrospective_arrival_lead_seconds": 13717.034533,
+      "snapshot_id": "S-bbd57637e0fd0ac4a8bf2983",
+      "successful_attempt_latency_seconds": 32.0,
+      "target_eligibility": "eligible",
+      "target_reason": "verified_gate_arrival",
+      "tenant_id": "T03",
+      "trip_id": "T03-TRIP-001355"
+    },
+    {
+      "alert_episode_id": "P06-EP-ec6b64174bec161b528fd54a",
+      "alert_id": "P07-ALERT-118800002b4d73d2bcb8a245",
+      "candidate_id": "P06-CAND-3c1659dc3a57f914f8d841e4",
+      "candidate_to_delivery_seconds": 28.0,
+      "classification": "unresolved",
+      "deadline_at": "2026-07-17T18:25:19.758621Z",
+      "delay_label": null,
+      "delivered_at": "2026-07-17T14:26:48Z",
+      "delivery_id": "P07-DELIVERY-82640e331b44258751d2a5a4",
+      "first_successful_delivery_for_trip": true,
+      "promise_version_id": "T02-TRIP-001367-PROMISE-V1",
+      "prospective_deadline_lead_seconds": 14311.758621,
+      "receipt_known_at": "2026-07-17T14:26:59Z",
+      "retrospective_arrival_lead_seconds": null,
+      "snapshot_id": "S-5531cd5b0835d66f4bce6198",
+      "successful_attempt_latency_seconds": 28.0,
+      "target_eligibility": "excluded",
+      "target_reason": "latest_outcome_cancelled",
+      "tenant_id": "T02",
+      "trip_id": "T02-TRIP-001367"
+    },
+    {
+      "alert_episode_id": "P06-EP-60afcfdd63cf0ea0f10fe200",
+      "alert_id": "P07-ALERT-71e3d9af41e14c70f528238e",
+      "candidate_id": "P06-CAND-6608345805ef012bfb63a188",
+      "candidate_to_delivery_seconds": 18.0,
+      "classification": "useful_true",
+      "deadline_at": "2026-07-17T17:25:06.496552Z",
+      "delay_label": true,
+      "delivered_at": "2026-07-17T15:09:38Z",
+      "delivery_id": "P07-DELIVERY-92420d0b190c2274e4c602a3",
+      "first_successful_delivery_for_trip": true,
+      "promise_version_id": "T01-TRIP-001377-PROMISE-V1",
+      "prospective_deadline_lead_seconds": 8128.496552,
+      "receipt_known_at": "2026-07-17T15:09:52Z",
+      "retrospective_arrival_lead_seconds": 14425.571055,
+      "snapshot_id": "S-d8018f8de9dbcc1ef1e40616",
+      "successful_attempt_latency_seconds": 18.0,
+      "target_eligibility": "eligible",
+      "target_reason": "verified_gate_arrival",
+      "tenant_id": "T01",
+      "trip_id": "T01-TRIP-001377"
+    },
+    {
+      "alert_episode_id": "P06-EP-f48be16651479a4253da09a9",
+      "alert_id": "P07-ALERT-f7c1b358c66fb4d72b5f9b10",
+      "candidate_id": "P06-CAND-8f19b0661d0abb1770f08a39",
+      "candidate_to_delivery_seconds": 55.0,
+      "classification": "useful_true",
+      "deadline_at": "2026-07-20T13:01:45.993103Z",
+      "delay_label": true,
+      "delivered_at": "2026-07-20T11:37:15Z",
+      "delivery_id": "P07-DELIVERY-ccbbe7f43a63c5435bb3eed6",
+      "first_successful_delivery_for_trip": true,
+      "promise_version_id": "T03-TRIP-001382-PROMISE-V1",
+      "prospective_deadline_lead_seconds": 5070.993103,
+      "receipt_known_at": "2026-07-20T11:37:15Z",
+      "retrospective_arrival_lead_seconds": 6181.261958,
+      "snapshot_id": "S-0c4c77a98b49a7fa138e3c98",
+      "successful_attempt_latency_seconds": 55.0,
+      "target_eligibility": "eligible",
+      "target_reason": "verified_gate_arrival",
+      "tenant_id": "T03",
+      "trip_id": "T03-TRIP-001382"
+    },
+    {
+      "alert_episode_id": "P06-EP-61fe487d73f55c39c07f74a4",
+      "alert_id": "P07-ALERT-8ba1f2d550cf61e1f8778412",
+      "candidate_id": "P06-CAND-9af171c9589fa0e03e0480da",
+      "candidate_to_delivery_seconds": 74.0,
+      "classification": "known_false",
+      "deadline_at": "2026-07-20T17:32:04.324138Z",
+      "delay_label": false,
+      "delivered_at": "2026-07-20T16:46:34Z",
+      "delivery_id": "P07-DELIVERY-b4d1239385f849f6b01ff1c0",
+      "first_successful_delivery_for_trip": true,
+      "promise_version_id": "T01-TRIP-001381-PROMISE-V2",
+      "prospective_deadline_lead_seconds": 2730.324138,
+      "receipt_known_at": "2026-07-20T16:46:49Z",
+      "retrospective_arrival_lead_seconds": 216.496567,
+      "snapshot_id": "S-1c401ed2c5ab1049204a8ddd",
+      "successful_attempt_latency_seconds": 11.0,
+      "target_eligibility": "eligible",
+      "target_reason": "verified_gate_arrival",
+      "tenant_id": "T01",
+      "trip_id": "T01-TRIP-001381"
+    }
+  ],
+  "denominators": {
+    "candidate_alert_delivery_rate": 9,
+    "conditional_first_delivery_useful_precision": 6,
+    "delivered_actionable_trip_recall": 18,
+    "delivered_trip_coverage": 42,
+    "first_delivery_assessable_coverage": 7,
+    "first_delivery_target_coverage": 7,
+    "first_delivery_usefulness_bounds": 7,
+    "successful_deliveries_per_100_monitored_trips": 42
+  },
+  "final_test_evaluated": false,
+  "first_success_ordering": [
+    "delivered_at",
+    "tenant_id",
+    "trip_id",
+    "alert_id",
+    "delivery_id"
+  ],
+  "independent_policy_test": false,
+  "label_cutoff_exclusive": "2026-08-01T07:00:00Z",
+  "lead_seconds": {
+    "all_successful_deliveries": {
+      "candidate_to_delivery_seconds": {
+        "maximum": 74.0,
+        "median": 28.0,
+        "minimum": 6.0,
+        "missing": 0,
+        "observed": 7,
+        "unit": "seconds"
+      },
+      "prospective_deadline_lead_seconds": {
+        "maximum": 14975.758621,
+        "median": 7574.186207,
+        "minimum": 2730.324138,
+        "missing": 0,
+        "observed": 7,
+        "unit": "seconds"
+      },
+      "retrospective_arrival_lead_seconds": {
+        "maximum": 14425.571055,
+        "median": 10787.7259285,
+        "minimum": 216.496567,
+        "missing": 1,
+        "observed": 6,
+        "unit": "seconds"
+      },
+      "successful_attempt_latency_seconds": {
+        "maximum": 55.0,
+        "median": 24.0,
+        "minimum": 6.0,
+        "missing": 0,
+        "observed": 7,
+        "unit": "seconds"
+      }
+    },
+    "first_successful_deliveries": {
+      "candidate_to_delivery_seconds": {
+        "maximum": 74.0,
+        "median": 28.0,
+        "minimum": 6.0,
+        "missing": 0,
+        "observed": 7,
+        "unit": "seconds"
+      },
+      "prospective_deadline_lead_seconds": {
+        "maximum": 14975.758621,
+        "median": 7574.186207,
+        "minimum": 2730.324138,
+        "missing": 0,
+        "observed": 7,
+        "unit": "seconds"
+      },
+      "retrospective_arrival_lead_seconds": {
+        "maximum": 14425.571055,
+        "median": 10787.7259285,
+        "minimum": 216.496567,
+        "missing": 1,
+        "observed": 6,
+        "unit": "seconds"
+      },
+      "successful_attempt_latency_seconds": {
+        "maximum": 55.0,
+        "median": 24.0,
+        "minimum": 6.0,
+        "missing": 0,
+        "observed": 7,
+        "unit": "seconds"
+      }
+    }
+  },
+  "metrics": {
+    "candidate_alert_delivery_rate": 0.7777777777777778,
+    "conditional_first_delivery_useful_precision": 0.6666666666666666,
+    "delivered_actionable_trip_recall": 0.2222222222222222,
+    "delivered_trip_coverage": 0.16666666666666666,
+    "first_delivery_assessable_coverage": 0.8571428571428571,
+    "first_delivery_target_coverage": 0.8571428571428571,
+    "first_delivery_usefulness_bounds": {
+      "lower": 0.5714285714285714,
+      "upper": 0.7142857142857143
+    },
+    "successful_deliveries_per_100_monitored_trips": 16.666666666666668
+  },
+  "operational_benefit_established": false,
+  "recipient_opening_evaluated": false,
+  "scope": "July_delivery_scenario_on_retained_policy_development",
+  "sparse": false,
+  "target_binding": "Each successful attempt retains the original candidate snapshot promise; later promises do not replace that target.",
+  "target_coverage_definition": "Target coverage uses original eligible labels; assessable coverage additionally includes known non-useful timing outcomes.",
+  "target_exclusion_reason_counts": {
+    "already_arrived_at_snapshot": 1,
+    "latest_outcome_cancelled": 5,
+    "latest_outcome_incomplete": 120,
+    "latest_outcome_pending": 72
+  },
+  "tenant_slices": [
+    {
+      "alert_status_counts": {
+        "delivered": 2,
+        "suppressed": 1
+      },
+      "attempt_status_counts": {
+        "delivered": 2,
+        "failed": 1
+      },
+      "counts": {
+        "actionable_positive_trips": 7,
+        "additional_deliveries_per_trip": 0,
+        "additional_successes_same_alert": 0,
+        "attempts": 3,
+        "candidate_alerts": 3,
+        "candidate_trips": 2,
+        "confirmed_useful_deliveries": 1,
+        "confirmed_useful_delivery_trips": 1,
+        "delivered_alerts": 2,
+        "delivered_trips": 2,
+        "eligible_target_snapshots": 55,
+        "episodes_with_delivery": 2,
+        "excluded_target_snapshots": 74,
+        "failed_attempts": 1,
+        "first_successful_deliveries": 2,
+        "insufficient_lead_deliveries": 0,
+        "insufficient_lead_first_deliveries": 0,
+        "known_assessable_deliveries": 2,
+        "known_assessable_first_deliveries": 2,
+        "known_false_deliveries": 1,
+        "known_false_first_deliveries": 1,
+        "mature_eligible_deliveries": 2,
+        "mature_eligible_first_deliveries": 2,
+        "mixed_promise_label_trips": 2,
+        "monitored_trips": 17,
+        "negative_trips": 8,
+        "observed_positive_trips": 7,
+        "opportunities": 129,
+        "post_arrival_deliveries": 0,
+        "post_arrival_first_deliveries": 0,
+        "queued_attempts": 0,
+        "repeated_deliveries_within_episode": 0,
+        "retained_attempt_records": 3,
+        "retry_attempts": 1,
+        "risk_episodes": 10,
+        "scored_trips": 13,
+        "successful_confirmed_deliveries": 2,
+        "unknown_attempts": 0,
+        "unresolved_deliveries": 0,
+        "unresolved_first_deliveries": 0,
+        "useful_first_deliveries": 1
+      },
+      "delivery_class_counts": {
+        "known_false": 1,
+        "useful_true": 1
+      },
+      "delivery_rows": [
+        {
+          "alert_episode_id": "P06-EP-60afcfdd63cf0ea0f10fe200",
+          "alert_id": "P07-ALERT-71e3d9af41e14c70f528238e",
+          "candidate_id": "P06-CAND-6608345805ef012bfb63a188",
+          "candidate_to_delivery_seconds": 18.0,
+          "classification": "useful_true",
+          "deadline_at": "2026-07-17T17:25:06.496552Z",
+          "delay_label": true,
+          "delivered_at": "2026-07-17T15:09:38Z",
+          "delivery_id": "P07-DELIVERY-92420d0b190c2274e4c602a3",
+          "first_successful_delivery_for_trip": true,
+          "promise_version_id": "T01-TRIP-001377-PROMISE-V1",
+          "prospective_deadline_lead_seconds": 8128.496552,
+          "receipt_known_at": "2026-07-17T15:09:52Z",
+          "retrospective_arrival_lead_seconds": 14425.571055,
+          "snapshot_id": "S-d8018f8de9dbcc1ef1e40616",
+          "successful_attempt_latency_seconds": 18.0,
+          "target_eligibility": "eligible",
+          "target_reason": "verified_gate_arrival",
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001377"
+        },
+        {
+          "alert_episode_id": "P06-EP-61fe487d73f55c39c07f74a4",
+          "alert_id": "P07-ALERT-8ba1f2d550cf61e1f8778412",
+          "candidate_id": "P06-CAND-9af171c9589fa0e03e0480da",
+          "candidate_to_delivery_seconds": 74.0,
+          "classification": "known_false",
+          "deadline_at": "2026-07-20T17:32:04.324138Z",
+          "delay_label": false,
+          "delivered_at": "2026-07-20T16:46:34Z",
+          "delivery_id": "P07-DELIVERY-b4d1239385f849f6b01ff1c0",
+          "first_successful_delivery_for_trip": true,
+          "promise_version_id": "T01-TRIP-001381-PROMISE-V2",
+          "prospective_deadline_lead_seconds": 2730.324138,
+          "receipt_known_at": "2026-07-20T16:46:49Z",
+          "retrospective_arrival_lead_seconds": 216.496567,
+          "snapshot_id": "S-1c401ed2c5ab1049204a8ddd",
+          "successful_attempt_latency_seconds": 11.0,
+          "target_eligibility": "eligible",
+          "target_reason": "verified_gate_arrival",
+          "tenant_id": "T01",
+          "trip_id": "T01-TRIP-001381"
+        }
+      ],
+      "denominators": {
+        "candidate_alert_delivery_rate": 3,
+        "conditional_first_delivery_useful_precision": 2,
+        "delivered_actionable_trip_recall": 7,
+        "delivered_trip_coverage": 17,
+        "first_delivery_assessable_coverage": 2,
+        "first_delivery_target_coverage": 2,
+        "first_delivery_usefulness_bounds": 2,
+        "successful_deliveries_per_100_monitored_trips": 17
+      },
+      "lead_seconds": {
+        "all_successful_deliveries": {
+          "candidate_to_delivery_seconds": {
+            "maximum": 74.0,
+            "median": 46.0,
+            "minimum": 18.0,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "prospective_deadline_lead_seconds": {
+            "maximum": 8128.496552,
+            "median": 5429.410345,
+            "minimum": 2730.324138,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "retrospective_arrival_lead_seconds": {
+            "maximum": 14425.571055,
+            "median": 7321.033811,
+            "minimum": 216.496567,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "successful_attempt_latency_seconds": {
+            "maximum": 18.0,
+            "median": 14.5,
+            "minimum": 11.0,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          }
+        },
+        "first_successful_deliveries": {
+          "candidate_to_delivery_seconds": {
+            "maximum": 74.0,
+            "median": 46.0,
+            "minimum": 18.0,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "prospective_deadline_lead_seconds": {
+            "maximum": 8128.496552,
+            "median": 5429.410345,
+            "minimum": 2730.324138,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "retrospective_arrival_lead_seconds": {
+            "maximum": 14425.571055,
+            "median": 7321.033811,
+            "minimum": 216.496567,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "successful_attempt_latency_seconds": {
+            "maximum": 18.0,
+            "median": 14.5,
+            "minimum": 11.0,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          }
+        }
+      },
+      "metrics": {
+        "candidate_alert_delivery_rate": 0.6666666666666666,
+        "conditional_first_delivery_useful_precision": 0.5,
+        "delivered_actionable_trip_recall": 0.14285714285714285,
+        "delivered_trip_coverage": 0.11764705882352941,
+        "first_delivery_assessable_coverage": 1.0,
+        "first_delivery_target_coverage": 1.0,
+        "first_delivery_usefulness_bounds": {
+          "lower": 0.5,
+          "upper": 0.5
+        },
+        "successful_deliveries_per_100_monitored_trips": 11.764705882352942
+      },
+      "sparse": true,
+      "target_exclusion_reason_counts": {
+        "already_arrived_at_snapshot": 1,
+        "latest_outcome_cancelled": 1,
+        "latest_outcome_incomplete": 24,
+        "latest_outcome_pending": 48
+      },
+      "tenant_id": "T01"
+    },
+    {
+      "alert_status_counts": {
+        "delivered": 2
+      },
+      "attempt_status_counts": {
+        "delivered": 2
+      },
+      "counts": {
+        "actionable_positive_trips": 3,
+        "additional_deliveries_per_trip": 0,
+        "additional_successes_same_alert": 0,
+        "attempts": 2,
+        "candidate_alerts": 2,
+        "candidate_trips": 2,
+        "confirmed_useful_deliveries": 0,
+        "confirmed_useful_delivery_trips": 0,
+        "delivered_alerts": 2,
+        "delivered_trips": 2,
+        "eligible_target_snapshots": 43,
+        "episodes_with_delivery": 2,
+        "excluded_target_snapshots": 98,
+        "failed_attempts": 0,
+        "first_successful_deliveries": 2,
+        "insufficient_lead_deliveries": 0,
+        "insufficient_lead_first_deliveries": 0,
+        "known_assessable_deliveries": 1,
+        "known_assessable_first_deliveries": 1,
+        "known_false_deliveries": 1,
+        "known_false_first_deliveries": 1,
+        "mature_eligible_deliveries": 1,
+        "mature_eligible_first_deliveries": 1,
+        "mixed_promise_label_trips": 0,
+        "monitored_trips": 13,
+        "negative_trips": 4,
+        "observed_positive_trips": 3,
+        "opportunities": 141,
+        "post_arrival_deliveries": 0,
+        "post_arrival_first_deliveries": 0,
+        "queued_attempts": 0,
+        "repeated_deliveries_within_episode": 0,
+        "retained_attempt_records": 2,
+        "retry_attempts": 0,
+        "risk_episodes": 13,
+        "scored_trips": 7,
+        "successful_confirmed_deliveries": 2,
+        "unknown_attempts": 0,
+        "unresolved_deliveries": 1,
+        "unresolved_first_deliveries": 1,
+        "useful_first_deliveries": 0
+      },
+      "delivery_class_counts": {
+        "known_false": 1,
+        "unresolved": 1
+      },
+      "delivery_rows": [
+        {
+          "alert_episode_id": "P06-EP-440ca815a9d9806b284aade8",
+          "alert_id": "P07-ALERT-2732f09acc2dc75959a0a2d2",
+          "candidate_id": "P06-CAND-bd74f381818442a81d7ad933",
+          "candidate_to_delivery_seconds": 24.0,
+          "classification": "known_false",
+          "deadline_at": "2026-07-17T17:23:19.758621Z",
+          "delay_label": false,
+          "delivered_at": "2026-07-17T13:13:44Z",
+          "delivery_id": "P07-DELIVERY-39e4c38e1a38af3c0bd594b0",
+          "first_successful_delivery_for_trip": true,
+          "promise_version_id": "T02-TRIP-001380-PROMISE-V1",
+          "prospective_deadline_lead_seconds": 14975.758621,
+          "receipt_known_at": "2026-07-17T13:13:44Z",
+          "retrospective_arrival_lead_seconds": 13553.291766,
+          "snapshot_id": "S-0dbe5f31af8d8759448d0ded",
+          "successful_attempt_latency_seconds": 24.0,
+          "target_eligibility": "eligible",
+          "target_reason": "verified_gate_arrival",
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001380"
+        },
+        {
+          "alert_episode_id": "P06-EP-ec6b64174bec161b528fd54a",
+          "alert_id": "P07-ALERT-118800002b4d73d2bcb8a245",
+          "candidate_id": "P06-CAND-3c1659dc3a57f914f8d841e4",
+          "candidate_to_delivery_seconds": 28.0,
+          "classification": "unresolved",
+          "deadline_at": "2026-07-17T18:25:19.758621Z",
+          "delay_label": null,
+          "delivered_at": "2026-07-17T14:26:48Z",
+          "delivery_id": "P07-DELIVERY-82640e331b44258751d2a5a4",
+          "first_successful_delivery_for_trip": true,
+          "promise_version_id": "T02-TRIP-001367-PROMISE-V1",
+          "prospective_deadline_lead_seconds": 14311.758621,
+          "receipt_known_at": "2026-07-17T14:26:59Z",
+          "retrospective_arrival_lead_seconds": null,
+          "snapshot_id": "S-5531cd5b0835d66f4bce6198",
+          "successful_attempt_latency_seconds": 28.0,
+          "target_eligibility": "excluded",
+          "target_reason": "latest_outcome_cancelled",
+          "tenant_id": "T02",
+          "trip_id": "T02-TRIP-001367"
+        }
+      ],
+      "denominators": {
+        "candidate_alert_delivery_rate": 2,
+        "conditional_first_delivery_useful_precision": 1,
+        "delivered_actionable_trip_recall": 3,
+        "delivered_trip_coverage": 13,
+        "first_delivery_assessable_coverage": 2,
+        "first_delivery_target_coverage": 2,
+        "first_delivery_usefulness_bounds": 2,
+        "successful_deliveries_per_100_monitored_trips": 13
+      },
+      "lead_seconds": {
+        "all_successful_deliveries": {
+          "candidate_to_delivery_seconds": {
+            "maximum": 28.0,
+            "median": 26.0,
+            "minimum": 24.0,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "prospective_deadline_lead_seconds": {
+            "maximum": 14975.758621,
+            "median": 14643.758621,
+            "minimum": 14311.758621,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "retrospective_arrival_lead_seconds": {
+            "maximum": 13553.291766,
+            "median": 13553.291766,
+            "minimum": 13553.291766,
+            "missing": 1,
+            "observed": 1,
+            "unit": "seconds"
+          },
+          "successful_attempt_latency_seconds": {
+            "maximum": 28.0,
+            "median": 26.0,
+            "minimum": 24.0,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          }
+        },
+        "first_successful_deliveries": {
+          "candidate_to_delivery_seconds": {
+            "maximum": 28.0,
+            "median": 26.0,
+            "minimum": 24.0,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "prospective_deadline_lead_seconds": {
+            "maximum": 14975.758621,
+            "median": 14643.758621,
+            "minimum": 14311.758621,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          },
+          "retrospective_arrival_lead_seconds": {
+            "maximum": 13553.291766,
+            "median": 13553.291766,
+            "minimum": 13553.291766,
+            "missing": 1,
+            "observed": 1,
+            "unit": "seconds"
+          },
+          "successful_attempt_latency_seconds": {
+            "maximum": 28.0,
+            "median": 26.0,
+            "minimum": 24.0,
+            "missing": 0,
+            "observed": 2,
+            "unit": "seconds"
+          }
+        }
+      },
+      "metrics": {
+        "candidate_alert_delivery_rate": 1.0,
+        "conditional_first_delivery_useful_precision": 0.0,
+        "delivered_actionable_trip_recall": 0.0,
+        "delivered_trip_coverage": 0.15384615384615385,
+        "first_delivery_assessable_coverage": 0.5,
+        "first_delivery_target_coverage": 0.5,
+        "first_delivery_usefulness_bounds": {
+          "lower": 0.0,
+          "upper": 0.5
+        },
+        "successful_deliveries_per_100_monitored_trips": 15.384615384615385
+      },
+      "sparse": true,
+      "target_exclusion_reason_counts": {
+        "latest_outcome_cancelled": 2,
+        "latest_outcome_incomplete": 72,
+        "latest_outcome_pending": 24
+      },
+      "tenant_id": "T02"
+    },
+    {
+      "alert_status_counts": {
+        "delivered": 3,
+        "suppressed": 1
+      },
+      "attempt_status_counts": {
+        "delivered": 3
+      },
+      "counts": {
+        "actionable_positive_trips": 8,
+        "additional_deliveries_per_trip": 0,
+        "additional_successes_same_alert": 0,
+        "attempts": 3,
+        "candidate_alerts": 4,
+        "candidate_trips": 3,
+        "confirmed_useful_deliveries": 3,
+        "confirmed_useful_delivery_trips": 3,
+        "delivered_alerts": 3,
+        "delivered_trips": 3,
+        "eligible_target_snapshots": 45,
+        "episodes_with_delivery": 3,
+        "excluded_target_snapshots": 26,
+        "failed_attempts": 0,
+        "first_successful_deliveries": 3,
+        "insufficient_lead_deliveries": 0,
+        "insufficient_lead_first_deliveries": 0,
+        "known_assessable_deliveries": 3,
+        "known_assessable_first_deliveries": 3,
+        "known_false_deliveries": 0,
+        "known_false_first_deliveries": 0,
+        "mature_eligible_deliveries": 3,
+        "mature_eligible_first_deliveries": 3,
+        "mixed_promise_label_trips": 0,
+        "monitored_trips": 12,
+        "negative_trips": 1,
+        "observed_positive_trips": 8,
+        "opportunities": 71,
+        "post_arrival_deliveries": 0,
+        "post_arrival_first_deliveries": 0,
+        "queued_attempts": 0,
+        "repeated_deliveries_within_episode": 0,
+        "retained_attempt_records": 3,
+        "retry_attempts": 0,
+        "risk_episodes": 12,
+        "scored_trips": 9,
+        "successful_confirmed_deliveries": 3,
+        "unknown_attempts": 0,
+        "unresolved_deliveries": 0,
+        "unresolved_first_deliveries": 0,
+        "useful_first_deliveries": 3
+      },
+      "delivery_class_counts": {
+        "useful_true": 3
+      },
+      "delivery_rows": [
+        {
+          "alert_episode_id": "P06-EP-5097babbcaa7eb0c85328eb0",
+          "alert_id": "P07-ALERT-d9fcf98270c91856feeb9d7c",
+          "candidate_id": "P06-CAND-5d105b93600e289b1882c581",
+          "candidate_to_delivery_seconds": 6.0,
+          "classification": "useful_true",
+          "deadline_at": "2026-07-17T15:17:06.186207Z",
+          "delay_label": true,
+          "delivered_at": "2026-07-17T13:13:26Z",
+          "delivery_id": "P07-DELIVERY-47661a582d4a5ff08aa1aabe",
+          "first_successful_delivery_for_trip": true,
+          "promise_version_id": "T03-TRIP-001354-PROMISE-V1",
+          "prospective_deadline_lead_seconds": 7420.186207,
+          "receipt_known_at": "2026-07-17T13:13:32Z",
+          "retrospective_arrival_lead_seconds": 8022.160091,
+          "snapshot_id": "S-07e3885a08a3e0c0186c044d",
+          "successful_attempt_latency_seconds": 6.0,
+          "target_eligibility": "eligible",
+          "target_reason": "verified_gate_arrival",
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001354"
+        },
+        {
+          "alert_episode_id": "P06-EP-0593852e0b3582a336e9c6b5",
+          "alert_id": "P07-ALERT-1a42e5eba4ae9ee00a14ac39",
+          "candidate_id": "P06-CAND-430ed5fbdfaa08e663b13770",
+          "candidate_to_delivery_seconds": 32.0,
+          "classification": "useful_true",
+          "deadline_at": "2026-07-17T16:26:06.186207Z",
+          "delay_label": true,
+          "delivered_at": "2026-07-17T14:19:52Z",
+          "delivery_id": "P07-DELIVERY-655eb25db3c83e8f9bad2009",
+          "first_successful_delivery_for_trip": true,
+          "promise_version_id": "T03-TRIP-001355-PROMISE-V1",
+          "prospective_deadline_lead_seconds": 7574.186207,
+          "receipt_known_at": "2026-07-17T14:19:58Z",
+          "retrospective_arrival_lead_seconds": 13717.034533,
+          "snapshot_id": "S-bbd57637e0fd0ac4a8bf2983",
+          "successful_attempt_latency_seconds": 32.0,
+          "target_eligibility": "eligible",
+          "target_reason": "verified_gate_arrival",
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001355"
+        },
+        {
+          "alert_episode_id": "P06-EP-f48be16651479a4253da09a9",
+          "alert_id": "P07-ALERT-f7c1b358c66fb4d72b5f9b10",
+          "candidate_id": "P06-CAND-8f19b0661d0abb1770f08a39",
+          "candidate_to_delivery_seconds": 55.0,
+          "classification": "useful_true",
+          "deadline_at": "2026-07-20T13:01:45.993103Z",
+          "delay_label": true,
+          "delivered_at": "2026-07-20T11:37:15Z",
+          "delivery_id": "P07-DELIVERY-ccbbe7f43a63c5435bb3eed6",
+          "first_successful_delivery_for_trip": true,
+          "promise_version_id": "T03-TRIP-001382-PROMISE-V1",
+          "prospective_deadline_lead_seconds": 5070.993103,
+          "receipt_known_at": "2026-07-20T11:37:15Z",
+          "retrospective_arrival_lead_seconds": 6181.261958,
+          "snapshot_id": "S-0c4c77a98b49a7fa138e3c98",
+          "successful_attempt_latency_seconds": 55.0,
+          "target_eligibility": "eligible",
+          "target_reason": "verified_gate_arrival",
+          "tenant_id": "T03",
+          "trip_id": "T03-TRIP-001382"
+        }
+      ],
+      "denominators": {
+        "candidate_alert_delivery_rate": 4,
+        "conditional_first_delivery_useful_precision": 3,
+        "delivered_actionable_trip_recall": 8,
+        "delivered_trip_coverage": 12,
+        "first_delivery_assessable_coverage": 3,
+        "first_delivery_target_coverage": 3,
+        "first_delivery_usefulness_bounds": 3,
+        "successful_deliveries_per_100_monitored_trips": 12
+      },
+      "lead_seconds": {
+        "all_successful_deliveries": {
+          "candidate_to_delivery_seconds": {
+            "maximum": 55.0,
+            "median": 32.0,
+            "minimum": 6.0,
+            "missing": 0,
+            "observed": 3,
+            "unit": "seconds"
+          },
+          "prospective_deadline_lead_seconds": {
+            "maximum": 7574.186207,
+            "median": 7420.186207,
+            "minimum": 5070.993103,
+            "missing": 0,
+            "observed": 3,
+            "unit": "seconds"
+          },
+          "retrospective_arrival_lead_seconds": {
+            "maximum": 13717.034533,
+            "median": 8022.160091,
+            "minimum": 6181.261958,
+            "missing": 0,
+            "observed": 3,
+            "unit": "seconds"
+          },
+          "successful_attempt_latency_seconds": {
+            "maximum": 55.0,
+            "median": 32.0,
+            "minimum": 6.0,
+            "missing": 0,
+            "observed": 3,
+            "unit": "seconds"
+          }
+        },
+        "first_successful_deliveries": {
+          "candidate_to_delivery_seconds": {
+            "maximum": 55.0,
+            "median": 32.0,
+            "minimum": 6.0,
+            "missing": 0,
+            "observed": 3,
+            "unit": "seconds"
+          },
+          "prospective_deadline_lead_seconds": {
+            "maximum": 7574.186207,
+            "median": 7420.186207,
+            "minimum": 5070.993103,
+            "missing": 0,
+            "observed": 3,
+            "unit": "seconds"
+          },
+          "retrospective_arrival_lead_seconds": {
+            "maximum": 13717.034533,
+            "median": 8022.160091,
+            "minimum": 6181.261958,
+            "missing": 0,
+            "observed": 3,
+            "unit": "seconds"
+          },
+          "successful_attempt_latency_seconds": {
+            "maximum": 55.0,
+            "median": 32.0,
+            "minimum": 6.0,
+            "missing": 0,
+            "observed": 3,
+            "unit": "seconds"
+          }
+        }
+      },
+      "metrics": {
+        "candidate_alert_delivery_rate": 0.75,
+        "conditional_first_delivery_useful_precision": 1.0,
+        "delivered_actionable_trip_recall": 0.375,
+        "delivered_trip_coverage": 0.25,
+        "first_delivery_assessable_coverage": 1.0,
+        "first_delivery_target_coverage": 1.0,
+        "first_delivery_usefulness_bounds": {
+          "lower": 1.0,
+          "upper": 1.0
+        },
+        "successful_deliveries_per_100_monitored_trips": 25.0
+      },
+      "sparse": true,
+      "target_exclusion_reason_counts": {
+        "latest_outcome_cancelled": 2,
+        "latest_outcome_incomplete": 24
+      },
+      "tenant_id": "T03"
+    }
+  ]
+}

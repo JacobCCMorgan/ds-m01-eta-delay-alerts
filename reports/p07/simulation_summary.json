@@ -1,0 +1,26 @@
+{
+  "alert_status_counts": {
+    "delivered": 7,
+    "suppressed": 2
+  },
+  "alerts": 9,
+  "attempts": 8,
+  "candidates": 9,
+  "counts_as_of": "2026-08-01T07:00:00Z",
+  "definition_version": "p07-delivery-v1",
+  "delivered_alerts": 7,
+  "delivered_attempts": 7,
+  "delivery_status_counts": {
+    "delivered": 7,
+    "failed": 1
+  },
+  "duplicate_candidate_records_ignored": 0,
+  "duplicate_deliveries": 0,
+  "duplicate_episode_records_ignored": 0,
+  "episodes": 35,
+  "event_count": 48,
+  "labels_used": false,
+  "notifications_sent": false,
+  "recipient_openings_generated": false,
+  "synthetic_delivery_simulated": true
+}

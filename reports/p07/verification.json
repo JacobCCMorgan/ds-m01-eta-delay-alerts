@@ -1,0 +1,53 @@
+{
+  "base_public_commit": "75a9a24bc4d3b02a667db64b4696b2b9bc4856da",
+  "evaluation_readiness_sha256": "baedf1730280b8764891192f806485145df06010c5356418749026eb59c62aef",
+  "final_test_evaluated": false,
+  "formal_canonical_tables": 8,
+  "github_ci_verified": false,
+  "independent_audit": {
+    "comparisons": 9226,
+    "failure_count": 0,
+    "max_numeric_difference": 0,
+    "production_imports": false,
+    "receipt_sha256": "bf862bcbe981ac271e7f6af3c6ab893891b8229ddffb34b9c479aafcb76c10bc"
+  },
+  "m4_2_completed": false,
+  "operational_approval": false,
+  "protocol_freeze_sha256": "d6977480869d81e98cf3e551af8411a0ac18acbfd4978130b07877995103de2d",
+  "publication_verified": false,
+  "quality_accepted": false,
+  "real_notifications_sent": false,
+  "recorded_at_utc": "2026-11-11T19:58:48.182019+00:00",
+  "remaining_reserved_tables": [
+    "eta_adoption",
+    "eta_action",
+    "eta_action_followup"
+  ],
+  "repeatability": {
+    "byte_identical_core_files": 8,
+    "differences": 0,
+    "normalized_store_rows": 3031,
+    "normalized_store_tables": 26,
+    "receipt_sha256": "3e7ef471f553fbf50e0b0098a76dda9c972683820833c76479affa9d4f7fb3ba",
+    "runs": 2
+  },
+  "retained_replay": {
+    "differences": 0,
+    "receipt_sha256": "dfc01612f2388a69e8c20e5905cb4bdf69432dd95468e232c3f67c80b56b961e",
+    "typed_store_logical_rows_compared": 9093
+  },
+  "scope": "Assistant execution of synthetic July delivery development. User-signed commits, local adoption checks and GitHub publication remain separate. P08 final evaluation and P09 recipient behavior are not completed by this receipt.",
+  "source_assisted_replay": {
+    "differences": 0,
+    "july_source_targets_verified": true,
+    "receipt_sha256": "29ff019dfa61f2fcd6b5d8fad672a2b11462857527397da03c75a670dcc0358e",
+    "typed_store_logical_rows_compared": 9093
+  },
+  "status": "passed_engineering_verification",
+  "unit_tests": {
+    "count": 576,
+    "log_sha256": "17ab5c2ea473906fdbdefacacf49c5237a9fff7505b9072f7cefff2c98e95f0b",
+    "passed": true
+  },
+  "user_local_execution_verified": false
+}

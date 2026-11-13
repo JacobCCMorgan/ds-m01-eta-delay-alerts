@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "protocol_sha256": "589d96fe09e60059eafa1f984a578098e52880c6c114dbb8621a6f7ce40c3399",
+  "differences": 0,
+  "canonical_tables": 8,
+  "reserved_tables": 3,
+  "opportunities": 341,
+  "candidate_alerts": 9,
+  "risk_episodes": 35,
+  "attempts": 8,
+  "typed_store_logical_rows_compared": 9093,
+  "july_source_targets_verified": false,
+  "parent_policy_replayed": true,
+  "delivery_replayed": true,
+  "metrics_verified": true,
+  "model_or_calibrator_refitted": false,
+  "policy_reselected": false,
+  "real_notifications_sent": false,
+  "final_test_evaluated": false,
+  "quality_accepted": false
+}
