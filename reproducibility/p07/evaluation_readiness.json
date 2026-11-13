@@ -1,4 +1,24 @@
 {
+  "amendment": {
+    "changed_artifact": "tests/test_delivery_replay.py",
+    "current_artifact_sha256": "dec10b3c5b75ed934b3b8678d65c8b1f3beddbecf53a2e9edf2a43decaeb755e",
+    "kind": "test_path_portability",
+    "previous_artifact_sha256": "f2d7cbcebb50d8b42f2aef67c10b33865cbfac437319b0041c9b396a8a85bda5",
+    "previous_record_path": "reproducibility/p07/history/evaluation_readiness_20261111.json",
+    "previous_record_sha256": "baedf1730280b8764891192f806485145df06010c5356418749026eb59c62aef",
+    "previous_recorded_at_utc": "2026-11-11T19:57:05.830262+00:00",
+    "production_sources_changed": false,
+    "protocol_or_scenario_changed": false,
+    "reason": "Canonicalize the replay test fixture root and cover symlinked root/report paths. Two mock argument assertions failed on macOS /var aliases and were reproduced on Linux with an aliased TMPDIR.",
+    "retained_results_changed": false,
+    "scope": "This later test amendment does not claim the initial freeze covered the new test. The original readiness record is retained byte for byte and in the preceding commit. All 49 other artifact pins are unchanged. P08 still needs its own evaluator freeze before final targets.",
+    "validation": {
+      "failures": 0,
+      "platform": "Linux with symlinked TMPDIR",
+      "unit_tests": 577,
+      "user_macos_revalidation": "pending"
+    }
+  },
   "artifact_sha256": {
     "config/p07.json": "589d96fe09e60059eafa1f984a578098e52880c6c114dbb8621a6f7ce40c3399",
     "config/p08_evaluation.json": "b9d07fee882785b2de3325ec78048c481e6dc6ee0553bc1830786e597187d194",
@@ -46,7 +66,7 @@
     "tests/test_delivery_audit.py": "03cf07cfc10827ec1584ba9ac2f25f65a882e219a670aa939b5bab3397444046",
     "tests/test_delivery_inputs.py": "32ea5e86904f065fb6d11ecb75e0497edf23961a23d352cab30b66e331643514",
     "tests/test_delivery_metrics.py": "76ac2417aa1a50eb4ffd37a18310019abf97d274f0f8b0844a7037f748e13d90",
-    "tests/test_delivery_replay.py": "f2d7cbcebb50d8b42f2aef67c10b33865cbfac437319b0041c9b396a8a85bda5",
+    "tests/test_delivery_replay.py": "dec10b3c5b75ed934b3b8678d65c8b1f3beddbecf53a2e9edf2a43decaeb755e",
     "tests/test_delivery_run.py": "33cb5053464c41d18fa844fedc42f50d4f0eefdca8d7920c099b7f44177b4b67",
     "tests/test_delivery_simulation.py": "67a262effd3cfc391aba6937510d525fbf3321b28a7f9f069e25554c33456641",
     "tests/test_delivery_store.py": "417567890af2ba45fbb95354824fcbedef2fd77cb16c3d5fb2fefc3ad33c20be"
@@ -59,7 +79,7 @@
   "policy_reselected": false,
   "quality_accepted": false,
   "real_notifications_sent": false,
-  "recorded_at_utc": "2026-11-11T19:57:05.830262+00:00",
+  "recorded_at_utc": "2026-11-13T00:48:36.456978+00:00",
   "scope": "Validated P07 delivery and metric implementation plus retained development evidence are fixed. P08 still requires label-free final cohort inventory, separate final inference/stress evaluator, independent fixtures and a source freeze before final-target access. No final forecast or score has been produced.",
   "status": "ready_for_p08_implementation"
 }

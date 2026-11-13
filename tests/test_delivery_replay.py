@@ -22,7 +22,9 @@ class DeliveryReplayTests(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name)
+        # Replay resolves roots; temporary directories may use a platform alias
+        # such as macOS /var -> /private/var.
+        self.root = Path(temporary.name).resolve()
         self.report = self.root / 'fresh-report'
         self.report.mkdir()
         self.settings = dict(base_public_commit='base', source_report_sha256={'source.json':'pinned'},
@@ -81,6 +83,24 @@ class DeliveryReplayTests(unittest.TestCase):
                                                          self.receipt['materialized_at_utc'],self.settings)
         after = {str(p.relative_to(self.root)):digest_file(p) for p in self.root.rglob('*') if p.is_file()}
         self.assertEqual(before,after)
+
+    def test_symlink_root_and_report_use_canonical_paths_without_changing_evidence(self):
+        with tempfile.TemporaryDirectory() as directory:
+            alias = Path(directory) / 'repository-alias'
+            alias.symlink_to(self.root, target_is_directory=True)
+            self.assertNotEqual(alias, self.root)
+            self.assertEqual(alias.resolve(), self.root)
+            before = {str(p.relative_to(self.root)):digest_file(p) for p in self.root.rglob('*') if p.is_file()}
+            result = verify(alias, alias / 'fresh-report')
+            self.assertEqual(result['status'], 'passed')
+            self.mocks['verify_policy'].assert_called_once_with(self.root, self.root/'parent', input_root=None)
+            self.mocks['verify_store'].assert_called_once_with(self.root, self.report/'store', self.tables, self.settings)
+            self.mocks['verify_evaluation_readiness'].assert_called_once_with(self.root)
+            for call in self.mocks['verify_settings'].call_args_list:
+                self.assertEqual(call.args, (self.root,))
+            after = {str(p.relative_to(self.root)):digest_file(p) for p in self.root.rglob('*') if p.is_file()}
+            self.assertEqual(before, after)
+            self.assertTrue(alias.is_symlink())
 
     def test_scope_flags_require_json_booleans_before_any_policy_replay(self):
         for field in ('model_or_calibrator_refitted','policy_reselected','real_notifications_sent','final_test_evaluated','quality_accepted'):

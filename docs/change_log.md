@@ -2,6 +2,23 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-13 UTC — handle temporary-directory aliases in replay tests
+
+Two delivery replay mock assertions failed on macOS because the fixture kept
+the `/var/...` spelling while replay resolved the same directory to
+`/private/var/...`. An aliased `TMPDIR` reproduced both failures on Linux.
+The fixture now resolves its root; a regression also passes symlinked root and
+report paths and checks that replay leaves evidence files unchanged.
+All 577 tests pass with the aliased temporary directory on Linux. Revalidation
+on the reporting Mac remains pending.
+
+The test-only change is delivered as a separate follow-up commit. The original
+readiness record is retained in `reproducibility/p07/history/`; the current
+record identifies that predecessor and updates only this test's artifact pin
+with the actual amendment time. Production sources, protocol assumptions,
+models, retained results, and their pins are unchanged. No final evaluation,
+model refit, policy reselection, or quality acceptance is implied.
+
 ## 2026-11-11 UTC — simulate delivery and freeze final-evaluation requirements
 
 Retained the P06 policy, models, calibrators and July development population.
