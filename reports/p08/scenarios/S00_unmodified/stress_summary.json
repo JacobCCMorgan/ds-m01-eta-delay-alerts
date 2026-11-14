@@ -1,0 +1,14 @@
+{
+  "affected": 0,
+  "applicable": 3200,
+  "not_applicable": 0,
+  "opportunities": 3200,
+  "outcomes_used": false,
+  "reason_counts": {
+    "unmodified_features": 3200
+  },
+  "scenario_id": "S00_unmodified",
+  "source_observations_rewritten": false,
+  "transport_changed": false,
+  "trips": 400
+}

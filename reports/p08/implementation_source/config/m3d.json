@@ -1,0 +1,193 @@
+{
+  "protocol_id": "m3d-july-calibration-v1",
+  "batch_id": "DS-M01-P05-20261105-r1",
+  "base_commit_sha": "0a1255222dd82a14596d2a033b779d55b633542c",
+  "recorded_at_utc": "2026-11-05T22:34:29.216264+00:00",
+  "record_time_semantics": "Actual protocol preparation time, before July outcome use. Data cutoffs below are simulated information boundaries, not claims of historical deployment or execution.",
+  "expected_parent_config_sha256": {
+    "config/m2.json": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+    "config/m3b2.json": "0159f50769a010caafa2e901f50db56263440d5fdeda156ad46e610bd33b6b96",
+    "config/m3b3.json": "ce7dc122d8ed79cede3c3b7f605e0ba40b24c871ed3b1b47436235084b389966",
+    "config/m3c.json": "df9895e9b9c7854d2deb7ed0489ba0cb00bb2794c87dadea13a0b206620ef989"
+  },
+  "expected_source_sha256": {
+    "data/raw/eta_trip_event.jsonl": "28d1807fbd1f69cf5d22a76697f6cd03df8448336805cbc15c9ed3f934494127",
+    "data/raw/eta_route_version.jsonl": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+    "data/processed/eta_snapshot.jsonl": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f",
+    "data/processed/eta_split_assignment.jsonl": "af2951c4d153ff9d3fcf0de73651a49db05d7e8bbba85a424aa90451d1e9d2cb",
+    "data/processed/trip_membership.jsonl": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061",
+    "data/processed/feature_lineage.jsonl": "dba784ddb39e400c104e5d6679cb4a03c1b6e835a6584bf3f5e490da2611154e",
+    "data/raw/eta_promise_version.jsonl": "8ccabc505c96f681051e977de1d0eae9b1b792512a03e29161699daaadd6cd91",
+    "data/raw/eta_trip_outcome.jsonl": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58"
+  },
+  "final_training_id": "R01",
+  "training_cutoff_at": "2026-07-01T07:00:00Z",
+  "calibration_fit_cutoff_at": "2026-07-15T07:00:00Z",
+  "assessment_label_cutoff_at": "2026-08-01T07:00:00Z",
+  "calendar": {
+    "timezone": "America/Los_Angeles",
+    "train_departure_dates": [
+      "2026-01-01",
+      "2026-06-23"
+    ],
+    "calibration_fit_departure_dates": [
+      "2026-07-01",
+      "2026-07-10"
+    ],
+    "calibration_buffer_departure_dates": [
+      "2026-07-11",
+      "2026-07-14"
+    ],
+    "assessment_departure_dates": [
+      "2026-07-15",
+      "2026-07-24"
+    ],
+    "test_departure_dates": [
+      "2026-08-01",
+      "2026-09-30"
+    ]
+  },
+  "split_policy": "Assign the entire tenant/trip by original role and local actual-departure date using metadata only. July10 trips retain snapshots after midnight. Buffer, original excluded and final-test groups remain recorded with reasons and have no P05 label cutoff. Frozen heldout vehicles/routes cannot enter training or July calibration/assessment.",
+  "base_refit": "Refit the already selected ETA candidate, historical fallback, independent logistic classifier and prevalence fallback on original training only. Fit new full-training preprocessing without July rows or labels. No new model-family, feature or hyperparameter selection.",
+  "eta": {
+    "base_candidate_id": "gradient_boosting_quantile",
+    "fallback_method_id": "historical_baseline",
+    "base_settings_path": "config/m3b2.json",
+    "calibration_method_id": "trip_max_cqr",
+    "nominal_coverage": 0.8,
+    "minimum_fit_trips": 10,
+    "score": "For each eligible supported snapshot use max(raw_lower_seconds-target_seconds,target_seconds-raw_upper_seconds,0); each trip contributes the maximum of its nonnegative snapshot scores.",
+    "rank": "ceil((n_fit_trips+1)*nominal_coverage), one-indexed; use the observed order statistic with no interpolation. A rank beyond n has insufficient support.",
+    "expansion": "max(0,selected_trip_score)",
+    "lower_bound_floor_seconds": 0.0,
+    "median_policy": "Unchanged raw median; calibrated endpoints are coverage bounds, not newly fitted P10/P90 quantiles.",
+    "scope": "One calibrator per tenant for the fixed delivered ETA pipeline, including its declared historical fallback. Retain native/fallback source counts and source-stratified assessment.",
+    "target_eligibility": "Latest verified gate arrival known strictly before the role label cutoff, second/minute precision and positive exact remaining time; retain exclusions. No service or delivery completion substitute.",
+    "unsupported": "Keep raw interval with calibration_status=unsupported; do not call it calibrated.",
+    "guarantee_boundary": "Trip-max is a grouped adaptation of split CQR. The finite-sample argument requires exchangeable whole-trip scores. Temporal, vehicle/route dependence and maturity selection are not established exchangeable here; report empirical assessment, not guaranteed fleet coverage."
+  },
+  "probability": {
+    "base_method_id": "logistic_delay",
+    "fallback_method_id": "fold_prevalence",
+    "base_settings_path": "config/m3c.json",
+    "calibration_method_id": "nonnegative_sigmoid_logit",
+    "logit_clip_epsilon": 1e-06,
+    "mapping": "sigmoid(a*logit(clip(raw_probability,epsilon,1-epsilon))+b), a>=0, b unrestricted",
+    "minimum_fit_trips": 10,
+    "minimum_class_contributing_trips": 2,
+    "fit_weighting": "Each eligible supported tenant/trip has total weight one divided among its eligible snapshots. Class-contributing trip counts may overlap for revised promises. No class balancing.",
+    "objective": "SUM_i(weight_i*binary_cross_entropy_i)+0.5*((a-1)^2+b^2); do not divide by number of trips.",
+    "penalty_multiplier": 0.5,
+    "penalty_center": [
+      1.0,
+      0.0
+    ],
+    "optimizer": {
+      "method": "L-BFGS-B",
+      "analytic_gradient": true,
+      "initial_parameters": [
+        1.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.0,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ],
+      "options": {
+        "maxiter": 2000,
+        "ftol": 1e-12,
+        "gtol": 1e-09,
+        "maxls": 50
+      }
+    },
+    "numerics": "Use stable logaddexp cross entropy and stable sigmoid. Invalid input, nonfinite or nonconverged optimization is an error, not support fallback.",
+    "scope": "One calibrator per tenant on the fixed delivered classification pipeline including its declared prevalence fallback. No silent cross-tenant pooling.",
+    "target_eligibility": "Preserve M3c second-precision, independently evidenced gate-arrival binary target against snapshot-effective promise; no grace, unknown/cancelled/immature/already-arrived are unscored.",
+    "unsupported": "Identity fallback copies raw probability exactly, without clipping it, and records calibration_status=unsupported. Probability clipping applies only inside fitted sigmoid calibration.",
+    "rank_boundary": "Slope zero and numerical clipping/saturation can create ties. Tenant-specific mappings can alter ranking across tenants; no overall AUC invariance is claimed."
+  },
+  "assessment": {
+    "selection_role": "Independent of calibrator fitting and base training. Predeclared later use as the P06 policy-development pool is allowed; it is not an independent final-policy test.",
+    "frozen_decisions": "Do not select/calibrate on assessment outcomes, switch methods by observed GPS slices, change cutoffs/minimum supports, or refit calibrators on all July while retaining these held-out assessment claims.",
+    "weighting": "Within each reported cohort or slice, each scored tenant/trip has total weight one across its snapshots. Report all-opportunity availability and explicit exclusions separately.",
+    "eta_metrics": [
+      "trip_weighted_snapshot_coverage",
+      "trip_all_eligible_snapshots_coverage",
+      "trip_all_snapshots_coverage_given_full_availability",
+      "mean_width_seconds",
+      "mean_interval_score_seconds",
+      "median_mae_seconds",
+      "unavailable_opportunities",
+      "unsupported_calibration_opportunities"
+    ],
+    "probability_metrics": [
+      "brier",
+      "log_loss",
+      "average_precision",
+      "roc_auc",
+      "fixed_bin_reliability",
+      "class_support",
+      "unavailable_opportunities",
+      "unsupported_calibration_opportunities"
+    ],
+    "reliability_bin_edges": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "log_loss_epsilon": 1e-15,
+    "strata": [
+      "tenant_id",
+      "route_id",
+      "position_validity",
+      "early_trip",
+      "deadline_advance",
+      "prediction_source"
+    ],
+    "early_trip_cutoff_seconds": 3600,
+    "deadline_advance_edges_seconds": [
+      0,
+      1800,
+      7200
+    ],
+    "deadline_advance_convention": "overdue<0; 0-30m=[0,1800]; 30-120m=(1800,7200]; over2h>7200",
+    "sparse_below_scored_trips": 20,
+    "single_class_ranking": "ROC AUC and average precision null with reason; probability losses remain defined.",
+    "fit_metrics_label": "No before/after calibration-fit evaluation is run. Fit diagnostics are limited to fitting objective, trip scores, support and provenance; the calibration application guard rejects calibration-fit trip identities.",
+    "uncertainty": "Do not infer operational benefit, conditional per-GPS coverage or calibrated performance on future fleet data from this synthetic assessment.",
+    "eta_metric_semantics": "All-eligible-trip coverage counts a trip as missed if any eligible snapshot lacks an interval or is outside it. Full-availability coverage restricts to trips with intervals for every eligible snapshot. The alpha=0.2 interval score is width+10*(lower-target) below lower or width+10*(target-upper) above upper. Median predictions and median MAE are unchanged."
+  },
+  "protected_periods": "Never pass July11-14 buffer targets or August-September final-test targets to fit/assessment/scoring. Original heldout entities remain protected even when dates fall in training or July.",
+  "replay": {
+    "absolute_numeric_tolerance": 1e-10,
+    "relative_numeric_tolerance": 1e-09,
+    "clock_tolerance_microseconds": 50,
+    "scope": "Source identities, roles, support and fallback decisions exact; fixed-runtime repeated outputs compared separately from bounded portable inference."
+  },
+  "method_references": [
+    {
+      "title": "Conformalized Quantile Regression, Romano et al. (2019)",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2019/file/5103c3584b063c431bd1268e9b5e76fb-Paper.pdf",
+      "scope": "CQR score/order-statistic construction and exchangeability premise; whole-trip max aggregation is this protocol adaptation."
+    },
+    {
+      "title": "scikit-learn 1.8 probability calibration",
+      "url": "https://scikit-learn.org/1.8/modules/calibration.html",
+      "scope": "Disjoint base/calibration data, sigmoid approach, small-sample isotonic caution and limits of Brier as calibration-only evidence."
+    }
+  ]
+}

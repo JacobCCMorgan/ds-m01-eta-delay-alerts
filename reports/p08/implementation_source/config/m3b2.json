@@ -1,0 +1,105 @@
+{
+  "batch_id": "DS-M01-M3b2-P02-20261030-r1",
+  "candidate_definition_version": "m3b2-candidates-v1",
+  "candidate_ids": [
+    "linear_quantile",
+    "gradient_boosting_quantile"
+  ],
+  "candidate_parameters": {
+    "linear_quantile": {
+      "alpha": 0.01,
+      "solver": "highs",
+      "fit_intercept": true
+    },
+    "gradient_boosting_quantile": {
+      "loss": "quantile",
+      "n_estimators": 64,
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "min_samples_leaf": 20,
+      "random_state": 20261030,
+      "subsample": 1.0,
+      "n_iter_no_change": null
+    }
+  },
+  "min_fit_trips": 5,
+  "parameter_status": "Fixed engineering defaults before candidate validation accuracy or heldout evaluation; no tuning or model selection in M3b.2.",
+  "purpose": "Train fold-local quantile candidates and emit every validation opportunity without reading validation targets.",
+  "expected_retained_sha256": {
+    "config/m2.json": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+    "config/m3a.json": "8eac552ff1bed556b4e9bd29b86d230e52484ba832e96064181e85e8dc59b8df",
+    "config/m3b1.json": "804cd7368985c4ebccb69876562f5cad1399f4cc87239d2bba5937c727d929bf",
+    "contracts/m3b1_features.json": "c2b57c73843ead572032337d057f097e288a6fbf7873d7f6795cc1713abfb0a0",
+    "reports/rebuild_report.json": "c08dba07e473c4a66019d3a0308472d0abe0ea0d61fb9689bdc8afb239dcd28e",
+    "reports/m3a/frozen_history.jsonl": "5e1177841d3905cb642296f500f5284efcd9fee344e969764e85d9d09be8225a",
+    "reports/m3a/run_receipt.json": "3c1889b7a4a7d4601048ae24758327a08ac93ae84d6e2dd5103b13feba65d379",
+    "reports/m3b1/run_receipt.json": "6426747bdd26555c0b9c89eafec8590a97d8f7ba4c14b6dffb17efc661b387d9",
+    "reports/m3b1/features.jsonl": "0b89d11df505aa206d301f18cd457ff4af3e474d9fa9833d352f4bb17830cbaa",
+    "reports/m3b1/matrices.jsonl": "8754fec48824adf5ecac233cb3a4209c065670a820eb93b7d3df33aa03a8353e",
+    "reports/m3b1/memberships.jsonl": "079b2ef21f14ed9cc746cd563a4b71425544a7611f72dfae8199d0db302b1d96",
+    "reports/m3b1/summary.json": "1c3252e0d1d8ff385aa03e6f877cc24d1d46cb9b089eef9162f570e2f59d7680",
+    "reports/m3b1/transformers.json": "f9772e60e8e1101f32d03cc1e8f1f8582e954ac48d34818f4518c6dff4be4e81",
+    "src/ds_m01/baseline.py": "2f947d9219eb53eb6e7991bc4256ba86b2bfc4ed3a5c2668d9365d77aa25a8e1",
+    "src/ds_m01/common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+    "src/ds_m01/features.py": "91f2e9f1529aae6e38f1b3ab24e92d7dc9c988eedf2b2297bb8fa45e5c389a8a",
+    "src/ds_m01/feature_transform.py": "5911757e7985e72abf95fce53e7cc03490322af4f58c44bcd5ae580d2fa63cff",
+    "src/ds_m01/model_splits.py": "d1c09f2cf8800bd006063afb1c027dfc4fd06bac6512539f44d93a7ded2dcd95",
+    "requirements.lock": "cfd03ba6b6b3ec4b0df5b9d0b8ff1f925350c3cf2622cae959cea30dd6ffdb7f",
+    "requirements-models.lock": "f38ee94aaee6dcf3cc5d11a76ab31f4d1dc3c7b7fd51f360d09e949971d3cb2f"
+  },
+  "expected_outcome_sha256": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58",
+  "folds": [
+    {
+      "fold_id": "F01",
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-02-21"
+      ],
+      "training_cutoff_at": "2026-03-01T00:00:00-08:00",
+      "validation_departure_dates": [
+        "2026-03-01",
+        "2026-03-24"
+      ],
+      "validation_label_cutoff_at": "2026-04-01T00:00:00-07:00"
+    },
+    {
+      "fold_id": "F02",
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-03-24"
+      ],
+      "training_cutoff_at": "2026-04-01T00:00:00-07:00",
+      "validation_departure_dates": [
+        "2026-04-01",
+        "2026-04-23"
+      ],
+      "validation_label_cutoff_at": "2026-05-01T00:00:00-07:00"
+    },
+    {
+      "fold_id": "F03",
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-04-23"
+      ],
+      "training_cutoff_at": "2026-05-01T00:00:00-07:00",
+      "validation_departure_dates": [
+        "2026-05-01",
+        "2026-05-24"
+      ],
+      "validation_label_cutoff_at": "2026-06-01T00:00:00-07:00"
+    },
+    {
+      "fold_id": "F04",
+      "train_departure_dates": [
+        "2026-01-01",
+        "2026-05-24"
+      ],
+      "training_cutoff_at": "2026-06-01T00:00:00-07:00",
+      "validation_departure_dates": [
+        "2026-06-01",
+        "2026-06-23"
+      ],
+      "validation_label_cutoff_at": "2026-07-01T00:00:00-07:00"
+    }
+  ]
+}

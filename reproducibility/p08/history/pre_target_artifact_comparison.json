@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-11-14T06:07:47.238471+00:00",
+  "recorded_after_first_final_target_access": true,
+  "scope": "Compares hashes of input and scenario artifacts sealed before final-target access; this later comparison does not move their original freeze timestamps.",
+  "compared_artifacts": 97,
+  "differences": [],
+  "scientific_forecasts_policy_and_transport_changed": false
+}

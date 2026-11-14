@@ -1,0 +1,35 @@
+{
+  "changed_source_sha256": {
+    "scripts/check_final_evaluation.py": {
+      "after": "3f15e888d91fad4f3410f71f1156a0d1bf6def981210bddbe32098cbf7985ef0",
+      "before": "c8ebe966ec5ef2c44972151a2ca468ebdc3ac23ae7ee06cb64758fc2b8d7dee8"
+    },
+    "src/ds_m01/final_gate.py": {
+      "after": "f15232a67267fde4b14c6f08fc3fffc2b32169739b9b9b4e4fbff33720107fd3",
+      "before": "53ceefc67bb84ca8b03db6f4a7748045b6075cb8844e77596a779401150e94e6"
+    },
+    "src/ds_m01/final_run.py": {
+      "after": "b20bc7d3c54954126544fec49da5e37b8794f97d81fc2350b01cfc0950dda80e",
+      "before": "e21c4b9f1511fcb4dd660fd05e7022eafaa7fc6a41b8e83b01aac1ee421e6af8"
+    },
+    "tests/test_final_gate.py": {
+      "after": "6a27b193892d2db23e36a1c463f757dc8f618e49d65aea44230177fcc03419cf",
+      "before": "e7a802cf7d70e47bd41c10fca1edde4a6b40f9d1126a19b4411f2e307b54008f"
+    },
+    "tests/test_final_independent.py": {
+      "after": "42fdb197221e56ce4fa97a51a51b760ea064f9d79d770e468cf77f58c0666fa2",
+      "before": "bfbdfbe50ff27b07d0e60864cf29e234d1891a220626e13c12cbde67365ff70b"
+    }
+  },
+  "conformance_tests": 727,
+  "current_freeze_sha256": "d6cb17c36cb59812388a385fe61a6d0db7448770a7f4c916a0b1f40cab86f202",
+  "initial_freeze_path": "reproducibility/p08/history/implementation_freeze_pre_target_01.json",
+  "initial_freeze_sha256": "8f73eb415a821e1d77a76d8b10c599e22330f4801cf8f7110985da93bf44dc44",
+  "metadata_inventory_changed": false,
+  "pre_target_failure_path": "reproducibility/p08/history/pre_target_attempt_01_failure.json",
+  "prior_final_target_exposure": false,
+  "reason": "Exclude only the reserved top-level P08 output/attempt directories from historical report inventories and check this before inference. The first attempt was stopped before any final outcome access; no scientific tuning or scoring correction occurred.",
+  "recorded_at_utc": "2026-11-14T06:03:38.520930+00:00",
+  "scientific_configuration_models_or_inputs_changed": false,
+  "status": "pre_target_execution_guard_repaired_and_reregistered"
+}

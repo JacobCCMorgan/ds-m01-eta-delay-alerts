@@ -1,0 +1,14 @@
+{
+  "affected": 3200,
+  "applicable": 3200,
+  "not_applicable": 0,
+  "opportunities": 3200,
+  "outcomes_used": false,
+  "reason_counts": {
+    "fixed_transform": 3200
+  },
+  "scenario_id": "S03_unseen_route_slot",
+  "source_observations_rewritten": false,
+  "transport_changed": false,
+  "trips": 400
+}

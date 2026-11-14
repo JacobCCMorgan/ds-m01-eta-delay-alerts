@@ -1,0 +1,1 @@
+{"decision_threshold_version":"P06-RULE-36e4955032b25e4e8fd2045d","delay_alert_threshold":0.55,"minimum_action_lead_seconds":1800,"repeat_suppression_seconds":1800,"threshold_selection_ref":"selection_manifest.json"}

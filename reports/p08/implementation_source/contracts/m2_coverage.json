@@ -1,0 +1,239 @@
+{
+  "milestone": "M2",
+  "required_table_count": 28,
+  "materialized_schema_count": 28,
+  "populated_table_count": 17,
+  "reserved_empty_table_count": 11,
+  "optional_disabled": [
+    "eta_forecast_version",
+    "eta_routing_response"
+  ],
+  "full_project_requirements_complete": false,
+  "scope": "M2 data population and schema preparation; model/alert requirements remain pending",
+  "tables": [
+    {
+      "table": "eta_trip",
+      "row_count": 1800,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_facility_version",
+      "row_count": 12,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_route_version",
+      "row_count": 12,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_trip_plan_version",
+      "row_count": 1800,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_promise_version",
+      "row_count": 1964,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_trip_event",
+      "row_count": 3600,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_snapshot",
+      "row_count": 14349,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_history_reference",
+      "row_count": 2536045,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_trip_outcome",
+      "row_count": 3763,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_snapshot_label",
+      "row_count": 14349,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_split_assignment",
+      "row_count": 1800,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "eta_model_version",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_evaluation_membership",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_prediction",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_alert_rule_version",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_output_release",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_alert_episode",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_alert",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_notification_delivery",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_adoption",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_action",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "eta_action_followup",
+      "row_count": 0,
+      "stage": "future_model_or_alert",
+      "population_status": "reserved_empty_pending_later_stage",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "pending_later_stage_contract_validation"
+    },
+    {
+      "table": "core_tenant",
+      "row_count": 3,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "core_vehicle",
+      "row_count": 30,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "core_device",
+      "row_count": 36,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "core_vehicle_device_assignment",
+      "row_count": 686,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "provenance_record",
+      "row_count": 2775752,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    },
+    {
+      "table": "telemetry_event",
+      "row_count": 197303,
+      "stage": "data",
+      "population_status": "materialized",
+      "schema_status": "types_and_nullability_created",
+      "key_constraints": "enforced_primary_key"
+    }
+  ]
+}

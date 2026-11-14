@@ -1,0 +1,15 @@
+{
+  "affected": 2800,
+  "applicable": 2800,
+  "not_applicable": 400,
+  "opportunities": 3200,
+  "outcomes_used": false,
+  "reason_counts": {
+    "fixed_transform": 2800,
+    "no_original_position_or_elapsed_below_1800": 400
+  },
+  "scenario_id": "S02_stale_position",
+  "source_observations_rewritten": false,
+  "transport_changed": false,
+  "trips": 400
+}

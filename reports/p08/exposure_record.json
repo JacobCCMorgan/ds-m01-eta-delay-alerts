@@ -1,0 +1,7 @@
+{
+  "expected_source_sha256": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58",
+  "pretarget_receipt_sha256": "69c5fea6f3ee83ca00c5aaa8eca8f9105e5b37e0fc0a3c031b9e83e9070af31f",
+  "scope": "Final outcomes are now exposed. Any correction must retain this attempt and disclose prior exposure.",
+  "started_at_utc": "2026-11-14T06:06:33.118798+00:00",
+  "status": "final_outcome_access_started"
+}

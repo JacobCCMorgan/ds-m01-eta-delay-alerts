@@ -1,0 +1,8 @@
+{
+  "exception_type": "ValueError",
+  "final_outcomes_exposed": false,
+  "message": "Historical evidence changed",
+  "recorded_at_utc": "2026-11-14T05:56:31.564202+00:00",
+  "scope": "Retained first attempt; not a successful result. Preserve this directory for any correction.",
+  "status": "failed_evaluation_attempt"
+}

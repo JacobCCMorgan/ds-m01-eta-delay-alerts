@@ -1,0 +1,114 @@
+[
+  {
+    "id": "ETA-V01",
+    "case": "Forecast issued_at precedes the snapshot, but forecast_available_at follows it",
+    "expected": "Exclude the forecast; store the actual retrieved_at for this run separately for audit, without replacing the time it became available in the scenario",
+    "evidence": "Frozen original forecast, availability-time evidence, and independent temporal test cases",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V02",
+    "case": "The customer postpones the promise deadline after the snapshot",
+    "expected": "Keep the snapshot linked to the original promise_version; report outcomes against the original and revised promises separately",
+    "evidence": "Manually specified timeline with two promise versions",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V03",
+    "case": "Cancelled, lost-contact, incomplete, and already-arrived snapshots",
+    "expected": "Do not assign zero remaining time or an on-time outcome; distinguish not applicable, unknown, and immature labels",
+    "evidence": "Independent status truth and a censoring follow-up table",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V04",
+    "case": "Gate arrival at 14:00 and service start at 15:00",
+    "expected": "Use 14:00 for the arrival label; the service event is a subsequent outcome only",
+    "evidence": "Independent gate-arrival and service-event evidence",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V05",
+    "case": "The last valid position is more than 30 minutes old, or no position is available",
+    "expected": "Expose stale or missing position and apply a fallback; do not invent a position or an excessively narrow interval",
+    "evidence": "Event list including connectivity loss and delayed transmission",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V06",
+    "case": "Early and late snapshots from the same trip were initially assigned to training and test",
+    "expected": "Group by tenant+trip_id; exclude or defer boundary trips according to label maturity and temporal rules",
+    "evidence": "Split assignment frozen in advance",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V07",
+    "case": "Unseen routes and vehicles",
+    "expected": "Report error, coverage, and fallback rate by stratum; do not combine them with averages for previously seen groups",
+    "evidence": "Fixed held-out route and vehicle ID lists",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V08",
+    "case": "A nominal 80% interval has only 60% observed coverage",
+    "expected": "Report undercoverage and interval width; do not claim that 80% coverage was achieved",
+    "evidence": "Independent mature labels and a frozen test set",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V09",
+    "case": "Two trips have substantially different snapshot counts",
+    "expected": "Ensure weights sum to 1 for each trip within each stratum; also report snapshot-level results",
+    "evidence": "Small hand-calculated examples for weighted coverage and MAE",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V10",
+    "case": "Repeated sends, failed retries, and partial adoption within the same episode",
+    "expected": "Count notification burden only for actual deliveries; distinguish delivery, opening, adoption, and action",
+    "evidence": "Independent notification receipts and manually specified cases",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V11",
+    "case": "Delay-classification probabilities and arrival quantiles",
+    "expected": "Evaluate Brier score/reliability and interval coverage separately; do not invent probabilities from interval bounds",
+    "evidence": "Independent binary delay labels and a calibration set",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V12",
+    "case": "A repeated hour during daylight-saving transition and a late-arriving arrival correction",
+    "expected": "Use the UTC offset to disambiguate timestamps; the original snapshot/training cutoff must not access the late-arriving version",
+    "evidence": "IANA timezone tests and correction available_time",
+    "status": "planned",
+    "execution_override": ""
+  },
+  {
+    "id": "ETA-V13",
+    "case": "Actual retrieval in 2026 coexists with synthetic forecast availability in 2025; historical availability of public data is unknown",
+    "expected": "Replay synthetic data using 2025 scenario availability while retaining the 2026 retrieved_at; prohibit public data with unknown availability instead of backfilling it to 2025",
+    "evidence": "Fixed dual-time cases, a synthetic manifest, and cases lacking historical receipt evidence",
+    "status": "planned",
+    "execution_override": "Use 2026 scenario time and actual retrieval time; no fictitious past availability."
+  },
+  {
+    "id": "ETA-V14",
+    "case": "Other completed-trip labels coexist with current-trip, immature, and late-known labels",
+    "expected": "The restricted history view admits only approved outcomes for other completed trips that were already known at the snapshot; reject the current trip, immature or late-known labels, and data outside the frozen historical pool",
+    "evidence": "Five manually fixed candidate historical outcomes, the snapshot cutoff, and the training-history pool list",
+    "status": "planned",
+    "execution_override": ""
+  }
+]

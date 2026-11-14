@@ -1,0 +1,33 @@
+{
+  "ci_verified": false,
+  "conformance_preceded_first_final_target_access": true,
+  "evidence_sha256": {
+    "conformance_receipt.json": "ddf070d9583149334fa1409485743d020efb5eddbd5efc5c743c8708b46348db",
+    "exposure_record.json": "b1a8c3a123313985835c36b71d7d6942e2ed2ea4adfe01c0e5b07a84c0954b1d",
+    "guard_events.jsonl": "67930e1265602c5a3769bce5f440cc40271843d8889887dfcb42ca3f4457411f",
+    "implementation_freeze.json": "d6cb17c36cb59812388a385fe61a6d0db7448770a7f4c916a0b1f40cab86f202",
+    "independent_checks.json": "f6d94ebdc05216d61bc02c3f2c7e922eb8b59b80bd5e57d27099317615e8d08c",
+    "pretarget_receipt.json": "69c5fea6f3ee83ca00c5aaa8eca8f9105e5b37e0fc0a3c031b9e83e9070af31f",
+    "retained_replay.json": "da6c9a1f54ee7ce72c95df0b2269bd4684dfcca9c577c6a5845056065abf7872",
+    "run_receipt.json": "a4f8b184792dfa3d6417a61fa8544ca4b94ea4440f10058b57f17e8d26976fc0",
+    "unittest_results.txt": "1e9cd6e40776bfde26f37616c6098da5293dd577878fbeee87f99863236da430"
+  },
+  "historical_reports_unchanged": true,
+  "independent_comparisons": 10349858,
+  "independent_failures": 0,
+  "independent_maximum_numeric_difference": 8.640199666842818e-12,
+  "operational_approval": false,
+  "p08_commits_published": false,
+  "quality_accepted": false,
+  "recorded_at_utc": "2026-11-14T06:31:08.087915+00:00",
+  "retained_replay_differences": 0,
+  "retained_replay_logical_comparisons": 15907760,
+  "scenario_count": 9,
+  "scope": "Completed synthetic final evaluation and reproducible engineering checks. The unit-test log is the recorded pre-target conformance run. This reporting index is added after the completed run and is not part of its original output inventory. User-local execution, signed publication, CI and formal quality acceptance are separate.",
+  "status": "passed_engineering_verification",
+  "test_errors": 0,
+  "test_failures": 0,
+  "test_skips": 0,
+  "unit_tests": 727,
+  "user_local_validation_observed": false
+}

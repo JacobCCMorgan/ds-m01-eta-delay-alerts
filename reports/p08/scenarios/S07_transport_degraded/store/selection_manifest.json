@@ -1,0 +1,17 @@
+{
+  "operational_approval": false,
+  "quality_accepted": false,
+  "scope": "Frozen P06 selection applied to final test without reselection",
+  "selected_rule": {
+    "daily_candidate_cap_per_tenant": 2,
+    "enabled": true,
+    "minimum_action_lead_seconds": 1800,
+    "policy_version": "P06-RULE-36e4955032b25e4e8fd2045d",
+    "repeat_suppression_seconds": 1800,
+    "threshold": "0.550000",
+    "timezone": "America/Los_Angeles"
+  },
+  "source_reference": "reports/p06/selection_manifest.json",
+  "source_sha256": "8378dc1fbc9231635c7709edc16ea5080835380b25310ffad14c9ab577f8ef2a",
+  "threshold_reselected": false
+}

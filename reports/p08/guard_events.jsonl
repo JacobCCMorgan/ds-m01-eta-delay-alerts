@@ -1,0 +1,11 @@
+{"event": "guard_installed", "pid": 5, "temporary_root": "/tmp/p08-conformance-htz24xle"}
+{"event": "blocked_child_process", "executable": "uname", "pid": 5}
+{"event": "guard_installed", "pid": 292, "temporary_root": "/tmp/p08-conformance-htz24xle"}
+{"event": "guard_installed", "pid": 293, "temporary_root": "/tmp/p08-conformance-htz24xle"}
+{"event": "guard_installed", "pid": 294, "temporary_root": "/tmp/p08-conformance-htz24xle"}
+{"event": "guard_installed", "pid": 295, "temporary_root": "/tmp/p08-conformance-htz24xle"}
+{"event": "blocked_child_process", "executable": "/bin/cat", "pid": 295}
+{"event": "blocked_child_process", "executable": "/workspace/scratch/d19ad7bcb7a7/work/venv/bin/python", "pid": 295}
+{"event": "blocked_native_execution", "operation": "os.system", "pid": 295}
+{"event": "guard_installed", "pid": 296, "temporary_root": "/tmp/p08-conformance-htz24xle"}
+{"event": "guard_installed", "pid": 297, "temporary_root": "/tmp/p08-conformance-htz24xle"}

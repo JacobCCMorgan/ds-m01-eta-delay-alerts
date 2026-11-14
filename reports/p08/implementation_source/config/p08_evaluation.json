@@ -1,0 +1,509 @@
+{
+  "protocol_version": "p08-final-evaluation-v1",
+  "project_id": "DS-M01",
+  "stage": "P07 protocol freeze for P08 M3e final evaluation",
+  "display_timezone": "America/Los_Angeles",
+  "design_date_local": "2026-11-11",
+  "base_public_commit": "75a9a24bc4d3b02a667db64b4696b2b9bc4856da",
+  "implementation_status": "Specification only at P07; the final-test inference/evaluator and stress runner are not yet implemented. No P08 target access or scoring is authorized by this file alone.",
+  "design_disclosure": "P05/P06 July outcomes are already known. This protocol is fixed before the P07 delivery simulation and before use of August-September final targets; it does not claim blind July design.",
+  "artifact_sha256": {
+    "config/m1.json": "a83a9ce02436c014b5bfaeec2f4d3ce6c11ad4ce9f3467208af3ffd19753d3ac",
+    "config/m2.json": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+    "config/m3b3.json": "ce7dc122d8ed79cede3c3b7f605e0ba40b24c871ed3b1b47436235084b389966",
+    "config/m3d.json": "1c898e5a4e6f095f58d1b6321deb029b4a34ce4cc6456ecaf15e58582147aa87",
+    "config/p06.json": "7b7dbe70ec1d44199bd971607eeec9a029fdee5567a3c4fa1f42f7fac9ee0470",
+    "contracts/fields.json": "3bf382e0b24442afe73872f8b1bd9d12e2383bbb155eec2e116b48cc3bd0addc",
+    "contracts/m3b1_features.json": "c2b57c73843ead572032337d057f097e288a6fbf7873d7f6795cc1713abfb0a0",
+    "reports/m3b3/selection.json": "09b9def7b5c9d335cbc9caad1c5ed87324498e871f5d3ed1a02330b2d2824d4e",
+    "reports/m3d/refit_eta_models.json": "8397ed902d214d52bac0becfa002412928ff269b921ab4e55bda2ba7f8874bc8",
+    "reports/m3d/refit_delay_models.json": "b2f972863fa9ef74265c522bca7f89c16af7299cd3d80efe0bf09df55d52132f",
+    "reports/m3d/refit_transformers.json": "af99a28bb1f7774a94b37261cecdcc5bbbf760f18047a3d39947039d282cdc99",
+    "reports/m3d/refit_frozen_history.json": "429b12d21a136ce72da305a8e0190e4726fd5a551d3f5b5c0fb33d5d94204eed",
+    "reports/m3d/calibrators.json": "d558b13fb14d94d351ebecc4089ad3eeddb1d0caaf3abb1eee4196c77701aff1",
+    "reports/p06/selected_policy.json": "530b3d97838fc764809ba7494bce5c251bc11f1866306e1301e5bd0c8c2101ea",
+    "reports/p06/selection_manifest.json": "8378dc1fbc9231635c7709edc16ea5080835380b25310ffad14c9ab577f8ef2a",
+    "config/p07.json": "589d96fe09e60059eafa1f984a578098e52880c6c114dbb8621a6f7ce40c3399"
+  },
+  "input_sha256": {
+    "data/raw/eta_trip_event.jsonl": "28d1807fbd1f69cf5d22a76697f6cd03df8448336805cbc15c9ed3f934494127",
+    "data/raw/eta_route_version.jsonl": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+    "data/processed/eta_snapshot.jsonl": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f",
+    "data/processed/eta_split_assignment.jsonl": "af2951c4d153ff9d3fcf0de73651a49db05d7e8bbba85a424aa90451d1e9d2cb",
+    "data/processed/trip_membership.jsonl": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061",
+    "data/processed/feature_lineage.jsonl": "dba784ddb39e400c104e5d6679cb4a03c1b6e835a6584bf3f5e490da2611154e",
+    "data/raw/eta_promise_version.jsonl": "8ccabc505c96f681051e977de1d0eae9b1b792512a03e29161699daaadd6cd91",
+    "data/raw/eta_trip_outcome.jsonl": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58"
+  },
+  "existing_core_sha256": {
+    "alert_inputs.py": "56cd2305f64a60fe9ce8abd5a61cd66684aa28d174ed4eb7b45ff24998f03dbc",
+    "alert_policy.py": "4ca048fbb96380728c1e0cb34f73224a6177f31b97b5af0f784d141fe7e9df6d",
+    "alert_metrics.py": "8f4d75f054d4d2b9e6e5196a5eb23fc587d4b3cc5578b6294686a0282e7e6ab1",
+    "alert_run.py": "dbcef06fd8088ee37e5b8b55f5ca2052879c7868dabffdfae1814d0f2884923d",
+    "alert_replay.py": "74ce1a6f93d299ac80541c2db11e33221279a0d373c952ee7f207648737b449a",
+    "calibration_split.py": "e428fb1e9cc6484e9121965645c71b7a3d72723a869447fc916dab1b31120d1f",
+    "calibration_refit.py": "5ee0a0b58df5b72fbb90ebe49a14f94046793d58e6fac81b2cc26b8322eaba0e",
+    "calibration_models.py": "b06803a2c55c03f7ca65f44dee214ab7199ae472e5d16f06b24063f995c6a2a1",
+    "calibration_targets.py": "e115fa7f1e7e30c553bcae8fb3ac5d8a3fd7441515454523f7fc8bf19664548d",
+    "calibration_metrics.py": "e36303e0065475d28b432f8e40aea4a3a531492ae49de5d7fc98956bea592da0",
+    "calibration_run.py": "0f427c27bdbc391e9c118b267ac55478437981fadd34a3dbcd194852f82ef9ee",
+    "calibration_replay.py": "b6011a52a171ac8a4c5ceb3370f9699811256c50f237e10c0c3f2dc4a5d474b9",
+    "delay_replay.py": "da04dc3dd216c8b8d779c0f3e76f936c5871da6f6adeb20837a7e3242d9fbd03",
+    "delay_targets.py": "89155dafbc835674478cf1a39128765cc791204284464cdda535562578839ea9",
+    "delay_model.py": "7a86e75135317eb20def811cb76f96cbfcbc4946df54d604f7ce6b9ee1408868",
+    "delay_run.py": "0340f7bbf80f7338035aedba5b1d98649531354a5810f7c3e7cfcf7f4d49901f",
+    "delay_metrics.py": "3294a139d2ab5641cd243b73c4810c118768b600fd8ee83bb5cbcafa7c9e643f",
+    "candidate_model.py": "9406f202c385764002fc4abf03dc755cf21c8ee96d12b88049b52a571c9aff5f",
+    "candidate_targets.py": "57ee05d00834edadc288658c96014f44f64ba417d922890fb6a1fccd1370e202",
+    "candidate_run.py": "4ebcb9125ca04361012af2c1ebf1e165cab0ae97ee252c283e2a0e3bec4e87b8",
+    "feature_run.py": "1259d964aad6fbdbeadb4885d37567d0ebe88be2b7624e58faacc878606013d3",
+    "feature_transform.py": "5911757e7985e72abf95fce53e7cc03490322af4f58c44bcd5ae580d2fa63cff",
+    "features.py": "91f2e9f1529aae6e38f1b3ab24e92d7dc9c988eedf2b2297bb8fa45e5c389a8a",
+    "baseline.py": "2f947d9219eb53eb6e7991bc4256ba86b2bfc4ed3a5c2668d9365d77aa25a8e1",
+    "baseline_run.py": "d1a7da992e01c5f9d4f79407edbcb87be9ae74ab7493eab966699d4bb2b612c3",
+    "baseline_metrics.py": "1d8efaa878538b063811b3d81781104801e9c62bb995d963daf8169a18d13287",
+    "common.py": "ff288aded4e5a5bc2621cc723b2f434d80e4f4ed01cd615e5f197e32fb93727d",
+    "model_splits.py": "d1c09f2cf8800bd006063afb1c027dfc4fd06bac6512539f44d93a7ded2dcd95",
+    "release_store.py": "8f6fa1910abfb259b53c7bee96054b9144ee5469b5d17105ea7bd07de117325d"
+  },
+  "future_implementation_gate": "P08 must register evaluator/stress/delivery source hashes, passing independent hand/boundary tests and exact metadata-only membership/opportunity inventories before opening final target payloads. Existing frozen core files must match these pins. New code must conform to this specification; no alteration of models, split, targets, rule, delivery parameters, stress cases, metrics or acceptance definitions based on final labels.",
+  "population": {
+    "unit": "(tenant_id, trip_id), original frozen split assignment test",
+    "departure_dates_inclusive": [
+      "2026-08-01",
+      "2026-09-30"
+    ],
+    "timezone": "America/Los_Angeles",
+    "label_cutoff_exclusive": "2026-10-15T07:00:00Z",
+    "required_scope": "All original test trips and every frozen snapshot belonging to them; trip role remains fixed across local midnight. Snapshot clocks and selected label knowledge must be strictly before the cutoff. No target-based membership pruning.",
+    "heldout_routes": [
+      "ROUTE-12"
+    ],
+    "heldout_vehicles": [
+      "T01-V10",
+      "T02-V10",
+      "T03-V10"
+    ],
+    "primary_novelty_groups": [
+      "seen_vehicle_seen_route",
+      "unseen_vehicle_seen_route",
+      "seen_vehicle_unseen_route",
+      "unseen_vehicle_unseen_route"
+    ],
+    "group_definition": "Heldout membership comes from the original frozen entity IDs, cross-checked against training metadata; never infer seen/unseen from final errors or label support. Include both sparse route-only and joint-heldout groups even when no metric can be estimated.",
+    "empty_group_rule": "Emit the group with counts zero, metric null and a reason; do not omit it or count it as a perfect result.",
+    "expected_counts": "Determined and pinned from metadata only before scoring; no target counts inspected at P07."
+  },
+  "membership_gate": "Build and hash the complete original test key inventory from assignments, departure evidence and snapshot metadata before any target access; each original test trip must retain all frozen opportunities. July42/341 counts do not apply.",
+  "pipeline": {
+    "eta": "P05 R01 selected gradient_boosting_quantile with its existing historical_baseline fallback; no refit, no transformer/vocabulary updates.",
+    "probability": "P05 R01 independent logistic_delay with its existing fold_prevalence fallback; no quantile-derived probability.",
+    "training_history": "Use the exact saved original-training history and transformers with knowledge before July 1. Do not incorporate July or earlier final-period arrivals into historical pools, even if they would later be known.",
+    "calibration": "Apply the existing per-tenant July1-10 trip-max nonnegative CQR80% map and constrained monotone probability sigmoid; exact states/support rules unchanged. No all-July refit.",
+    "unsupported": "Retain exact raw outputs as explicitly unsupported; no successful-calibration claim. P06 policy abstains unless probability calibration is fitted and ETA is available. Invalid values/model identity mismatches fail closed, not silent fallback.",
+    "selected_rule": {
+      "daily_candidate_cap_per_tenant": 2,
+      "enabled": true,
+      "minimum_action_lead_seconds": 1800,
+      "policy_version": "P06-RULE-36e4955032b25e4e8fd2045d",
+      "repeat_suppression_seconds": 1800,
+      "threshold": "0.550000",
+      "timezone": "America/Los_Angeles"
+    },
+    "probability_clock_and_precision": "Candidate rule uses six-decimal Decimal(str(p)), ROUND_HALF_EVEN, p>=0.550000. ETA formal projection: median HALF_EVEN whole seconds, lower FLOOR, upper CEILING, include projected median. Preserve precise forecasts for proper-score/calibration diagnostics; report canonical projection separately.",
+    "reference_comparisons": [
+      "Saved historical-baseline ETA on its own and paired support",
+      "Raw versus calibrated frozen pipeline on identical eligible opportunities; no switching based on final results",
+      "Saved fold_prevalence probability baseline, if available from P05 refit state; no recomputed final prevalence baseline"
+    ],
+    "no_promotion": "These references explain performance and quality regressions; they cannot choose a new deployed method after final testing."
+  },
+  "targets": {
+    "version_selection": "For each final trip choose the latest original outcome version whose label availability is strictly before 2026-10-15T07:00:00Z, including withdrawal/cancellation/incomplete/pending revisions. Reject ambiguous same-known-time versions. Do not recover an older verified outcome when the latest eligible revision withdraws it.",
+    "eta": "Verified independent gate arrival with second or minute precision and exact positive remaining seconds arrival-snapshot. Exclude already arrived, missing, cancelled, incomplete, pending, withdrawn and insufficient precision with separate reasons. Do not use service start or delivery completion.",
+    "binary_delay": "Verified independent gate arrival with second precision, positive remaining time at the source snapshot, and arrival>snapshot-effective promise deadline; equality is on time, zero grace. ETA and probability eligibility may differ.",
+    "promise_identity": "Freeze each snapshot/candidate effective promise ID, deadline, known_at and provenance. At delivery or later reschedule, keep the candidate promise for its target and notice metric. Do not relabel a past candidate using the latest trip promise.",
+    "unknowns": "No mature eligible target means unknown/excluded, never on-time. Preserve reason/precision/cutoff/version and target availability denominators. Post-arrival records stay in opportunity/candidate/delivery accounting and are classified separately as non-useful.",
+    "no_intervention_target": "P07/P08 do not change arrival outcomes to simulate a successful action; causal or business-outcome follow-up belongs to P09 and cannot be inferred from delivery."
+  },
+  "delivery": {
+    "counts_as_of": "2026-10-15T07:00:00Z",
+    "latency_seconds": [
+      5,
+      60
+    ],
+    "max_attempts": 3,
+    "minimum_action_lead_seconds": 1800,
+    "outcome_basis_points": {
+      "delivered": 8000,
+      "permanent_failure": 300,
+      "transient_failure": 1500,
+      "unknown": 200
+    },
+    "receipt_lag_seconds": [
+      0,
+      15
+    ],
+    "repeat_suppression_seconds": 1800,
+    "retry_backoff_seconds": [
+      30,
+      120
+    ],
+    "seed": "DS-M01-P07-20261111",
+    "ttl_seconds": 600,
+    "unknown_timeout_seconds": 120,
+    "version": "p07-delivery-v1"
+  },
+  "delivery_semantics": {
+    "assumption_basis": "Illustrative research transport assumptions fixed before this delivery simulation; not measured service rates or fitted from July/final outcomes.",
+    "causal_ties": "Priority orders events already queued at the same timestamp. An event created by another event, such as a zero-lag receipt created by service, necessarily follows its cause before competing with other queued events.",
+    "clocks": "Historical August-September events are synthetic counterfactual replay clocks. Actual final-evaluation execution/materialization timestamps are recorded separately. No real past notifications or recipient behavior are asserted.",
+    "cutoff": "Known receipts at or before counts_as_of count; future confirmations remain queued/not_mature. Timeout is unresolved, not evidence of a negative response.",
+    "draw": "SHA256 of compact UTF-8 JSON array [seed,version,tenant_id,candidate_id,attempt_index,dimension], first eight bytes unsigned big-endian modulo domain size; independent outcome/latency/receipt_lag dimensions.",
+    "gates": "At dispatch and service: original snapshot deadline minus time >=1800, not closed, time <=creation+TTL, and time since previous successful service delivery for tenant/trip >=1800. Equality passes. Promise or episode changes never reset cooldown.",
+    "identity": "candidate_id maps to one alert; delivery_id is an attempt; identical duplicated input is idempotent, conflicting duplicate rejected.",
+    "ordering": [
+      "timestamp",
+      "known_episode_closure",
+      "receipt",
+      "candidate",
+      "dispatch",
+      "service",
+      "tenant_id",
+      "trip_id",
+      "candidate_id",
+      "attempt_index"
+    ],
+    "population": "All frozen selected-rule risk episodes and candidates; missing feed censors risk, it does not establish closure.",
+    "probability_order": [
+      "delivered",
+      "transient_failure",
+      "permanent_failure",
+      "unknown"
+    ],
+    "retry": "Only confirmed transient failure retries, after receipt and backoff. Unknown stops unresolved; never assume undelivered. Stop after service success. Maximum attempts and 600-second TTL bound all work.",
+    "unknown_states": "No recipient opening, adoption, action or followup is generated in P07."
+  },
+  "delivery_cutoff_boundary": "Receipt known_at <= counts_as_of counts, matching P07 transport accounting. Final outcome label_known_at < label_cutoff remains exclusive. State both boundaries; a receipt at the boundary can count while a label first known at the boundary is excluded.",
+  "denominators": {
+    "availability": "All test opportunities/trips, plus native/fallback/unavailable and calibration fitted/unsupported counts, separately for ETA and probability.",
+    "forecast_scoring": "For each target, metric cohort and reported slice, every scored trip has total weight one over that trips eligible available snapshots. Show eligible-before-availability and scored-after-availability counts. A missing forecast does not disappear from availability or all-eligible-trip coverage.",
+    "eta_whole_trip_coverage": "All trips with at least one eligible ETA target. Success requires an interval at every eligible snapshot and every target inside its interval; any missing eligible forecast is a miss. Also report conditional full-availability coverage with its own denominator.",
+    "policy_support": "All monitored trips count toward burden. Scored trips and actionable positive/negative support are label-defined, independent of forecast availability. Mixed-promise trips may contribute both positive and negative snapshot evidence; no invented immutable trip confusion matrix.",
+    "actionable_positive_trip": "Any mature eligible positive snapshot with its frozen deadline-snapshot >=1800 seconds, even if forecast unavailable or candidate blocked. Denominator fixed from labels after inference, not from successful deliveries.",
+    "candidate_recall": "Trips with any admitted candidate on an eligible positive target divided by actionable-positive trips; separately report the denominator of all observed-positive trips.",
+    "first_candidate": "Chronologically first admitted candidate per tenant/trip, independent of future labels; exact time ties follow frozen deterministic identity ordering.",
+    "delivery_success": "Only unique confirmed simulated service-delivery acknowledgments known by the delivery-observation cutoff. Failed, queued and unknown attempts are not successful deliveries; repeated ingestion of the same receipt identity is idempotent.",
+    "delivery_burden": "Every unique successful delivery, including later reminders and duplicate successes, divided by all monitored trips and reported per100. Attempts, failed retries, first deliveries, episode repeats and per-trip additional deliveries are separate counts.",
+    "first_successful_delivery": "Earliest successful service-delivery receipt per tenant/trip, sorted by delivered_at then frozen alert/delivery IDs, selected before consulting labels. Preserve its candidate snapshot/promise. Undelivered trips retain explicit missing first-delivery status and remain in recall/burden denominators. A first success with receipt unknown at cutoff is not yet counted as confirmed; preserve its latent simulator state only in the transport audit, never as observed successful delivery.",
+    "delivered_actionable_recall": "A trip is captured only if some admitted candidate on an eligible positive target has a successful delivery with frozen deadline-delivered_at >=1800 seconds and delivery before actual arrival. Divide by the same label-defined actionable-positive trips. A candidate generated with enough notice but delivered too late is a miss.",
+    "first_delivery_precision": "Useful first successful service deliveries / all known-assessable first successful deliveries, meaning classification is not unresolved. Mature eligible positive/negative targets, verified exact already-arrived targets, or independently known insufficient prospective delivered lead are assessable. Any known post-arrival or insufficient-lead timing makes a first delivery non-useful even when its delay label is unresolved. Only still-potentially-useful rows with unresolved outcome/arrival evidence remain unresolved. Never fabricate a binary negative target. This usefulness measure differs from P06 positive-first-candidate precision.",
+    "first_effective_delivery": "Secondary event: earliest successful delivery meeting eligible-positive and >=1800s delivered lead. Report its lead distribution only among captured trips, beside the full recall denominator. Do not use this favorable subset to replace first-successful-delivery precision."
+  },
+  "clocks": {
+    "candidate_prospective_lead_seconds": "candidate frozen deadline - simulated candidate issue_at",
+    "delivered_prospective_lead_seconds": "same frozen deadline - first successful service delivered_at",
+    "actual_arrival_advance_seconds": "actual gate arrival - successful delivered_at, only when mature valid arrival exists; separate from promise lead",
+    "transport_latency_seconds": "successful delivered_at - simulated candidate issue_at; nonnegative; failed attempts retain separate scheduled/sent/failure clocks",
+    "actual_execution_clock": "Real offline generated/released/verification timestamps are separate from simulated historical candidate/attempt/delivery clocks. Neither implies July/August/September real deployment.",
+    "daily_cap_scope": "Existing cap2 constrains admitted candidates per tenant/local day, not successful deliveries or network retry attempts. Later-day retries and duplicate successes can exceed that number; do not silently claim a delivery cap without a separately frozen delivery rule."
+  },
+  "metrics": {
+    "eta_primary": [
+      "median MAE seconds",
+      "median RMSE seconds",
+      "whole-trip all-eligible-snapshots coverage versus nominal0.8",
+      "trip-weighted snapshot coverage",
+      "mean interval width seconds",
+      "alpha0.2 interval score"
+    ],
+    "eta_secondary": [
+      "conditional full-availability whole-trip coverage",
+      "raw quantile pinball at0.1/0.5/0.9 before calibration only",
+      "canonical outward-projection coverage/width deltas beside precise interval results"
+    ],
+    "eta_warning": "Calibrated expanded endpoints are interval bounds, not recalibrated quantiles; do not label their scores as P10/P90 quantile accuracy.",
+    "probability": [
+      "Brier score",
+      "log loss with fixed epsilon1e-15 and clipping count",
+      "ROC AUC",
+      "average precision",
+      "fixed10-bin reliability and ECE",
+      "positive/negative support and target/forecast coverage"
+    ],
+    "probability_conventions": "Use original precise probabilities for proper scores/reliability and preserve the six-decimal policy number separately. Fixed bins [0,.1),...,[.9,1]; full-cohort trip weights retained in bins, not re-normalized per bin. AUC/AP are null with explicit reason when either class is absent. For declared fixed bins use left-closed/right-open intervals except final bin includes1; no rebinning after final outcomes.",
+    "candidate_and_delivery": [
+      "all declared P06 candidate metrics for comparability",
+      "delivered actionable-trip recall",
+      "all-observed-positive delivered-trip recall with its stated target rule",
+      "conditional useful-first-successful-delivery precision and known-assessable target coverage",
+      "all-first-successful-delivery usefulness identification bounds",
+      "candidates/attempts/confirmed deliveries per100 monitored trips",
+      "successful-delivery repeat count per episode and additional successes per trip",
+      "delivery lead/latency distributions and rates below1800, at/afterdeadline, and at/afteractualarrival",
+      "unknown/queued/failed/censored delivery and target counts"
+    ],
+    "business_exclusions": [
+      "No delivery-to-adoption conversion assumption",
+      "No acceptance/rejection/open-rate estimate without explicit synthetic event evidence",
+      "No saved labor, reduced delay, ROI or causal intervention benefit"
+    ],
+    "distribution_summary": "For lead and latency, report N plus min,p10,p25,median,p75,p90,max using fixed linear interpolation r=(n-1)*p; null when N=0. State which candidate/first-delivery/first-effective cohort each distribution describes."
+  },
+  "subgroups": {
+    "mandatory": [
+      "four route/vehicle novelty cohorts",
+      "tenant_id",
+      "August versus September departure month",
+      "route_id",
+      "GPS valid/low_confidence/no_position",
+      "early trip elapsed<3600 versus later",
+      "snapshot deadline advance overdue<0;[0,1800];(1800,7200];>7200",
+      "native/fallback/unavailable pipeline source",
+      "fitted/unsupported probability calibration"
+    ],
+    "delivery_slices": [
+      "frozen delivery scenario",
+      "first-attempt success versus retry-success versus never-confirmed",
+      "first delivered lead>=1800 versus0..1800 versusnegative",
+      "delivery target known/unknown/post-arrival"
+    ],
+    "sparse": "Flag any scored subgroup with fewer than20 trips. Publish counts and null reasons even when too sparse for interval estimation. Do not add data-driven intersections or choose methods based on subgroup winners."
+  },
+  "uncertainty": {
+    "scope": "Descriptive uncertainty within the fixed synthetic final cohort, not future-fleet confidence or exchangeability assurance.",
+    "forecast_bootstrap": {
+      "unit": "whole tenant/trip contribution, preserving every snapshot and paired method/variant record together",
+      "stratification": "tenant x frozen route/vehicle novelty group; preserve each nonempty stratum trip count",
+      "replicates": 2000,
+      "seed": 20261111,
+      "generator": "Python random.Random with a protocol-pinned seed; sorted stratum and trip key ordering",
+      "quantiles": [
+        0.025,
+        0.975
+      ],
+      "quantile_interpolation": "linear r=(n-1)*p over sorted non-null replicate values",
+      "paired_deltas": "Use identical resampled trip keys for raw/calibrated and candidate/baseline differences; keep paired support fixed",
+      "reported_metrics": [
+        "median MAE",
+        "RMSE",
+        "mean width",
+        "interval score",
+        "whole-trip coverage",
+        "snapshot coverage",
+        "Brier",
+        "log loss",
+        "paired deltas for those metrics"
+      ],
+      "minimum_scored_trips": 20,
+      "undefined_replicates": "Do not silently discard. If any required denominator is zero or fewer than20 original scored trips exist, emit null interval with reason and replicate diagnostics. No bootstrap of AUC/AP on small/single-class groups."
+    },
+    "policy_delivery": "Use exact count fractions, target coverage, tenant/month diagnostics and unresolved-first-delivery identification bounds. Do not present iid binomial confidence intervals or rerun capacity admission on a bootstrap pseudo-population; shared daily caps couple trip outcomes. Any later cluster/block interval requires a separate pre-outcome specification.",
+    "identification_bounds": "For all first successful deliveries N, confirmed useful T and unresolved-but-potentially-useful U: lower=T/N, upper=(T+U)/N; null forN=0. Known false, insufficient-lead and verified exact post-arrival deliveries are non-useful and not in U even if the binary delay target is unavailable. These are usefulness identification bounds, not confidence intervals."
+  },
+  "stress": {
+    "scope": "Outcome-independent input robustness checks and transport scenarios, specified before P07 delivery results and P08 targets. They are not new factual source observations, calibrated forecasts of a counterfactual fleet or causal effects.",
+    "inventory": "Every stress scenario retains every baseline test opportunity/trip key. No target-based selection, row removal or new split. Record affected/not_applicable row counts and exact before/after feature values. Apply frozen preprocessing after each feature perturbation; never refit it.",
+    "scenarios": [
+      {
+        "id": "S00_unmodified",
+        "role": "primary final result",
+        "transform": "No feature/transport change. Use frozen P07 delivery law with P08 counts_as_of."
+      },
+      {
+        "id": "S01_missing_position",
+        "role": "model-input robustness",
+        "apply_to": "Every test opportunity",
+        "transform": {
+          "categorical.position_validity": "no_position",
+          "numeric.remaining_distance_km": null,
+          "numeric.gnss_speed_kmh": null,
+          "numeric.position_age_seconds": null
+        },
+        "unchanged": [
+          "route identity/distance",
+          "elapsed time",
+          "deadline",
+          "snapshot/trip identity",
+          "outcome/target",
+          "model/calibrator"
+        ]
+      },
+      {
+        "id": "S02_stale_position",
+        "role": "model-input robustness",
+        "apply_to": "Opportunities with elapsed_trip_seconds>=1800 and original position_validity not no_position; others unchanged with not_applicable reason",
+        "transform": {
+          "categorical.position_validity": "low_confidence",
+          "numeric.remaining_distance_km": null,
+          "numeric.gnss_speed_kmh": null,
+          "numeric.position_age_seconds": 1800
+        },
+        "invariant": "Age1800>frozen stale threshold900 and <=elapsed. This is a derived feature-input perturbation, not an alteration of retained raw telemetry/source clocks."
+      },
+      {
+        "id": "S03_unseen_route_slot",
+        "role": "model-input robustness",
+        "apply_to": "Every test opportunity",
+        "transform": {
+          "categorical.route_id": "__P08_UNSEEN_ROUTE__"
+        },
+        "invariant": "Assert token absent from each saved vocabulary before evaluation; use the existing unknown slot. Keep canonical/source route ID and original novelty cohort unchanged and retain explicit feature-override audit."
+      },
+      {
+        "id": "S04_natural_entity_holdouts",
+        "role": "mandatory unmodified subgroup report, not an additional transformed population",
+        "transform": "No input changes. Report all four original seen/unseen route x vehicle groups from S00. Vehicle IDs are excluded predictors; do not invent a vehicle-feature perturbation or claim new vehicle training."
+      },
+      {
+        "id": "S05_stationary_window",
+        "role": "model-input long-stop sensitivity, not confirmed physical dwell",
+        "apply_to": "Per trip, the earliest three consecutive opportunities with elapsed>=3600, original valid position, nonnull remaining distance, and first-to-third snapshot span>=3600 seconds; if absent, unchanged/not_applicable. Choose using metadata/features only.",
+        "transform": "For these three opportunities set speed=0, position_age_seconds=0, position_validity=valid, and remaining_distance_km to the first selected opportunity value. Leave snapshot clock, elapsed, route distance, deadline and target unchanged.",
+        "invariants": [
+          "Fixed three-opportunity window; no extension selected by results",
+          "Retained distance must remain within route distance; otherwise fail the stress contract",
+          "No invented change to actual arrival or claim of causal traffic delay"
+        ]
+      },
+      {
+        "id": "S06_distance_scale",
+        "role": "model-input numeric distribution-shift sensitivity",
+        "apply_to": "Every opportunity",
+        "transform": "Multiply route_distance_km and each nonnull remaining_distance_km by exact Decimal1.25; retain nulls and categorical route identity. Convert to finite numeric inputs without refitting saved scales.",
+        "invariants": [
+          "Positive route distance",
+          "Nonnegative remaining distance bounded by scaled route distance",
+          "No source-warehouse rewrite or new outcome generation"
+        ]
+      },
+      {
+        "id": "S07_transport_degraded",
+        "role": "fixed synthetic transport stress",
+        "feature_transform": "none",
+        "delivery_overrides": {
+          "outcome_basis_points": {
+            "delivered": 6000,
+            "transient_failure": 2500,
+            "permanent_failure": 1000,
+            "unknown": 500
+          },
+          "latency_seconds": [
+            60,
+            180
+          ],
+          "receipt_lag_seconds": [
+            0,
+            30
+          ]
+        },
+        "unchanged": "Same P07 seed/version/dimension keys, probability ordering, max3 attempts,30/120 backoffs,120 timeout,600 TTL,1800 notice and successful-delivery cooldown. Same underlying hash integers; do not redraw until success."
+      },
+      {
+        "id": "S08_missing_and_degraded",
+        "role": "predeclared combined stress",
+        "compose_in_order": [
+          "S01_missing_position",
+          "S07_transport_degraded"
+        ],
+        "invariant": "One fixed combination, not a search over combinations."
+      }
+    ],
+    "natural_shift_diagnostics": [
+      "August versus September departure month",
+      "Original seen/unseen route/vehicle cohorts",
+      "Known elapsed>=7200 versus<7200",
+      "Original valid/low_confidence/no_position"
+    ],
+    "selection": "No stress case ranks or replaces S00. Publish all cases with support and failures; do not pick the least harmful transformation or alter the final policy."
+  },
+  "decision_gates": {
+    "engineering_required": [
+      "All exact artifact/code/schema/input/membership pins match",
+      "No final target fields passed to inference, policy or delivery simulator",
+      "All opportunities retained and temporal/version/tenant isolation enforced",
+      "Replay and independent references agree within predeclared numeric tolerance; identities/states/counts exact",
+      "Delivery bounded retries, idempotent receipts, timing and failure accounting pass deterministic fixtures",
+      "Original M2/P05/P06 evidence unchanged and fresh atomic output published only after validation"
+    ],
+    "quality_descriptors": [
+      "eta_whole_trip_point_target_met = observed all-eligible-trip coverage>=0.8; null if no eligible trips; this is not a future coverage guarantee",
+      "raw-vs-calibrated Brier/logloss/interval-score deltas explicitly report deterioration",
+      "candidate budget50/100 and daily cap2 compliance reported without reselection; delivery burden reported under its distinct clock/denominator",
+      "actionable-delivery recall and first-successful precision reported with support, unknowns, sparse flags and P05/P06 open limitations"
+    ],
+    "no_invented_acceptance": "No operational minimum precision/recall, allowable interval width, transport SLA, measured capacity or monetary cost has been established. Do not invent pass thresholds and retrospectively call them customer acceptance. P05 G14/G15 and P06 low-recall G16 stay open unless separately assessed under explicit criteria.",
+    "final_conclusion": "A final-evaluation run may be engineering_complete with poor quality, sparse cohorts or budget failures. quality_accepted and operational_approval remain false; no automatic promotion from successful execution."
+  },
+  "failure_behavior": [
+    "Hash/protocol/identity/time/schema mismatch: stop before scoring and retain a separate failure receipt; do not publish partial success.",
+    "Unsupported model/calibrator/forecast: preserve explicit unavailable or raw-unsupported values per existing rules, keep denominator rows, and abstain from candidates when frozen rule requires support.",
+    "No eligible targets, one class, zero deliveries or sparse group: null metric with exact reason and counts; never zeros implying good quality.",
+    "Delivery timeout/failure/unknown: finite frozen retries only; no unlimited retry until success. Unknown at cutoff remains censored, not nondelivery rejection or nonadoption.",
+    "Observed model/calibration/policy quality failure: finish and retain the entire prespecified result without retuning or hiding failing slices.",
+    "Code bug discovered after final access: preserve prior artifacts, fix in a new documented version, rerun only for correction; explicitly state test exposure and do not reclaim an untouched holdout."
+  ],
+  "execution_order": [
+    "Validate the frozen protocol and all source/code/artifact hashes; capture actual start time and environment.",
+    "Build exact final metadata/opportunity inventory; generate and retain all raw/calibrated forecasts and all policy/delivery ledgers without outcome inputs. Freeze these artifacts and their hashes before target joins.",
+    "Only then open authorized final target groups, select cutoff-known outcome versions, calculate all predeclared metrics/slices, and record exclusions without deleting opportunities.",
+    "Run independent source/metric and typed-store checks; publish complete result and all failure flags together."
+  ],
+  "reruns": "Reruns may verify deterministic behavior only. A defect correction needs a versioned correction record and preserved first result; after outcome exposure, a corrected result is not a new untouched test. No scientific retuning or reassignment under the same final-test claim.",
+  "comparison_tolerance": {
+    "absolute": 1e-10,
+    "relative": 1e-09,
+    "timestamp_microseconds": 50,
+    "exact": [
+      "identity keys",
+      "source hashes",
+      "trip roles",
+      "eligibility and status",
+      "canonical six-decimal probabilities",
+      "policy branch decisions",
+      "candidate and delivery event identities",
+      "all counts and integer projected values"
+    ],
+    "rule": "Numerically close raw forecasts do not excuse a different canonical threshold decision; fail rather than loosen tolerances after final results."
+  },
+  "expected_artifacts": [
+    "pre-outcome protocol/config freeze and source/code/model/calibrator/rule/delivery/stress pin manifest",
+    "exact label-free final membership/opportunity inventory",
+    "raw and calibrated forecasts plus canonical projection audit",
+    "candidate/attempt/receipt/first-delivery ledgers with simulated clocks separate from actual execution",
+    "target eligibility/version/precision inventory after authorization",
+    "ETA/probability/candidate/delivery metrics and denominators, mandatory slices, reliability and descriptive intervals/bounds",
+    "all stress outputs under fixed scenario IDs",
+    "independent references, hand fixtures, mutation guards and retained/source replay receipts",
+    "first final result and any later corrections retained separately; no overwrite"
+  ],
+  "quality_accepted": false,
+  "operational_approval": false,
+  "p09_adoption_actions_followup_implemented": false,
+  "freeze_records": {
+    "specification": {
+      "path": "reproducibility/p07/protocol_freeze.json",
+      "timing": "Before any P07 delivery simulation",
+      "binds": [
+        "config/p07.json",
+        "config/p08_evaluation.json",
+        "existing models/calibrators/rule/input and core-source pins"
+      ],
+      "meaning": "Records prospective transport/evaluation assumptions; does not claim final evaluator or complete delivery implementation already validated."
+    },
+    "evaluation_readiness": {
+      "path": "reproducibility/p07/evaluation_readiness.json",
+      "timing": "After P07 engineering validation and before any P08 final-target access",
+      "binds": [
+        "unchanged protocol specification",
+        "validated delivery implementation hashes",
+        "P07 run receipt and summary"
+      ],
+      "required_disclosure": {
+        "july_delivery_results_previously_observed": true
+      },
+      "meaning": "Demonstrates implementation readiness and immutable score-affecting delivery behavior before final evaluation, without claiming July delivery was still unseen."
+    },
+    "future_evaluator_gate": "P08 still must pin its new inference/evaluator/stress implementation and passing preregistered conformance tests before opening final target payloads."
+  }
+}
