@@ -1,9 +1,42 @@
-# Candidate replay and supported environments
+# Replay and supported environments
 
 The M3b.2 experiment is an **Engineering and Method Demonstration — Synthetic
 Data**. Reproducibility here means preserving the frozen inputs, training
 protocol, model bindings and prediction results. It does not establish accuracy,
 calibrated coverage or operational benefit.
+
+## Replaying the fixed final evaluation
+
+P08 uses the saved P05 model, preprocessing, history and calibrator states, plus the
+fixed P06 rule and P07 transport algorithm. It does not retrain inside the candidate
+Docker image.
+
+Use the frozen P08 commit or an isolated checkout with the exact recorded P08 source
+set. The replay verifier binds that source inventory. Future P09 source, script or test
+additions fall outside this registration and need a separately versioned workflow; they
+must not be removed from verification merely to obtain a pass.
+
+From the configured environment in that checkout:
+
+```bash
+python -m ds_m01.final_replay --root . --report reports/p08
+python scripts/check_final_evaluation.py --root . --report reports/p08 --output /tmp/p08_independent_checks.json
+```
+
+Choose a fresh independent-check output path. Retained replay reads saved final target
+evidence and does not need the raw outcome source; optional `--input-root
+/path/to/frozen_input_root` independently rebinds exact source bytes. Both are
+post-exposure reproduction, not new untouched tests. All nine scenarios and 27 typed
+tables per scenario are checked, with exact identities/counts and the frozen numerical
+tolerance. Actual materialization timestamps are kept distinct from synthetic event
+time.
+
+The [final report](../reports/p08/README.md) provides denominators, complete scenario
+results and receipts. The registered conformance gate and pre-target forecast hashes
+establish execution order. A failed exposed attempt must remain available; a correction
+requires an explicitly disclosed registration linked to that attempt. Do not overwrite
+the first result or change model/protocol pins to obtain a pass. Reproducibility does
+not close G14/G15/G16 or establish operational acceptance.
 
 ## Why training uses a fixed container
 

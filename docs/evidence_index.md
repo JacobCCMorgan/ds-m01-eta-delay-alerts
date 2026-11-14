@@ -5,14 +5,12 @@ separate offline store with five canonical output tables; P07 adds canonical
 alert episodes, alerts and notification-delivery attempts to that store. Eight
 canonical tables now have rows, while adoption, action and follow-up remain
 empty. This does not rebuild the combined M2 warehouse. Earlier experimental
-artifacts and dated receipts remain available. Synthetic service delivery does
-not establish recipient opening, independent final-policy performance,
-operational approval or a measured fleet outcome.
+artifacts and dated receipts remain available. Synthetic service delivery alone does not establish recipient opening, operational approval or a measured fleet outcome. P08 separately evaluates the fixed pipeline on the original final cohort; its conclusions remain conditional on synthetic trajectories.
 
 | Evidence index | What a row tells you |
 |---|---|
 | [110 original field requirements](../contracts/current_requirement_evidence.csv) | The original ID, field ID, canonical table/column, condition and intended output; observed evidence; and the remaining boundary. |
-| [28 required and 2 optional tables](../contracts/current_table_evidence.csv) | Data-stage rows, formal offline rows, required schemas or disabled inputs. M2, P06 and P07 counts describe separate retained stores. A blank phase count means the table is outside that store; zero means an empty reserved table. |
+| [28 required and 2 optional tables](../contracts/current_table_evidence.csv) | Data-stage rows, formal offline rows, required schemas or disabled inputs. M2, P06, P07 and primary-S00 P08 counts describe separate retained stores. A blank phase count means the table is outside that store; zero means an empty reserved table. |
 | [14 validation scenarios](../contracts/current_validation_evidence.csv) | Specifically exercised behaviors, test definitions and passing receipts, with partial or unexecuted scope stated separately. |
 
 Of the 110 field mappings, 60 have a synthetic data-stage implementation and two
@@ -22,10 +20,10 @@ external acquisition. Twenty-two mappings have materialized canonical offline
 rows. Ten retain only required schemas or unobserved nullable semantics; another
 16 belong to disabled forecast or routing contracts. These evidence categories
 are not a completion percentage. Populating a table does not prove every field
-was observed: all eight P07 `received_or_opened_at` values remain null. Two
+was observed: all P07 and P08 `received_or_opened_at` values remain null. Two
 requirements can validly map to the same column through different facility joins.
 
-Four validation cases have fully exercised data behavior, seven are partially
+Five validation cases have exercised data behavior, six are partially
 tested, one has separately tested components and two depend on disabled optional
 inputs. ETA-V10 now has synthetic retry/repetition evidence but still lacks the
 partial-adoption part of its original scenario; it is not fully complete. Named
@@ -59,8 +57,7 @@ zero; P06's two repeated candidates remain distinct historical evidence. The
 simulated July transport clocks and actual November output-release clocks have
 separate provenance domains. Recipient opening, adoption, operator actions and
 follow-up remain absent. The [P08 protocol](p08_evaluation_protocol.md) is frozen,
-but its inference/evaluation implementation and pre-target conformance gate are
-still required. Final-test results and complete M4.2 acceptance are not claimed.
+and P08 has now executed it under a separate registered implementation, with results below. Complete M4.2 acceptance is not claimed.
 
 For policy development and formal outputs, start with the [P06 results](../reports/p06/README.md), [frozen protocol](p06_alert_policy.md), [all threshold trials](../reports/p06/policy_trials.json), [selection record](../reports/p06/selection_manifest.json) and [typed-store checks](../reports/p06/store/verification.json). The 0.55 threshold produces nine candidates across 42 monitored trips and captures 4/18 actionable delayed trips. First-candidate precision is 4/6 conditional on eligible targets; one of seven first candidates is unresolved. The 50-per-100-trip budget and two-per-tenant-day cap are hypothetical research settings, not measured capacity. Selection and reporting reuse the known July assessment outcomes, so they are not independent final-policy performance.
 
@@ -70,6 +67,38 @@ For the modeling decision, start with the [comparison receipt](../reports/m3b3/r
 
 For delay classification, the [P04 results](../reports/m3c/README.md), [raw-probability metrics](../reports/m3c/metrics.json), [reliability bins](../reports/m3c/reliability.csv) and [independent checks](../reports/m3c/independent_checks.json) cover the same 5,163 training-period opportunities per method. The independent logistic classifier and fold/tenant prevalence baseline are scored on 2,358 mature snapshots from 511 trips; 2,805 excluded-label opportunities remain visible. Labels use the promise known at the snapshot, with a strict gate-arrival-after-deadline rule and no grace. The deadline-advance slices measure time from snapshot to that promise deadline, not time from an actually delivered alert. These historical files establish raw classification behavior and probability diagnostics. P05 subsequently adds calibration evidence; P06 adds the experimental threshold and separate formal outputs described above.
 
-For calibration, read the [P05 results](../reports/m3d/README.md), [frozen protocol](m3d_calibration.md), [fit states](../reports/m3d/calibrators.json), [assessment metrics](../reports/m3d/metrics.json) and [independent checks](../reports/m3d/independent_checks.json). The base models use original training trips and a July 1 knowledge cutoff; early July trips fit calibrators, a buffer separates roles, and later July trips assess them. Assessment retains 341 opportunities and scores 143 snapshots from 29 trips. Whole-trip interval coverage is 19/29 (65.5%), below the nominal 80%; probability calibration worsens Brier score and log loss. Supported fitting does not establish quality improvement. Unsupported calibrators retain explicitly uncalibrated raw outputs. This assessment cohort is reused for P06 policy development, not independent final-policy testing. August–September target values remain outside fitting, selection and scoring.
+For calibration, read the [P05 results](../reports/m3d/README.md), [frozen protocol](m3d_calibration.md), [fit states](../reports/m3d/calibrators.json), [assessment metrics](../reports/m3d/metrics.json) and [independent checks](../reports/m3d/independent_checks.json). The base models use original training trips and a July 1 knowledge cutoff; early July trips fit calibrators, a buffer separates roles, and later July trips assess them. Assessment retains 341 opportunities and scores 143 snapshots from 29 trips. Whole-trip interval coverage is 19/29 (65.5%), below the nominal 80%; probability calibration worsens Brier score and log loss. Supported fitting does not establish quality improvement. Unsupported calibrators retain explicitly uncalibrated raw outputs. This assessment cohort is reused for P06 policy development, not independent final-policy testing. August–September values remained reserved at P05; P08 later evaluated them without fitting or reselection.
 
 The [original field requirements](../contracts/requirement_traceability.csv), [table plan](../contracts/table_delivery_register.csv) and [case specifications](../contracts/validation_cases_reference.json) deliberately retain their planning-time statuses. Read those registers for the specification and the three current indexes for observed implementation and evidence.
+
+## Fixed final evaluation
+
+This is an engineering and method demonstration on fixed synthetic trajectories, not
+customer telemetry or a fleet trial. G14 (July interval undercoverage/width), G15 (July
+probability-calibration deterioration) and G16 (low July policy recall and selection
+optimism) remain open. A final measurement does not itself resolve their causes or
+establish acceptable costs, precision, recall or latency. `quality_accepted` and
+`operational_approval` remain false.
+
+P08 completes the registered final evaluation on 400 original test trips and 3,200
+opportunities per scenario. [All nine results](../reports/p08/README.md) remain visible;
+S00 is primary. Its whole-trip interval coverage is 243/328 (74.1%), delivered
+actionable-trip recall 26/137 (19.0%), and conditional useful-first precision 26/38
+(68.4%). 4 of 42 first successful deliveries retain unresolved targets. Unknown outcomes
+remain outside eligible-loss denominators and inside opportunity/burden denominators.
+
+The [unit receipt](../reports/p08/unittest_results.txt) records 727 passing tests;
+[independent checks](../reports/p08/independent_checks.json) record 10,349,858
+comparisons without failure. [Retained replay](../reports/p08/retained_replay.json)
+checks all nine scenarios and their 27-table stores. The new P08 count columns refer
+only to the primary store and preserve historical counts. Twenty-two field mappings
+remain offline-materialized, ten schema-only; final scoring does not invent opening,
+adoption or action observations. All 110 requirement IDs, 30 table rows and 14
+validation IDs are retained. Partially tested operational scenarios remain partial.
+
+Original holdout support is 325/37/34/4 trips. Descriptive trip-bootstrap intervals do
+not guarantee future-fleet performance; sparse/undefined results retain null reasons.
+The [findings](p08_final_evaluation.md) distinguish engineering completion, remaining
+quality limits and P09 workflow work. The frozen [P07/P08
+specification](p08_evaluation_protocol.md) is preserved as historical preregistration
+evidence.

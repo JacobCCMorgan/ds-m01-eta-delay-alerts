@@ -2,9 +2,43 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: synthetic notification delivery and a frozen final-evaluation specification (P07, the first part of M4.2).** The fixed July policy produced nine candidates; a reproducible transport scenario confirmed seven deliveries across 42 monitored trips. Four of 18 actionable delayed trips received a useful alert (22.2%). Eight canonical output tables are materialized in a separate offline store. These development results do not approve deployment or resolve the earlier calibration and policy quality limits.
+**Current stage: fixed final evaluation completed (P08 / M3e).** All nine predeclared scenarios retain 400 August–September trips and 3,200 opportunities. The unmodified primary result has whole-trip interval coverage of 243/328 (74.1%) and useful delivered-alert recall of 26/137 (19.0%). These synthetic results do not approve deployment, refit the pipeline or close the earlier quality limitations.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## What did the fixed final evaluation show?
+
+Primary S00 whole-trip interval coverage is 243/328 (74.1%), below the nominal 80%; the
+92.0% weighted snapshot coverage is a different measure. Calibration widens the mean
+interval from 62.85 to 95.69 minutes and increases interval score from 96.05 to 115.04
+minutes (lower is better). Probability-loss point estimates also increase slightly, but
+their paired descriptive 95% ranges cross zero; statistical inferiority is not
+established.
+
+The unseen route, ROUTE-12, has zero covered trips out of 33 eligible trips. Removing
+all position inputs in S01 lowers whole-trip coverage to 47/328 (14.3%). Available
+forecasts do not establish successful generalization. All nine scenarios are retained as
+fixed synthetic comparisons, with S00 primary; none estimates real fleet benefit.
+
+| Primary S00 measure | Result |
+| --- | --- |
+| Original test trips / opportunities | 400 / 3,200 |
+| All-eligible-trip interval coverage | 243/328 (74.1%) |
+| Raw / calibrated probability Brier score | 0.1959 / 0.1978 |
+| Candidate alerts / confirmed synthetic deliveries | 63 / 42 |
+| Useful delivered trips / actionable positive trips | 26/137 (19.0%) |
+| Useful / known-assessable first successful deliveries | 26/38 (68.4%) |
+| Unresolved / all first successful deliveries | 4 / 42 |
+
+The models, calibrators and 0.55 policy remain unchanged. G14/G15/G16 stay open, and
+quality/operational approval remains false. P09 adoption, actions, follow-up and the
+viewer are next; M4.2 is not complete.
+
+![Fixed final evaluation across all nine scenarios](reports/p08/final_quality.png)
+
+Read the [findings and limitations](docs/p08_final_evaluation.md), [complete results and
+denominators](reports/p08/README.md), and [independent
+audit](reports/p08/independent_checks.json).
 
 ## What did the synthetic delivery experiment show?
 
@@ -46,10 +80,7 @@ See the [delivery protocol](docs/p07_delivery.md),
 [results and reproduction](reports/p07/README.md), and
 [typed-store checks](reports/p07/store/verification.json).
 The [final-evaluation protocol](docs/p08_evaluation_protocol.md) freezes
-August–September cohorts, metrics, uncertainty and stress cases. P08 still
-requires a separate inference/evaluation implementation and conformance gate
-before final outcomes are used; writing the specification does not complete
-that evaluation.
+August–September cohorts, metrics, uncertainty and stress cases. P08 subsequently completed the fixed final evaluation and its pre-target implementation gate; see the final results above. The historical P07 specification remains unchanged.
 
 The [P07 engineering verification](reports/p07/verification.json) records 576
 passing unit tests, zero differences in retained and source-assisted replay,
@@ -79,8 +110,7 @@ and two repeat candidates still count toward burden. No notification was sent.
 
 All 21 thresholds and the disabled reference are retained. Selection reuses
 the P05 assessment cohort, so these figures are subject to selection optimism
-and cannot serve as independent final-policy performance. August–September
-final-test outcomes remain outside fitting, selection and scoring.
+and cannot serve as independent final-policy performance. At the P06 stage, August–September outcomes remained outside fitting, selection and scoring. P08 now reports their fixed evaluation above.
 
 See the [policy protocol](docs/p06_alert_policy.md),
 [results, denominators and reproduction](reports/p06/README.md), and
@@ -130,8 +160,7 @@ See the [fixed protocol](docs/m3d_calibration.md),
 ![July interval coverage and probability calibration assessment](reports/m3d/calibration_quality.png)
 
 This July assessment cohort is reused for P06 policy development. It
-cannot also serve as an independent final-policy test. August–September
-final-test outcomes have not been used for fitting, selection or scoring.
+cannot also serve as an independent final-policy test. At the P05 stage, August–September outcomes had not been used for fitting, selection or scoring. P08 now evaluates the frozen pipeline without retuning.
 
 ## Training-period delay validation (P04)
 
@@ -172,8 +201,7 @@ times and the historical fallback once.
 On snapshots with low-confidence GPS, boosting's error rose to 33.84 minutes,
 compared with 11.15 minutes for the baseline. These subgroups will need separate
 checks during calibration. July was reserved when this selection was made;
-its later calibration assessment is reported above. August–September remains
-the protected final test.
+its later calibration assessment is reported above. August–September was reserved for the later fixed P08 evaluation reported above.
 
 ![Trip-weighted ETA error by GPS quality and method](reports/m3b3/eta_error_by_gps.png)
 
@@ -181,25 +209,17 @@ the protected final test.
 
 ## Check a saved forecast run
 
-From the repository root, create an environment and replay the saved P07
-synthetic deliveries and typed outputs, including the retained P06 policy and
-P05 forecast/calibration checks. Python 3.12 was used for the recorded run.
-This check needs no Docker, raw outcome file or M2 rebuild.
+From the repository root, create an environment and replay the saved P08 final evaluation. Python 3.12 was used for the recorded run. This uses retained final evidence and saved model/calibrator states; it needs no Docker, raw outcome file or M2 rebuild.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-models.lock
 python -m pip install -e . --no-deps
-python -m ds_m01.delivery_replay --root . --report reports/p07
+python -m ds_m01.final_replay --root . --report reports/p08
 ```
 
-Expect `status: passed`, `differences: 0`, 341 opportunities, nine candidate
-alerts, 35 risk episodes and eight transport attempts. The check uses saved
-model/calibrator states, retained source context and saved July labels; it does
-not fit models or calibrators, open the raw outcome source or send notifications.
-To run the unit suite, use
-`python -m unittest discover -s tests -v` in the same environment.
+Expect `status: passed`, `differences: 0`, nine scenarios, 400 trips and 3,200 opportunities per scenario. This replay does not fit models, select thresholds or send notifications. It reproduces already-exposed final evidence and is not another untouched test. To run the unit suite, use `python -m unittest discover -s tests -v` in the same environment. The earlier P07 delivery replay remains available as `python -m ds_m01.delivery_replay --root . --report reports/p07`.
 
 For exact retraining, follow the [fixed-container guide](docs/reproducibility.md).
 For the full data build, [see the commands and disk requirements below](#run-locally).
@@ -360,22 +380,16 @@ python scripts/plot_data_quality.py --root .
 The historical M2 warehouse populated 17 data-stage tables. P06 separately
 materialized five canonical model, membership, prediction, rule and offline-release
 tables. P07 adds alert episodes, alerts and notification-delivery records to that
-separate JSONL/DuckDB/Parquet store. It does not rebuild the combined M2 warehouse.
+separate JSONL/DuckDB/Parquet store. P08 reuses those eight contracts in each final scenario store, with 27 typed tables per scenario. It does not rebuild the combined M2 warehouse.
 Adoption, action and follow-up tables remain empty; recipient opening is not
 simulated. Delivery rows describe synthetic service outcomes, not messages sent
 to fleet users. Native PostgreSQL verification is also pending; see the
 [PostgreSQL runtime note](docs/postgres_runtime_note.md). DuckDB and HTTP validation
 do not establish PostgreSQL integration.
 
-For the next modeling stage, the unseen-route-only test cohort has 29 eligible trips and the joint unseen-vehicle/unseen-route cohort has four. These sparse cohorts support descriptive reporting, not reliable deployment claims. A threshold of 30 trips is a coverage warning, not a power analysis. The training set also contains 97 eligible snapshots without a prior historical pool, requiring a defined fallback or unavailable result.
+P08 retains all 400 final-test trips, including 34 unseen-route-only and four joint-holdout trips. Eligible/scored counts are reported separately. Sparse support permits descriptive analysis, not reliable deployment claims or a power guarantee. The original training fallback and unavailable rules remain unchanged.
 
-Keep split boundaries and heldout IDs frozen. Do not tune on final test outcomes
-or count snapshots from the same trip as independent trips. P06's July selection
-does not provide an independent policy test; its 22.2% actionable recall and
-the unmet P05 calibration targets remain quality limitations. P07 tests
-synthetic transport and freezes the P08 evaluation specification; it does not
-complete M4.2 or approve the policy. Independent final evaluation, recipient
-adoption, operator actions, follow-up and the viewer remain later stages.
+Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 adoption, operator actions, follow-up and the viewer are next; full M4.2 completion, service integration and operational acceptance remain separate.
 
 The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
 

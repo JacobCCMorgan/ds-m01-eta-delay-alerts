@@ -2,6 +2,40 @@
 
 Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-14 UTC — evaluate the frozen pipeline on the original final cohort
+
+Registered new inference, target, metric, policy/delivery adapter and typed-store code
+with passing pre-target conformance checks. Retained and hashed all nine label-free
+scenario ledgers before opening final targets. Existing model, calibration, policy and
+transport sources stayed fixed; July development results were already known.
+
+The first execution stopped before final target access because the historical-report
+inventory included its own temporary P08 output directory. The execution guard was
+repaired to exclude only reserved P08 output/attempt directories and to check this
+before inference; 727 tests then passed and the implementation was registered again
+before target access. The scientific configuration, models, inputs and metadata
+inventory did not change. All 97 compared input/scenario artifacts sealed before target
+access had identical hashes. That comparison was recorded after the first target access
+and does not move the original freeze clocks. This was a pre-target execution repair,
+not a post-target scoring correction. The [repair
+history](../reproducibility/p08/history/pre_target_revision.json) preserves the failed
+attempt and earlier registered source.
+
+Every scenario retains 400 original August–September trips and 3,200 opportunities,
+including all four novelty groups (325/37/34/4 trips). Primary S00 whole-trip interval
+coverage is 243/328 (74.1%); useful delivered-alert recall is 26/137 (19.0%);
+conditional useful-first precision is 26/38 (68.4%). The full report retains every
+scenario, exclusions, unresolved targets, paired supports and descriptive uncertainty.
+No result promotes a model or changes the selected rule.
+
+The suite passed 727 tests; the independent reference passed 10,349,858 comparisons with
+zero failures, and retained replay found zero differences. Each scenario has 27 typed
+tables, including eight canonical outputs and three reserved downstream tables. Actual
+offline clocks remain distinct from synthetic event clocks. Quality/operational
+acceptance stays false and G14/G15/G16 remain open. P09 adoption/action/follow-up and
+the viewer are still future work. See [final findings](p08_final_evaluation.md) and
+[results](../reports/p08/README.md).
+
 ## 2026-11-13 UTC — handle temporary-directory aliases in replay tests
 
 Two delivery replay mock assertions failed on macOS because the fixture kept
