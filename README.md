@@ -216,10 +216,25 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-models.lock
 python -m pip install -e . --no-deps
-python -m ds_m01.final_replay --root . --report reports/p08
+python reproducibility/p08/portable_replay.py --root . --report reports/p08
 ```
 
-Expect `status: passed`, `differences: 0`, nine scenarios, 400 trips and 3,200 opportunities per scenario. This replay does not fit models, select thresholds or send notifications. It reproduces already-exposed final evidence and is not another untouched test. To run the unit suite, use `python -m unittest discover -s tests -v` in the same environment. The earlier P07 delivery replay remains available as `python -m ds_m01.delivery_replay --root . --report reports/p07`.
+This separately versioned verifier checks all nine scenarios, each retaining 400 trips
+and 3,200 opportunities. Rebuilt forecasts, decisions and scores must satisfy the
+original numerical tolerance; the saved JSONL, DuckDB and Parquet store must match an
+exact reconstruction from its retained inputs. It does not fit models, select thresholds
+or send notifications. See the [post-exposure verification revision](docs/p08_portable_verification.md)
+for the distinction between numerical replay and stored-artifact integrity.
+
+The original `python -m ds_m01.final_replay --root . --report reports/p08` entry point
+remains unchanged. It can reject native macOS floating-point differences that pass its
+earlier tolerance checks, because it also hashes freshly reconstructed raw floats.
+The portability verifier does not claim that this original strict command passed.
+Both commands reproduce already-exposed evidence; neither is another untouched test.
+Run the original suite with `python -m unittest discover -s tests -v` and the supplemental
+verifier tests with `python -m unittest discover -s reproducibility/p08/tests -v`.
+The earlier P07 delivery replay remains available as
+`python -m ds_m01.delivery_replay --root . --report reports/p07`.
 
 For exact retraining, follow the [fixed-container guide](docs/reproducibility.md).
 For the full data build, [see the commands and disk requirements below](#run-locally).

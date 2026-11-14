@@ -1,0 +1,49 @@
+{
+  "observed_failure": {
+    "affected_native_store_tables": [
+      "p08_opportunity_audit",
+      "p08_run_audit",
+      "p08_metadata_audit"
+    ],
+    "all_nine_original_forecast_comparisons_passed": true,
+    "all_nine_retained_table_reconstruction_digests_exact": true,
+    "environment": "Python 3.12.2 on macOS",
+    "evidence_kind": "User-supplied terminal capture of the nine-scenario diagnostic",
+    "exported_diagnostic_json_supplied": false,
+    "maximum_displayed_opportunity_float_absolute_difference": 1.1102230246251565e-16,
+    "message": "Final JSONL differs from reconstructed rows: p08_opportunity_audit",
+    "native_revised_verifier_validation_observed": false,
+    "opportunity_audit_tolerated_difference_counts_by_scenario": {
+      "S00_unmodified": 4,
+      "S01_missing_position": 3,
+      "S02_stale_position": 5,
+      "S03_unseen_route_slot": 6,
+      "S04_natural_entity_holdouts": 4,
+      "S05_stationary_window": 4,
+      "S06_distance_scale": 9,
+      "S07_transport_degraded": 4,
+      "S08_missing_and_degraded": 3
+    }
+  },
+  "operational_approval": false,
+  "original_delivery_tree": "a82bee55df60c0e1235de25bc802a6e9a6e6f9c4",
+  "original_run_receipt_sha256": "a4f8b184792dfa3d6417a61fa8544ca4b94ea4440f10058b57f17e8d26976fc0",
+  "original_strict_native_store_replay_claim": false,
+  "post_exposure_verifier_revision": true,
+  "quality_accepted": false,
+  "registered_at_utc": "2026-11-14T08:28:34.673534+00:00",
+  "revision_scope": "Post-exposure verification correction only; original scientific source inventory, inputs, models, policy, scoring, tolerances, freeze and retained results remain unchanged.",
+  "schema_version": 1,
+  "scientific_freeze_sha256": "d6cb17c36cb59812388a385fe61a6d0db7448770a7f4c916a0b1f40cab86f202",
+  "tests_sha256": {
+    "reproducibility/p08/tests/test_portable_replay.py": "26d446d789f6786e488ad549d6968d68dfd64928203a4e6a541db771b7b1e946"
+  },
+  "untouched_final_test_claim": false,
+  "verification_semantics": [
+    "Reconstruct forecasts, targets, policy/delivery and scores with the original scientific functions and original comparator.",
+    "After numerical checks, reconstruct stored tables from hash-verified retained label-free artifacts; run the original exact JSONL, DuckDB, Parquet, schema, constraint and SQL checks.",
+    "Report tolerated raw numerical differences without representing them as bitwise equality."
+  ],
+  "verifier_sha256": "b5a3310b33efe7ebb82c0e0d247bde37ddb3a4d8bf7bb292f9c7cf66161a18b2",
+  "verifier_version": "p08-portable-replay-v1"
+}

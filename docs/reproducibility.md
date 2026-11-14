@@ -11,15 +11,16 @@ P08 uses the saved P05 model, preprocessing, history and calibrator states, plus
 fixed P06 rule and P07 transport algorithm. It does not retrain inside the candidate
 Docker image.
 
-Use the frozen P08 commit or an isolated checkout with the exact recorded P08 source
-set. The replay verifier binds that source inventory. Future P09 source, script or test
-additions fall outside this registration and need a separately versioned workflow; they
-must not be removed from verification merely to obtain a pass.
+Use the P08 checkout containing the separately registered portability verifier and the
+exact original scientific source set. The original source inventory and freeze remain
+unchanged. Future P09 source, script or test additions fall outside that registration
+and need a separately versioned workflow; they must not be removed from verification
+merely to obtain a pass.
 
 From the configured environment in that checkout:
 
 ```bash
-python -m ds_m01.final_replay --root . --report reports/p08
+python reproducibility/p08/portable_replay.py --root . --report reports/p08
 python scripts/check_final_evaluation.py --root . --report reports/p08 --output /tmp/p08_independent_checks.json
 ```
 
@@ -27,16 +28,35 @@ Choose a fresh independent-check output path. Retained replay reads saved final 
 evidence and does not need the raw outcome source; optional `--input-root
 /path/to/frozen_input_root` independently rebinds exact source bytes. Both are
 post-exposure reproduction, not new untouched tests. All nine scenarios and 27 typed
-tables per scenario are checked, with exact identities/counts and the frozen numerical
-tolerance. Actual materialization timestamps are kept distinct from synthetic event
-time.
+tables per scenario are checked. Actual materialization timestamps remain distinct
+from synthetic event time.
 
-The [final report](../reports/p08/README.md) provides denominators, complete scenario
-results and receipts. The registered conformance gate and pre-target forecast hashes
-establish execution order. A failed exposed attempt must remain available; a correction
-requires an explicitly disclosed registration linked to that attempt. Do not overwrite
-the first result or change model/protocol pins to obtain a pass. Reproducibility does
-not close G14/G15/G16 or establish operational acceptance.
+The [portability revision](p08_portable_verification.md) separates two checks:
+
+- Rebuilt forecasts, policy/delivery decisions and scores use the original comparison
+  rules: exact structures, identities, counts and discrete values; floating-point
+  values use the already-frozen absolute `1e-10` and relative `1e-9` tolerances.
+- Stored tables are rebuilt from the retained opportunities, model registry and policy
+  bundle, after those artifacts have been checked against the rebuilt results. The
+  unchanged store verifier then checks exact JSONL, file hashes, DuckDB/Parquet logical
+  values, schemas, constraints and SQL relationships.
+
+The original `python -m ds_m01.final_replay --root . --report reports/p08` entry point
+remains available and unchanged. It failed on the reporting Mac when raw probability
+differences within the frozen tolerance changed exact audit-table JSON hashes. The new
+verifier is registered after outcome exposure and does not claim an original strict
+replay pass, bitwise-identical native inference, or inclusion in the original 727-test
+pre-target conformance run. Its own [registration](../reproducibility/p08/portability_v1/registration.json)
+and tests are recorded separately.
+
+The [final report](../reports/p08/README.md) retains the original denominators, results
+and receipts. The original conformance gate and pre-target forecast hashes establish
+that experiment's execution order. A change to its scientific implementation or results
+requires a disclosed correction registration linked to the preserved exposed attempt.
+This verification revision preserves that implementation and all results, and records
+its own later registration. Do not overwrite the first result or change model/protocol
+pins to obtain a pass. Reproducibility does not close G14/G15/G16 or establish
+operational acceptance.
 
 ## Why training uses a fixed container
 

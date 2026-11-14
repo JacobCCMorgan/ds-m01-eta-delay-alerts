@@ -1,6 +1,28 @@
 # Implementation change log
 
-Entries describe implementation changes and observed test findings. Dates are actual execution dates in UTC; they do not substitute for version-control history.
+Entries describe implementation changes and observed test findings. Unless a timezone is stated, dates are actual execution dates in UTC; they do not substitute for version-control history.
+
+## 2026-11-14 America/Los_Angeles — separate numerical replay from retained-store integrity
+
+Native macOS P08 replay reached the typed-store check and rejected
+`p08_opportunity_audit`. A subsequent diagnostic on that machine passed the original
+forecast comparison rules in all nine scenarios and exactly reconstructed every saved
+JSONL table from its retained inputs. The displayed opportunity differences were raw
+probabilities, with a maximum absolute difference of approximately `1.11e-16`, within
+the frozen tolerance. Those values also changed metadata and audit hashes.
+
+The original verifier compared freshly rebuilt raw floats with exact stored JSON hashes
+after accepting them under its numerical tolerance. Added a separately versioned
+post-exposure verifier that keeps the original numerical comparisons and reconstructs
+stored-table expectations from the verified retained inputs. The existing exact store
+checks remain active. The original verifier, scientific sources, implementation freeze,
+models, protocol, predictions, targets and metrics remain unchanged.
+
+The supplemental verification registration and regression tests are separate from the
+original 727-test pre-target conformance record. This is a verification correction, not
+a new untouched final test, model refit or quality acceptance. The native diagnostic
+is not evidence of a successful original strict replay or GitHub publication. See the
+[verification revision](p08_portable_verification.md) for commands and evidence scope.
 
 ## 2026-11-14 UTC — evaluate the frozen pipeline on the original final cohort
 
