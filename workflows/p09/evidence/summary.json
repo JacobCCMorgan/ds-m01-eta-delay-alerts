@@ -1,0 +1,417 @@
+{
+  "browser_render_validation": "pending: browser rendering unavailable in the preparation environment",
+  "canonical_counts": {
+    "eta_action": 33,
+    "eta_action_followup": 31,
+    "eta_adoption": 42
+  },
+  "causal_benefit_estimated": false,
+  "m4_2_engineering_scope_completed": true,
+  "m4_3_read_only_viewer_implemented": true,
+  "metrics": {
+    "actions": {
+      "by_type": {
+        "contact_customer": 5,
+        "contact_driver": 6,
+        "no_action": 2,
+        "other": 0,
+        "reassign": 16,
+        "reschedule": 4
+      },
+      "executed_actions": 31,
+      "handling_known_records": 33,
+      "handling_seconds_sum": 12074,
+      "handling_unknown_records": 0,
+      "no_action_records": 2,
+      "records": 33
+    },
+    "by_tenant": {
+      "T01": {
+        "actions": {
+          "by_type": {
+            "contact_customer": 1,
+            "contact_driver": 0,
+            "no_action": 0,
+            "other": 0,
+            "reassign": 2,
+            "reschedule": 1
+          },
+          "executed_actions": 4,
+          "handling_known_records": 4,
+          "handling_seconds_sum": 1382,
+          "handling_unknown_records": 0,
+          "no_action_records": 0,
+          "records": 4
+        },
+        "followup": {
+          "actions_without_comparable_arrival": 4,
+          "arrival_change_claimed": false,
+          "audit_records": 4,
+          "by_status": {
+            "disputed": 0,
+            "immature": 0,
+            "lost": 1,
+            "mature": 0,
+            "no_action": 0,
+            "no_known_outcome": 0,
+            "not_reported": 3,
+            "rejected": 0
+          },
+          "canonical_records": 4,
+          "comparison_delay_seconds_sum": 0,
+          "deadline_definition_difference_seconds": 0,
+          "known_arrival_comparisons": 0,
+          "original_delay_seconds_sum": 0
+        },
+        "funnel": {
+          "accepted_alerts": 3,
+          "accepted_or_partial_alerts": 3,
+          "delivered_alerts": 8,
+          "not_reviewed_alerts": 4,
+          "opened_alerts": 7,
+          "overridden_alerts": 1,
+          "partially_accepted_alerts": 0,
+          "rejected_alerts": 0,
+          "reviewed_alerts": 4
+        },
+        "population": {
+          "alerts": 10,
+          "confirmed_delivered_alerts": 8,
+          "non_delivered_alerts": 2,
+          "opportunities": 963,
+          "transport_attempts": 11,
+          "trips": 132
+        },
+        "rates": {
+          "accepted_or_partial_per_delivery": {
+            "denominator": 8,
+            "numerator": 3,
+            "value": 0.375
+          },
+          "accepted_or_partial_per_reviewed": {
+            "denominator": 4,
+            "numerator": 3,
+            "value": 0.75
+          },
+          "opened_per_delivery": {
+            "denominator": 8,
+            "numerator": 7,
+            "value": 0.875
+          },
+          "reviewed_per_delivery": {
+            "denominator": 8,
+            "numerator": 4,
+            "value": 0.5
+          }
+        }
+      },
+      "T02": {
+        "actions": {
+          "by_type": {
+            "contact_customer": 1,
+            "contact_driver": 5,
+            "no_action": 0,
+            "other": 0,
+            "reassign": 6,
+            "reschedule": 1
+          },
+          "executed_actions": 13,
+          "handling_known_records": 13,
+          "handling_seconds_sum": 4640,
+          "handling_unknown_records": 0,
+          "no_action_records": 0,
+          "records": 13
+        },
+        "followup": {
+          "actions_without_comparable_arrival": 13,
+          "arrival_change_claimed": false,
+          "audit_records": 13,
+          "by_status": {
+            "disputed": 3,
+            "immature": 0,
+            "lost": 1,
+            "mature": 0,
+            "no_action": 0,
+            "no_known_outcome": 0,
+            "not_reported": 8,
+            "rejected": 1
+          },
+          "canonical_records": 13,
+          "comparison_delay_seconds_sum": 0,
+          "deadline_definition_difference_seconds": 0,
+          "known_arrival_comparisons": 0,
+          "original_delay_seconds_sum": 0
+        },
+        "funnel": {
+          "accepted_alerts": 6,
+          "accepted_or_partial_alerts": 11,
+          "delivered_alerts": 17,
+          "not_reviewed_alerts": 4,
+          "opened_alerts": 16,
+          "overridden_alerts": 2,
+          "partially_accepted_alerts": 5,
+          "rejected_alerts": 0,
+          "reviewed_alerts": 13
+        },
+        "population": {
+          "alerts": 25,
+          "confirmed_delivered_alerts": 17,
+          "non_delivered_alerts": 8,
+          "opportunities": 1185,
+          "transport_attempts": 25,
+          "trips": 134
+        },
+        "rates": {
+          "accepted_or_partial_per_delivery": {
+            "denominator": 17,
+            "numerator": 11,
+            "value": 0.6470588235294118
+          },
+          "accepted_or_partial_per_reviewed": {
+            "denominator": 13,
+            "numerator": 11,
+            "value": 0.8461538461538461
+          },
+          "opened_per_delivery": {
+            "denominator": 17,
+            "numerator": 16,
+            "value": 0.9411764705882353
+          },
+          "reviewed_per_delivery": {
+            "denominator": 17,
+            "numerator": 13,
+            "value": 0.7647058823529411
+          }
+        }
+      },
+      "T03": {
+        "actions": {
+          "by_type": {
+            "contact_customer": 3,
+            "contact_driver": 1,
+            "no_action": 2,
+            "other": 0,
+            "reassign": 8,
+            "reschedule": 2
+          },
+          "executed_actions": 14,
+          "handling_known_records": 16,
+          "handling_seconds_sum": 6052,
+          "handling_unknown_records": 0,
+          "no_action_records": 2,
+          "records": 16
+        },
+        "followup": {
+          "actions_without_comparable_arrival": 13,
+          "arrival_change_claimed": false,
+          "audit_records": 16,
+          "by_status": {
+            "disputed": 0,
+            "immature": 0,
+            "lost": 3,
+            "mature": 1,
+            "no_action": 2,
+            "no_known_outcome": 0,
+            "not_reported": 10,
+            "rejected": 0
+          },
+          "canonical_records": 14,
+          "comparison_delay_seconds_sum": 5251,
+          "deadline_definition_difference_seconds": 0,
+          "known_arrival_comparisons": 1,
+          "original_delay_seconds_sum": 5251
+        },
+        "funnel": {
+          "accepted_alerts": 9,
+          "accepted_or_partial_alerts": 11,
+          "delivered_alerts": 17,
+          "not_reviewed_alerts": 1,
+          "opened_alerts": 17,
+          "overridden_alerts": 3,
+          "partially_accepted_alerts": 2,
+          "rejected_alerts": 2,
+          "reviewed_alerts": 16
+        },
+        "population": {
+          "alerts": 28,
+          "confirmed_delivered_alerts": 17,
+          "non_delivered_alerts": 11,
+          "opportunities": 1052,
+          "transport_attempts": 23,
+          "trips": 134
+        },
+        "rates": {
+          "accepted_or_partial_per_delivery": {
+            "denominator": 17,
+            "numerator": 11,
+            "value": 0.6470588235294118
+          },
+          "accepted_or_partial_per_reviewed": {
+            "denominator": 16,
+            "numerator": 11,
+            "value": 0.6875
+          },
+          "opened_per_delivery": {
+            "denominator": 17,
+            "numerator": 17,
+            "value": 1.0
+          },
+          "reviewed_per_delivery": {
+            "denominator": 17,
+            "numerator": 16,
+            "value": 0.9411764705882353
+          }
+        }
+      }
+    },
+    "causal_benefit_estimated": false,
+    "denominator_notes": {
+      "adoption_unit": "Accepted plus partially accepted among reviewed confirmed alerts; overrides are separate.",
+      "delay_comparison": "The same retained arrival against two promise definitions. A deadline change is not an arrival improvement.",
+      "delivery_unit": "Unique same-tenant alert with a confirmed observed delivery; failed retries are not non-adoption.",
+      "followup_unit": "Executed actions; unknown, immature, disputed and lost follow-up are not negative outcomes.",
+      "interpretation": "Workflow profiles are engineering fixtures, not estimated recipient behaviour or causal fleet benefit."
+    },
+    "followup": {
+      "actions_without_comparable_arrival": 30,
+      "arrival_change_claimed": false,
+      "audit_records": 33,
+      "by_status": {
+        "disputed": 3,
+        "immature": 0,
+        "lost": 5,
+        "mature": 1,
+        "no_action": 2,
+        "no_known_outcome": 0,
+        "not_reported": 21,
+        "rejected": 1
+      },
+      "canonical_records": 31,
+      "comparison_delay_seconds_sum": 5251,
+      "deadline_definition_difference_seconds": 0,
+      "known_arrival_comparisons": 1,
+      "original_delay_seconds_sum": 5251
+    },
+    "funnel": {
+      "accepted_alerts": 18,
+      "accepted_or_partial_alerts": 25,
+      "delivered_alerts": 42,
+      "not_reviewed_alerts": 9,
+      "opened_alerts": 40,
+      "overridden_alerts": 6,
+      "partially_accepted_alerts": 7,
+      "rejected_alerts": 2,
+      "reviewed_alerts": 33
+    },
+    "observation_cutoff_at": "2026-10-15T07:00:00Z",
+    "operational_approval": false,
+    "population": {
+      "alerts": 63,
+      "confirmed_delivered_alerts": 42,
+      "non_delivered_alerts": 21,
+      "opportunities": 3200,
+      "transport_attempts": 59,
+      "trips": 400
+    },
+    "quality_accepted": false,
+    "rates": {
+      "accepted_or_partial_per_delivery": {
+        "denominator": 42,
+        "numerator": 25,
+        "value": 0.5952380952380952
+      },
+      "accepted_or_partial_per_reviewed": {
+        "denominator": 33,
+        "numerator": 25,
+        "value": 0.7575757575757576
+      },
+      "opened_per_delivery": {
+        "denominator": 42,
+        "numerator": 40,
+        "value": 0.9523809523809523
+      },
+      "reviewed_per_delivery": {
+        "denominator": 42,
+        "numerator": 33,
+        "value": 0.7857142857142857
+      }
+    },
+    "real_notifications_sent": false,
+    "real_recipient_behaviour_observed": false,
+    "source_scenario": "S00_unmodified",
+    "status": "descriptive_synthetic_workflow"
+  },
+  "operational_approval": false,
+  "parent": {
+    "base_public_commit": "12b904696b87d90369d85dabeee01eadadc854cd",
+    "operational_approval": false,
+    "parent_file_count": 1285,
+    "quality_accepted": false,
+    "registration_sha256": "7ac98f01e51bf476266d182f6ee47b514856b99d1302e38ca165335b51f171a0",
+    "status": "passed_parent_and_workflow_registration",
+    "workflow_file_count": 21
+  },
+  "quality_accepted": false,
+  "quality_limits": [
+    "G14",
+    "G15",
+    "G16"
+  ],
+  "real_recipient_observations": false,
+  "scope": "Post-P08 synthetic workflow demonstration; frozen arrivals, predictions and final-test scores are unchanged.",
+  "source_scenario": "S00_unmodified",
+  "status": "completed_synthetic_operator_workflow",
+  "viewer": {
+    "bytes": 12416322,
+    "sha256": "ce015d48162f1fd5f33b16b3b4f92eb363cd46973712cdd313817108958c2b6b",
+    "status": "written_read_only_viewer",
+    "version": "p09-trip-review-v1"
+  },
+  "workflow": {
+    "action_type_counts": {
+      "contact_customer": 5,
+      "contact_driver": 6,
+      "no_action": 2,
+      "reassign": 16,
+      "reschedule": 4
+    },
+    "adoption_status_counts": {
+      "accepted": 18,
+      "not_reviewed": 9,
+      "overridden": 6,
+      "partially_accepted": 7,
+      "rejected": 2
+    },
+    "causal_benefit_estimated": false,
+    "confirmed_delivered_alerts": 42,
+    "counts": {
+      "decision_audit": 42,
+      "eta_action": 33,
+      "eta_action_followup": 31,
+      "eta_adoption": 42,
+      "events": 137,
+      "followup_audit": 33,
+      "opening_events": 40,
+      "outcome_references": 31,
+      "promise_versions": 4
+    },
+    "followup_status_counts": {
+      "disputed": 3,
+      "lost": 5,
+      "mature": 1,
+      "no_action": 2,
+      "not_reported": 21,
+      "rejected": 1
+    },
+    "model_or_calibrator_refitted": false,
+    "observation_cutoff_at": "2026-10-15T07:00:00Z",
+    "opening_count": 40,
+    "operational_approval": false,
+    "policy_reselected": false,
+    "quality_accepted": false,
+    "real_notifications_sent": false,
+    "real_recipient_observations": false,
+    "scope": "Synthetic post-exposure workflow demonstration; original forecasts, deliveries and arrivals unchanged",
+    "source_scenario": "S00_unmodified"
+  }
+}

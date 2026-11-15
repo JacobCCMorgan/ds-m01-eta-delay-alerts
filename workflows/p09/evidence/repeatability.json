@@ -1,0 +1,19 @@
+{
+  "binary_database_identity_claimed": false,
+  "both_stores_independently_verified": true,
+  "core_files_byte_identical": [
+    "simulation.json",
+    "metrics.json",
+    "independent_checks.json",
+    "input_manifest.json",
+    "summary.json",
+    "viewer.html"
+  ],
+  "differences": 0,
+  "logical_rows_compared": 32128,
+  "normalization": [
+    "p09_run_audit.materialized_at only"
+  ],
+  "status": "passed_two_run_repeatability",
+  "tables_compared": 35
+}

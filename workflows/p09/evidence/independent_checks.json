@@ -1,0 +1,24 @@
+{
+  "audit_version": "p09-independent-workflow-audit-v1",
+  "causal_benefit_estimated": false,
+  "comparison_count": 26524,
+  "failure_count": 0,
+  "failure_details_truncated": false,
+  "failures": [],
+  "operational_approval": false,
+  "output_row_counts": {
+    "decision_audit": 42,
+    "eta_action": 33,
+    "eta_action_followup": 31,
+    "eta_adoption": 42,
+    "events": 137,
+    "followup_audit": 33,
+    "opening_events": 40,
+    "outcome_references": 31,
+    "promise_versions": 4
+  },
+  "quality_accepted": false,
+  "result_origin": "synthetic_scenario",
+  "scope": "Independent source relationships, event clocks, denominators and delay arithmetic; synthetic workflow consistency only.",
+  "status": "passed"
+}

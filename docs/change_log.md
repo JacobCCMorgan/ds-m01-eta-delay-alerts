@@ -2,6 +2,45 @@
 
 Entries describe implementation changes and observed test findings. Unless a timezone is stated, dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-14 America/Los_Angeles — retain synthetic recipient and operator workflow
+
+Added a separately registered P09 extension of the fixed primary P08 scenario.
+Confirmed delivery, recipient opening, review, adoption or override, operator
+action and follow-up have separate clocks and denominators. Failed delivery does
+not establish rejection, and retries cannot create duplicate decisions for an
+alert. Target-independent identity hashes select synthetic behavior; these
+frequencies are engineering fixtures, not observed human response rates.
+
+The separate typed store populates adoption, action and follow-up contracts while
+preserving the other 24 inherited P08 tables. Synthetic opening is auxiliary; the original
+notification rows remain unchanged. Follow-up retains the original promise and a
+separate revised promise, using the same arrival. Pending source versions remain
+pending at the observation endpoint even if a later verified revision is available
+to the analyst. No unknown outcome is converted to zero delay or a successful
+intervention.
+
+Added a self-contained, read-only viewer for all primary trips, with tenant and
+trip filtering, event timelines and knowledge-time filtering. Automated tests cover
+the retained viewer data and JavaScript interactions; actual browser rendering and
+visual review remain pending. The viewer does not send messages or edit evidence.
+
+The first preparation run exposed a staging-directory collision with the P09
+source inventory. Transient output is now built outside the checkout and moved
+into place only after validation, so it cannot masquerade as registered source.
+The repair precedes the first P09 publication and does not alter any P08 file.
+
+Preparation passed 727 original tests, 17 portability tests and 115 P09 tests.
+The independent workflow reference passed 26,524 comparisons. The retained
+scenario has 42 adoption states, 33 action records including two explicit
+no-actions, and 31 follow-up records with only one comparable mature arrival.
+
+All new code, settings, tests and results live under `workflows/p09/`, outside the
+historical scientific inventories. Original P08 source, registration, model states,
+policy, targets and metrics remain intact. P09 is development after final-outcome
+exposure, not a new untouched test. G14/G15/G16 and quality/operational approval
+remain unchanged. See the [workflow scope and commands](p09_workflow.md) and
+[retained results and engineering receipts](../workflows/p09/evidence/README.md).
+
 ## 2026-11-14 America/Los_Angeles — separate numerical replay from retained-store integrity
 
 Native macOS P08 replay reached the typed-store check and rejected

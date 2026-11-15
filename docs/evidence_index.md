@@ -2,31 +2,36 @@
 
 The historical M2 warehouse has 17 populated synthetic tables. P06 added a
 separate offline store with five canonical output tables; P07 adds canonical
-alert episodes, alerts and notification-delivery attempts to that store. Eight
-canonical tables now have rows, while adoption, action and follow-up remain
-empty. This does not rebuild the combined M2 warehouse. Earlier experimental
-artifacts and dated receipts remain available. Synthetic service delivery alone does not establish recipient opening, operational approval or a measured fleet outcome. P08 separately evaluates the fixed pipeline on the original final cohort; its conclusions remain conditional on synthetic trajectories.
+alert episodes, alerts and notification-delivery attempts. P08 preserves those
+eight contracts in each final scenario store. P09 then adds the three downstream
+adoption, action and follow-up contracts in its own primary-S00 workflow store.
+This does not rebuild the combined M2 warehouse. Earlier experimental artifacts
+and dated receipts remain available. Synthetic service delivery and recipient
+behavior do not establish operational approval or a measured fleet outcome.
+P08's fixed evaluation and quality limitations remain unchanged.
 
 | Evidence index | What a row tells you |
 |---|---|
 | [110 original field requirements](../contracts/current_requirement_evidence.csv) | The original ID, field ID, canonical table/column, condition and intended output; observed evidence; and the remaining boundary. |
-| [28 required and 2 optional tables](../contracts/current_table_evidence.csv) | Data-stage rows, formal offline rows, required schemas or disabled inputs. M2, P06, P07 and primary-S00 P08 counts describe separate retained stores. A blank phase count means the table is outside that store; zero means an empty reserved table. |
+| [28 required and 2 optional tables](../contracts/current_table_evidence.csv) | Data-stage rows, formal offline rows, required schemas or disabled inputs. M2, P06, P07, primary-S00 P08 and P09 counts describe separate retained stores. A blank phase count means the table is outside that store; zero means an empty reserved table. |
 | [14 validation scenarios](../contracts/current_validation_evidence.csv) | Specifically exercised behaviors, test definitions and passing receipts, with partial or unexecuted scope stated separately. |
 
 Of the 110 field mappings, 60 have a synthetic data-stage implementation and two
 have partial source semantics. A version attribute does not demonstrate
 multi-revision telemetry; a configured synthetic receipt clock does not prove
-external acquisition. Twenty-two mappings have materialized canonical offline
-rows. Ten retain only required schemas or unobserved nullable semantics; another
+external acquisition. Thirty-one mappings have materialized canonical offline
+rows. One retains an unobserved nullable canonical field; another
 16 belong to disabled forecast or routing contracts. These evidence categories
 are not a completion percentage. Populating a table does not prove every field
-was observed: all P07 and P08 `received_or_opened_at` values remain null. Two
+was observed: all P07/P08 and imported P09 `received_or_opened_at` values remain
+null. P09 retains opening in a separate synthetic audit, without rewriting the
+parent notification table. Two
 requirements can validly map to the same column through different facility joins.
 
 Five validation cases have exercised data behavior, six are partially
 tested, one has separately tested components and two depend on disabled optional
-inputs. ETA-V10 now has synthetic retry/repetition evidence but still lacks the
-partial-adoption part of its original scenario; it is not fully complete. Named
+inputs. ETA-V10 has synthetic retry/repetition and partial-adoption component
+evidence, while the original combined operational case remains partial. Named
 tests are linked only when both the definition and passing result are retained.
 
 Historical suites remain tied to their original runs: [P04](../reports/m3c/unittest_results.txt)
@@ -56,7 +61,7 @@ the inherited P06 canonical records. Its successful delivered-repeat counts are
 zero; P06's two repeated candidates remain distinct historical evidence. The
 simulated July transport clocks and actual November output-release clocks have
 separate provenance domains. Recipient opening, adoption, operator actions and
-follow-up remain absent. The [P08 protocol](p08_evaluation_protocol.md) is frozen,
+follow-up remain absent from that historical P07 store. The [P08 protocol](p08_evaluation_protocol.md) is frozen,
 and P08 has now executed it under a separate registered implementation, with results below. Complete M4.2 acceptance is not claimed.
 
 For policy development and formal outputs, start with the [P06 results](../reports/p06/README.md), [frozen protocol](p06_alert_policy.md), [all threshold trials](../reports/p06/policy_trials.json), [selection record](../reports/p06/selection_manifest.json) and [typed-store checks](../reports/p06/store/verification.json). The 0.55 threshold produces nine candidates across 42 monitored trips and captures 4/18 actionable delayed trips. First-candidate precision is 4/6 conditional on eligible targets; one of seven first candidates is unresolved. The 50-per-100-trip budget and two-per-tenant-day cap are hypothetical research settings, not measured capacity. Selection and reporting reuse the known July assessment outcomes, so they are not independent final-policy performance.
@@ -70,6 +75,36 @@ For delay classification, the [P04 results](../reports/m3c/README.md), [raw-prob
 For calibration, read the [P05 results](../reports/m3d/README.md), [frozen protocol](m3d_calibration.md), [fit states](../reports/m3d/calibrators.json), [assessment metrics](../reports/m3d/metrics.json) and [independent checks](../reports/m3d/independent_checks.json). The base models use original training trips and a July 1 knowledge cutoff; early July trips fit calibrators, a buffer separates roles, and later July trips assess them. Assessment retains 341 opportunities and scores 143 snapshots from 29 trips. Whole-trip interval coverage is 19/29 (65.5%), below the nominal 80%; probability calibration worsens Brier score and log loss. Supported fitting does not establish quality improvement. Unsupported calibrators retain explicitly uncalibrated raw outputs. This assessment cohort is reused for P06 policy development, not independent final-policy testing. August–September values remained reserved at P05; P08 later evaluated them without fitting or reselection.
 
 The [original field requirements](../contracts/requirement_traceability.csv), [table plan](../contracts/table_delivery_register.csv) and [case specifications](../contracts/validation_cases_reference.json) deliberately retain their planning-time statuses. Read those registers for the specification and the three current indexes for observed implementation and evidence.
+
+## Synthetic recipient and operator workflow
+
+P09 extends only the fixed primary S00 population: 400 trips, 3,200 opportunities,
+63 alerts, 59 transport attempts and 42 confirmed successful deliveries. It does
+not pool the stress scenarios or modify forecasts, final targets, model states,
+the 0.55 policy or the original scientific registration.
+
+The [workflow specification](p09_workflow.md) explains the separate delivery,
+opening, adoption, action and follow-up clocks. [Saved results and
+denominators](../workflows/p09/evidence/README.md) distinguish canonical rows from
+known outcomes. Only mature, confirmed, source-linked arrivals enter the original
+versus revised promise comparison. A future verified source revision cannot
+replace a pending version that was known at the follow-up endpoint. Synthetic
+handling time is input effort, not labor saved; changing a deadline is not an
+arrival improvement.
+
+The [typed store](../workflows/p09/evidence/store_verification.json), [independent
+reference](../workflows/p09/evidence/independent_checks.json), [engineering
+verification](../workflows/p09/evidence/verification.json), [tests](../workflows/p09/evidence/unittest_results.txt)
+and [repeatability receipt](../workflows/p09/evidence/repeatability.json) retain the
+implemented checks separately from acceptance claims. P09 has its own source
+registration under `workflows/p09/`; all earlier scientific source and report
+inventories remain unchanged.
+
+The self-contained [trip viewer](../workflows/p09/evidence/viewer.html) includes
+trips with no alert and alerts with no successful delivery. Download or open the
+file locally to use it. It exposes retained lineage and labels retrospective
+outcomes separately from contemporaneous dispatch evidence. It is not a live
+service, human adoption study or deployment approval. G14/G15/G16 remain open.
 
 ## Fixed final evaluation
 
@@ -91,8 +126,8 @@ The [unit receipt](../reports/p08/unittest_results.txt) records 727 passing test
 [independent checks](../reports/p08/independent_checks.json) record 10,349,858
 comparisons without failure. [Retained replay](../reports/p08/retained_replay.json)
 checks all nine scenarios and their 27-table stores. The new P08 count columns refer
-only to the primary store and preserve historical counts. Twenty-two field mappings
-remain offline-materialized, ten schema-only; final scoring does not invent opening,
+only to the primary store and preserve historical counts. At P08, twenty-two field mappings
+were offline-materialized and ten schema-only; final scoring does not invent opening,
 adoption or action observations. All 110 requirement IDs, 30 table rows and 14
 validation IDs are retained. Partially tested operational scenarios remain partial.
 

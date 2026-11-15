@@ -2,9 +2,59 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: fixed final evaluation completed (P08 / M3e).** All nine predeclared scenarios retain 400 August–September trips and 3,200 opportunities. The unmodified primary result has whole-trip interval coverage of 243/328 (74.1%) and useful delivered-alert recall of 26/137 (19.0%). These synthetic results do not approve deployment, refit the pipeline or close the earlier quality limitations.
+**Current stage: synthetic adoption, actions, follow-up and trip inspection (P09 / M4.2–M4.3).** The workflow extends the fixed P08 primary scenario through recipient review and operator response, with a read-only viewer for all 400 trips. It retains the original forecasts, final outcomes and quality limitations. Synthetic response behavior does not establish human adoption, faster arrivals or deployment readiness.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## What does the workflow demonstration add?
+
+The fixed P08 primary scenario supplies 3,200 opportunities, 63 alerts and 59
+transport attempts across 400 trips. Its 42 confirmed successful deliveries are
+the starting population for synthetic review. Service delivery, recipient opening,
+adoption, operator action and observed follow-up remain separate events. Failed
+delivery does not count as rejection, and a successful retry cannot create a second
+adoption decision for the same alert.
+
+| Primary-S00 synthetic workflow measure | Result |
+| --- | ---: |
+| Confirmed deliveries / opened / reviewed alerts | 42 / 40 / 33 |
+| Accepted / partially accepted / overridden / rejected / not reviewed | 18 / 7 / 6 / 2 / 9 |
+| Accepted or partial, among all delivered alerts | 25/42 (59.5%) |
+| Accepted or partial, among reviewed alerts | 25/33 (75.8%) |
+| Executed actions / explicit no-action records | 31 / 2 |
+| Canonical follow-up records / comparable mature arrivals | 31 / 1 |
+
+The 31 executed actions include six driver contacts, five customer contacts,
+16 reassignments and four reschedules. Only one has a mature confirmed arrival
+comparison. The other 30 retain 21 not-reported, five lost, three disputed and one
+rejected follow-up observation. Seventeen not-reported cases have only a pending
+source version known within the follow-up window; verified revisions arrive roughly
+20 days later. Those later labels are not used early. The scenario does not establish
+an operational adoption rate or intervention benefit.
+
+The separate P09 store adds adoption, action and follow-up records. Opening remains
+an auxiliary synthetic observation; inherited P08 notification rows are unchanged.
+Follow-up keeps the original alert promise and any revised promise separately,
+using the same retained arrival. A deadline extension can change the measured delay
+without improving arrival time. Unknown or immature outcomes retain their own
+states and are excluded from known-arrival comparisons.
+
+Download or open [the trip viewer](workflows/p09/evidence/viewer.html) locally to
+filter tenants and trips and inspect event clocks, model versions, promises,
+transport attempts and follow-up. The HTML contains its data and requires no
+server. It is read-only; retrospective outcomes are labeled separately from what
+dispatch could know at prediction time.
+
+See the [workflow specification and commands](docs/p09_workflow.md), [saved results
+and denominators](workflows/p09/evidence/README.md), and [independent
+audit](workflows/p09/evidence/independent_checks.json). This is post-evaluation
+workflow development, with no model refit, new untouched final test, real message
+delivery or causal benefit estimate.
+
+Preparation passed 727 original tests, 17 portability tests and 115 P09 tests.
+The independent workflow audit passed 26,524 comparisons. The viewer's nine unit
+tests are included in the P09 suite; 18 additional offline JavaScript interaction
+checks passed. Actual browser rendering and visual review remain pending.
 
 ## What did the fixed final evaluation show?
 
@@ -31,8 +81,8 @@ fixed synthetic comparisons, with S00 primary; none estimates real fleet benefit
 | Unresolved / all first successful deliveries | 4 / 42 |
 
 The models, calibrators and 0.55 policy remain unchanged. G14/G15/G16 stay open, and
-quality/operational approval remains false. P09 adoption, actions, follow-up and the
-viewer are next; M4.2 is not complete.
+quality/operational approval remains false. The later P09 workflow uses this fixed
+primary result without changing its evaluation.
 
 ![Fixed final evaluation across all nine scenarios](reports/p08/final_quality.png)
 
@@ -396,15 +446,16 @@ The historical M2 warehouse populated 17 data-stage tables. P06 separately
 materialized five canonical model, membership, prediction, rule and offline-release
 tables. P07 adds alert episodes, alerts and notification-delivery records to that
 separate JSONL/DuckDB/Parquet store. P08 reuses those eight contracts in each final scenario store, with 27 typed tables per scenario. It does not rebuild the combined M2 warehouse.
-Adoption, action and follow-up tables remain empty; recipient opening is not
-simulated. Delivery rows describe synthetic service outcomes, not messages sent
-to fleet users. Native PostgreSQL verification is also pending; see the
+Those historical stores retain empty adoption, action and follow-up tables. P09
+populates these contracts in a separate workflow store and retains synthetic
+opening in an auxiliary audit. Delivery rows describe synthetic service outcomes,
+not messages sent to fleet users. Native PostgreSQL verification is also pending; see the
 [PostgreSQL runtime note](docs/postgres_runtime_note.md). DuckDB and HTTP validation
 do not establish PostgreSQL integration.
 
 P08 retains all 400 final-test trips, including 34 unseen-route-only and four joint-holdout trips. Eligible/scored counts are reported separately. Sparse support permits descriptive analysis, not reliable deployment claims or a power guarantee. The original training fallback and unavailable rules remain unchanged.
 
-Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 adoption, operator actions, follow-up and the viewer are next; full M4.2 completion, service integration and operational acceptance remain separate.
+Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 demonstrates the downstream workflow in an offline synthetic setting; native service integration, continuous integration and operational acceptance remain separate.
 
 The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
 
@@ -418,6 +469,7 @@ The [evidence index](docs/evidence_index.md) maps requirements, tables and valid
 | [scripts/](scripts/) | Rebuild, readiness, generator stability, candidate replay and figure generation |
 | [reproducibility/m3b2/](reproducibility/m3b2/), [reproducibility guide](docs/reproducibility.md) | Fixed candidate runtime, integrity contract and observed execution scope |
 | [reports/](reports/) | Execution receipts, data summaries and validation figures |
+| [workflows/p09/](workflows/p09/) | Separately registered adoption/action/follow-up extension, tests, typed evidence and trip viewer |
 | [docs/m1_scope.md](docs/m1_scope.md), [docs/m2_scope.md](docs/m2_scope.md) | Historical trial scope and full data milestone scope |
 | [docs/m3a_baseline.md](docs/m3a_baseline.md) | Historical baseline, fold cutoffs, protected periods and metric denominators |
 | [docs/change_log.md](docs/change_log.md) | Implementation changes and technical findings |
