@@ -1,0 +1,22 @@
+{
+  "action_delay_seconds": 120,
+  "base_public_commit": "12b904696b87d90369d85dabeee01eadadc854cd",
+  "causal_benefit_estimated": false,
+  "decision_delay_seconds_min": 120,
+  "decision_delay_seconds_span": 781,
+  "design_scope": "Post-exposure workflow demonstration on immutable P08 primary S00; hashes of delivery identity select synthetic behavior without outcomes. Frequencies are fixtures, not estimated recipient behavior.",
+  "followup_window_hours": 24,
+  "handling_seconds_min": 60,
+  "handling_seconds_span": 541,
+  "long_followup_window_hours": 720,
+  "observation_cutoff_at": "2026-10-15T07:00:00Z",
+  "opening_delay_seconds_min": 60,
+  "opening_delay_seconds_span": 241,
+  "operational_approval": false,
+  "protocol_version": "p09-workflow-v1",
+  "quality_accepted": false,
+  "reschedule_shift_seconds": 1800,
+  "result_origin": "synthetic_scenario",
+  "seed": 20261114,
+  "source_scenario": "S00_unmodified"
+}
