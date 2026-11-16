@@ -1,0 +1,2 @@
+# Native adapter dependency; install alongside the unchanged model lock.
+psycopg[binary]==3.2.10
