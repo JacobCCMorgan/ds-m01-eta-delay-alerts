@@ -1,0 +1,22 @@
+{
+  "completed_at_utc": "2026-11-15T19:32:11.967260+00:00",
+  "execution_checkout_changes_present": true,
+  "execution_git_head": "8ae479f5391e6b2f0e3b6ad1131e411629f90966",
+  "execution_git_head_scope": "Observed HEAD; registered file hashes bind executed integration code.",
+  "native_postgresql_executed": true,
+  "operational_approval": false,
+  "output_sha256": {
+    "cluster/lifecycle.json": "0e72cb279a63b9ffe813b18eec963df172f9a923cb38a6eef276cca391d9ed0b",
+    "historical_oracle.json": "68994d286714cfed29c237c5a0e17caa97e2432492a0681f07f84e107a3733c4",
+    "http_snapshot.json": "639df3d145e71e56d9b6985102c8aece5c22a00d343f351ff8db7bcc1e1ca3b4",
+    "native_integration.json": "82e5ffc187f41eced43855c2e37e8b22e86bd2af65751d7c1fa31b90f2667301",
+    "parent_integrity.json": "933d570f6802e2e7d238e48ee3b6c92d7f9286f96c69bb89538dc22ffbc99cca",
+    "postgres.json": "0ae60074855f3a0da414c2625755821a8cdf5163ee14782cc3ab7e6dec33097a",
+    "source_generation.json": "e5b892a4f6377f3e2d12a98e78a963f78dc2f55c63127f059912c1f8c44a7438"
+  },
+  "quality_accepted": false,
+  "real_http_executed": true,
+  "registration_sha256": "4c6e867600e50cc44205f6de0740ac18f1381bcab195187a050887aefd0c2a77",
+  "started_at_utc": "2026-11-15T19:23:27.975896+00:00",
+  "status": "passed_native_integration"
+}

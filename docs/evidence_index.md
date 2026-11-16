@@ -10,11 +10,29 @@ and dated receipts remain available. Synthetic service delivery and recipient
 behavior do not establish operational approval or a measured fleet outcome.
 P08's fixed evaluation and quality limitations remain unchanged.
 
+P10 adds native PostgreSQL readback and actual HTTP/snapshot input comparisons.
+It uses separate schemas for 11 operational source tables and the 35 retained
+P09 output/audit tables. Full-source checks compare 197,303 GPS payloads and
+14,349 snapshot/label projections, plus split/membership projections. A small
+fixture compares all seven processed JSONL files, without building the
+DuckDB/Parquet warehouse. This does not establish a full M2 clean rebuild or a unified native
+warehouse for all 28 required contracts. See the [integration
+scope](p10_integration.md) and [service evidence](../workflows/p10/evidence/README.md).
+
 | Evidence index | What a row tells you |
 |---|---|
 | [110 original field requirements](../contracts/current_requirement_evidence.csv) | The original ID, field ID, canonical table/column, condition and intended output; observed evidence; and the remaining boundary. |
 | [28 required and 2 optional tables](../contracts/current_table_evidence.csv) | Data-stage rows, formal offline rows, required schemas or disabled inputs. M2, P06, P07, primary-S00 P08 and P09 counts describe separate retained stores. A blank phase count means the table is outside that store; zero means an empty reserved table. |
 | [14 validation scenarios](../contracts/current_validation_evidence.csv) | Specifically exercised behaviors, test definitions and passing receipts, with partial or unexecuted scope stated separately. |
+
+The two P10 integration columns identify later service evidence without changing
+historical row counts or scenario classifications. Native readback of a retained
+table is not a newly observed business event. In particular, a source GPS
+comparison is not a native roundtrip of the canonical telemetry table, and
+projection parity is not a complete history/provenance warehouse rebuild.
+G11 multi-revision telemetry and G13 database/Parquet recovery remain open for
+P11. The P10 input guard rejects unsupported revisions; it does not implement
+the missing revision-aware canonical lineage.
 
 Of the 110 field mappings, 60 have a synthetic data-stage implementation and two
 have partial source semantics. A version attribute does not demonstrate

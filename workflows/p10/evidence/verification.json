@@ -1,0 +1,59 @@
+{
+  "native_postgresql_executed": true,
+  "operational_approval": false,
+  "output_sha256": {
+    "cluster/lifecycle.json": "0e72cb279a63b9ffe813b18eec963df172f9a923cb38a6eef276cca391d9ed0b",
+    "historical_oracle.json": "68994d286714cfed29c237c5a0e17caa97e2432492a0681f07f84e107a3733c4",
+    "http_snapshot.json": "639df3d145e71e56d9b6985102c8aece5c22a00d343f351ff8db7bcc1e1ca3b4",
+    "native_integration.json": "82e5ffc187f41eced43855c2e37e8b22e86bd2af65751d7c1fa31b90f2667301",
+    "p09_publication.json": "ce322c70132e01510a0e8947d361b200d5ed8e23464115d0f6ef10084b7ff88b",
+    "p09_replay.json": "4fea28e57de57d6fb1f68718ca1204b24e3d35e587d7297b5065c7b44996650a",
+    "parent_integrity.json": "933d570f6802e2e7d238e48ee3b6c92d7f9286f96c69bb89538dc22ffbc99cca",
+    "postgres.json": "0ae60074855f3a0da414c2625755821a8cdf5163ee14782cc3ab7e6dec33097a",
+    "run_receipt.json": "36060b666046ea215d90e0f4af02076413fab3181f39faa87ee42e3ebe3e80b9",
+    "runtime_provenance.json": "c69af861a8e91db3da6e62c73ce49fb71261a2a08c4b396b1c97be435dff3967",
+    "source_generation.json": "e5b892a4f6377f3e2d12a98e78a963f78dc2f55c63127f059912c1f8c44a7438",
+    "summary.json": "a9bd10cc4e304276e5c3d312046c3a06eca820375b4569cca05ac9458cc65319",
+    "tests/original_unit_tests.log": "e8db4a2b18602646066a92a3cbdba611838cd9a34444d0a9d27cf266bb8c68c8",
+    "tests/p09_unit_tests.log": "aff1890fc8ba06560514491ae1632f58bb66821f38e95d0ba5cec33eb286c55a",
+    "tests/p10_unit_tests.log": "79bb4b37cca34c95e572772611f68ab2a638c0e3bcc9c2ade72ab051bf45bde5",
+    "tests/portable_unit_tests.log": "3c1116e41d51678a32b1ba1347fbaf01dee0b1fda1572f384f8f2896e37b425f"
+  },
+  "published": false,
+  "quality_accepted": false,
+  "real_http_executed": true,
+  "registration_sha256": "4c6e867600e50cc44205f6de0740ac18f1381bcab195187a050887aefd0c2a77",
+  "status": "passed_preparation",
+  "unit_test_count": 926,
+  "unit_test_suites": {
+    "original_unit_tests": {
+      "elapsed_seconds": 52.916,
+      "log_sha256": "e8db4a2b18602646066a92a3cbdba611838cd9a34444d0a9d27cf266bb8c68c8",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 727
+    },
+    "p09_unit_tests": {
+      "elapsed_seconds": 293.11,
+      "log_sha256": "aff1890fc8ba06560514491ae1632f58bb66821f38e95d0ba5cec33eb286c55a",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 115
+    },
+    "p10_unit_tests": {
+      "elapsed_seconds": 9.058,
+      "log_sha256": "79bb4b37cca34c95e572772611f68ab2a638c0e3bcc9c2ade72ab051bf45bde5",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 67
+    },
+    "portable_unit_tests": {
+      "elapsed_seconds": 16.709,
+      "log_sha256": "3c1116e41d51678a32b1ba1347fbaf01dee0b1fda1572f384f8f2896e37b425f",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 17
+    }
+  },
+  "user_mac_validation_observed": false
+}

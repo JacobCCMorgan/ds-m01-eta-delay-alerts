@@ -1,0 +1,192 @@
+{
+  "native_postgresql_version": "17.11",
+  "official_packages": [
+    {
+      "name": "postgresql-17",
+      "sha256": "d2ce1ddffafa783f9acda4c92c86fc21e8288bff3782d739294f14fa797d7886",
+      "url": "https://deb.debian.org/debian/pool/main/p/postgresql-17/postgresql-17_17.11-0+deb13u1_amd64.deb",
+      "version": "17.11-0+deb13u1"
+    },
+    {
+      "name": "postgresql-client-17",
+      "sha256": "9d8558f8dd57c8e92e218a20698383575d53742ca3f9e7c2b7fe5f246d5216ae",
+      "url": "https://deb.debian.org/debian/pool/main/p/postgresql-17/postgresql-client-17_17.11-0+deb13u1_amd64.deb",
+      "version": "17.11-0+deb13u1"
+    },
+    {
+      "name": "libpq5",
+      "sha256": "20a4c9ef58b4baf90deda67cfb2cc062871c062830dddc234d28f5ac7931b86b",
+      "url": "https://deb.debian.org/debian/pool/main/p/postgresql-17/libpq5_17.11-0+deb13u1_amd64.deb",
+      "version": "17.11-0+deb13u1"
+    }
+  ],
+  "scope": "Observed preparation runtime. Mac verification records its own PostgreSQL 17 minor and executable hashes; no binary-equivalence claim across platforms.",
+  "shared_libraries": [
+    {
+      "name": "libaudit.so.1",
+      "resolved_name": "libaudit.so.1.0.0",
+      "sha256": "e0ed5f40854fcaf3feb9448dd032172908a0b1651330df9397abd5490ff85402"
+    },
+    {
+      "name": "libc.so.6",
+      "resolved_name": "libc.so.6",
+      "sha256": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92"
+    },
+    {
+      "name": "libcap-ng.so.0",
+      "resolved_name": "libcap-ng.so.0.0.0",
+      "sha256": "6b5be42df1bed00b8ea1f52e9412dce5ed500c29a6dd22b31e72f5dab5a3a575"
+    },
+    {
+      "name": "libcap.so.2",
+      "resolved_name": "libcap.so.2.75",
+      "sha256": "41217b0af128444f66dee8adda52b2ceaf19da00e5b0b155e2b87b857671286b"
+    },
+    {
+      "name": "libcom_err.so.2",
+      "resolved_name": "libcom_err.so.2.1",
+      "sha256": "dc4828400674492839b630c001db424cd38e5cecfcf46dbf705a637647e04bea"
+    },
+    {
+      "name": "libcrypto.so.3",
+      "resolved_name": "libcrypto.so.3",
+      "sha256": "8ae56f0a9481280a68c19f59809cd242a07a91ad7142944d21a878221992244b"
+    },
+    {
+      "name": "libgcc_s.so.1",
+      "resolved_name": "libgcc_s.so.1",
+      "sha256": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af"
+    },
+    {
+      "name": "libgssapi_krb5.so.2",
+      "resolved_name": "libgssapi_krb5.so.2.2",
+      "sha256": "c290f761873ebeac539911010526e1c5db86218bfcb29672760da46841741de0"
+    },
+    {
+      "name": "libicudata.so.76",
+      "resolved_name": "libicudata.so.76.1",
+      "sha256": "a04b2b906193fa1e40f968a3d16d7d6c844a1fafbdd5bce6e9f67b01c124ff24"
+    },
+    {
+      "name": "libicui18n.so.76",
+      "resolved_name": "libicui18n.so.76.1",
+      "sha256": "596132c352dc25d1e8a1f91e2c5790262ed02376d27afc14b545a1952341b3fc"
+    },
+    {
+      "name": "libicuuc.so.76",
+      "resolved_name": "libicuuc.so.76.1",
+      "sha256": "a8e433e81075732faf255b17d4a25ce28632e41fef1a75e727ee7f4ed73ab151"
+    },
+    {
+      "name": "libk5crypto.so.3",
+      "resolved_name": "libk5crypto.so.3.1",
+      "sha256": "c4c3221d0350f882cee0430b58d5fb289a5776c684d3156964864c8a9719dff1"
+    },
+    {
+      "name": "libkeyutils.so.1",
+      "resolved_name": "libkeyutils.so.1.10",
+      "sha256": "e5d5a7450d08eff7d4bbcaac75ef2b94d3447c81a1b2ddf3ab85d2de4709a9a8"
+    },
+    {
+      "name": "libkrb5.so.3",
+      "resolved_name": "libkrb5.so.3.3",
+      "sha256": "c4ab64e6bc2874a83e649e4439be752465da027a0041e2bb5343f81c80f0882d"
+    },
+    {
+      "name": "libkrb5support.so.0",
+      "resolved_name": "libkrb5support.so.0.1",
+      "sha256": "f559f051ee5d39f151a57d79f2cde475c484030098b0c73f9f7035b421b187c4"
+    },
+    {
+      "name": "liblber.so.2",
+      "resolved_name": "liblber.so.2.0.200",
+      "sha256": "ca319704dd4f58b5b3fc8510738850f03f18940544ba04bebf2fa8a23a798346"
+    },
+    {
+      "name": "libldap.so.2",
+      "resolved_name": "libldap.so.2.0.200",
+      "sha256": "e8f34e65087f24f296fa7a65a8c65383f4a7e2b532c46e40463d4e59a206c20a"
+    },
+    {
+      "name": "liblz4.so.1",
+      "resolved_name": "liblz4.so.1.10.0",
+      "sha256": "67bf8b84af77e962e09be661944f7c61393c4806746734e36db9fbdaebc1de36"
+    },
+    {
+      "name": "liblzma.so.5",
+      "resolved_name": "liblzma.so.5.8.1",
+      "sha256": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c"
+    },
+    {
+      "name": "libm.so.6",
+      "resolved_name": "libm.so.6",
+      "sha256": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3"
+    },
+    {
+      "name": "libpam.so.0",
+      "resolved_name": "libpam.so.0.85.1",
+      "sha256": "7e61037c89b06382c9d22518174914fef77b9e473962f49ab1c90c55c9b5bca2"
+    },
+    {
+      "name": "libreadline.so.8",
+      "resolved_name": "libreadline.so.8.2",
+      "sha256": "a3334d88f3f6c6a25736667e0b39db0f68b4e7e6bf758a475aff681ddb33ad8b"
+    },
+    {
+      "name": "libresolv.so.2",
+      "resolved_name": "libresolv.so.2",
+      "sha256": "d41dd4adacf5a35df426461dd8a92d7bdd5ba29bb61a1c3531bec0ada386f8dd"
+    },
+    {
+      "name": "libsasl2.so.2",
+      "resolved_name": "libsasl2.so.2.0.25",
+      "sha256": "3f93968591811eb3972c3467c69c2968dd9cb2b51f7b7bb48de22ba8e17d13fd"
+    },
+    {
+      "name": "libssl.so.3",
+      "resolved_name": "libssl.so.3",
+      "sha256": "9592038e92d1f41affcbb625334d0b6e788714c889104fa6d5b107cf9fd657f2"
+    },
+    {
+      "name": "libstdc++.so.6",
+      "resolved_name": "libstdc++.so.6.0.33",
+      "sha256": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00"
+    },
+    {
+      "name": "libsystemd.so.0",
+      "resolved_name": "libsystemd.so.0.40.0",
+      "sha256": "c59f9015342de9c2dcb2decccb3d83218849fe3e4388c723a6528254fd7606f0"
+    },
+    {
+      "name": "libtinfo.so.6",
+      "resolved_name": "libtinfo.so.6.5",
+      "sha256": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf"
+    },
+    {
+      "name": "libxml2.so.2",
+      "resolved_name": "libxml2.so.2.9.14",
+      "sha256": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963"
+    },
+    {
+      "name": "libxxhash.so.0",
+      "resolved_name": "libxxhash.so.0.8.3",
+      "sha256": "7dd49b353facbee50c371d0559ce29db5afee5ac33249ca5c7068420fb642762"
+    },
+    {
+      "name": "libz.so.1",
+      "resolved_name": "libz.so.1.3.1",
+      "sha256": "85590dd58edf5445e18bc7193e5ebc01ac5841f1ae187e97705a662e90c6421e"
+    },
+    {
+      "name": "libzstd.so.1",
+      "resolved_name": "libzstd.so.1.5.7",
+      "sha256": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+    },
+    {
+      "name": "libpq.so.5",
+      "resolved_name": "libpq.so.5.17",
+      "sha256": "f64dcec14657e4123621448442cd3d0795744d238e588774f5c864f592f4860d"
+    }
+  ],
+  "system": "Linux x86_64"
+}

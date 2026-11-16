@@ -1,0 +1,34 @@
+{
+  "byte_exact_modes": [
+    "snapshot",
+    "http"
+  ],
+  "full_scale_history_lineage_warehouse_rebuilt": false,
+  "historical_projection_sha256": {
+    "data/processed/eta_snapshot.jsonl": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f",
+    "data/processed/eta_snapshot_label.jsonl": "c901dcbc32d688fba816f83faf610cfe62944f9ba8a23d19949e201f6d8baa7a",
+    "data/processed/eta_split_assignment.jsonl": "af2951c4d153ff9d3fcf0de73651a49db05d7e8bbba85a424aa90451d1e9d2cb",
+    "data/processed/trip_membership.jsonl": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061"
+  },
+  "historical_receipt_path": "reports/rebuild_report.json",
+  "historical_receipt_sha256": "c08dba07e473c4a66019d3a0308472d0abe0ea0d61fb9689bdc8afb239dcd28e",
+  "postgres_http_comparison": "All fields and logical values against the historical-byte-verified direct projection.",
+  "projection_file_count": 4,
+  "raw_file_count": 13,
+  "raw_sha256": {
+    "data/raw/core_device.jsonl": "58502b12b6329ede2427bf553981b2d010929f246655d621bb0d57891e2d88cc",
+    "data/raw/core_tenant.jsonl": "7154bc213244b56e70970090bf7b40469074c20f31cf5d3101a0f385d5031061",
+    "data/raw/core_vehicle.jsonl": "c6dd63bfad259cf5c366c895ede7303c635dde12772352b343bf16728429307f",
+    "data/raw/core_vehicle_device_assignment.jsonl": "dc55c0174c20f022decb0a23ae2085cfdd0b2e1a99961b93f8eecf9ea7dcba63",
+    "data/raw/eta_facility_version.jsonl": "8f5ff3da65a2b6fd194cd9cc6b97cb0fb616d4f219c01716bd9212ad915f8164",
+    "data/raw/eta_promise_version.jsonl": "8ccabc505c96f681051e977de1d0eae9b1b792512a03e29161699daaadd6cd91",
+    "data/raw/eta_route_version.jsonl": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+    "data/raw/eta_trip.jsonl": "42b75525b4065d69eb9c28820f9dde1eca6f7d33dd5aa90f22f2bddcdaa8a3ac",
+    "data/raw/eta_trip_event.jsonl": "28d1807fbd1f69cf5d22a76697f6cd03df8448336805cbc15c9ed3f934494127",
+    "data/raw/eta_trip_outcome.jsonl": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58",
+    "data/raw/eta_trip_plan_version.jsonl": "a61268b0a3669dd591e1cfbbf5cb07adfa1f33a770b541ef7b65414b45e886dc",
+    "data/raw/provenance_record.jsonl": "38c7876b73dbbca46bab9aa0caddafb4c3494dad800371b76e0b8fef53b7ad23",
+    "data/raw/telemetry_event.jsonl": "b91e4b346e529ebb9e2ffc872d19f02f6fbd1b580828ea60f6d9f908f90bc401"
+  },
+  "status": "passed"
+}

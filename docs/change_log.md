@@ -2,6 +2,43 @@
 
 Entries describe implementation changes and observed test findings. Unless a timezone is stated, dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-15 America/Los_Angeles — verify native storage and HTTP input paths
+
+Added a separately registered P10 integration check from the published P09
+baseline. A fresh PostgreSQL 17 cluster exercises 11 operational source tables
+and 35 retained P09 output/audit tables in separate schemas. Catalog inspection,
+634 negative probes, transaction visibility, commit, reconnect readback and
+owned-schema cleanup supplement the successful typed-row comparison. The
+retained run contains 13,706 source rows and 32,128 P09 rows.
+
+Actual loopback HTTP requests retrieve all 197,303 synthetic GPS records with
+cursor paging, an injected transient failure and explicit page replay. Direct
+snapshot, HTTP and PostgreSQL-plus-HTTP paths produce equal projections for
+14,349 snapshots and labels and 1,800 split/membership records. Thirteen raw
+files and the four direct/HTTP projection files also match historical SHA256
+evidence. PostgreSQL-plus-HTTP equality is measured on all logical fields;
+equivalent timestamp representations are not treated as byte-identical files.
+
+Preparation review strengthened exact CHECK-definition inspection and
+cross-tenant foreign-key probes so a rejection by the wrong constraint cannot
+stand in for the intended test. The publication guide now stops when dependency
+installation fails. The final version passed all required checks again.
+
+All 926 tests passed on Linux: 727 original, 17 portability, 115 P09 and 67 P10.
+The native run used PostgreSQL 17.11 and finished at
+`2026-11-15T19:32:11.916642+00:00`. P10 preserves 1,393 frozen parent files.
+The new code and registration live under `workflows/p10/`; current evidence
+maps add bounded service scope without changing historical counts or statuses.
+
+The small preprocessing fixture compares seven processed JSONL outputs, not a
+DuckDB/Parquet warehouse build. Full clean warehouse reconstruction, canonical
+multi-revision telemetry (G11), coordinated database/Parquet recovery (G13) and
+actual CI remain P11 work. P10's revision guard rejects unsupported inputs
+without claiming their semantics are implemented. macOS validation, signing
+and publication remain separate user steps. Model quality and operational
+approval are unchanged. See the [integration scope](p10_integration.md) and
+[retained receipts](../workflows/p10/evidence/README.md).
+
 ## 2026-11-14 America/Los_Angeles — retain synthetic recipient and operator workflow
 
 Added a separately registered P09 extension of the fixed primary P08 scenario.

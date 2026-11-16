@@ -1,0 +1,22 @@
+{
+  "actual_completed_at_utc": "2026-11-15T19:24:05.343230+00:00",
+  "config_sha256": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+  "generated_counts": {
+    "core_device": 36,
+    "core_tenant": 3,
+    "core_vehicle": 30,
+    "core_vehicle_device_assignment": 686,
+    "eta_facility_version": 12,
+    "eta_promise_version": 1964,
+    "eta_route_version": 12,
+    "eta_trip": 1800,
+    "eta_trip_event": 3600,
+    "eta_trip_outcome": 3763,
+    "eta_trip_plan_version": 1800,
+    "provenance_record": 211009,
+    "telemetry_event": 197303
+  },
+  "pinned_generated_at_semantics": "Original deterministic source timestamp; not this execution time.",
+  "source_manifest_sha256": "84f84918bb822a52d36aeb0857bdd35d20115c46b011e790a7a80c8b70d779af",
+  "status": "passed"
+}

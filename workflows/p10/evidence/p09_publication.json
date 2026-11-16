@@ -1,0 +1,82 @@
+{
+  "base": "12b904696b87d90369d85dabeee01eadadc854cd",
+  "browser_visual_record_observed": false,
+  "checked_at_utc": "2026-11-15T19:11:12.334171+00:00",
+  "ci_verified": false,
+  "commits": [
+    {
+      "author_at": "2026-11-15T09:28:40-08:00",
+      "committer_at": "2026-11-15T09:28:40-08:00",
+      "github_reason": "valid",
+      "github_url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/2697b87dc42764a36e14a45e39ae810e7003ff0d",
+      "github_verified": true,
+      "github_verified_at": "2026-11-15T18:40:38Z",
+      "sha": "2697b87dc42764a36e14a45e39ae810e7003ff0d",
+      "subject": "feat(workflow): register frozen parent inputs and operator protocol",
+      "tree": "ca362941b5e30783d44eb7ff30e58c6d8733f9ef"
+    },
+    {
+      "author_at": "2026-11-15T09:46:12-08:00",
+      "committer_at": "2026-11-15T09:46:12-08:00",
+      "github_reason": "valid",
+      "github_url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/912f85f7077ba7166c95ad9e83d5563a890f03c4",
+      "github_verified": true,
+      "github_verified_at": "2026-11-15T18:40:38Z",
+      "sha": "912f85f7077ba7166c95ad9e83d5563a890f03c4",
+      "subject": "feat(workflow): simulate recipient decisions and follow-up",
+      "tree": "0a7932cc8ba84f2f9b545d1694d801da55624ba4"
+    },
+    {
+      "author_at": "2026-11-15T09:55:55-08:00",
+      "committer_at": "2026-11-15T09:55:55-08:00",
+      "github_reason": "valid",
+      "github_url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/edab2fb0ff5f97f51aa8754c90e935cabc8c999c",
+      "github_verified": true,
+      "github_verified_at": "2026-11-15T18:40:38Z",
+      "sha": "edab2fb0ff5f97f51aa8754c90e935cabc8c999c",
+      "subject": "feat(outputs): retain typed workflow evidence and denominators",
+      "tree": "50b6d0bc8556b9bef7cea9d4e0217e1c46173b31"
+    },
+    {
+      "author_at": "2026-11-15T10:14:37-08:00",
+      "committer_at": "2026-11-15T10:14:37-08:00",
+      "github_reason": "valid",
+      "github_url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/0371d8b3c2587f86fb6d3cdda11cc1daafabdcb0",
+      "github_verified": true,
+      "github_verified_at": "2026-11-15T18:40:38Z",
+      "sha": "0371d8b3c2587f86fb6d3cdda11cc1daafabdcb0",
+      "subject": "feat(replay): register workflow lineage and independent checks",
+      "tree": "8cba299bc021d3e5ce25810ece50ac31c01d960e"
+    },
+    {
+      "author_at": "2026-11-15T10:23:30-08:00",
+      "committer_at": "2026-11-15T10:23:30-08:00",
+      "github_reason": "valid",
+      "github_url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/e60c1db8dd79f87b39039dd8af7509da388ef89f",
+      "github_verified": true,
+      "github_verified_at": "2026-11-15T18:40:38Z",
+      "sha": "e60c1db8dd79f87b39039dd8af7509da388ef89f",
+      "subject": "feat(viewer): explore per-trip predictions and operator timelines",
+      "tree": "24334bd1a69e11e894552ef0744db383e1a0cb8f"
+    },
+    {
+      "author_at": "2026-11-15T10:35:37-08:00",
+      "committer_at": "2026-11-15T10:35:37-08:00",
+      "github_reason": "valid",
+      "github_url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/8ae479f5391e6b2f0e3b6ad1131e411629f90966",
+      "github_verified": true,
+      "github_verified_at": "2026-11-15T18:40:38Z",
+      "sha": "8ae479f5391e6b2f0e3b6ad1131e411629f90966",
+      "subject": "docs(results): retain workflow evidence and disclose limits",
+      "tree": "64593eb9d8148a982828230ea6a7f87dfbbc0c64"
+    }
+  ],
+  "head": "8ae479f5391e6b2f0e3b6ad1131e411629f90966",
+  "native_mac_raw_receipt_observed": false,
+  "operational_approval": false,
+  "quality_accepted": false,
+  "scope": "Public commit contents, order, exact delivery trees and GitHub signatures. User reports P09 complete; native Mac logs and browser visual review not independently observed. No CI or model-quality approval.",
+  "status": "passed_p09_six_published_commits_exact_trees_and_github_verified",
+  "tree": "64593eb9d8148a982828230ea6a7f87dfbbc0c64",
+  "user_reports_phase_complete": true
+}

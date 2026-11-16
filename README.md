@@ -2,9 +2,42 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: synthetic adoption, actions, follow-up and trip inspection (P09 / M4.2–M4.3).** The workflow extends the fixed P08 primary scenario through recipient review and operator response, with a read-only viewer for all 400 trips. It retains the original forecasts, final outcomes and quality limitations. Synthetic response behavior does not establish human adoption, faster arrivals or deployment readiness.
+**Current stage: native PostgreSQL and HTTP/snapshot integration (P10 / M5.1).** A separate integration check exercises operational-source and retained workflow tables against a running PostgreSQL service, then reconciles real HTTP position inputs with the saved snapshot path. Earlier forecasts, final outcomes, workflow results and quality limitations remain fixed. The integration scope and remaining clean-rebuild work are stated separately below.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## What does native service integration cover?
+
+P10 uses separate PostgreSQL schemas for the 11 operational source tables and
+the 35 retained P09 output/audit tables. It checks typed readback and database
+constraints against the retained inputs. A loopback HTTP server supplies the
+synthetic GPS stream through actual requests, including pagination and retry
+behavior. The source payload and snapshot/label projections are compared with
+the direct snapshot path and the PostgreSQL-plus-HTTP path.
+
+The full-source comparison covers 197,303 GPS records, 14,349 snapshots and their
+labels, plus split/membership projections. A small fixture also compares all
+seven processed JSONL files, including history and lineage. That fixture does
+not build the DuckDB/Parquet warehouse. The integration check does not rebuild
+the complete M2 history/provenance warehouse or combine all 28 required
+contracts into one native PostgreSQL warehouse.
+
+See the [integration specification and commands](docs/p10_integration.md) and
+[retained service evidence](workflows/p10/evidence/README.md). The earlier
+[PostgreSQL runtime note](docs/postgres_runtime_note.md) remains a historical
+record of what had not run at M2. P10 adds later evidence without rewriting it.
+
+Preparation passed 926 tests and 634 native database rejection probes on
+PostgreSQL 17.11. Committed rows matched from a new connection, and all three
+input paths produced equal projections. The 13 regenerated raw files and the
+direct/HTTP projection files also matched the historical SHA256 records.
+These are retained Linux results; macOS verification and P10 publication remain
+separate steps.
+
+Multi-revision telemetry through canonical identity and lineage (G11), atomic
+database/Parquet recovery (G13), clean-environment rebuild and actual CI remain
+P11/M5.2 work. Unsupported telemetry revisions are rejected rather than silently
+collapsed. Native integration does not resolve G14/G15/G16 or approve deployment.
 
 ## What does the workflow demonstration add?
 
@@ -54,7 +87,9 @@ delivery or causal benefit estimate.
 Preparation passed 727 original tests, 17 portability tests and 115 P09 tests.
 The independent workflow audit passed 26,524 comparisons. The viewer's nine unit
 tests are included in the P09 suite; 18 additional offline JavaScript interaction
-checks passed. Actual browser rendering and visual review remain pending.
+checks passed. The six P09 commits are published with valid GitHub signatures.
+The retained preparation evidence does not include a macOS run receipt
+or a browser visual review record.
 
 ## What did the fixed final evaluation show?
 
@@ -449,13 +484,16 @@ separate JSONL/DuckDB/Parquet store. P08 reuses those eight contracts in each fi
 Those historical stores retain empty adoption, action and follow-up tables. P09
 populates these contracts in a separate workflow store and retains synthetic
 opening in an auxiliary audit. Delivery rows describe synthetic service outcomes,
-not messages sent to fleet users. Native PostgreSQL verification is also pending; see the
-[PostgreSQL runtime note](docs/postgres_runtime_note.md). DuckDB and HTTP validation
-do not establish PostgreSQL integration.
+not messages sent to fleet users. The historical [PostgreSQL runtime
+note](docs/postgres_runtime_note.md) records M2's unexecuted native check. P10
+adds actual native readback for 11 operational source tables and 35 retained P09
+output/audit tables in separate schemas, as specified in the [integration
+scope](docs/p10_integration.md). Full warehouse reconstruction and production
+deployment remain unverified.
 
 P08 retains all 400 final-test trips, including 34 unseen-route-only and four joint-holdout trips. Eligible/scored counts are reported separately. Sparse support permits descriptive analysis, not reliable deployment claims or a power guarantee. The original training fallback and unavailable rules remain unchanged.
 
-Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 demonstrates the downstream workflow in an offline synthetic setting; native service integration, continuous integration and operational acceptance remain separate.
+Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 demonstrates the downstream workflow in an offline synthetic setting. P10 adds bounded native service integration; full clean rebuild, coordinated recovery, continuous integration and operational acceptance remain separate unfinished work.
 
 The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
 
@@ -470,6 +508,7 @@ The [evidence index](docs/evidence_index.md) maps requirements, tables and valid
 | [reproducibility/m3b2/](reproducibility/m3b2/), [reproducibility guide](docs/reproducibility.md) | Fixed candidate runtime, integrity contract and observed execution scope |
 | [reports/](reports/) | Execution receipts, data summaries and validation figures |
 | [workflows/p09/](workflows/p09/) | Separately registered adoption/action/follow-up extension, tests, typed evidence and trip viewer |
+| [workflows/p10/](workflows/p10/) | Separately registered native PostgreSQL, real HTTP and source-projection integration checks |
 | [docs/m1_scope.md](docs/m1_scope.md), [docs/m2_scope.md](docs/m2_scope.md) | Historical trial scope and full data milestone scope |
 | [docs/m3a_baseline.md](docs/m3a_baseline.md) | Historical baseline, fold cutoffs, protected periods and metric denominators |
 | [docs/change_log.md](docs/change_log.md) | Implementation changes and technical findings |

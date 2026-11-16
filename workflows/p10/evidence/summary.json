@@ -1,0 +1,83 @@
+{
+  "base_public_commit": "8ae479f5391e6b2f0e3b6ad1131e411629f90966",
+  "ci_executed": false,
+  "completed_at_utc": "2026-11-15T19:32:11.916642+00:00",
+  "frozen_parent_files": 1393,
+  "full_scale_history_lineage_warehouse_rebuilt": false,
+  "historical_oracle_projection_files": 4,
+  "historical_oracle_raw_files": 13,
+  "http_pages": 1441,
+  "labels_per_source_mode": 14349,
+  "milestone": "M5.1",
+  "model_refitted": false,
+  "native_commit_and_reconnect_exact": true,
+  "native_postgresql_executed": true,
+  "negative_probe_count": 634,
+  "negative_probes": {
+    "check_constraint": 39,
+    "duplicate_primary_key": 46,
+    "existing_other_tenant_parent": 68,
+    "isolated_foreign_key": 84,
+    "native_type_rejection": 11,
+    "not_null": 386
+  },
+  "new_untouched_final_test": false,
+  "next_phase": "P11: full clean warehouse rebuild, revision identity, coordinated DB/Parquet recovery and actual CI.",
+  "operational_approval": false,
+  "phase": "P10",
+  "postgres_rows": {
+    "operational": 13706,
+    "p09": 32128
+  },
+  "postgres_schemas_separate": true,
+  "postgres_tables": {
+    "operational": 11,
+    "p09": 35
+  },
+  "project_tests": 926,
+  "published": false,
+  "quality_accepted": false,
+  "real_http_executed": true,
+  "small_fixture_scope": "All seven processed JSONL outputs; no warehouse build.",
+  "snapshots_per_source_mode": 14349,
+  "source_modes": [
+    "snapshot",
+    "http",
+    "postgres_http"
+  ],
+  "status": "passed_preparation",
+  "telemetry_rows": 197303,
+  "test_suites": {
+    "original_unit_tests": {
+      "elapsed_seconds": 52.916,
+      "log_sha256": "e8db4a2b18602646066a92a3cbdba611838cd9a34444d0a9d27cf266bb8c68c8",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 727
+    },
+    "p09_unit_tests": {
+      "elapsed_seconds": 293.11,
+      "log_sha256": "aff1890fc8ba06560514491ae1632f58bb66821f38e95d0ba5cec33eb286c55a",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 115
+    },
+    "p10_unit_tests": {
+      "elapsed_seconds": 9.058,
+      "log_sha256": "79bb4b37cca34c95e572772611f68ab2a638c0e3bcc9c2ade72ab051bf45bde5",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 67
+    },
+    "portable_unit_tests": {
+      "elapsed_seconds": 16.709,
+      "log_sha256": "3c1116e41d51678a32b1ba1347fbaf01dee0b1fda1572f384f8f2896e37b425f",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 17
+    }
+  },
+  "trip_splits_per_source_mode": 1800,
+  "user_mac_validation_observed": false,
+  "user_signed_commits_created": false
+}
