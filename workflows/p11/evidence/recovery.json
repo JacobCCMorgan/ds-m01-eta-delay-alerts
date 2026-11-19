@@ -1,0 +1,149 @@
+{
+  "cases": [
+    {
+      "active_version_after_exit": 1,
+      "clean_and_recovered_logical_tables_equal": true,
+      "fault": "after_database",
+      "old_database_and_all_parquet_preserved": true,
+      "process_exit": 86,
+      "recovery": {
+        "automatic_promotion": false,
+        "current_generation_id": "g-b9bcf067ae234dd9b5fc93f1e82212d2",
+        "entries": [
+          {
+            "error_type": "ValueError",
+            "location": "staging/g-0ec3b92d605b41228b952057a0b64af8",
+            "state": "incomplete_or_invalid"
+          },
+          {
+            "error_type": null,
+            "location": "generations/g-b9bcf067ae234dd9b5fc93f1e82212d2",
+            "state": "active_complete"
+          }
+        ],
+        "files_deleted": 0,
+        "protocol": "p11-duckdb-parquet-generation-v1",
+        "scope": "Authoritative complete reference preserved; interrupted and orphan generations retained.",
+        "status": "passed_recovery_inspection"
+      },
+      "recovery_mutated_artifacts": false
+    },
+    {
+      "active_version_after_exit": 1,
+      "clean_and_recovered_logical_tables_equal": true,
+      "fault": "after_first_parquet",
+      "old_database_and_all_parquet_preserved": true,
+      "process_exit": 86,
+      "recovery": {
+        "automatic_promotion": false,
+        "current_generation_id": "g-6cf9bcb18fd040948b0a5dfa92da3bea",
+        "entries": [
+          {
+            "error_type": "ValueError",
+            "location": "staging/g-3b21bf2ee9914fd0b3b6a72c6f7b41a4",
+            "state": "incomplete_or_invalid"
+          },
+          {
+            "error_type": null,
+            "location": "generations/g-6cf9bcb18fd040948b0a5dfa92da3bea",
+            "state": "active_complete"
+          }
+        ],
+        "files_deleted": 0,
+        "protocol": "p11-duckdb-parquet-generation-v1",
+        "scope": "Authoritative complete reference preserved; interrupted and orphan generations retained.",
+        "status": "passed_recovery_inspection"
+      },
+      "recovery_mutated_artifacts": false
+    },
+    {
+      "active_version_after_exit": 1,
+      "clean_and_recovered_logical_tables_equal": true,
+      "fault": "after_validation",
+      "old_database_and_all_parquet_preserved": true,
+      "process_exit": 86,
+      "recovery": {
+        "automatic_promotion": false,
+        "current_generation_id": "g-da859786d501413f8966fc1c4970d68e",
+        "entries": [
+          {
+            "error_type": null,
+            "location": "staging/g-9cf9322fd3d049d98793c539f882be3d",
+            "state": "complete_unreferenced"
+          },
+          {
+            "error_type": null,
+            "location": "generations/g-da859786d501413f8966fc1c4970d68e",
+            "state": "active_complete"
+          }
+        ],
+        "files_deleted": 0,
+        "protocol": "p11-duckdb-parquet-generation-v1",
+        "scope": "Authoritative complete reference preserved; interrupted and orphan generations retained.",
+        "status": "passed_recovery_inspection"
+      },
+      "recovery_mutated_artifacts": false
+    },
+    {
+      "active_version_after_exit": 1,
+      "clean_and_recovered_logical_tables_equal": true,
+      "fault": "after_generation_rename",
+      "old_database_and_all_parquet_preserved": true,
+      "process_exit": 86,
+      "recovery": {
+        "automatic_promotion": false,
+        "current_generation_id": "g-cc0f0f347b724871a9dacd7d8b39d648",
+        "entries": [
+          {
+            "error_type": null,
+            "location": "generations/g-9c5811a994dc4ef6a4809520b8a16c20",
+            "state": "complete_unreferenced"
+          },
+          {
+            "error_type": null,
+            "location": "generations/g-cc0f0f347b724871a9dacd7d8b39d648",
+            "state": "active_complete"
+          }
+        ],
+        "files_deleted": 0,
+        "protocol": "p11-duckdb-parquet-generation-v1",
+        "scope": "Authoritative complete reference preserved; interrupted and orphan generations retained.",
+        "status": "passed_recovery_inspection"
+      },
+      "recovery_mutated_artifacts": false
+    },
+    {
+      "active_version_after_exit": 2,
+      "clean_and_recovered_logical_tables_equal": true,
+      "fault": "after_pointer_replace",
+      "old_database_and_all_parquet_preserved": true,
+      "process_exit": 86,
+      "recovery": {
+        "automatic_promotion": false,
+        "current_generation_id": "g-e7f280cac389407881d434a55668b61a",
+        "entries": [
+          {
+            "error_type": null,
+            "location": "generations/g-989c13fb26c54ddda4f55060076eef05",
+            "state": "complete_unreferenced"
+          },
+          {
+            "error_type": null,
+            "location": "generations/g-e7f280cac389407881d434a55668b61a",
+            "state": "active_complete"
+          }
+        ],
+        "files_deleted": 0,
+        "protocol": "p11-duckdb-parquet-generation-v1",
+        "scope": "Authoritative complete reference preserved; interrupted and orphan generations retained.",
+        "status": "passed_recovery_inspection"
+      },
+      "recovery_mutated_artifacts": false
+    }
+  ],
+  "database_and_parquet_executed": true,
+  "faults_executed": 5,
+  "scope": "Real small typed DuckDB/Parquet fixture; single-filesystem generation protocol, not PostgreSQL distributed commit or power-loss emulation.",
+  "status": "passed_abrupt_failure_and_recovery",
+  "subprocess_abrupt_exit": true
+}

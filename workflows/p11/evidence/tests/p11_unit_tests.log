@@ -1,0 +1,384 @@
+test_checkout_or_workflow_sha_mismatch_is_rejected (test_ci.CIContextTests.test_checkout_or_workflow_sha_mismatch_is_rejected) ... ok
+test_exact_event_checkout_workflow_and_attempt_are_bound (test_ci.CIContextTests.test_exact_event_checkout_workflow_and_attempt_are_bound) ... ok
+test_invalid_run_attempt_identifiers_are_rejected (test_ci.CIContextTests.test_invalid_run_attempt_identifiers_are_rejected) ... ok
+test_local_execution_cannot_claim_github_ci (test_ci.CIContextTests.test_local_execution_cannot_claim_github_ci) ... ok
+test_other_repository_branch_event_or_workflow_is_rejected (test_ci.CIContextTests.test_other_repository_branch_event_or_workflow_is_rejected) ... ok
+test_each_real_execution_field_is_required_with_boolean_type (test_ci.CIResultTests.test_each_real_execution_field_is_required_with_boolean_type) ... ok
+test_failed_status_cannot_be_hidden_by_execution_flags (test_ci.CIResultTests.test_failed_status_cannot_be_hidden_by_execution_flags) ... ok
+test_skips_failures_missing_or_duplicate_test_counts_are_rejected (test_ci.CIResultTests.test_skips_failures_missing_or_duplicate_test_counts_are_rejected) ... ok
+test_summary_cannot_relabel_local_or_quality_acceptance_as_ci (test_ci.CIResultTests.test_summary_cannot_relabel_local_or_quality_acceptance_as_ci) ... ok
+test_changed_column_type_rejected (test_publication.PublicationTests.test_changed_column_type_rejected) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+ok
+test_changed_row_rejected_preserving_old_generation (test_publication.PublicationTests.test_changed_row_rejected_preserving_old_generation) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+ok
+test_concurrent_writer_rejected_and_old_reader_stays_complete (test_publication.PublicationTests.test_concurrent_writer_rejected_and_old_reader_stays_complete) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_database_tampering_fails_closed (test_publication.PublicationTests.test_database_tampering_fails_closed) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_duplicate_multiplicity_rejected (test_publication.PublicationTests.test_duplicate_multiplicity_rejected) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+ok
+test_empty_table_schema_and_microsecond_decimal_types_retained (test_publication.PublicationTests.test_empty_table_schema_and_microsecond_decimal_types_retained) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_explicit_bounded_comparison_policy_retains_full_rows (test_publication.PublicationTests.test_explicit_bounded_comparison_policy_retains_full_rows) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_extra_database_table_rejected (test_publication.PublicationTests.test_extra_database_table_rejected) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_extra_parquet_rejected_preserving_old_generation (test_publication.PublicationTests.test_extra_parquet_rejected_preserving_old_generation) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_five_real_abrupt_exit_points_and_clean_rebuild (test_publication.PublicationTests.test_five_real_abrupt_exit_points_and_clean_rebuild) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+ok
+test_interrupted_validation_spill_is_retained_without_promotion (test_publication.PublicationTests.test_interrupted_validation_spill_is_retained_without_promotion) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_invalid_and_duplicate_table_names_rejected (test_publication.PublicationTests.test_invalid_and_duplicate_table_names_rejected) ... ok
+test_manifest_tampering_fails_closed (test_publication.PublicationTests.test_manifest_tampering_fails_closed) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_missing_parquet_rejected_preserving_old_generation (test_publication.PublicationTests.test_missing_parquet_rejected_preserving_old_generation) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_non_json_builder_metadata_fails_before_reference_change (test_publication.PublicationTests.test_non_json_builder_metadata_fails_before_reference_change) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+ok
+test_parquet_tampering_fails_closed (test_publication.PublicationTests.test_parquet_tampering_fails_closed) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_pointer_path_traversal_rejected (test_publication.PublicationTests.test_pointer_path_traversal_rejected) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_stale_expected_current_rejects_before_builder (test_publication.PublicationTests.test_stale_expected_current_rejects_before_builder) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_symlink_artifact_rejected (test_publication.PublicationTests.test_symlink_artifact_rejected) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+ok
+test_two_complete_versions_and_old_artifacts_survive (test_publication.PublicationTests.test_two_complete_versions_and_old_artifacts_survive) ... P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 2 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+P11 comparison starting: derived_snapshot
+P11 comparison passed: derived_snapshot; 2 rows
+P11 comparison starting: reserved_action
+P11 comparison passed: reserved_action; 0 rows
+P11 comparison starting: source_event
+P11 comparison passed: source_event; 3 rows
+ok
+test_unknown_nonempty_store_not_adopted (test_publication.PublicationTests.test_unknown_nonempty_store_not_adopted) ... ok
+test_changed_history_bytes_are_rejected_even_when_counts_could_match (test_rebuild.HistoricalOracleTests.test_changed_history_bytes_are_rejected_even_when_counts_could_match) ... ok
+test_every_raw_and_processed_file_is_compared (test_rebuild.HistoricalOracleTests.test_every_raw_and_processed_file_is_compared) ... ok
+test_failed_historical_comparison_is_not_an_oracle (test_rebuild.HistoricalOracleTests.test_failed_historical_comparison_is_not_an_oracle) ... ok
+test_missing_or_extra_stream_is_rejected (test_rebuild.HistoricalOracleTests.test_missing_or_extra_stream_is_rejected) ... ok
+test_oracle_cannot_omit_or_duplicate_an_inconvenient_stream (test_rebuild.HistoricalOracleTests.test_oracle_cannot_omit_or_duplicate_an_inconvenient_stream) ... ok
+test_all_21_streams_restore_exact_bytes_before_plain_removal (test_rebuild.LosslessArchiveTests.test_all_21_streams_restore_exact_bytes_before_plain_removal) ... ARCHIVE owned generated stream: data/processed/eta_history_reference.jsonl
+ARCHIVE owned generated stream: data/processed/eta_snapshot.jsonl
+ARCHIVE owned generated stream: data/processed/eta_snapshot_label.jsonl
+ARCHIVE owned generated stream: data/processed/eta_split_assignment.jsonl
+ARCHIVE owned generated stream: data/processed/feature_lineage.jsonl
+ARCHIVE owned generated stream: data/processed/provenance_record.jsonl
+ARCHIVE owned generated stream: data/processed/trip_membership.jsonl
+ARCHIVE owned generated stream: data/raw/core_device.jsonl
+ARCHIVE owned generated stream: data/raw/core_tenant.jsonl
+ARCHIVE owned generated stream: data/raw/core_vehicle.jsonl
+ARCHIVE owned generated stream: data/raw/core_vehicle_device_assignment.jsonl
+ARCHIVE owned generated stream: data/raw/eta_facility_version.jsonl
+ARCHIVE owned generated stream: data/raw/eta_promise_version.jsonl
+ARCHIVE owned generated stream: data/raw/eta_route_version.jsonl
+ARCHIVE owned generated stream: data/raw/eta_trip.jsonl
+ARCHIVE owned generated stream: data/raw/eta_trip_event.jsonl
+ARCHIVE owned generated stream: data/raw/eta_trip_outcome.jsonl
+ARCHIVE owned generated stream: data/raw/eta_trip_plan_version.jsonl
+ARCHIVE owned generated stream: data/raw/provenance_record.jsonl
+ARCHIVE owned generated stream: data/raw/telemetry_event.jsonl
+ARCHIVE owned generated stream: validation/latent_truth.jsonl
+ok
+test_late_archive_corruption_leaves_every_plain_original_intact (test_rebuild.LosslessArchiveTests.test_late_archive_corruption_leaves_every_plain_original_intact) ... ARCHIVE owned generated stream: data/processed/eta_history_reference.jsonl
+ARCHIVE owned generated stream: data/processed/eta_snapshot.jsonl
+ARCHIVE owned generated stream: data/processed/eta_snapshot_label.jsonl
+ARCHIVE owned generated stream: data/processed/eta_split_assignment.jsonl
+ARCHIVE owned generated stream: data/processed/feature_lineage.jsonl
+ARCHIVE owned generated stream: data/processed/provenance_record.jsonl
+ARCHIVE owned generated stream: data/processed/trip_membership.jsonl
+ARCHIVE owned generated stream: data/raw/core_device.jsonl
+ARCHIVE owned generated stream: data/raw/core_tenant.jsonl
+ARCHIVE owned generated stream: data/raw/core_vehicle.jsonl
+ok
+test_wrong_owner_or_changed_source_cannot_be_archived (test_rebuild.LosslessArchiveTests.test_wrong_owner_or_changed_source_cannot_be_archived) ... ARCHIVE owned generated stream: data/processed/eta_history_reference.jsonl
+ok
+test_bounded_adapter_preserves_frozen_checks_and_all_typed_rows (test_rebuild.RealWarehouseBuilderTests.test_bounded_adapter_preserves_frozen_checks_and_all_typed_rows) ... ok
+test_database_fault_occurs_before_any_published_parquet (test_rebuild.RealWarehouseBuilderTests.test_database_fault_occurs_before_any_published_parquet) ... ok
+test_first_parquet_fault_keeps_only_unpublished_staging_artifacts (test_rebuild.RealWarehouseBuilderTests.test_first_parquet_fault_keeps_only_unpublished_staging_artifacts) ... ok
+test_original_materializer_emits_all_28_typed_relations_to_stage (test_rebuild.RealWarehouseBuilderTests.test_original_materializer_emits_all_28_typed_relations_to_stage) ... ok
+test_disk_measurement_rejects_links_and_reports_actual_sizes (test_rebuild.RepeatAndFailureTests.test_disk_measurement_rejects_links_and_reports_actual_sizes) ... ok
+test_existing_or_checkout_output_is_rejected_before_work (test_rebuild.RepeatAndFailureTests.test_existing_or_checkout_output_is_rejected_before_work) ... ok
+test_repeat_requires_exact_schema_and_values_not_only_row_counts (test_rebuild.RepeatAndFailureTests.test_repeat_requires_exact_schema_and_values_not_only_row_counts) ... ok
+test_worker_failure_never_writes_full_success_receipt (test_rebuild.RepeatAndFailureTests.test_worker_failure_never_writes_full_success_receipt) ... RUN full rebuild 1/2; log: <TEMPORARY_TEST_OUTPUT>/run_01.log
+ok
+test_added_executable_input_requires_new_registration (test_registry.RegistryTests.test_added_executable_input_requires_new_registration) ... ok
+test_changed_ci_workflow_is_rejected (test_registry.RegistryTests.test_changed_ci_workflow_is_rejected) ... ok
+test_changed_published_parent_is_rejected (test_registry.RegistryTests.test_changed_published_parent_is_rejected) ... ok
+test_exact_registration_preserves_prior_chain_verification (test_registry.RegistryTests.test_exact_registration_preserves_prior_chain_verification) ... ok
+test_foreign_checkout_cannot_claim_this_verifier (test_registry.RegistryTests.test_foreign_checkout_cannot_claim_this_verifier) ... ok
+test_future_or_naive_registration_time_is_rejected (test_registry.RegistryTests.test_future_or_naive_registration_time_is_rejected) ... ok
+test_mutable_parent_allowlist_cannot_expand (test_registry.RegistryTests.test_mutable_parent_allowlist_cannot_expand) ... ok
+test_omitted_parent_cannot_be_excused_by_registration (test_registry.RegistryTests.test_omitted_parent_cannot_be_excused_by_registration) ... ok
+test_parent_registration_binding_cannot_change (test_registry.RegistryTests.test_parent_registration_binding_cannot_change) ... ok
+test_scientific_scope_and_boolean_types_are_not_relaxable (test_registry.RegistryTests.test_scientific_scope_and_boolean_types_are_not_relaxable) ... ok
+test_symlink_even_in_excluded_evidence_is_rejected (test_registry.RegistryTests.test_symlink_even_in_excluded_evidence_is_rejected) ... ok
+test_traversal_path_or_invalid_digest_is_rejected (test_registry.RegistryTests.test_traversal_path_or_invalid_digest_is_rejected) ... ok
+test_conflicting_full_identity_does_not_mutate_input (test_revision.RevisionIdentityTests.test_conflicting_full_identity_does_not_mutate_input) ... ok
+test_exact_replay_preserves_every_revision_and_tenant (test_revision.RevisionIdentityTests.test_exact_replay_preserves_every_revision_and_tenant) ... ok
+test_noncanonical_revision_values_are_rejected (test_revision.RevisionIdentityTests.test_noncanonical_revision_values_are_rejected) ... ok
+test_nonfinite_and_boolean_numeric_payload_rejected (test_revision.RevisionIdentityTests.test_nonfinite_and_boolean_numeric_payload_rejected) ... ok
+test_one_source_identity_cannot_alias_multiple_canonical_events (test_revision.RevisionIdentityTests.test_one_source_identity_cannot_alias_multiple_canonical_events) ... ok
+test_revisions_cannot_share_provenance_identity (test_revision.RevisionIdentityTests.test_revisions_cannot_share_provenance_identity) ... ok
+test_same_canonical_event_cannot_change_source_identity (test_revision.RevisionIdentityTests.test_same_canonical_event_cannot_change_source_identity) ... ok
+test_unknown_naive_overprecision_or_impossible_clock_rejected (test_revision.RevisionIdentityTests.test_unknown_naive_overprecision_or_impossible_clock_rejected) ... ok
+test_before_boundary_and_at_boundary_use_exact_known_revision (test_revision.RevisionSelectionTests.test_before_boundary_and_at_boundary_use_exact_known_revision) ... ok
+test_correction_invalidates_fix_without_resurrecting_older_revision (test_revision.RevisionSelectionTests.test_correction_invalidates_fix_without_resurrecting_older_revision) ... ok
+test_late_revision_does_not_change_earlier_snapshot_or_binding (test_revision.RevisionSelectionTests.test_late_revision_does_not_change_earlier_snapshot_or_binding) ... ok
+test_later_arriving_older_revision_cannot_downgrade_known_version (test_revision.RevisionSelectionTests.test_later_arriving_older_revision_cannot_downgrade_known_version) ... ok
+test_numeric_revision_tie_does_not_sort_ten_below_two (test_revision.RevisionSelectionTests.test_numeric_revision_tie_does_not_sort_ten_below_two) ... ok
+test_same_ids_in_other_tenant_never_substitute_position (test_revision.RevisionSelectionTests.test_same_ids_in_other_tenant_never_substitute_position) ... ok
+test_timezone_and_microsecond_boundary_preserved (test_revision.RevisionSelectionTests.test_timezone_and_microsecond_boundary_preserved) ... ok
+test_actual_http_boundary_lineage_store_and_replay_end_to_end (test_revision.RevisionStoreTests.test_actual_http_boundary_lineage_store_and_replay_end_to_end) ... ok
+test_changed_retained_replay_fails_before_database_mutation (test_revision.RevisionStoreTests.test_changed_retained_replay_fails_before_database_mutation) ... ok
+test_cross_tenant_or_missing_parent_provenance_is_rejected (test_revision.RevisionStoreTests.test_cross_tenant_or_missing_parent_provenance_is_rejected) ... ok
+test_no_position_snapshot_cannot_keep_old_revision_lineage (test_revision.RevisionStoreTests.test_no_position_snapshot_cannot_keep_old_revision_lineage) ... ok
+test_omitted_position_binding_is_rejected (test_revision.RevisionStoreTests.test_omitted_position_binding_is_rejected) ... ok
+test_output_path_cannot_overwrite_prior_evidence (test_revision.RevisionStoreTests.test_output_path_cannot_overwrite_prior_evidence) ... ok
+test_selected_revision_fk_cannot_point_to_future_or_wrong_source (test_revision.RevisionStoreTests.test_selected_revision_fk_cannot_point_to_future_or_wrong_source) ... ok
+test_snapshot_payload_must_match_the_version_in_its_lineage (test_revision.RevisionStoreTests.test_snapshot_payload_must_match_the_version_in_its_lineage) ... ok
+test_snapshot_provenance_identity_is_checked_for_every_snapshot (test_revision.RevisionStoreTests.test_snapshot_provenance_identity_is_checked_for_every_snapshot) ... ok
+test_source_provenance_must_bind_exact_revision (test_revision.RevisionStoreTests.test_source_provenance_must_bind_exact_revision) ... ok
+test_typed_source_decimal_rounding_is_rejected (test_revision.RevisionStoreTests.test_typed_source_decimal_rounding_is_rejected) ... ok
+test_valid_no_position_is_persisted_with_no_false_binding (test_revision.RevisionStoreTests.test_valid_no_position_is_persisted_with_no_false_binding) ... ok
+test_failed_status_is_never_promoted_to_success (test_run.ResultGateTests.test_failed_status_is_never_promoted_to_success) ... ok
+test_failed_warehouse_invariant_is_rejected (test_run.ResultGateTests.test_failed_warehouse_invariant_is_rejected) ... ok
+test_failed_witness_leaves_diagnostics_and_no_success_receipt (test_run.ResultGateTests.test_failed_witness_leaves_diagnostics_and_no_success_receipt) ... ok
+test_missing_crash_or_boolean_coercion_is_rejected (test_run.ResultGateTests.test_missing_crash_or_boolean_coercion_is_rejected) ... ok
+test_missing_or_unverified_source_archive_is_rejected (test_run.ResultGateTests.test_missing_or_unverified_source_archive_is_rejected) ... ok
+test_mutated_recovery_or_changed_rows_are_rejected (test_run.ResultGateTests.test_mutated_recovery_or_changed_rows_are_rejected) ... ok
+test_one_rebuild_or_failed_repeatability_is_rejected (test_run.ResultGateTests.test_one_rebuild_or_failed_repeatability_is_rejected) ... ok
+test_output_inside_checkout_or_preexisting_is_rejected (test_run.ResultGateTests.test_output_inside_checkout_or_preexisting_is_rejected) ... ok
+test_partial_historical_oracle_is_rejected (test_run.ResultGateTests.test_partial_historical_oracle_is_rejected) ... ok
+test_partial_revision_or_store_check_is_rejected (test_run.ResultGateTests.test_partial_revision_or_store_check_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 95 tests in 18.634s
+
+OK

@@ -1,0 +1,27 @@
+{
+  "base_public_commit": "151ad00095fa84a3c9c975a8a74546a798a4a135",
+  "operational_approval": false,
+  "p10_registration": {
+    "base_public_commit": "8ae479f5391e6b2f0e3b6ad1131e411629f90966",
+    "operational_approval": false,
+    "p09_registration": {
+      "base_public_commit": "12b904696b87d90369d85dabeee01eadadc854cd",
+      "operational_approval": false,
+      "parent_file_count": 1285,
+      "quality_accepted": false,
+      "registration_sha256": "7ac98f01e51bf476266d182f6ee47b514856b99d1302e38ca165335b51f171a0",
+      "status": "passed_parent_and_workflow_registration",
+      "workflow_file_count": 21
+    },
+    "parent_file_count": 1393,
+    "quality_accepted": false,
+    "registration_sha256": "4c6e867600e50cc44205f6de0740ac18f1381bcab195187a050887aefd0c2a77",
+    "status": "passed_p10_registration_and_frozen_p09_parent",
+    "workflow_file_count": 15
+  },
+  "parent_file_count": 1428,
+  "quality_accepted": false,
+  "registration_sha256": "ff0f1beacc169ecffc4f1a6574a36390309c128d9fb3f76bff596fe5a44ebe6d",
+  "status": "passed_p11_registration_and_published_p10_parent",
+  "workflow_file_count": 19
+}

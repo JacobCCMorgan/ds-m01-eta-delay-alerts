@@ -1,0 +1,111 @@
+{
+  "binding_excludes": [
+    "README.md",
+    "verification.json"
+  ],
+  "ci_verified": false,
+  "file_sha256": {
+    "development_resource_findings.json": "41bab460053ae1a82cf41bffc97fc8b52b3a4cb945e392b831ecfb9181c9a11e",
+    "p09_replay.json": "4fea28e57de57d6fb1f68718ca1204b24e3d35e587d7297b5065c7b44996650a",
+    "p10_native/cluster/lifecycle.json": "5e4d2531fcad23399ebd55534f00809cae22bc62704efc4db4538cc78908bc31",
+    "p10_native/historical_oracle.json": "68994d286714cfed29c237c5a0e17caa97e2432492a0681f07f84e107a3733c4",
+    "p10_native/http_snapshot.json": "5813a1dc4c53b1186fd826638d351193a33404a09634a909cd10f82c494f9e92",
+    "p10_native/native_integration.json": "46ffb253d5de7cd6e5c0fd460b656724c9ce8447b395a544488bc012f8efb003",
+    "p10_native/parent_integrity.json": "933d570f6802e2e7d238e48ee3b6c92d7f9286f96c69bb89538dc22ffbc99cca",
+    "p10_native/postgres.json": "f02456698d9bed51e975d0735039551ca7e2ac0974212b782a60b1e706c45bbd",
+    "p10_native/run_receipt.json": "c7e6af978ac9e4bf8f3c641e0d6a843fc7c02f4a04610f972ed66cdc87cc5724",
+    "p10_native/source_generation.json": "d791edb142052eb60b93601a53f7dbc789115d24bffcb5c1a01fb1f76624cc8c",
+    "p10_publication.json": "c90a35888b2fac60d3a398ecf73e7c7cd0eca6d9a05004d92871d8e9e08bd9c1",
+    "parent_integrity.json": "b4b657c6ed83820d8796732adfe5558f67ea483dfbadc0c0009ac16cf508f012",
+    "rebuild.json": "4cdf920a965ecb11af9a945c3760ba290cc07916c30da6952dfae1560197ebbe",
+    "receipt.json": "969dd6e13eaae39a42002d79644c44b607580827a0ab309a919653c5ed21d0b1",
+    "recovery.json": "9eef5a3ed678c270b5d1613b08d04a505cafc839070142c053084f42fbd373bb",
+    "revision.json": "1fe7fd1680289012a6da7ff167f83f81e949e5b67c54f5b20ca979e4bdb07005",
+    "summary.json": "52540eeeb2eed0a2ebbac01950f0f2d5f64deb7eb13ce5c4b11b308d1b7f2e7a",
+    "tests/original_unit_tests.log": "e8524b93df44a345247a021c26372b958300e3c8415c028deb7e2553716812df",
+    "tests/p09_unit_tests.log": "90d500fa1bb572d556465396b5dd0d3e315c3f7c8bf534eb4c3585d56b4f0915",
+    "tests/p10_unit_tests.log": "5d75244a9c80974e2e2363ca3ae5139f8d13ad242a8ea7e77b3455ee3186f37f",
+    "tests/p11_unit_tests.log": "50ff98175eae407841c3db484efdd30031dd79e0d5f2fd0356a64876d29ac285",
+    "tests/portable_unit_tests.log": "4e6effabf800d9d497930ec048074061b8ba2c255be8d34698a205233c4abef8"
+  },
+  "new_untouched_final_test_claimed": false,
+  "operational_approval": false,
+  "p09_independent_comparison_count": 26524,
+  "p09_replay_differences": 0,
+  "p10_native_postgresql_and_http_rerun": true,
+  "p11_execution_completed_at_utc": "2026-11-17T23:16:02.705497+00:00",
+  "p11_execution_elapsed_seconds": 1165.392715389,
+  "p11_execution_started_at_utc": "2026-11-17T22:56:37.312780+00:00",
+  "p11_published": false,
+  "p11_registered_file_count": 19,
+  "p11_registered_integration_status": "passed_p11_clean_rebuild_revision_and_recovery",
+  "p11_two_fresh_rebuilds_executed": true,
+  "parent_file_count": 1428,
+  "parent_public_commit": "151ad00095fa84a3c9c975a8a74546a798a4a135",
+  "preparation_provenance": {
+    "executed_p11_files_bound_by_registration_sha256": true,
+    "execution_checkout_changes_present": true,
+    "observed_git_head_is_published_p10_parent": true,
+    "p10_native_rerun_also_recorded_dirty_preparation_checkout": true,
+    "user_signed_p11_commit_claimed": false
+  },
+  "quality_accepted": false,
+  "recorded_at_utc": "2026-11-17T23:16:36.965122+00:00",
+  "registration_sha256": "ff0f1beacc169ecffc4f1a6574a36390309c128d9fb3f76bff596fe5a44ebe6d",
+  "scope": "Assistant Linux preparation. Original execution JSON receipts are byte-exact copies. Four baseline unit logs are exact; the P11 test log discloses its temporary-path redaction. User macOS execution, signed publication and actual exact-commit GitHub CI remain separate.",
+  "status": "passed_preparation_evidence_binding",
+  "test_count": 1021,
+  "test_suites": {
+    "original_unit_tests": {
+      "byte_exact_copy": true,
+      "elapsed_seconds": 22.546,
+      "ephemeral_absolute_path_redactions": 0,
+      "original_log_sha256": "e8524b93df44a345247a021c26372b958300e3c8415c028deb7e2553716812df",
+      "retained_log_sha256": "e8524b93df44a345247a021c26372b958300e3c8415c028deb7e2553716812df",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 727
+    },
+    "p09_unit_tests": {
+      "byte_exact_copy": true,
+      "elapsed_seconds": 143.199,
+      "ephemeral_absolute_path_redactions": 0,
+      "original_log_sha256": "90d500fa1bb572d556465396b5dd0d3e315c3f7c8bf534eb4c3585d56b4f0915",
+      "retained_log_sha256": "90d500fa1bb572d556465396b5dd0d3e315c3f7c8bf534eb4c3585d56b4f0915",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 115
+    },
+    "p10_unit_tests": {
+      "byte_exact_copy": true,
+      "elapsed_seconds": 7.594,
+      "ephemeral_absolute_path_redactions": 0,
+      "original_log_sha256": "5d75244a9c80974e2e2363ca3ae5139f8d13ad242a8ea7e77b3455ee3186f37f",
+      "retained_log_sha256": "5d75244a9c80974e2e2363ca3ae5139f8d13ad242a8ea7e77b3455ee3186f37f",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 67
+    },
+    "p11_unit_tests": {
+      "byte_exact_copy": false,
+      "elapsed_seconds": 18.634,
+      "ephemeral_absolute_path_redactions": 1,
+      "original_log_sha256": "6e97d140b113c26fd816af8b50f6c8152df79c29c28de4cfba4eca942ad5ec0f",
+      "retained_log_sha256": "50ff98175eae407841c3db484efdd30031dd79e0d5f2fd0356a64876d29ac285",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 95
+    },
+    "portable_unit_tests": {
+      "byte_exact_copy": true,
+      "elapsed_seconds": 7.609,
+      "ephemeral_absolute_path_redactions": 0,
+      "original_log_sha256": "4e6effabf800d9d497930ec048074061b8ba2c255be8d34698a205233c4abef8",
+      "retained_log_sha256": "4e6effabf800d9d497930ec048074061b8ba2c255be8d34698a205233c4abef8",
+      "skipped": 0,
+      "status": "passed",
+      "test_count": 17
+    }
+  },
+  "user_mac_validation_observed": false
+}

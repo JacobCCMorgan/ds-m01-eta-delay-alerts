@@ -1,0 +1,199 @@
+{
+  "canonical_events": 2,
+  "earlier_snapshot_unchanged": true,
+  "files": {
+    "http_events.jsonl": "eb71246ab3ae59ffe5ddb50a59b543db5e30fad60cdb57e376cb129ed9c9c822",
+    "provenance.jsonl": "a8ea79e5cff45d98b64ba08cf9163f6567763503351d8182efdbaf520612bca2",
+    "snapshot_positions.jsonl": "166dc6f98ed0423ecdd793ac18d8d6f72dc3611b76cf90973da68cd3d13b1b8a",
+    "snapshots.jsonl": "c7c2954850fb6dd697e9b22e02f3b49d2922838744e4e7753610a48508c672db",
+    "source.jsonl": "110db0884f24fe7ed42e13f9dd878ddbcd6d095f21bff0de138c813171617e95",
+    "store/eta_snapshot.parquet": "150f77bf5951514a501b16c3ac0ea8563ed3d8aa5f6e24d000e79cd7c213ef1d",
+    "store/p11_snapshot_position.parquet": "1942806c7ed08623e2fc51ad9ea7c0a857e28bc54e88e57aab468beb2b9a0b00",
+    "store/provenance_record.parquet": "310b0868d98729d691843f04777b90c5d5cefd3af6a044c86291df92a3bd8406",
+    "store/revision.duckdb": "5067051d27baa938040d6960a98497d5a9e5b4c97a36d4769bd7ea29c72c8a91",
+    "store/telemetry_event.parquet": "6f4412b27ac60c070fef6f4655e2bc82423a1ca5f941cad510e7fe72c327ddc2"
+  },
+  "http": {
+    "canonical_clock_sha256": "dc6073e8ee4393ff593aa4a412b05326abfe48fd23a29b33a8690d67a2bc02ca",
+    "canonical_rows": 4,
+    "canonical_rows_sha256": "b777be53358206b06a7c957f0908de18f38070fe2ebac5ac0d393466f6cf9f4c",
+    "deterministic_pages_equal": true,
+    "duplicate_rows_replayed": 2,
+    "duplicate_rows_total": 3,
+    "duplicates_during_pagination": 1,
+    "event_and_available_clocks_equal": true,
+    "full_payload_set_equal": true,
+    "http_requests": 5,
+    "page_records": [
+      {
+        "cursor": null,
+        "http_statuses": [
+          503,
+          200
+        ],
+        "next_cursor": "WyIzZWZiNDAyYTNlNDAxMjhjYmQwMzY3NDU2ZmQwOGI4YmM4ODdjNGYzNjMwNzc5YTFlYmM2MWNmMmNiYmUyYjk4IiwyXQ==",
+        "rows": 2,
+        "rows_sha256": "b656a4aff0e3168e3e88fca2eda979f0f412d793eded8abf1fb4e66309a19929"
+      },
+      {
+        "cursor": "WyIzZWZiNDAyYTNlNDAxMjhjYmQwMzY3NDU2ZmQwOGI4YmM4ODdjNGYzNjMwNzc5YTFlYmM2MWNmMmNiYmUyYjk4IiwyXQ==",
+        "http_statuses": [
+          200
+        ],
+        "next_cursor": "WyIzZWZiNDAyYTNlNDAxMjhjYmQwMzY3NDU2ZmQwOGI4YmM4ODdjNGYzNjMwNzc5YTFlYmM2MWNmMmNiYmUyYjk4Iiw0XQ==",
+        "rows": 2,
+        "rows_sha256": "a800c6619d465d9abc21a233c86b46f5f428f81ad03f9f01bf163ca2b5ec86a2"
+      },
+      {
+        "cursor": "WyIzZWZiNDAyYTNlNDAxMjhjYmQwMzY3NDU2ZmQwOGI4YmM4ODdjNGYzNjMwNzc5YTFlYmM2MWNmMmNiYmUyYjk4Iiw0XQ==",
+        "http_statuses": [
+          200
+        ],
+        "next_cursor": null,
+        "rows": 1,
+        "rows_sha256": "61b258c24d29f8f8a1663e6b1bbf4056a1fd3a967b252b36218992bea4aa7be7"
+      }
+    ],
+    "pages": 3,
+    "replay": {
+      "cursor": null,
+      "http_statuses": [
+        200
+      ],
+      "new_canonical_rows": 0,
+      "rows": 2,
+      "rows_sha256": "b656a4aff0e3168e3e88fca2eda979f0f412d793eded8abf1fb4e66309a19929"
+    },
+    "retries": 1,
+    "snapshot": "3efb402a3e40128cbd0367456fd08b8bc887c4f3630779a1ebc61cf2cbbe2b98",
+    "source_duplicate_multiplicity_equal": true,
+    "source_duplicate_rows": 1,
+    "source_rows": 5,
+    "tenant_event_revision_identity_preserved": true
+  },
+  "http_server_closed": true,
+  "retained_revisions": 4,
+  "scientific_results_changed": false,
+  "scope": "Independent bounded P11 revision-aware entry point; frozen historical entry points remain unchanged",
+  "snapshot_witnesses": [
+    {
+      "latitude_deg": 34.1,
+      "record_revision": "1",
+      "snapshot_time": "2026-06-23T10:00:00Z",
+      "source_provenance_id": "P11-GPS-T01-R1",
+      "tenant_id": "T01"
+    },
+    {
+      "latitude_deg": 34.2,
+      "record_revision": "2",
+      "snapshot_time": "2026-06-23T10:04:00Z",
+      "source_provenance_id": "P11-GPS-T01-R2",
+      "tenant_id": "T01"
+    },
+    {
+      "latitude_deg": 34.2,
+      "record_revision": "2",
+      "snapshot_time": "2026-06-23T10:04:59.999999Z",
+      "source_provenance_id": "P11-GPS-T01-R2",
+      "tenant_id": "T01"
+    },
+    {
+      "latitude_deg": 34.5,
+      "record_revision": "10",
+      "snapshot_time": "2026-06-23T10:05:00Z",
+      "source_provenance_id": "P11-GPS-T01-R10",
+      "tenant_id": "T01"
+    },
+    {
+      "latitude_deg": 34.5,
+      "record_revision": "10",
+      "snapshot_time": "2026-06-23T10:06:00Z",
+      "source_provenance_id": "P11-GPS-T01-R10",
+      "tenant_id": "T01"
+    },
+    {
+      "latitude_deg": 35.2,
+      "record_revision": "1",
+      "snapshot_time": "2026-06-23T10:00:00Z",
+      "source_provenance_id": "P11-GPS-T02-R1",
+      "tenant_id": "T02"
+    },
+    {
+      "latitude_deg": 35.2,
+      "record_revision": "1",
+      "snapshot_time": "2026-06-23T10:04:00Z",
+      "source_provenance_id": "P11-GPS-T02-R1",
+      "tenant_id": "T02"
+    },
+    {
+      "latitude_deg": 35.2,
+      "record_revision": "1",
+      "snapshot_time": "2026-06-23T10:04:59.999999Z",
+      "source_provenance_id": "P11-GPS-T02-R1",
+      "tenant_id": "T02"
+    },
+    {
+      "latitude_deg": 35.2,
+      "record_revision": "1",
+      "snapshot_time": "2026-06-23T10:05:00Z",
+      "source_provenance_id": "P11-GPS-T02-R1",
+      "tenant_id": "T02"
+    },
+    {
+      "latitude_deg": 35.2,
+      "record_revision": "1",
+      "snapshot_time": "2026-06-23T10:06:00Z",
+      "source_provenance_id": "P11-GPS-T02-R1",
+      "tenant_id": "T02"
+    }
+  ],
+  "source_duplicate_rows": 1,
+  "status": "passed_revision_contract",
+  "store": {
+    "actual_constraint_rejections": [
+      "duplicate_full_revision",
+      "wrong_revision_provenance_fk",
+      "missing_revision_fk",
+      "cross_tenant_position_fk"
+    ],
+    "all_column_parquet_exact": true,
+    "database": "revision.duckdb",
+    "fresh_connection_exact": true,
+    "retained_revision_replay": {
+      "all_typed_payloads_unchanged": true,
+      "duplicate_input_rows": 4,
+      "input_rows": 8,
+      "new_rows": 0,
+      "unique_versions": 4
+    },
+    "snapshot_revision_foreign_key_enforced": true,
+    "status": "passed_typed_revision_store",
+    "tables": {
+      "eta_snapshot": {
+        "parquet_sha256": "150f77bf5951514a501b16c3ac0ea8563ed3d8aa5f6e24d000e79cd7c213ef1d",
+        "rows": 10,
+        "typed_rows_sha256": "de1b3281b182d7a3decb333f1252cd437102d13e01b7d8dd5bd98d6406584172"
+      },
+      "p11_snapshot_position": {
+        "parquet_sha256": "1942806c7ed08623e2fc51ad9ea7c0a857e28bc54e88e57aab468beb2b9a0b00",
+        "rows": 10,
+        "typed_rows_sha256": "219c0b661f588687bee41bed40cd841935e8242dd0b0408ca0934974d065ac9e"
+      },
+      "provenance_record": {
+        "parquet_sha256": "310b0868d98729d691843f04777b90c5d5cefd3af6a044c86291df92a3bd8406",
+        "rows": 16,
+        "typed_rows_sha256": "d2ca3b65143735c3fc47cefc0c03191a9eeeac2a98aeff737ea0786ff4c766c9"
+      },
+      "telemetry_event": {
+        "parquet_sha256": "6f4412b27ac60c070fef6f4655e2bc82423a1ca5f941cad510e7fe72c327ddc2",
+        "rows": 4,
+        "typed_rows_sha256": "4af255a1783b95ffaa60436ac7cdcdf57a38cf5f0b2d0c172af885db40b572d3"
+      }
+    },
+    "telemetry_primary_key": [
+      "tenant_id",
+      "canonical_event_id",
+      "record_revision"
+    ]
+  }
+}

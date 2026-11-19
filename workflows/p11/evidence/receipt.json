@@ -1,0 +1,23 @@
+{
+  "ci_verified": false,
+  "completed_at_utc": "2026-11-17T23:16:02.705497+00:00",
+  "elapsed_seconds": 1165.392715389,
+  "execution_checkout_changes_present": true,
+  "head": "151ad00095fa84a3c9c975a8a74546a798a4a135",
+  "operational_approval": false,
+  "output_sha256": {
+    "parent_integrity.json": "b4b657c6ed83820d8796732adfe5558f67ea483dfbadc0c0009ac16cf508f012",
+    "rebuild.json": "4cdf920a965ecb11af9a945c3760ba290cc07916c30da6952dfae1560197ebbe",
+    "recovery.json": "9eef5a3ed678c270b5d1613b08d04a505cafc839070142c053084f42fbd373bb",
+    "revision.json": "1fe7fd1680289012a6da7ff167f83f81e949e5b67c54f5b20ca979e4bdb07005",
+    "summary.json": "52540eeeb2eed0a2ebbac01950f0f2d5f64deb7eb13ce5c4b11b308d1b7f2e7a"
+  },
+  "quality_accepted": false,
+  "registration_sha256": "ff0f1beacc169ecffc4f1a6574a36390309c128d9fb3f76bff596fe5a44ebe6d",
+  "runtime": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12.14"
+  },
+  "started_at_utc": "2026-11-17T22:56:37.312780+00:00",
+  "status": "passed_p11_clean_rebuild_revision_and_recovery"
+}

@@ -1,0 +1,74 @@
+{
+  "status": "passed_p10_six_published_commits_exact_trees_and_github_verified",
+  "checked_at_utc": "2026-11-17T22:31:10.383250+00:00",
+  "remote_head": "151ad00095fa84a3c9c975a8a74546a798a4a135",
+  "commits": [
+    {
+      "sha": "0b6c1fcc2c6da186bd54c049f0c81d62381feca7",
+      "tree": "3628fd9988178c8e6b395e87275a907479a527ce",
+      "subject": "feat(integration): register immutable parent inputs and native runtime protocol",
+      "author_date": "2026-11-16T18:35:54Z",
+      "committer_date": "2026-11-16T18:35:54Z",
+      "verified": true,
+      "reason": "valid",
+      "verified_at": "2026-11-16T19:57:56Z",
+      "url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/0b6c1fcc2c6da186bd54c049f0c81d62381feca7"
+    },
+    {
+      "sha": "9214ed85b54460dd3986c4281a47140ee956e29f",
+      "tree": "94792489924acce9bfac558251f627d5f02510bf",
+      "subject": "feat(runtime): isolate native PostgreSQL validation lifecycle",
+      "author_date": "2026-11-16T18:45:26Z",
+      "committer_date": "2026-11-16T18:45:26Z",
+      "verified": true,
+      "reason": "valid",
+      "verified_at": "2026-11-16T19:57:56Z",
+      "url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/9214ed85b54460dd3986c4281a47140ee956e29f"
+    },
+    {
+      "sha": "d20c0a371132ecc77c9ff1958ca1621c8a9f4f30",
+      "tree": "f0b3eba5b9b313b990f0e79788c7cb1a2adad103",
+      "subject": "feat(postgres): reconcile typed source and workflow tables",
+      "author_date": "2026-11-16T19:01:12Z",
+      "committer_date": "2026-11-16T19:01:12Z",
+      "verified": true,
+      "reason": "valid",
+      "verified_at": "2026-11-16T19:57:56Z",
+      "url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/d20c0a371132ecc77c9ff1958ca1621c8a9f4f30"
+    },
+    {
+      "sha": "1f41dd2a0ec3149eeebfc2992e7c91a693430d71",
+      "tree": "4b9400005d64bc5fd9bb69e705fd347cec5ddab2",
+      "subject": "feat(http): reconcile telemetry transport and snapshot projections",
+      "author_date": "2026-11-16T19:05:44Z",
+      "committer_date": "2026-11-16T19:05:44Z",
+      "verified": true,
+      "reason": "valid",
+      "verified_at": "2026-11-16T19:57:56Z",
+      "url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/1f41dd2a0ec3149eeebfc2992e7c91a693430d71"
+    },
+    {
+      "sha": "36dd226717ddd10c393ae9c194ccaf40d1042502",
+      "tree": "5a4975ba3c9f5ceecf7a24f604a914e2faac6606",
+      "subject": "feat(validation): orchestrate native source integration checks",
+      "author_date": "2026-11-16T19:25:02Z",
+      "committer_date": "2026-11-16T19:25:02Z",
+      "verified": true,
+      "reason": "valid",
+      "verified_at": "2026-11-16T19:57:56Z",
+      "url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/36dd226717ddd10c393ae9c194ccaf40d1042502"
+    },
+    {
+      "sha": "151ad00095fa84a3c9c975a8a74546a798a4a135",
+      "tree": "2fabce003723779249e46da43ac723134254dc9d",
+      "subject": "docs(results): retain native integration evidence and limits",
+      "author_date": "2026-11-16T19:35:02Z",
+      "committer_date": "2026-11-16T19:35:02Z",
+      "verified": true,
+      "reason": "valid",
+      "verified_at": "2026-11-16T19:57:56Z",
+      "url": "https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/151ad00095fa84a3c9c975a8a74546a798a4a135"
+    }
+  ],
+  "scope": "GitHub content and signature verification. User reports local completion; Mac raw receipts and CI were not independently supplied."
+}

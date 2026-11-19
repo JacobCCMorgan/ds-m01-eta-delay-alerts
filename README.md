@@ -2,9 +2,40 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: native PostgreSQL and HTTP/snapshot integration (P10 / M5.1).** A separate integration check exercises operational-source and retained workflow tables against a running PostgreSQL service, then reconciles real HTTP position inputs with the saved snapshot path. Earlier forecasts, final outcomes, workflow results and quality limitations remain fixed. The integration scope and remaining clean-rebuild work are stated separately below.
+**Current stage: complete reconstruction, revision identity and recoverable publication (P11 / M5.2).** Two complete M2 rebuilds agree with the frozen source evidence. A separate P11 entry point retains telemetry corrections through HTTP, snapshots and versioned provenance, and publishes complete DuckDB/Parquet generations with process-crash recovery. Earlier forecasts, outcomes and quality limitations remain fixed. Actual GitHub CI is a separate check for the published commit.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
+
+## What does complete reconstruction demonstrate?
+
+Two clean runs rebuild all 28 required M2 schemas: 17 populated synthetic tables
+and 11 reserved empty schemas. All 13 raw and seven processed JSONL files match
+the historical SHA256 evidence. Every DuckDB relation matches its complete
+Parquet export, and the two runs agree on schemas, counts and all-row digests.
+The P09 output store remains separate; this is not a combined 28-table native
+PostgreSQL deployment.
+
+The revision witness uses actual loopback HTTP, four retained revisions across
+two tenant/event identities and ten snapshots around correction availability.
+It checks versioned lineage, idempotent replay, four actual database constraint
+rejections, and exact source/database/Parquet payload agreement. The old frozen
+pipeline keeps its original revision limitation.
+
+Five abrupt worker exits on a small typed-store fixture exercise database creation,
+Parquet export, validation,
+generation rename and active-reference replacement. Cooperating readers pin one
+complete generation on one local filesystem. Recovery preserves the old files
+and agrees with an independent clean build. These are process-crash checks,
+not hardware power-loss tests or a distributed PostgreSQL/filesystem transaction.
+
+The retained preparation gate passes 1,021 tests, including 95 new P11 tests,
+and reruns the actual P10 PostgreSQL/HTTP integration. See the
+[scope and reproduction commands](docs/p11_rebuild_recovery.md),
+[measured run evidence](workflows/p11/evidence/README.md) and
+[CI workflow](.github/workflows/p11-integration.yml). Local preparation, user-machine
+validation, publication/signatures and a successful Actions run at the exact
+commit are separate states. CI remains pending until that run is observed.
+G14/G15/G16 and quality/operational acceptance remain unchanged.
 
 ## What does native service integration cover?
 
@@ -31,13 +62,13 @@ Preparation passed 926 tests and 634 native database rejection probes on
 PostgreSQL 17.11. Committed rows matched from a new connection, and all three
 input paths produced equal projections. The 13 regenerated raw files and the
 direct/HTTP projection files also matched the historical SHA256 records.
-These are retained Linux results; macOS verification and P10 publication remain
-separate steps.
+These are retained Linux results. The six P10 commits are now published and
+GitHub Verified; those signature checks are separate from execution on another
+machine. See the [publication check](workflows/p11/evidence/p10_publication.json).
 
-Multi-revision telemetry through canonical identity and lineage (G11), atomic
-database/Parquet recovery (G13), clean-environment rebuild and actual CI remain
-P11/M5.2 work. Unsupported telemetry revisions are rejected rather than silently
-collapsed. Native integration does not resolve G14/G15/G16 or approve deployment.
+The P10 input guard rejects unsupported telemetry revisions. P11 adds the
+separate revision-aware entry point and complete reconstruction/recovery evidence
+described above. Native integration does not resolve G14/G15/G16 or approve deployment.
 
 ## What does the workflow demonstration add?
 
@@ -488,14 +519,15 @@ not messages sent to fleet users. The historical [PostgreSQL runtime
 note](docs/postgres_runtime_note.md) records M2's unexecuted native check. P10
 adds actual native readback for 11 operational source tables and 35 retained P09
 output/audit tables in separate schemas, as specified in the [integration
-scope](docs/p10_integration.md). Full warehouse reconstruction and production
-deployment remain unverified.
+scope](docs/p10_integration.md). P11 subsequently verifies complete M2
+reconstruction and recoverable DuckDB/Parquet publication through its new
+entry point. Production deployment remains unverified.
 
 P08 retains all 400 final-test trips, including 34 unseen-route-only and four joint-holdout trips. Eligible/scored counts are reported separately. Sparse support permits descriptive analysis, not reliable deployment claims or a power guarantee. The original training fallback and unavailable rules remain unchanged.
 
-Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 demonstrates the downstream workflow in an offline synthetic setting. P10 adds bounded native service integration; full clean rebuild, coordinated recovery, continuous integration and operational acceptance remain separate unfinished work.
+Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 demonstrates the downstream workflow in an offline synthetic setting. P10 adds bounded native service integration. P11 adds complete clean reconstruction and recovery for its single-filesystem publication protocol. Actual CI for the published P11 commit and operational acceptance remain separate pending checks.
 
-The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) record how source revisions, clock precision and interrupted builds are handled.
+The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) preserve the historical limitations; the [P11 scope](docs/p11_rebuild_recovery.md) records the later revision and recovery evidence for its new entry points.
 
 ## Repository guide
 
@@ -509,8 +541,11 @@ The [evidence index](docs/evidence_index.md) maps requirements, tables and valid
 | [reports/](reports/) | Execution receipts, data summaries and validation figures |
 | [workflows/p09/](workflows/p09/) | Separately registered adoption/action/follow-up extension, tests, typed evidence and trip viewer |
 | [workflows/p10/](workflows/p10/) | Separately registered native PostgreSQL, real HTTP and source-projection integration checks |
+| [workflows/p11/](workflows/p11/), [P11 guide](docs/p11_rebuild_recovery.md) | Complete M2 reconstruction, revision-aware telemetry, recoverable generations and exact-commit CI workflow |
 | [docs/m1_scope.md](docs/m1_scope.md), [docs/m2_scope.md](docs/m2_scope.md) | Historical trial scope and full data milestone scope |
 | [docs/m3a_baseline.md](docs/m3a_baseline.md) | Historical baseline, fold cutoffs, protected periods and metric denominators |
 | [docs/change_log.md](docs/change_log.md) | Implementation changes and technical findings |
 
-A full run creates `data/raw/`, `data/processed/`, `data/parquet/` and `data/ds_m01_m2.duckdb`. `data/source_manifest.json` guards the 13 raw sources with counts and SHA256 digests. Generated `validation/` artifacts contain engineering-only synthetic truth and must never become model features.
+The historical `ds_m01 run` command creates `data/raw/`, `data/processed/`, `data/parquet/` and `data/ds_m01_m2.duckdb`. `data/source_manifest.json` guards the 13 raw sources with counts and SHA256 digests. Generated `validation/` artifacts contain engineering-only synthetic truth and must never become model features.
+
+P11 writes fresh external generations and retains verified source archives as described in the [reconstruction guide](docs/p11_rebuild_recovery.md).

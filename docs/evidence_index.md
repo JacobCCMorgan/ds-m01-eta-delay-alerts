@@ -19,6 +19,21 @@ DuckDB/Parquet warehouse. This does not establish a full M2 clean rebuild or a u
 warehouse for all 28 required contracts. See the [integration
 scope](p10_integration.md) and [service evidence](../workflows/p10/evidence/README.md).
 
+P11 subsequently reconstructs the complete frozen M2 warehouse twice, including
+all 28 required schemas: 17 populated tables and 11 typed empty downstream tables.
+It compares the 13 raw and seven processed files against the historical SHA256
+records, then compares all columns in each DuckDB/Parquet relation and both clean
+runs. The P09 output store remains separate. See the [P11 scope](p11_rebuild_recovery.md)
+and [retained reconstruction evidence](../workflows/p11/evidence/README.md).
+
+P11 also exercises an additive revision-aware HTTP/snapshot/provenance store and
+five abrupt process exits during complete-generation publication. G11 and G13
+have bounded evidence for those new entry points; the original frozen entry
+points retain their earlier limitations. The publication protocol covers
+cooperating readers/writers on one local filesystem, not hardware power loss
+or a PostgreSQL/filesystem distributed transaction. Exact-commit GitHub CI
+requires a successful run after publication; preparation does not claim it.
+
 | Evidence index | What a row tells you |
 |---|---|
 | [110 original field requirements](../contracts/current_requirement_evidence.csv) | The original ID, field ID, canonical table/column, condition and intended output; observed evidence; and the remaining boundary. |
@@ -30,9 +45,10 @@ historical row counts or scenario classifications. Native readback of a retained
 table is not a newly observed business event. In particular, a source GPS
 comparison is not a native roundtrip of the canonical telemetry table, and
 projection parity is not a complete history/provenance warehouse rebuild.
-G11 multi-revision telemetry and G13 database/Parquet recovery remain open for
-P11. The P10 input guard rejects unsupported revisions; it does not implement
-the missing revision-aware canonical lineage.
+The additional P11 reconstruction columns identify later full-rebuild and
+revision/recovery evidence without changing historical rows, field categories
+or scenario classifications. The P10 guard continues to reject unsupported
+revisions; supported revision behavior belongs to the P11 path.
 
 Of the 110 field mappings, 60 have a synthetic data-stage implementation and two
 have partial source semantics. A version attribute does not demonstrate

@@ -1,0 +1,40 @@
+{
+  "ambient_connection_environment_ignored": true,
+  "authentication": "scram-sha-256",
+  "binary_sha256": {
+    "initdb": "a0363354125bc00f25075bb47fc32a2838fa7668c008326227f5bc04d628ca1d",
+    "pg_ctl": "c8a0fa6df90600186575e3f3c47a352bafac73547416cf67675b41991b5b5d74",
+    "postgres": "6468a969338215cb3912cf9c0b894bdbbd37b9a709926db078e9a5bf8bdc3e16",
+    "psql": "3c94c29652ea7ff8803ab1ca35e48c38a39c8a94a8c8eeadbb1d87c68494506c"
+  },
+  "created_at_utc": "2026-11-17T22:37:08.226819+00:00",
+  "credentials_retained": false,
+  "endpoint": {
+    "host": "127.0.0.1",
+    "port": 37485
+  },
+  "engine": "PostgreSQL",
+  "external_service_touched": false,
+  "graceful_shutdown": true,
+  "listener_closed": true,
+  "log_sha256": {
+    "initdb.log": "46a77a14c53f23adff9aa138c05552c1c3861543d3c7fbf90f4281ebdd4a74d2",
+    "readiness.log": "89b36d3d98cc64444ca62c88272b06e3e4dd0284a8b6c3032521b763db47ee0a",
+    "server.log": "9d1e19726c45c483ec523e509a4ead30061a79286fd1b684c005641cca258996",
+    "start.log": "66afd0411ccc09366e99fdd99b85f21899c8d2d064f5835126859618802153ad",
+    "stop.log": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d"
+  },
+  "owned_data_directory_confirmed": true,
+  "postmaster_pid": 1306,
+  "private_cluster_only": true,
+  "readiness_verified": true,
+  "ready_at_utc": "2026-11-17T22:37:09.277380+00:00",
+  "schema_version": 1,
+  "scope": "Temporary local native PostgreSQL integration; no operational service acceptance.",
+  "server_major": 17,
+  "server_version": "17.11",
+  "server_version_num": 170011,
+  "started_at_utc": "2026-11-17T22:37:09.090740+00:00",
+  "status": "passed_owned_cluster_lifecycle",
+  "stopped_at_utc": "2026-11-17T22:40:58.785997+00:00"
+}

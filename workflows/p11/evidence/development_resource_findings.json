@@ -1,0 +1,54 @@
+{
+  "diagnostic_success_is_final_fresh_run_acceptance": false,
+  "failure_logs_and_observations_retained_privately": true,
+  "failure_observations": [
+    {
+      "exit_code": 137,
+      "kernel_oom_trace_observed": false,
+      "observation": "Worker terminated during full provenance Parquet export; no success receipt. The source streams were complete. No kernel OOM trace was captured.",
+      "oom_cause_confirmed": false,
+      "stage": "initial full-size resource probe",
+      "success_receipt_created": false
+    },
+    {
+      "engine_budget": "1GB",
+      "failure_log_sha256": "5986d3d5514094c8cadf3623206cd4b49f0fecc01e21fe699a349ed1d223ba43",
+      "location": "provenance Parquet export",
+      "observed_failure_type": "DuckDB OutOfMemoryException",
+      "stage": "1 GB warehouse materialization",
+      "success_receipt_created": false
+    },
+    {
+      "engine_budget": "512MB",
+      "failure_log_sha256": "9b1f2f2e8c4e5b18bc49be4d3b63c9dcda3fc02a490b330952e9646b3f37972f",
+      "location": "ordered full-row comparison",
+      "observed_failure_type": "DuckDB OutOfMemoryException",
+      "stage": "512 MB publication comparison",
+      "success_receipt_created": false
+    }
+  ],
+  "final_registered_success_source": "receipt.json",
+  "preparation_only": true,
+  "resolution": "P11 uses an explicit 2 GB DuckDB setting and one thread. Comparison orders by an enforced primary key when present and still compares every typed value. Insertion-order preservation remains enabled. No tolerance, source, schema or oracle check was relaxed.",
+  "resource_scope": "An engine memory setting is not a whole-process RSS cap. Measurements describe this preparation host; they are not a latency or capacity guarantee.",
+  "source_observations_sha256": "b354cffc64bddc923b9d64d7b788fd4bee97e4089be4114344475a8d1a5fcedd",
+  "status": "retained_development_resource_observations",
+  "successful_diagnostic_probes": {
+    "comparison": {
+      "elapsed_seconds": 200.83991290199992,
+      "peak_rss_kb": 2137984,
+      "rows": 5553304,
+      "source_log_sha256": "6608e8107780b54db5c2cb4e9fbf5dd4937f04218554d636d99935fbfa13ce3c",
+      "status": "passed_full_publication_validation_probe",
+      "tables": 28
+    },
+    "warehouse": {
+      "elapsed_seconds": 121.73218975100099,
+      "invariants_passed": 27,
+      "peak_rss_kib": 2639212,
+      "schema_count": 28,
+      "source_log_sha256": "203ce1b34a1ecbfe26572616cad29662773dbaa2b6e11201044be02588454b9c",
+      "status": "passed"
+    }
+  }
+}

@@ -2,6 +2,45 @@
 
 Entries describe implementation changes and observed test findings. Unless a timezone is stated, dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-17 America/Los_Angeles — reconstruct the complete warehouse and exercise correction/recovery paths
+
+Added a separately registered P11 path from published P10 commit
+`151ad00095fa84a3c9c975a8a74546a798a4a135`. Two clean M2 builds regenerate all
+13 raw and seven processed JSONL files with exact historical SHA256 agreement,
+then reconstruct 17 populated and 11 typed empty DuckDB/Parquet tables. All-column
+logical relations and both independent builds agree. Measured time, peak memory
+and output size are retained as environment-specific observations.
+
+An actual HTTP witness retains four revisions across two tenant/event identities,
+ten snapshots and explicit versioned provenance. Numeric revision selection uses
+availability time before validity filtering. Exact replay inserts no new rows;
+conflicting payloads and four real database-constraint violations are rejected.
+Five worker processes exit abruptly at publication boundaries on a small typed-store
+fixture; complete old/new
+generations remain readable and recovery agrees with an independent clean build.
+The supported recovery protocol is restricted to one filesystem and cooperating
+readers/writers. The original direct warehouse and snapshot entry points remain frozen.
+
+Review identified and fixed optional-timezone dependency during DuckDB readback,
+source precision loss hidden by typed insertion, an exit-137 full-size warehouse
+probe, an explicit full-size DuckDB comparison memory failure, and mixed
+progress/JSON output. The new P11 warehouse applies a bounded
+DuckDB memory setting, one worker thread and an owned spill directory; the earlier entry point
+remains unchanged.
+The [P11 notes](p11_rebuild_recovery.md) record those development findings and the
+scope of their regression checks. No production incident is implied.
+
+The final preparation gate passes 1,021 tests: 727 original, 17 portability,
+115 P09, 67 P10 and 95 P11. It also reruns retained P09 checks and actual P10
+PostgreSQL/HTTP integration. P11 preserves 1,428 immutable files from the published
+P10 tree. The six current documentation/evidence-map files remain explicitly
+mutable; earlier scientific implementations, reports and registrations do not change.
+
+The new workflow requires `P11 full integration` success at the actual published
+commit. User-machine adoption, signing/push, signature verification and observed
+GitHub CI remain separate steps. G14/G15/G16, scientific-quality acceptance and
+operational approval are unchanged. See the [P11 evidence](../workflows/p11/evidence/README.md).
+
 ## 2026-11-15 America/Los_Angeles — verify native storage and HTTP input paths
 
 Added a separately registered P10 integration check from the published P09
