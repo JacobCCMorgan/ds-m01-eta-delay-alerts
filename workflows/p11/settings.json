@@ -1,0 +1,19 @@
+{
+  "protocol_version": "p11-reconstruction-revision-recovery-v1",
+  "base_public_commit": "151ad00095fa84a3c9c975a8a74546a798a4a135",
+  "full_rebuild_runs": 2,
+  "source_config": "config/m2.json",
+  "historical_rebuild_oracle": "reports/rebuild_report.json",
+  "raw_file_count": 13,
+  "processed_file_count": 7,
+  "warehouse_table_count": 28,
+  "m2_populated_table_count": 17,
+  "m2_reserved_empty_table_count": 11,
+  "publication_boundary": "one local filesystem, immutable closed DuckDB and Parquet generation, one atomic current pointer",
+  "revision_boundary": "P11 numeric-revision HTTP, snapshot selection and typed lineage/store entry point",
+  "historical_entrypoints_changed": false,
+  "ci_acceptance": "Separate exact-HEAD GitHub Actions evidence after the user publishes signed commits",
+  "expected_test_count": 95,
+  "quality_accepted": false,
+  "operational_approval": false
+}
