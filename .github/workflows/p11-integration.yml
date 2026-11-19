@@ -19,8 +19,7 @@ jobs:
     timeout-minutes: 180
     env:
       PYTHONDONTWRITEBYTECODE: '1'
-      P11_OUTPUT: ${{ runner.temp }}/p11-${{ github.run_id }}-${{ github.run_attempt }}
-      P11_RUNNER_ENVIRONMENT: ${{ runner.environment }}
+      P11_RUN_NAME: p11-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - name: Check out the exact event commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -66,6 +65,8 @@ jobs:
 
       - name: Check full-run storage capacity
         shell: bash
+        env:
+          P11_RUNNER_ENVIRONMENT: ${{ runner.environment }}
         run: |
           set -euo pipefail
           FREE_BYTES="$(python -c 'import os,shutil; print(shutil.disk_usage(os.environ["RUNNER_TEMP"]).free)')"
@@ -90,14 +91,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -I -B workflows/p11/ci.py --root "$GITHUB_WORKSPACE" --output "$P11_OUTPUT"
+          python -I -B workflows/p11/ci.py --root "$GITHUB_WORKSPACE" --output "$RUNNER_TEMP/$P11_RUN_NAME"
 
       - name: Upload compact evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: p11-evidence-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ env.P11_OUTPUT }}/artifact/
+          path: ${{ runner.temp }}/${{ env.P11_RUN_NAME }}/artifact/
           if-no-files-found: error
           retention-days: 30
           include-hidden-files: false

@@ -1,7 +1,7 @@
 {
   "base_public_commit": "151ad00095fa84a3c9c975a8a74546a798a4a135",
   "code_sha256": {
-    ".github/workflows/p11-integration.yml": "06de2243a5f3ffccaa1c1693def53756a2a44aae7ae3bfb643dfcc7f996e8d13",
+    ".github/workflows/p11-integration.yml": "9351700244db42d363ff78d7991e1305c0879890bede545c766ad752fb2cb670",
     "workflows/p11/__init__.py": "c3063377243bd264774b3569b3e534bf343b627db900436496d30f23d6b498e2",
     "workflows/p11/ci.py": "0485e529250b3beb31163995e61819c3f65b5dc9e77d5bf9d8ce3090608178b7",
     "workflows/p11/cli.py": "64f4da6bde0fc3ce179d5e78c602b5bbbf3781cce83d3c0506b6f81e9cff8e0f",
@@ -1461,7 +1461,7 @@
     "workflows/p10/tests/test_run.py": "5c23d1dc6c4b58d4cbd1f9ca9aae18f8d1796bf05131f5cbd0134c4b088dc69e"
   },
   "protocol_version": "p11-reconstruction-revision-recovery-v1",
-  "registered_at_utc": "2026-11-17T22:56:00.256324+00:00",
+  "registered_at_utc": "2026-11-19T08:46:27.730622+00:00",
   "schema_version": 1,
   "scope": {
     "distributed_postgres_parquet_atomicity_claimed": false,
@@ -1473,5 +1473,10 @@
     "production_integration_claimed": false,
     "quality_accepted": false,
     "unified_populated_28_table_postgres_claimed": false
+  },
+  "supersedes_registration": {
+    "change": "Evaluate runner-specific settings inside workflow steps. The retained preparation receipts identify the previous registration.",
+    "commit": "5fc1da05e4773de6283a1310cfa4bb4c378f4000",
+    "sha256": "ff0f1beacc169ecffc4f1a6574a36390309c128d9fb3f76bff596fe5a44ebe6d"
   }
 }
