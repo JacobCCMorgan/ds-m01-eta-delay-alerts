@@ -1,0 +1,103 @@
+name: P11 complete integration
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p11-integration-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  integration:
+    name: P11 full integration
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      P11_OUTPUT: ${{ runner.temp }}/p11-${{ github.run_id }}-${{ github.run_attempt }}
+      P11_RUNNER_ENVIRONMENT: ${{ runner.environment }}
+    steps:
+      - name: Check out the exact event commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Prepare native PostgreSQL 17
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -x /usr/lib/postgresql/17/bin/postgres ]; then
+            sudo apt-get update
+            if ! apt-cache show postgresql-17 >/dev/null 2>&1; then
+              sudo install -d /usr/share/postgresql-common/pgdg
+              sudo curl --fail --show-error --location \
+                --output /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc \
+                https://www.postgresql.org/media/keys/ACCC4CF8.asc
+              printf '%s\n' 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt noble-pgdg main' \
+                | sudo tee /etc/apt/sources.list.d/ds-m01-pgdg.list >/dev/null
+              sudo apt-get update
+            fi
+            sudo apt-get install --no-install-recommends -y postgresql-17 postgresql-client-17
+          fi
+          /usr/lib/postgresql/17/bin/postgres --version
+          echo 'P10_PG_BIN=/usr/lib/postgresql/17/bin' >> "$GITHUB_ENV"
+          echo 'P10_PG_SHAREDIR=/usr/share/postgresql/17' >> "$GITHUB_ENV"
+          # Package installation may initialize its own default cluster.
+          # The verifier connects only to a separate private cluster it owns.
+
+      - name: Install locked dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-models.lock -r workflows/p10/requirements-integration.lock
+          python -m pip install -e . --no-deps
+          python -m pip check
+
+      - name: Check full-run storage capacity
+        shell: bash
+        run: |
+          set -euo pipefail
+          FREE_BYTES="$(python -c 'import os,shutil; print(shutil.disk_usage(os.environ["RUNNER_TEMP"]).free)')"
+          if [ "$FREE_BYTES" -lt 21474836480 ]; then
+            test "$GITHUB_ACTIONS" = 'true'
+            test "$P11_RUNNER_ENVIRONMENT" = 'github-hosted'
+            # Only this disposable GitHub-hosted runner is affected. These SDKs
+            # are not dependencies of Python/PostgreSQL or this repository.
+            sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          fi
+          python - <<'PY'
+          import os
+          import shutil
+          free = shutil.disk_usage(os.environ['RUNNER_TEMP']).free
+          required = 20 * 1024**3
+          print(f'Free bytes: {free}; required bytes: {required}')
+          if free < required:
+              raise SystemExit('Insufficient space for full P11 verification; no reduced run is accepted.')
+          PY
+
+      - name: Run complete P11 gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -I -B workflows/p11/ci.py --root "$GITHUB_WORKSPACE" --output "$P11_OUTPUT"
+
+      - name: Upload compact evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: p11-evidence-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.P11_OUTPUT }}/artifact/
+          if-no-files-found: error
+          retention-days: 30
+          include-hidden-files: false
