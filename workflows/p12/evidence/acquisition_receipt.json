@@ -1,0 +1,26 @@
+{
+  "http_statuses": [
+    200,
+    200
+  ],
+  "payload_sha256": "df345377308f03c6eefcf91ede1396353504b80345a6267476bd23be88073261",
+  "provenance_records": [
+    {
+      "available_time": "2026-06-23T09:56:00Z",
+      "canonical_event_id": "GPS-1",
+      "event_time": "2026-06-23T09:55:00Z",
+      "record_version": "1",
+      "retrieved_at": "2026-11-19T18:32:33.711760+00:00",
+      "source_provenance_id": "HAND-1",
+      "source_record_id": "GPS-RAW-1",
+      "source_system_id": "hand_fixture",
+      "tenant_id": "T01"
+    }
+  ],
+  "replayed_rows": 1,
+  "request_started_at_utc": "2026-11-19T18:32:33.706825+00:00",
+  "retrieved_at": "2026-11-19T18:32:33.711760+00:00",
+  "scope": "synthetic_fixture_over_loopback_http",
+  "source_path": "tests/fixtures/point_in_time_case.json",
+  "source_sha256": "4fdf3b88bc2912b0649a06f3832bb9b957588774ea1c5980adea62ce83d3385d"
+}

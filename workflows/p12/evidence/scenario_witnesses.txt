@@ -1,0 +1,10 @@
+test_v05_delayed_position_and_missing_position_fallback (test_scenario_witnesses.ScenarioWitnessTests.test_v05_delayed_position_and_missing_position_fallback) ... ok
+test_v08_literal_undercoverage_and_width (test_scenario_witnesses.ScenarioWitnessTests.test_v08_literal_undercoverage_and_width) ... ok
+test_v09_trip_and_snapshot_weighting (test_scenario_witnesses.ScenarioWitnessTests.test_v09_trip_and_snapshot_weighting) ... ok
+test_v10_same_episode_retry_and_partial_adoption (test_scenario_witnesses.ScenarioWitnessTests.test_v10_same_episode_retry_and_partial_adoption) ... ok
+test_v12_repeated_hour_and_late_correction (test_scenario_witnesses.ScenarioWitnessTests.test_v12_repeated_hour_and_late_correction) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.003s
+
+OK

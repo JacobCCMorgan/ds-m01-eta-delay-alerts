@@ -1,0 +1,541 @@
+{
+  "all_28_tables_matched_both_published_rebuilds": true,
+  "baseline_rebuild_sha256": "4cdf920a965ecb11af9a945c3760ba290cc07916c30da6952dfae1560197ebbe",
+  "fields": {
+    "DS-M01-F001": {
+      "column": "tenant_id",
+      "non_null_count": 3,
+      "null_count": 0,
+      "row_count": 3,
+      "table": "core_tenant",
+      "table_logical_sha256": "2b19a1fff408b5af178af7f26355a9351a661a45ab3c8b90398177cf025c7606"
+    },
+    "DS-M01-F002": {
+      "column": "vehicle_id",
+      "non_null_count": 30,
+      "null_count": 0,
+      "row_count": 30,
+      "table": "core_vehicle",
+      "table_logical_sha256": "bed6e183f6e9ac8392828612be1026e97e0051a4a90c7df910df01e6145ada7e"
+    },
+    "DS-M01-F003": {
+      "column": "source_record_id",
+      "non_null_count": 2775752,
+      "null_count": 0,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-F004": {
+      "column": "event_time",
+      "non_null_count": 225265,
+      "null_count": 2550487,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-F005": {
+      "column": "available_time",
+      "non_null_count": 2775752,
+      "null_count": 0,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-F006": {
+      "column": "record_version",
+      "non_null_count": 2775752,
+      "null_count": 0,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-F007": {
+      "column": "trip_id",
+      "non_null_count": 1800,
+      "null_count": 0,
+      "row_count": 1800,
+      "table": "eta_trip_plan_version",
+      "table_logical_sha256": "11c344cbf97abb0e8360e20fad0e47b584e24e59d6bf17bfb3c022f4930d60e9"
+    },
+    "DS-M01-F008": {
+      "column": "snapshot_time",
+      "non_null_count": 14349,
+      "null_count": 0,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-F009": {
+      "column": "planned_departure_at",
+      "non_null_count": 1800,
+      "null_count": 0,
+      "row_count": 1800,
+      "table": "eta_trip_plan_version",
+      "table_logical_sha256": "11c344cbf97abb0e8360e20fad0e47b584e24e59d6bf17bfb3c022f4930d60e9"
+    },
+    "DS-M01-F010": {
+      "column": "occurred_at",
+      "non_null_count": 3600,
+      "null_count": 0,
+      "row_count": 3600,
+      "table": "eta_trip_event",
+      "table_logical_sha256": "d9c2abd13abcf464328b789647a7ad4fcdb8a2a38326b8c326e90be16d300498"
+    },
+    "DS-M01-F011": {
+      "column": "window_start_at",
+      "non_null_count": 1964,
+      "null_count": 0,
+      "row_count": 1964,
+      "table": "eta_promise_version",
+      "table_logical_sha256": "9617eae8c36601f5ee78de90edab7a58b46308e1c1a83d3def1df6d3b9fa61b2"
+    },
+    "DS-M01-F012": {
+      "column": "window_end_at",
+      "non_null_count": 1964,
+      "null_count": 0,
+      "row_count": 1964,
+      "table": "eta_promise_version",
+      "table_logical_sha256": "9617eae8c36601f5ee78de90edab7a58b46308e1c1a83d3def1df6d3b9fa61b2"
+    },
+    "DS-M01-F013": {
+      "column": "origin_facility_version_id",
+      "non_null_count": 1800,
+      "null_count": 0,
+      "row_count": 1800,
+      "table": "eta_trip_plan_version",
+      "table_logical_sha256": "11c344cbf97abb0e8360e20fad0e47b584e24e59d6bf17bfb3c022f4930d60e9"
+    },
+    "DS-M01-F014": {
+      "column": "destination_facility_version_id",
+      "non_null_count": 1800,
+      "null_count": 0,
+      "row_count": 1800,
+      "table": "eta_trip_plan_version",
+      "table_logical_sha256": "11c344cbf97abb0e8360e20fad0e47b584e24e59d6bf17bfb3c022f4930d60e9"
+    },
+    "DS-M01-F015": {
+      "column": "trip_status_as_of",
+      "non_null_count": 14349,
+      "null_count": 0,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-F016": {
+      "column": "latitude_deg",
+      "non_null_count": 13490,
+      "null_count": 859,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-F017": {
+      "column": "longitude_deg",
+      "non_null_count": 13490,
+      "null_count": 859,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-F018": {
+      "column": "last_position_time",
+      "non_null_count": 13490,
+      "null_count": 859,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-F019": {
+      "column": "route_id",
+      "non_null_count": 12,
+      "null_count": 0,
+      "row_count": 12,
+      "table": "eta_route_version",
+      "table_logical_sha256": "d77401c99eede6d733d87d434106cb328a768b88be0b0fd6cb56ed0c01f04492"
+    },
+    "DS-M01-F020": {
+      "column": "remaining_distance_km",
+      "non_null_count": 6394,
+      "null_count": 7955,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-F021": {
+      "column": "historical_duration_seconds",
+      "non_null_count": 2536045,
+      "null_count": 0,
+      "row_count": 2536045,
+      "table": "eta_history_reference",
+      "table_logical_sha256": "e3b116294dd6e0ea8d15f88955243c0de686e7f3439f43588881e99b9548ddea"
+    },
+    "DS-M01-F026": {
+      "column": "actual_arrival_time",
+      "non_null_count": 1636,
+      "null_count": 2127,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-F027": {
+      "column": "service_start_time",
+      "non_null_count": 1636,
+      "null_count": 2127,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-F028": {
+      "column": "delivery_completed_time",
+      "non_null_count": 1636,
+      "null_count": 2127,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-F029": {
+      "column": "cancellation_time",
+      "non_null_count": 164,
+      "null_count": 3599,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-F030": {
+      "column": "label_available_time",
+      "non_null_count": 3763,
+      "null_count": 0,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-F031": {
+      "column": "label_status",
+      "non_null_count": 3763,
+      "null_count": 0,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-F032": {
+      "column": "delay_outcome",
+      "non_null_count": 6966,
+      "null_count": 7383,
+      "row_count": 14349,
+      "table": "eta_snapshot_label",
+      "table_logical_sha256": "92aab234b2c3d210be9443edcbfb3cad194d22a2a9080d3213686d1dd93afd58"
+    },
+    "DS-M01-F048": {
+      "column": "device_id",
+      "non_null_count": 36,
+      "null_count": 0,
+      "row_count": 36,
+      "table": "core_device",
+      "table_logical_sha256": "a8a9d2ef6628b8d02da72da75227a6229be004e037868d75b376b14162e2c01c"
+    },
+    "DS-M01-F049": {
+      "column": "valid_from",
+      "non_null_count": 686,
+      "null_count": 0,
+      "row_count": 686,
+      "table": "core_vehicle_device_assignment",
+      "table_logical_sha256": "6668349f881721aba44e367db8b9fc1fe324d6f01a99835003f92e9ea0d151a3"
+    },
+    "DS-M01-F050": {
+      "column": "valid_to",
+      "non_null_count": 328,
+      "null_count": 358,
+      "row_count": 686,
+      "table": "core_vehicle_device_assignment",
+      "table_logical_sha256": "6668349f881721aba44e367db8b9fc1fe324d6f01a99835003f92e9ea0d151a3"
+    },
+    "DS-M01-P001": {
+      "column": "timezone",
+      "non_null_count": 12,
+      "null_count": 0,
+      "row_count": 12,
+      "table": "eta_facility_version",
+      "table_logical_sha256": "ac1dd4c999ebfb6e7a1357f277554bb90e61ad12ac0a075c194df2f0b4ac04c1"
+    },
+    "DS-M01-P002": {
+      "column": "promise_version_id",
+      "non_null_count": 1964,
+      "null_count": 0,
+      "row_count": 1964,
+      "table": "eta_promise_version",
+      "table_logical_sha256": "9617eae8c36601f5ee78de90edab7a58b46308e1c1a83d3def1df6d3b9fa61b2"
+    },
+    "DS-M01-P003": {
+      "column": "known_at",
+      "non_null_count": 1964,
+      "null_count": 0,
+      "row_count": 1964,
+      "table": "eta_promise_version",
+      "table_logical_sha256": "9617eae8c36601f5ee78de90edab7a58b46308e1c1a83d3def1df6d3b9fa61b2"
+    },
+    "DS-M01-P004": {
+      "column": "arrival_definition",
+      "non_null_count": 12,
+      "null_count": 0,
+      "row_count": 12,
+      "table": "eta_facility_version",
+      "table_logical_sha256": "ac1dd4c999ebfb6e7a1357f277554bb90e61ad12ac0a075c194df2f0b4ac04c1"
+    },
+    "DS-M01-P005": {
+      "column": "raw_record_reference",
+      "non_null_count": 2775752,
+      "null_count": 0,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-P006": {
+      "column": "source_system_id",
+      "non_null_count": 2775752,
+      "null_count": 0,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-P007": {
+      "column": "value_states",
+      "non_null_count": 2775752,
+      "null_count": 0,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-P008": {
+      "column": "extract_as_of",
+      "non_null_count": 2775752,
+      "null_count": 0,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-P009": {
+      "column": "retrieved_at",
+      "non_null_count": 2775752,
+      "null_count": 0,
+      "row_count": 2775752,
+      "table": "provenance_record",
+      "table_logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab"
+    },
+    "DS-M01-P010": {
+      "column": "position_available_at",
+      "non_null_count": 13490,
+      "null_count": 859,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-P011": {
+      "column": "position_validity",
+      "non_null_count": 14349,
+      "null_count": 0,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-P012": {
+      "column": "gnss_speed_kmh",
+      "non_null_count": 13490,
+      "null_count": 859,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-P013": {
+      "column": "position_age_seconds",
+      "non_null_count": 13490,
+      "null_count": 859,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-P014": {
+      "column": "latitude_deg",
+      "non_null_count": 12,
+      "null_count": 0,
+      "row_count": 12,
+      "table": "eta_facility_version",
+      "table_logical_sha256": "ac1dd4c999ebfb6e7a1357f277554bb90e61ad12ac0a075c194df2f0b4ac04c1"
+    },
+    "DS-M01-P015": {
+      "column": "longitude_deg",
+      "non_null_count": 12,
+      "null_count": 0,
+      "row_count": 12,
+      "table": "eta_facility_version",
+      "table_logical_sha256": "ac1dd4c999ebfb6e7a1357f277554bb90e61ad12ac0a075c194df2f0b4ac04c1"
+    },
+    "DS-M01-P016": {
+      "column": "latitude_deg",
+      "non_null_count": 12,
+      "null_count": 0,
+      "row_count": 12,
+      "table": "eta_facility_version",
+      "table_logical_sha256": "ac1dd4c999ebfb6e7a1357f277554bb90e61ad12ac0a075c194df2f0b4ac04c1"
+    },
+    "DS-M01-P017": {
+      "column": "longitude_deg",
+      "non_null_count": 12,
+      "null_count": 0,
+      "row_count": 12,
+      "table": "eta_facility_version",
+      "table_logical_sha256": "ac1dd4c999ebfb6e7a1357f277554bb90e61ad12ac0a075c194df2f0b4ac04c1"
+    },
+    "DS-M01-P018": {
+      "column": "historical_trip_id",
+      "non_null_count": 2536045,
+      "null_count": 0,
+      "row_count": 2536045,
+      "table": "eta_history_reference",
+      "table_logical_sha256": "e3b116294dd6e0ea8d15f88955243c0de686e7f3439f43588881e99b9548ddea"
+    },
+    "DS-M01-P019": {
+      "column": "historical_label_known_at",
+      "non_null_count": 2536045,
+      "null_count": 0,
+      "row_count": 2536045,
+      "table": "eta_history_reference",
+      "table_logical_sha256": "e3b116294dd6e0ea8d15f88955243c0de686e7f3439f43588881e99b9548ddea"
+    },
+    "DS-M01-P020": {
+      "column": "departure_time_bucket",
+      "non_null_count": 14349,
+      "null_count": 0,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-P021": {
+      "column": "elapsed_trip_seconds",
+      "non_null_count": 14349,
+      "null_count": 0,
+      "row_count": 14349,
+      "table": "eta_snapshot",
+      "table_logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657"
+    },
+    "DS-M01-P034": {
+      "column": "arrival_evidence_ref",
+      "non_null_count": 1636,
+      "null_count": 2127,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-P035": {
+      "column": "arrival_time_precision",
+      "non_null_count": 3763,
+      "null_count": 0,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-P036": {
+      "column": "reviewer_id",
+      "non_null_count": 1636,
+      "null_count": 2127,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-P037": {
+      "column": "cancellation_reason",
+      "non_null_count": 3763,
+      "null_count": 0,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-P038": {
+      "column": "followup_through",
+      "non_null_count": 3763,
+      "null_count": 0,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-P039": {
+      "column": "followup_end_reason",
+      "non_null_count": 3763,
+      "null_count": 0,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-P040": {
+      "column": "revision_reason",
+      "non_null_count": 489,
+      "null_count": 3274,
+      "row_count": 3763,
+      "table": "eta_trip_outcome",
+      "table_logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa"
+    },
+    "DS-M01-P041": {
+      "column": "split_group_id",
+      "non_null_count": 1800,
+      "null_count": 0,
+      "row_count": 1800,
+      "table": "eta_split_assignment",
+      "table_logical_sha256": "a9bcccbc62561d5ab56d51787c8d4daf87076119fe2687531a7d90cb9273ae9e"
+    },
+    "DS-M01-P047": {
+      "column": "split_version",
+      "non_null_count": 1800,
+      "null_count": 0,
+      "row_count": 1800,
+      "table": "eta_split_assignment",
+      "table_logical_sha256": "a9bcccbc62561d5ab56d51787c8d4daf87076119fe2687531a7d90cb9273ae9e"
+    },
+    "DS-M01-P049": {
+      "column": "split_group_id",
+      "non_null_count": 1800,
+      "null_count": 0,
+      "row_count": 1800,
+      "table": "eta_split_assignment",
+      "table_logical_sha256": "a9bcccbc62561d5ab56d51787c8d4daf87076119fe2687531a7d90cb9273ae9e"
+    }
+  },
+  "generation_artifacts_sha256": {
+    "parquet/core_device.parquet": "f04731bfd246b48a32c40f1ca30eef16a1c0d468827e9d82d40776503f8a12d6",
+    "parquet/core_tenant.parquet": "d81731dc94bff3b2fb15613a32f936938f766a06fd4199894aa018aa8899ec25",
+    "parquet/core_vehicle.parquet": "1f6d3e1a317b39b533576c08e0438e27c740a3c61bc6fc6a15a58a116dd34dea",
+    "parquet/core_vehicle_device_assignment.parquet": "3ea2e32ccf6b181945a833d05ae3393bf2765569744c18dab3920e27be5aa367",
+    "parquet/eta_action.parquet": "87c955294d030f26c46ea0abbf5e71abd28aa71910e41f262fc3d94714108adb",
+    "parquet/eta_action_followup.parquet": "e40d475ceddb14cef63d282dc6c4ae0591ab2d50f2dccef72921b61dd64698fe",
+    "parquet/eta_adoption.parquet": "fb73339a25414699b60e95bbae326eb5f43dd17bf4e7162c79e8cb36be11231e",
+    "parquet/eta_alert.parquet": "ef386062aa5c5351d561c9bb9d382df835be08d0fe0f9df560358c0251d78d62",
+    "parquet/eta_alert_episode.parquet": "aefaa3d04e1ca9ff735e3b315358a5f0fe6a1521ea414d9ba6e3e80f8cb41684",
+    "parquet/eta_alert_rule_version.parquet": "8d273c0180c6171560865305ab04528f3010afb7145b4468cd6bda5e479f2888",
+    "parquet/eta_evaluation_membership.parquet": "e2ca606e3e9e60fcbdfaac6eddfd5946a38ae17da850fbea773ca000e9200acf",
+    "parquet/eta_facility_version.parquet": "c2c40376494006a65cc98dfd0ea9ef8675b8bf773d3515aa7577b89df856faca",
+    "parquet/eta_history_reference.parquet": "2ac0acb453483f0a712b8d6e4f0af64d84a49e935080f6e8908de3ae436a92dd",
+    "parquet/eta_model_version.parquet": "340cfa148a7472c3ba64b4451f4aa4ccd839571dda98f51038a2853fba03c98c",
+    "parquet/eta_notification_delivery.parquet": "6cbde15527e5a9d8af0f58f90da95798168053d7680a5d80b3c26bed35c183ca",
+    "parquet/eta_output_release.parquet": "30a90bf2006980641afd255f43874211e104886f92e2f08cba8869169fc85a30",
+    "parquet/eta_prediction.parquet": "5e09b99ca563ad49816ed7de0e32c203be3a364074fb75861bae9ec6203f4e27",
+    "parquet/eta_promise_version.parquet": "db2d4cb77c8568377587bd90cebbf66e3018eb16674327f3a0515236bd7f96f4",
+    "parquet/eta_route_version.parquet": "edd0f5ee14f7063477c664f5d167748ea517c399d181e3bdc300f500a31cda68",
+    "parquet/eta_snapshot.parquet": "cef7f0a985432015277ab0dc63334598f64080e552043d80cfd833fbc0d4e39c",
+    "parquet/eta_snapshot_label.parquet": "2b9fa072ec48e336a00e893ec0f1ead3ca5e3731eee6828304619bcf16edbe44",
+    "parquet/eta_split_assignment.parquet": "556aba0fab1b257d5ebd2638cec5bc32f492b858c2bf379569d0be1e66a4970f",
+    "parquet/eta_trip.parquet": "68f993494875804cae3d752bb4ebf1db9f7db4b3e3d7e93e8f508c40b548f7ab",
+    "parquet/eta_trip_event.parquet": "a85f8d5f4b380973ee173d8ef2f90ac6e4717b94b3b2b6534c22205307a23fd1",
+    "parquet/eta_trip_outcome.parquet": "de6edffcb8c19d957742a036c3e772f1e800713121dc41418def543cb062c923",
+    "parquet/eta_trip_plan_version.parquet": "db34bac1baee4f1d3aa3ee3eed9230e72fe8290f97aefcd22b8730ca459c18f9",
+    "parquet/provenance_record.parquet": "9a7c22b79d9a1ef3d436136363d4cbb4a6327450252b842e7850608cf984018c",
+    "parquet/telemetry_event.parquet": "7631ab6d8a3571dbdb40af07fb402f7df910d55f37efb03bc646a9ff5765b8e8",
+    "warehouse.duckdb": "8b076d56577a083eac75bad066687e5ba3d16cfe911f80cdd65791f6d2badeff"
+  },
+  "generation_id": "g-a9e0656c06b24b5684b129c2c39a3276",
+  "generation_manifest_sha256": "1e8d130ad7fbf6286321215fc2ffa170e07aec9b36951ffc909667f72fd255a9",
+  "profiled_relations": 15,
+  "profiled_requirements": 62,
+  "protocol_version": 1,
+  "scope": "SQL non-NULL counts in synthetic typed M2 columns. Counts include false and zero; field presence alone does not validate conditional or role-specific semantics.",
+  "status": "measured_m2_field_presence",
+  "worker_result_sha256": "c6d3ea7ba8c33cc705bfc791b58fbabe10b43b3a023999ce1ecbf52018fea75e"
+}

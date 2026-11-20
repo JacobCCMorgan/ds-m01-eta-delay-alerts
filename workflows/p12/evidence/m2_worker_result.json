@@ -1,0 +1,2277 @@
+{
+  "comparison_runtime_settings": {
+    "engine": "DuckDB",
+    "memory_limit": "2GB",
+    "preserve_insertion_order": true,
+    "python_batch_rows": 256,
+    "threads": 1,
+    "version": "1.4.1"
+  },
+  "completed_at_utc": "2026-11-19T18:43:17.413735+00:00",
+  "config_sha256": "a4b0beba8388fd713fc1fdbfe45a2f56e172855c67c300093b7f98a417c35bdc",
+  "generated_counts": {
+    "core_device": 36,
+    "core_tenant": 3,
+    "core_vehicle": 30,
+    "core_vehicle_device_assignment": 686,
+    "eta_facility_version": 12,
+    "eta_promise_version": 1964,
+    "eta_route_version": 12,
+    "eta_trip": 1800,
+    "eta_trip_event": 3600,
+    "eta_trip_outcome": 3763,
+    "eta_trip_plan_version": 1800,
+    "provenance_record": 211009,
+    "telemetry_event": 197303
+  },
+  "generation_id": "g-a9e0656c06b24b5684b129c2c39a3276",
+  "historical_oracle": {
+    "byte_exact_sha256": {
+      "data/processed/eta_history_reference.jsonl": "8a7569c5526bb47e35a2cc7d8f2a8b38fae0d2e0a8c36366379d62146223738f",
+      "data/processed/eta_snapshot.jsonl": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f",
+      "data/processed/eta_snapshot_label.jsonl": "c901dcbc32d688fba816f83faf610cfe62944f9ba8a23d19949e201f6d8baa7a",
+      "data/processed/eta_split_assignment.jsonl": "af2951c4d153ff9d3fcf0de73651a49db05d7e8bbba85a424aa90451d1e9d2cb",
+      "data/processed/feature_lineage.jsonl": "dba784ddb39e400c104e5d6679cb4a03c1b6e835a6584bf3f5e490da2611154e",
+      "data/processed/provenance_record.jsonl": "7c373b61a4d497720ea7c3ba1d32c2cc9423b27b677d5b9c6aa4f1b70e9444e7",
+      "data/processed/trip_membership.jsonl": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061",
+      "data/raw/core_device.jsonl": "58502b12b6329ede2427bf553981b2d010929f246655d621bb0d57891e2d88cc",
+      "data/raw/core_tenant.jsonl": "7154bc213244b56e70970090bf7b40469074c20f31cf5d3101a0f385d5031061",
+      "data/raw/core_vehicle.jsonl": "c6dd63bfad259cf5c366c895ede7303c635dde12772352b343bf16728429307f",
+      "data/raw/core_vehicle_device_assignment.jsonl": "dc55c0174c20f022decb0a23ae2085cfdd0b2e1a99961b93f8eecf9ea7dcba63",
+      "data/raw/eta_facility_version.jsonl": "8f5ff3da65a2b6fd194cd9cc6b97cb0fb616d4f219c01716bd9212ad915f8164",
+      "data/raw/eta_promise_version.jsonl": "8ccabc505c96f681051e977de1d0eae9b1b792512a03e29161699daaadd6cd91",
+      "data/raw/eta_route_version.jsonl": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50",
+      "data/raw/eta_trip.jsonl": "42b75525b4065d69eb9c28820f9dde1eca6f7d33dd5aa90f22f2bddcdaa8a3ac",
+      "data/raw/eta_trip_event.jsonl": "28d1807fbd1f69cf5d22a76697f6cd03df8448336805cbc15c9ed3f934494127",
+      "data/raw/eta_trip_outcome.jsonl": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58",
+      "data/raw/eta_trip_plan_version.jsonl": "a61268b0a3669dd591e1cfbbf5cb07adfa1f33a770b541ef7b65414b45e886dc",
+      "data/raw/provenance_record.jsonl": "38c7876b73dbbca46bab9aa0caddafb4c3494dad800371b76e0b8fef53b7ad23",
+      "data/raw/telemetry_event.jsonl": "b91e4b346e529ebb9e2ffc872d19f02f6fbd1b580828ea60f6d9f908f90bc401"
+    },
+    "historical_receipt_sha256": "c08dba07e473c4a66019d3a0308472d0abe0ea0d61fb9689bdc8afb239dcd28e",
+    "parquet_scope": "Compared as complete typed logical relations; historical Parquet bytes are not a portability requirement.",
+    "processed_files_compared": 7,
+    "raw_files_compared": 13,
+    "status": "passed"
+  },
+  "materialized_schemas": 28,
+  "model_refitted": false,
+  "new_untouched_final_test": false,
+  "populated_data_tables": 17,
+  "resource_measurement": {
+    "disk_measurement_scope": "Retained file sizes before and after successful lossless source archiving; not filesystem peak spill usage.",
+    "peak_process_rss_bytes": 2604724224,
+    "peak_rss_scope": "OS high-water mark of this fresh Python worker, including imports and all native DuckDB work; not machine-wide usage.",
+    "process_cpu_system_seconds": 53.265579,
+    "process_cpu_user_seconds": 493.940682,
+    "published_generation_files": {
+      "allocated_bytes": 978710528,
+      "files": 30,
+      "logical_bytes": 978623686
+    },
+    "runtime": {
+      "machine": "x86_64",
+      "python": "3.12.14",
+      "system": "Linux"
+    },
+    "source_files_before_archiving": {
+      "allocated_bytes": 7612981248,
+      "files": 27,
+      "logical_bytes": 7612914205
+    },
+    "source_files_retained": {
+      "allocated_bytes": 434458624,
+      "files": 28,
+      "logical_bytes": 434381652
+    },
+    "wall_seconds": 553.447193
+  },
+  "scope": "Two independent full frozen M2 source, history/provenance and typed DuckDB/Parquet rebuilds; 17 populated data tables and 11 typed empty contracts. No later-model refit or unified populated 28-table deployment.",
+  "source_archive": {
+    "all_archives_verified_before_any_plain_stream_removed": true,
+    "archive_bytes": 433203778,
+    "archive_wall_seconds": 39.20549,
+    "compression_level": 1,
+    "files": {
+      "data/processed/eta_history_reference.jsonl": {
+        "archive_bytes": 114701429,
+        "archive_path": "data/processed/eta_history_reference.jsonl.gz",
+        "archive_sha256": "22070a286f1244e6d9ade1a9c8ebe26668e97672bdb3d082d7ffcb48bff1078c",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 865243769,
+        "original_rows": 2536045,
+        "original_sha256": "8a7569c5526bb47e35a2cc7d8f2a8b38fae0d2e0a8c36366379d62146223738f"
+      },
+      "data/processed/eta_snapshot.jsonl": {
+        "archive_bytes": 1253645,
+        "archive_path": "data/processed/eta_snapshot.jsonl.gz",
+        "archive_sha256": "c707cfe65c92d41c99fde5b180430da09acf6299718ecc17c33837b812677d7a",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 12356078,
+        "original_rows": 14349,
+        "original_sha256": "249ceb246d449616826338237fafb694c63b98563ff7ff2d33acc06f64537e4f"
+      },
+      "data/processed/eta_snapshot_label.jsonl": {
+        "archive_bytes": 636738,
+        "archive_path": "data/processed/eta_snapshot_label.jsonl.gz",
+        "archive_sha256": "2e500b9ac9b25f4575d580785074973bd44a30abb34bbc3c69b7505fb51e97d1",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 4251247,
+        "original_rows": 14349,
+        "original_sha256": "c901dcbc32d688fba816f83faf610cfe62944f9ba8a23d19949e201f6d8baa7a"
+      },
+      "data/processed/eta_split_assignment.jsonl": {
+        "archive_bytes": 18659,
+        "archive_path": "data/processed/eta_split_assignment.jsonl.gz",
+        "archive_sha256": "4057b36996cf3b7cc776efe581b8e877772d45e90f2b21090f4a87312a617096",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 399137,
+        "original_rows": 1800,
+        "original_sha256": "af2951c4d153ff9d3fcf0de73651a49db05d7e8bbba85a424aa90451d1e9d2cb"
+      },
+      "data/processed/feature_lineage.jsonl": {
+        "archive_bytes": 744385,
+        "archive_path": "data/processed/feature_lineage.jsonl.gz",
+        "archive_sha256": "c407741793c548f7ad6d5c935ca73240da17d2de89f6961557d79519956d36d2",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 8125707,
+        "original_rows": 14349,
+        "original_sha256": "dba784ddb39e400c104e5d6679cb4a03c1b6e835a6584bf3f5e490da2611154e"
+      },
+      "data/processed/provenance_record.jsonl": {
+        "archive_bytes": 288697177,
+        "archive_path": "data/processed/provenance_record.jsonl.gz",
+        "archive_sha256": "f99071fa00bd48b6483a2ae7b9768c0627228c164b10e2680d02f71b9ea1e27f",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 6240452001,
+        "original_rows": 2775752,
+        "original_sha256": "7c373b61a4d497720ea7c3ba1d32c2cc9423b27b677d5b9c6aa4f1b70e9444e7"
+      },
+      "data/processed/trip_membership.jsonl": {
+        "archive_bytes": 20777,
+        "archive_path": "data/processed/trip_membership.jsonl.gz",
+        "archive_sha256": "f35c3da83cd54be79732817e42b4391fe1a7d35c34647dc316e7a7e92293282b",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 332641,
+        "original_rows": 1800,
+        "original_sha256": "c3b298c78d19f4e031e63b81dada1f659aa96daf94193d246d4cb1d1d902a061"
+      },
+      "data/raw/core_device.jsonl": {
+        "archive_bytes": 235,
+        "archive_path": "data/raw/core_device.jsonl.gz",
+        "archive_sha256": "905343c821259133b8cadd3b0d035ac88761e24e9f1e3c3d897c329838479597",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 3060,
+        "original_rows": 36,
+        "original_sha256": "58502b12b6329ede2427bf553981b2d010929f246655d621bb0d57891e2d88cc"
+      },
+      "data/raw/core_tenant.jsonl": {
+        "archive_bytes": 147,
+        "archive_path": "data/raw/core_tenant.jsonl.gz",
+        "archive_sha256": "68367e715a74f306f616b25052813f3e2a6b47764cb22e3b4049ca822ecc272a",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 378,
+        "original_rows": 3,
+        "original_sha256": "7154bc213244b56e70970090bf7b40469074c20f31cf5d3101a0f385d5031061"
+      },
+      "data/raw/core_vehicle.jsonl": {
+        "archive_bytes": 248,
+        "archive_path": "data/raw/core_vehicle.jsonl.gz",
+        "archive_sha256": "5be7a7100d95df0f5c5846305493ed35ca24d88d96d2ad26464580e73bd85906",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 3600,
+        "original_rows": 30,
+        "original_sha256": "c6dd63bfad259cf5c366c895ede7303c635dde12772352b343bf16728429307f"
+      },
+      "data/raw/core_vehicle_device_assignment.jsonl": {
+        "archive_bytes": 34503,
+        "archive_path": "data/raw/core_vehicle_device_assignment.jsonl.gz",
+        "archive_sha256": "23ee6cfdfee038130baa9328bd2f7ec0b3e64826fa7840a4c4fc48e095168fcd",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 258470,
+        "original_rows": 686,
+        "original_sha256": "dc55c0174c20f022decb0a23ae2085cfdd0b2e1a99961b93f8eecf9ea7dcba63"
+      },
+      "data/raw/eta_facility_version.jsonl": {
+        "archive_bytes": 645,
+        "archive_path": "data/raw/eta_facility_version.jsonl.gz",
+        "archive_sha256": "ae07f6934916df1ca56f74109453bf0bbf436b80b88b1080ceb264e6abf4f7ec",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 4138,
+        "original_rows": 12,
+        "original_sha256": "8f5ff3da65a2b6fd194cd9cc6b97cb0fb616d4f219c01716bd9212ad915f8164"
+      },
+      "data/raw/eta_promise_version.jsonl": {
+        "archive_bytes": 98013,
+        "archive_path": "data/raw/eta_promise_version.jsonl.gz",
+        "archive_sha256": "1394fd0c863cd9c4eb6013e2bf8f76fa18ecc11c8b0cd2e337c6f79dde7968c8",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 664375,
+        "original_rows": 1964,
+        "original_sha256": "8ccabc505c96f681051e977de1d0eae9b1b792512a03e29161699daaadd6cd91"
+      },
+      "data/raw/eta_route_version.jsonl": {
+        "archive_bytes": 703,
+        "archive_path": "data/raw/eta_route_version.jsonl.gz",
+        "archive_sha256": "3862c16da72bc1a1e2e1fd1daf6c2967f8e71806088890627f3575abbc9ffa4e",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 3913,
+        "original_rows": 12,
+        "original_sha256": "a89b3222d4e8e2397c78aee8bca3e75ee3d02b79e945f06675cd71ced1253c50"
+      },
+      "data/raw/eta_trip.jsonl": {
+        "archive_bytes": 49385,
+        "archive_path": "data/raw/eta_trip.jsonl.gz",
+        "archive_sha256": "a972db6917d7fec378ee5ffdce24b6e222d4eb10d3dca477e17b159adf03bcd0",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 241200,
+        "original_rows": 1800,
+        "original_sha256": "42b75525b4065d69eb9c28820f9dde1eca6f7d33dd5aa90f22f2bddcdaa8a3ac"
+      },
+      "data/raw/eta_trip_event.jsonl": {
+        "archive_bytes": 164304,
+        "archive_path": "data/raw/eta_trip_event.jsonl.gz",
+        "archive_sha256": "7b216c86d65ea9e96990f5c3a19f79967d98eccfdb233f05546b5aeb5ba694cb",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 987216,
+        "original_rows": 3600,
+        "original_sha256": "28d1807fbd1f69cf5d22a76697f6cd03df8448336805cbc15c9ed3f934494127"
+      },
+      "data/raw/eta_trip_outcome.jsonl": {
+        "archive_bytes": 256545,
+        "archive_path": "data/raw/eta_trip_outcome.jsonl.gz",
+        "archive_sha256": "c05cd8e63fcefe63b1d20aa3b8e6632571130c853e3fc5d67441aede1bca8535",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 2580460,
+        "original_rows": 3763,
+        "original_sha256": "4de63a3302783534bcc6368591721f7c22048a5cd3040567ba5b7d59c7f58a58"
+      },
+      "data/raw/eta_trip_plan_version.jsonl": {
+        "archive_bytes": 91381,
+        "archive_path": "data/raw/eta_trip_plan_version.jsonl.gz",
+        "archive_sha256": "86f9fb0173694ee240a4e81ab95036608336181ace72205ebffcb4e571d3cc0f",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 725400,
+        "original_rows": 1800,
+        "original_sha256": "a61268b0a3669dd591e1cfbbf5cb07adfa1f33a770b541ef7b65414b45e886dc"
+      },
+      "data/raw/provenance_record.jsonl": {
+        "archive_bytes": 12878319,
+        "archive_path": "data/raw/provenance_record.jsonl.gz",
+        "archive_sha256": "02b0b409e63056e2e593ff7c575cf7322402939b33cf3c6b293c1ad0a0ac09a6",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 315962545,
+        "original_rows": 211009,
+        "original_sha256": "38c7876b73dbbca46bab9aa0caddafb4c3494dad800371b76e0b8fef53b7ad23"
+      },
+      "data/raw/telemetry_event.jsonl": {
+        "archive_bytes": 13412919,
+        "archive_path": "data/raw/telemetry_event.jsonl.gz",
+        "archive_sha256": "0811f87d1efe12c086c1f0f7282c66fefd3c08cd8e4e1359e797885b1f574d77",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 157845927,
+        "original_rows": 197303,
+        "original_sha256": "b91e4b346e529ebb9e2ffc872d19f02f6fbd1b580828ea60f6d9f908f90bc401"
+      },
+      "validation/latent_truth.jsonl": {
+        "archive_bytes": 143621,
+        "archive_path": "validation/latent_truth.jsonl.gz",
+        "archive_sha256": "36a9324ffa49e821143203ac5fa03049059ebe2c51f4669a03414b41c59bc789",
+        "full_decode_byte_identity_verified": true,
+        "original_bytes": 1304725,
+        "original_rows": 1800,
+        "original_sha256": "e960afbe14b005ec43b3470537ba9c32399e1a0596c927ebc782b6a02d15d4fd"
+      }
+    },
+    "format": "gzip",
+    "gzip_mtime": 0,
+    "original_bytes": 7611745987,
+    "restoration": "Decode each archive_path to its corresponding original relative path; require original_sha256 and original_bytes before use.",
+    "status": "passed_lossless_owned_source_archive"
+  },
+  "source_manifest_sha256": "84f84918bb822a52d36aeb0857bdd35d20115c46b011e790a7a80c8b70d779af",
+  "started_at_utc": "2026-11-19T18:34:03.966971+00:00",
+  "status": "passed_full_frozen_m2_rebuild",
+  "tables": {
+    "core_device": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "device_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "device_model",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "device_id"
+      ],
+      "logical_sha256": "a8a9d2ef6628b8d02da72da75227a6229be004e037868d75b376b14162e2c01c",
+      "row_count": 36
+    },
+    "core_tenant": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "tenant_name",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "report_timezone",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "base_currency",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id"
+      ],
+      "logical_sha256": "2b19a1fff408b5af178af7f26355a9351a661a45ab3c8b90398177cf025c7606",
+      "row_count": 3
+    },
+    "core_vehicle": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vin_raw",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vin",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_class",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "fuel_type",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "vehicle_id"
+      ],
+      "logical_sha256": "bed6e183f6e9ac8392828612be1026e97e0051a4a90c7df910df01e6145ada7e",
+      "row_count": 30
+    },
+    "core_vehicle_device_assignment": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "assignment_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "device_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "valid_from",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "valid_to",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "known_from",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "known_to",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "valid_to_state",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "known_to_state",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "resolution_status",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "assignment_id"
+      ],
+      "logical_sha256": "6668349f881721aba44e367db8b9fc1fe324d6f01a99835003f92e9ea0d151a3",
+      "row_count": 686
+    },
+    "eta_action": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "action_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "adoption_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "alert_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "action_type",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "action_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "handling_seconds",
+          "nullable": true,
+          "type": "INTEGER"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "provenance_id",
+        "action_id",
+        "adoption_id",
+        "alert_id",
+        "action_type",
+        "action_time",
+        "handling_seconds"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_action_followup": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "action_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "outcome_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "followup_promise_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "original_promise_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "outcome_observation_end",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "observed_delay_seconds",
+          "nullable": true,
+          "type": "BIGINT"
+        },
+        {
+          "name": "original_promise_delay_seconds",
+          "nullable": true,
+          "type": "BIGINT"
+        },
+        {
+          "name": "review_outcome",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "result_origin",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "provenance_id",
+        "action_id",
+        "outcome_version_id",
+        "followup_promise_version_id",
+        "original_promise_version_id",
+        "outcome_observation_end",
+        "observed_delay_seconds",
+        "original_promise_delay_seconds",
+        "review_outcome",
+        "result_origin"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_adoption": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "adoption_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "delivery_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "adoption_status",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "adoption_reason",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "decided_at",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "provenance_id",
+        "adoption_id",
+        "delivery_id",
+        "adoption_status",
+        "adoption_reason",
+        "decided_at"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_alert": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "alert_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "alert_episode_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "output_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "snapshot_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "prediction_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "decision_threshold_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "created_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "alert_status",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "alert_id",
+        "alert_episode_id",
+        "output_id",
+        "trip_id",
+        "snapshot_id",
+        "prediction_version",
+        "decision_threshold_version",
+        "created_at",
+        "alert_status"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_alert_episode": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "alert_episode_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "episode_started_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "episode_closed_at",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "delivered_alert_count",
+          "nullable": false,
+          "type": "INTEGER"
+        },
+        {
+          "name": "duplicate_alert_count",
+          "nullable": false,
+          "type": "INTEGER"
+        },
+        {
+          "name": "counts_as_of",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "value_states",
+          "nullable": false,
+          "type": "JSON"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "alert_episode_id",
+        "trip_id",
+        "episode_started_at",
+        "episode_closed_at",
+        "delivered_alert_count",
+        "duplicate_alert_count",
+        "counts_as_of",
+        "value_states"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_alert_rule_version": {
+      "columns": [
+        {
+          "name": "decision_threshold_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "delay_alert_threshold",
+          "nullable": false,
+          "type": "DECIMAL(7,6)"
+        },
+        {
+          "name": "minimum_action_lead_seconds",
+          "nullable": false,
+          "type": "INTEGER"
+        },
+        {
+          "name": "repeat_suppression_seconds",
+          "nullable": false,
+          "type": "INTEGER"
+        },
+        {
+          "name": "threshold_selection_ref",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "decision_threshold_version",
+        "delay_alert_threshold",
+        "minimum_action_lead_seconds",
+        "repeat_suppression_seconds",
+        "threshold_selection_ref"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_evaluation_membership": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "snapshot_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "split_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "lead_time_slice",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "unseen_route",
+          "nullable": false,
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "trip_evaluation_weight",
+          "nullable": false,
+          "type": "DECIMAL(12,9)"
+        },
+        {
+          "name": "evaluation_slice",
+          "nullable": false,
+          "type": "JSON"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "snapshot_id",
+        "split_version",
+        "lead_time_slice",
+        "unseen_route",
+        "trip_evaluation_weight",
+        "evaluation_slice"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_facility_version": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "facility_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "facility_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "timezone",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "arrival_definition",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "latitude_deg",
+          "nullable": false,
+          "type": "DOUBLE"
+        },
+        {
+          "name": "longitude_deg",
+          "nullable": false,
+          "type": "DOUBLE"
+        },
+        {
+          "name": "valid_from",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "valid_to",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "known_from",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "known_to",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "facility_version_id"
+      ],
+      "logical_sha256": "ac1dd4c999ebfb6e7a1357f277554bb90e61ad12ac0a075c194df2f0b4ac04c1",
+      "row_count": 12
+    },
+    "eta_history_reference": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "snapshot_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "historical_trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "historical_outcome_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "historical_duration_seconds",
+          "nullable": false,
+          "type": "BIGINT"
+        },
+        {
+          "name": "historical_label_known_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "baseline_group",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "snapshot_id",
+        "historical_trip_id"
+      ],
+      "logical_sha256": "e3b116294dd6e0ea8d15f88955243c0de686e7f3439f43588881e99b9548ddea",
+      "row_count": 2536045
+    },
+    "eta_model_version": {
+      "columns": [
+        {
+          "name": "prediction_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "training_cutoff_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "feature_definition_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "nominal_interval_coverage",
+          "nullable": false,
+          "type": "DECIMAL(7,6)"
+        },
+        {
+          "name": "split_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "interval_calibration_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "probability_calibration_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "calibration_cutoff_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "baseline_definition",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "prediction_version",
+        "training_cutoff_at",
+        "feature_definition_version",
+        "nominal_interval_coverage",
+        "split_version",
+        "interval_calibration_version",
+        "probability_calibration_version",
+        "calibration_cutoff_at",
+        "baseline_definition"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_notification_delivery": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "delivery_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "alert_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "recipient_role",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "delivered_at",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "received_or_opened_at",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "receipt_type",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "delivery_status",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "provenance_id",
+        "delivery_id",
+        "alert_id",
+        "recipient_role",
+        "delivered_at",
+        "received_or_opened_at",
+        "receipt_type",
+        "delivery_status"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_output_release": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "output_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "prediction_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "released_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "release_mode",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "provenance_id",
+        "output_id",
+        "prediction_version",
+        "released_at",
+        "release_mode"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_prediction": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "snapshot_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "prediction_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "eta_median",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "eta_lower",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "eta_upper",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "delay_probability",
+          "nullable": true,
+          "type": "DECIMAL(7,6)"
+        },
+        {
+          "name": "fallback_reason",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "remaining_eta_seconds",
+          "nullable": false,
+          "type": "BIGINT"
+        },
+        {
+          "name": "generated_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "value_states",
+          "nullable": false,
+          "type": "JSON"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "snapshot_id",
+        "prediction_version",
+        "eta_median",
+        "eta_lower",
+        "eta_upper",
+        "delay_probability",
+        "fallback_reason",
+        "remaining_eta_seconds",
+        "generated_at",
+        "value_states"
+      ],
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0
+    },
+    "eta_promise_version": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "promise_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "window_start_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "window_end_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "known_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "supersedes_promise_version_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "change_reason",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "promise_version_id"
+      ],
+      "logical_sha256": "9617eae8c36601f5ee78de90edab7a58b46308e1c1a83d3def1df6d3b9fa61b2",
+      "row_count": 1964
+    },
+    "eta_route_version": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "route_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "route_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "origin_facility_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "destination_facility_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "planned_distance_km",
+          "nullable": false,
+          "type": "DECIMAL(12,3)"
+        },
+        {
+          "name": "valid_from",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "valid_to",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "known_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "route_version_id"
+      ],
+      "logical_sha256": "d77401c99eede6d733d87d434106cb328a768b88be0b0fd6cb56ed0c01f04492",
+      "row_count": 12
+    },
+    "eta_snapshot": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "snapshot_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "promise_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "route_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "device_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "selected_position_event_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "snapshot_time",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "trip_status_as_of",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "latitude_deg",
+          "nullable": true,
+          "type": "DOUBLE"
+        },
+        {
+          "name": "longitude_deg",
+          "nullable": true,
+          "type": "DOUBLE"
+        },
+        {
+          "name": "last_position_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "position_available_at",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "position_validity",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "gnss_speed_kmh",
+          "nullable": true,
+          "type": "DECIMAL(9,3)"
+        },
+        {
+          "name": "position_age_seconds",
+          "nullable": true,
+          "type": "BIGINT"
+        },
+        {
+          "name": "remaining_distance_km",
+          "nullable": true,
+          "type": "DECIMAL(12,3)"
+        },
+        {
+          "name": "departure_time_bucket",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "elapsed_trip_seconds",
+          "nullable": true,
+          "type": "BIGINT"
+        },
+        {
+          "name": "feature_definition_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "forecast_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "routing_response_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "snapshot_id"
+      ],
+      "logical_sha256": "235122e7d0ce9b8de1512e494e137f2b8ba46d93a22ab28792a628d8513c4657",
+      "row_count": 14349
+    },
+    "eta_snapshot_label": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "snapshot_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "outcome_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "promise_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "remaining_duration_seconds",
+          "nullable": true,
+          "type": "BIGINT"
+        },
+        {
+          "name": "delay_outcome",
+          "nullable": true,
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "label_eligibility",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "snapshot_id"
+      ],
+      "logical_sha256": "92aab234b2c3d210be9443edcbfb3cad194d22a2a9080d3213686d1dd93afd58",
+      "row_count": 14349
+    },
+    "eta_split_assignment": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "split_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "split_group_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "split_role",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "frozen_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "label_cutoff_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "trip_id",
+        "split_version"
+      ],
+      "logical_sha256": "a9bcccbc62561d5ab56d51787c8d4daf87076119fe2687531a7d90cb9273ae9e",
+      "row_count": 1800
+    },
+    "eta_trip": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "registered_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "trip_id"
+      ],
+      "logical_sha256": "71ad22870afc49c578e5a302f9324b5c6aa54d82dc3a304fe1e23ea8cad3fb28",
+      "row_count": 1800
+    },
+    "eta_trip_event": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_event_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "event_type",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "occurred_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "available_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "trip_status",
+          "nullable": false,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "trip_event_id"
+      ],
+      "logical_sha256": "d9c2abd13abcf464328b789647a7ad4fcdb8a2a38326b8c326e90be16d300498",
+      "row_count": 3600
+    },
+    "eta_trip_outcome": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "outcome_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "actual_arrival_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "service_start_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "delivery_completed_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "cancellation_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "label_available_time",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "label_status",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "arrival_evidence_ref",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "arrival_time_precision",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "reviewer_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cancellation_reason",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "followup_through",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "followup_end_reason",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "revision_reason",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "supersedes_outcome_version_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "outcome_version_id"
+      ],
+      "logical_sha256": "0a85f4f8317887564f3f40ad42043a22637537b6a4536d2801e373eaabb7cefa",
+      "row_count": 3763
+    },
+    "eta_trip_plan_version": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "trip_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "route_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "planned_departure_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "origin_facility_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "destination_facility_version_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "plan_known_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "supersedes_trip_version_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "trip_version_id"
+      ],
+      "logical_sha256": "11c344cbf97abb0e8360e20fad0e47b584e24e59d6bf17bfb3c022f4930d60e9",
+      "row_count": 1800
+    },
+    "provenance_record": {
+      "columns": [
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "source_system_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "source_record_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "record_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "record_state",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "event_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "available_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "retrieved_at",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "extract_as_of",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "raw_record_reference",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "origin_type",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "source_dataset_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "synthetic_scenario_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "value_states",
+          "nullable": false,
+          "type": "JSON"
+        },
+        {
+          "name": "source_timezone",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "source_utc_offset_minutes",
+          "nullable": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "tenant_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "field_origins",
+          "nullable": false,
+          "type": "JSON"
+        },
+        {
+          "name": "availability_basis",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "availability_evidence",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "canonical_table",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "canonical_record_key",
+          "nullable": false,
+          "type": "JSON"
+        },
+        {
+          "name": "parent_provenance_ids",
+          "nullable": false,
+          "type": "JSON"
+        }
+      ],
+      "comparison_order": [
+        "provenance_id"
+      ],
+      "logical_sha256": "a56195f3b0d7880d4de6e9383d24508992b20a4dafc0869b542e7b29ec6ff0ab",
+      "row_count": 2775752
+    },
+    "telemetry_event": {
+      "columns": [
+        {
+          "name": "tenant_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "canonical_event_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "provenance_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "event_type",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "gnss_valid",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "event_time",
+          "nullable": true,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "latitude_deg",
+          "nullable": true,
+          "type": "DOUBLE"
+        },
+        {
+          "name": "longitude_deg",
+          "nullable": true,
+          "type": "DOUBLE"
+        },
+        {
+          "name": "device_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "source_event_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "source_system_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "record_revision",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "raw_record_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "mapping_version",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "boot_session_id",
+          "nullable": false,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "available_time",
+          "nullable": false,
+          "type": "TIMESTAMP WITH TIME ZONE"
+        },
+        {
+          "name": "vehicle_speed_kmh",
+          "nullable": true,
+          "type": "DECIMAL(9,3)"
+        },
+        {
+          "name": "gnss_speed_kmh",
+          "nullable": true,
+          "type": "DECIMAL(9,3)"
+        },
+        {
+          "name": "vehicle_speed_origin",
+          "nullable": true,
+          "type": "VARCHAR"
+        },
+        {
+          "name": "engine_distance_km",
+          "nullable": true,
+          "type": "DECIMAL(18,6)"
+        },
+        {
+          "name": "engine_runtime_seconds",
+          "nullable": true,
+          "type": "DECIMAL(18,3)"
+        },
+        {
+          "name": "engine_rpm",
+          "nullable": true,
+          "type": "DECIMAL(10,3)"
+        },
+        {
+          "name": "counter_epoch_id",
+          "nullable": true,
+          "type": "VARCHAR"
+        }
+      ],
+      "comparison_order": [
+        "tenant_id",
+        "canonical_event_id"
+      ],
+      "logical_sha256": "c38d7925623d52fc88e739d150b55bd58eff49cc3c89350fb98d7ecc89e3bb90",
+      "row_count": 197303
+    }
+  },
+  "typed_empty_tables": [
+    "eta_action",
+    "eta_action_followup",
+    "eta_adoption",
+    "eta_alert",
+    "eta_alert_episode",
+    "eta_alert_rule_version",
+    "eta_evaluation_membership",
+    "eta_model_version",
+    "eta_notification_delivery",
+    "eta_output_release",
+    "eta_prediction"
+  ],
+  "unified_populated_28_table_warehouse_accepted": false,
+  "warehouse_checks": [
+    {
+      "name": "snapshot_plan_known_at",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot s LEFT JOIN eta_trip_plan_version p ON s.tenant_id=p.tenant_id AND s.trip_version_id=p.trip_version_id WHERE p.trip_version_id IS NULL OR p.plan_known_at>s.snapshot_time OR p.trip_id<>s.trip_id OR p.vehicle_id<>s.vehicle_id",
+      "violations": 0
+    },
+    {
+      "name": "snapshot_promise_known_at",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot s LEFT JOIN eta_promise_version p ON s.tenant_id=p.tenant_id AND s.promise_version_id=p.promise_version_id WHERE p.promise_version_id IS NULL OR p.known_at>s.snapshot_time OR p.trip_id<>s.trip_id",
+      "violations": 0
+    },
+    {
+      "name": "snapshot_position_known_at",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot s LEFT JOIN telemetry_event p ON s.tenant_id=p.tenant_id AND s.selected_position_event_id=p.canonical_event_id WHERE s.selected_position_event_id IS NOT NULL AND (p.canonical_event_id IS NULL OR p.available_time>s.snapshot_time OR p.event_time>s.snapshot_time OR p.vehicle_id<>s.vehicle_id OR p.device_id<>s.device_id)",
+      "violations": 0
+    },
+    {
+      "name": "position_age_calculation",
+      "passed": true,
+      "sql": "\n    SELECT count(*) FROM eta_snapshot\n    WHERE position_age_seconds IS DISTINCT FROM\n        (date_diff('microsecond', last_position_time, snapshot_time) // 1000000)\n       OR last_position_time > snapshot_time\n",
+      "violations": 0
+    },
+    {
+      "name": "snapshot_position_validity",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot WHERE (position_validity='no_position' AND (latitude_deg IS NOT NULL OR selected_position_event_id IS NOT NULL)) OR latitude_deg NOT BETWEEN -90 AND 90 OR longitude_deg NOT BETWEEN -180 AND 180 OR remaining_distance_km<0",
+      "violations": 0
+    },
+    {
+      "name": "snapshots_have_one_label",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot s LEFT JOIN eta_snapshot_label l USING(tenant_id,snapshot_id) WHERE l.snapshot_id IS NULL",
+      "violations": 0
+    },
+    {
+      "name": "labels_match_snapshot_promise",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) WHERE l.promise_version_id<>s.promise_version_id",
+      "violations": 0
+    },
+    {
+      "name": "label_cutoff_is_exclusive",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_split_assignment sp USING(tenant_id,trip_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE o.label_available_time>=sp.label_cutoff_at",
+      "violations": 0
+    },
+    {
+      "name": "latest_outcome_before_cutoff",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_split_assignment sp USING(tenant_id,trip_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE EXISTS(SELECT 1 FROM eta_trip_outcome later WHERE later.tenant_id=s.tenant_id AND later.trip_id=s.trip_id AND later.label_available_time<sp.label_cutoff_at AND later.label_available_time>o.label_available_time)",
+      "violations": 0
+    },
+    {
+      "name": "eligible_targets_use_arrival_not_service",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot_label l JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE l.label_eligibility='eligible' AND (o.label_status<>'verified' OR o.arrival_time_precision NOT IN ('second','minute') OR l.remaining_duration_seconds<>(date_diff('microsecond',s.snapshot_time,o.actual_arrival_time) // 1000000) OR l.remaining_duration_seconds<=0 OR l.delay_outcome IS NULL)",
+      "violations": 0
+    },
+    {
+      "name": "delay_uses_frozen_promise",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot_label l JOIN eta_promise_version p USING(tenant_id,promise_version_id) JOIN eta_trip_outcome o ON l.tenant_id=o.tenant_id AND l.outcome_version_id=o.outcome_version_id WHERE l.label_eligibility='eligible' AND l.delay_outcome<>(o.actual_arrival_time>p.window_end_at)",
+      "violations": 0
+    },
+    {
+      "name": "unknown_not_zero_or_on_time",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot_label WHERE label_eligibility<>'eligible' AND (remaining_duration_seconds IS NOT NULL OR delay_outcome IS NOT NULL)",
+      "violations": 0
+    },
+    {
+      "name": "history_training_only_no_self",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_history_reference h JOIN eta_snapshot s USING(tenant_id,snapshot_id) JOIN eta_split_assignment sp ON h.tenant_id=sp.tenant_id AND h.historical_trip_id=sp.trip_id WHERE sp.split_role<>'train' OR h.historical_trip_id=s.trip_id OR h.historical_label_known_at>=s.snapshot_time OR h.historical_label_known_at>=TIMESTAMPTZ '2026-07-01T07:00:00Z' ",
+      "violations": 0
+    },
+    {
+      "name": "history_independent_departure_duration",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_history_reference h JOIN eta_trip_outcome o ON h.tenant_id=o.tenant_id AND h.historical_outcome_version_id=o.outcome_version_id WHERE o.arrival_time_precision NOT IN ('second','minute') OR h.historical_duration_seconds<>(SELECT (date_diff('microsecond',min(e.occurred_at),o.actual_arrival_time) // 1000000) FROM eta_trip_event e WHERE e.tenant_id=h.tenant_id AND e.trip_id=h.historical_trip_id AND e.event_type='departure')",
+      "violations": 0
+    },
+    {
+      "name": "provenance_fk_snapshots_labels_history",
+      "passed": true,
+      "sql": "SELECT count(*) FROM (SELECT provenance_id FROM eta_snapshot UNION ALL SELECT provenance_id FROM eta_snapshot_label UNION ALL SELECT provenance_id FROM eta_history_reference) d LEFT JOIN provenance_record p USING(provenance_id) WHERE p.provenance_id IS NULL",
+      "violations": 0
+    },
+    {
+      "name": "snapshot_derived_availability",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_snapshot s JOIN provenance_record p USING(provenance_id) WHERE p.available_time<>s.snapshot_time OR p.origin_type<>'derived' ",
+      "violations": 0
+    },
+    {
+      "name": "source_availability_after_event",
+      "passed": true,
+      "sql": "SELECT count(*) FROM telemetry_event WHERE available_time<event_time",
+      "violations": 0
+    },
+    {
+      "name": "split_groups_are_trip_unique",
+      "passed": true,
+      "sql": "SELECT count(*) FROM (SELECT tenant_id,trip_id,count(DISTINCT split_role) n FROM eta_split_assignment GROUP BY tenant_id,trip_id HAVING n<>1)",
+      "violations": 0
+    },
+    {
+      "name": "arrival_service_delivery_chronology",
+      "passed": true,
+      "sql": "SELECT count(*) FROM eta_trip_outcome WHERE service_start_time<actual_arrival_time OR delivery_completed_time<service_start_time",
+      "violations": 0
+    },
+    {
+      "name": "all_provenance_parents_exist",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "derived_available_after_all_parents",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "heldout_excluded_from_fit_and_calibration",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "feature_parent_asof_allowlist",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "canonical_row_shapes_and_not_null",
+      "passed": true,
+      "rows_checked": 5553304,
+      "violations": 0
+    },
+    {
+      "expected_count": 28,
+      "name": "required_canonical_tables_present",
+      "passed": true,
+      "violations": 0
+    },
+    {
+      "name": "future_stage_tables_explicitly_empty",
+      "passed": true,
+      "tables_checked": 11,
+      "violations": 0
+    },
+    {
+      "name": "required_schema_field_counts",
+      "passed": true,
+      "tables_checked": 28,
+      "violations": 0
+    }
+  ],
+  "warehouse_counts": {
+    "core_device": 36,
+    "core_tenant": 3,
+    "core_vehicle": 30,
+    "core_vehicle_device_assignment": 686,
+    "eta_action": 0,
+    "eta_action_followup": 0,
+    "eta_adoption": 0,
+    "eta_alert": 0,
+    "eta_alert_episode": 0,
+    "eta_alert_rule_version": 0,
+    "eta_evaluation_membership": 0,
+    "eta_facility_version": 12,
+    "eta_history_reference": 2536045,
+    "eta_model_version": 0,
+    "eta_notification_delivery": 0,
+    "eta_output_release": 0,
+    "eta_prediction": 0,
+    "eta_promise_version": 1964,
+    "eta_route_version": 12,
+    "eta_snapshot": 14349,
+    "eta_snapshot_label": 14349,
+    "eta_split_assignment": 1800,
+    "eta_trip": 1800,
+    "eta_trip_event": 3600,
+    "eta_trip_outcome": 3763,
+    "eta_trip_plan_version": 1800,
+    "provenance_record": 2775752,
+    "telemetry_event": 197303
+  },
+  "warehouse_runtime_settings": {
+    "max_temp_directory_size": "16GB",
+    "memory_limit": "2GB",
+    "spill_scope": "private generated source directory",
+    "threads": 1
+  }
+}
