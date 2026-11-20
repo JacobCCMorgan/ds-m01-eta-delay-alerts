@@ -2,6 +2,12 @@
 
 Entries describe implementation changes and observed test findings. Unless a timezone is stated, dates are actual execution dates in UTC; they do not substitute for version-control history.
 
+## 2026-11-19 America/Los_Angeles — reconcile field, table and scenario evidence
+
+P12 adds per-item references for the 110 field requirements, 28 mandatory tables and 14 validation scenarios. The [methods and results](p12_methods_results.md) bring the original evaluation denominators, synthetic workflow observations and storage limits together. A new P009 loopback HTTP receipt binds its retrieval clock to a synthetic payload. Five hand-specified tests exercise gaps in the validation cases, including unequal snapshot weights and a repeated clock hour. A separate column profile records SQL counts from a reconstructed M2 generation. The first preparation run placed new files in the historical contract and report directories. The P08 replay check detected that its file inventory had changed. Moving the P12 additions into [their own directory](../workflows/p12/) restored the original inventory, and the parent integrity check passed. Model-quality findings G14–G16 remain open.
+
+The original P11 workflow failed during GitHub configuration validation because two job-level environment expressions referenced the runner before allocation. The signed [workflow fix](https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/commit/2757d817b76a14f2d91da915302979a10560f09f) moved runner-specific settings into steps and updated the registered workflow digest. The [original failure](https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/actions/runs/44489366252) and [successful corrected run](https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/actions/runs/44578265478) document both executions.
+
 ## 2026-11-17 America/Los_Angeles — reconstruct the complete warehouse and exercise correction/recovery paths
 
 Added a separately registered P11 path from published P10 commit

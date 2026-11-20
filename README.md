@@ -2,7 +2,7 @@
 
 A reproducible data foundation for estimating fleet arrival times and identifying delay risk. **Engineering and Method Demonstration — Synthetic Data.** The pipeline reconstructs what dispatch could know at each prediction time, separates gate arrival from service and delivery completion, and preserves source lineage for every derived record.
 
-**Current stage: complete reconstruction, revision identity and recoverable publication (P11 / M5.2).** Two complete M2 rebuilds agree with the frozen source evidence. A separate P11 entry point retains telemetry corrections through HTTP, snapshots and versioned provenance, and publishes complete DuckDB/Parquet generations with process-crash recovery. Earlier forecasts, outcomes and quality limitations remain fixed. Actual GitHub CI is a separate check for the published commit.
+**Current stage — P12 / M6.1 evidence reconciliation.** On the fixed August–September synthetic test, 26 of 137 actionable delayed trips received a useful alert. Calibrated arrival intervals covered every eligible prediction on 243 of 328 scored trips. The [methods, results and limitations](docs/p12_methods_results.md) explain the two denominators and their implications for dispatch. The [evidence index](docs/evidence_index.md) links the field, table and scenario records.
 
 All operational observations are original synthetic data for January–September 2026. They are not Rollingtrans customer telemetry or real fleet operating records. Scenario frequencies are engineering fixtures, not estimates of real-world prevalence.
 
@@ -28,14 +28,7 @@ complete generation on one local filesystem. Recovery preserves the old files
 and agrees with an independent clean build. These are process-crash checks,
 not hardware power-loss tests or a distributed PostgreSQL/filesystem transaction.
 
-The retained preparation gate passes 1,021 tests, including 95 new P11 tests,
-and reruns the actual P10 PostgreSQL/HTTP integration. See the
-[scope and reproduction commands](docs/p11_rebuild_recovery.md),
-[measured run evidence](workflows/p11/evidence/README.md) and
-[CI workflow](.github/workflows/p11-integration.yml). Local preparation, user-machine
-validation, publication/signatures and a successful Actions run at the exact
-commit are separate states. CI remains pending until that run is observed.
-G14/G15/G16 and quality/operational acceptance remain unchanged.
+The P11 integration job passed on published commit `2757d817`. It ran 1,021 tests, including 95 P11 tests, and repeated the native PostgreSQL/HTTP checks. The [P11 GitHub Actions run](https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/actions/runs/44578265478) contains the job and evidence archive. For a local rebuild, see the [scope and reproduction commands](docs/p11_rebuild_recovery.md) and [measured preparation run](workflows/p11/evidence/README.md).
 
 ## What does native service integration cover?
 
@@ -525,7 +518,7 @@ entry point. Production deployment remains unverified.
 
 P08 retains all 400 final-test trips, including 34 unseen-route-only and four joint-holdout trips. Eligible/scored counts are reported separately. Sparse support permits descriptive analysis, not reliable deployment claims or a power guarantee. The original training fallback and unavailable rules remain unchanged.
 
-Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 demonstrates the downstream workflow in an offline synthetic setting. P10 adds bounded native service integration. P11 adds complete clean reconstruction and recovery for its single-filesystem publication protocol. Actual CI for the published P11 commit and operational acceptance remain separate pending checks.
+Final outcomes have now been evaluated under the registered fixed protocol. Do not retune against them or count repeated snapshots as independent trips. July selection optimism and G14/G15/G16 remain disclosed quality limitations. P09 demonstrates the downstream workflow in an offline synthetic setting. P10 adds bounded native service integration. P11 adds complete clean reconstruction and recovery for its single-filesystem publication protocol. The published P11 commit passed its integration job. Model-quality and operational acceptance remain open.
 
 The [evidence index](docs/evidence_index.md) maps requirements, tables and validation scenarios to actual outputs. [Known integration issues](docs/known_issues.md) preserve the historical limitations; the [P11 scope](docs/p11_rebuild_recovery.md) records the later revision and recovery evidence for its new entry points.
 

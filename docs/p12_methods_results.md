@@ -1,0 +1,49 @@
+# Methods, results and limitations of fleet ETA and delay alerts
+
+Could dispatch give a driver or customer useful advance notice when a truck was likely to miss its promised gate-arrival time? On the fixed August–September synthetic test, the policy delivered a useful alert for **26 of 137 actionable delayed trips (19.0%)**. Among first successful deliveries whose usefulness could be assessed, 26 of 38 were useful (68.4%). A dispatcher relying on this policy alone would have missed most actionable delays in the experiment. [Primary policy and delivery counts](../reports/p08/scenarios/S00_unmodified/policy_delivery_metrics.json)
+
+## What a prediction could use
+
+Each prediction uses a snapshot of a trip in progress. The ETA model uses elapsed trip time, planned route distance, the latest available position-derived features and position age. The delay classifier also reads time to the effective promise deadline. Source records enter a snapshot only when they are known. If a customer changes a deadline later, the earlier forecast keeps the promise dispatch saw at the time. The ETA target is time remaining until independently verified gate arrival. The binary target requires second-precision arrival strictly after the deadline. Arrival exactly at the deadline counts as on time. Service start, unloading and delivery completion are separate events. Cancelled, immature and unknown outcomes retain their exclusion reasons. [Target and feature definitions](m3c_delay.md) · [Data assumptions](generator_assumptions.md)
+
+| Data period in 2026 | Decision it supported |
+| --- | --- |
+| January–June | Four forward validation windows inside training compared a historical baseline with linear and boosted quantile models. On the same 511 trips and 2,347 snapshots, median ETA mean absolute error was 17.43 minutes for the baseline and 15.48 for boosting. Boosting advanced with a historical fallback. A separate logistic classifier predicted delay. [ETA selection](../reports/m3b3/selection.json) · [Classifier methods](m3c_delay.md) |
+| July | July 1–10 trips supplied calibration data. After a four-day buffer, July 15–24 trips assessed calibration. The policy then reused this assessment cohort to select a 0.55 probability threshold. It required at least 30 minutes until the snapshot deadline, suppressed repeats for 30 minutes and admitted at most two candidates per tenant per local day. These capacity settings were hypothetical. [Calibration protocol](m3d_calibration.md) · [Policy selection](../reports/p06/selection_manifest.json) |
+| August–September | The frozen pipeline produced forecasts and delivery ledgers before joining outcomes. All 400 trips and 3,200 prediction opportunities stayed in the inventory. The primary scenario used the original inputs. Eight additional scenarios exercised specified perturbations. Each comparison kept whole trips together. P09–P12 use results from this already observed test. [Final protocol](p08_evaluation_protocol.md) · [Before-target receipt](../reports/p08/pretarget_receipt.json) |
+
+## Results on the fixed primary scenario
+
+| Question | Observation | Interpretation |
+| --- | --- | --- |
+| Did interval expansion cover a whole trip? | Raw intervals covered all eligible snapshots on 149/328 trips. Calibrated intervals covered 243/328 (74.1%). Mean width increased from 62.85 to 95.69 minutes. | Expansion improved coverage but missed the nominal 80% whole-trip target. The 92.0% trip-weighted *snapshot* coverage answers whether individual snapshots were covered. |
+| Did probability calibration help? | Brier score, where lower is better, rose from 0.195852 to 0.197842. The paired calibrated-minus-raw difference was +0.001990, with a descriptive 95% trip-bootstrap range of −0.003051 to +0.006628. | The point estimate worsened slightly. The range spans zero, so this comparison gives no clear advantage to either probability transformation. |
+| How often did the policy reach dispatch in time? | 63 candidates led to 59 transport attempts and 42 confirmed synthetic deliveries. Of the 42 first successful deliveries, 26 were useful, 12 were known non-useful and four had unresolved usefulness. | Counting all 42 puts the useful fraction between 26/42 and 30/42 (61.9%–71.4%). Those bounds describe the four unresolved targets. Recall uses the separate denominator of 137 actionable delayed trips. |
+
+Forecast scoring used 1,579 eligible snapshots from 328 trips. Multiple predictions on a long trip do not give that trip extra weight in the snapshot comparisons. Uncertainty estimates resampled whole trips and retained the pairing between methods. [Forecast metrics](../reports/p08/scenarios/S00_unmodified/forecast_metrics.json) · [Delivery metrics](../reports/p08/scenarios/S00_unmodified/policy_delivery_metrics.json) · [Nine-scenario findings](p08_final_evaluation.md)
+
+## Where the evidence stops
+
+- **Hard routes and missing GPS.** On the held-out route, none of 33 eligible trips had every snapshot covered by the calibrated interval. Removing position inputs in the specified stress case reduced coverage to 47/328 trips (14.3%). The zero on this one synthetic route and the stress-case result do not estimate fleet-wide rates. [Route and stress results](p08_final_evaluation.md)
+- **Calibration and selection.** On July assessment trips, whole-trip coverage was 19/29 and Brier score rose from 0.2129 to 0.2208. Selecting the alert threshold on the same July cohort made its reported performance subject to selection optimism. The final test has already been read. A changed fallback, calibrator or policy would need a separately specified evaluation with fresh outcomes. These are the open quality findings G14, G15 and G16. [July assessment](../reports/m3d/metrics.json) · [Threshold trials](../reports/p06/policy_trials.json)
+- **Operational impact.** In P09, 25 of 42 delivered alerts had synthetic accepted or partially accepted decisions. The 31 simulated actions yielded only one mature comparable arrival. No live recipient, intervention comparison or measured dispatcher cost supports a claim about time saved, adoption or reduced delay. [Follow-up denominators](../workflows/p09/evidence/metrics.json)
+
+## Engineering evidence and contract coverage
+
+P10 exercised PostgreSQL 17 and a loopback HTTP source. P11 independently rebuilt the M2 DuckDB/Parquet warehouse twice. Schemas, counts and logical row digests agreed across 28 tables and 5,553,304 rows per build. Seventeen M2 tables contained rows. The eleven reserved downstream schemas were empty in that warehouse. Later forecast, alert and action records live in separate stores. Five abrupt process exits exercised recovery on a local filesystem with cooperating readers. The P11 publication at `2757d817` passed all 1,021 tests and the integration job. [Reconstruction evidence](../workflows/p11/evidence/rebuild.json) · [Recovery cases](../workflows/p11/evidence/recovery.json) · [P11 GitHub Actions run](https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/actions/runs/44578265478)
+
+## Reading the P12 audit
+
+P12 keeps its ledgers, checks and new evidence under `workflows/p12/` so replay can compare the original P08 contract, report and script inventories against their frozen hashes. Its field profiler counts SQL non-null values in full synthetic M2 columns, after checking the input generation against both published P11 reference builds. For example, the 3,763 versioned outcome rows contain 1,636 non-null `actual_arrival_time` values and 164 non-null `cancellation_time` values. These are counts of field values across outcome versions. Counting distinct trips and choosing which version was available by the scoring cutoff are separate operations. For P009 a separate loopback HTTP acquisition recorded its own request and retrieval times, verified a synthetic payload on replay and linked that observation to one provenance record. The historic M2 timestamps remain reproducible. [Measured field values](../workflows/p12/evidence/m2_field_profile.json) · [Reproduction](../workflows/p12/README.md) · [P009 acquisition receipt](../workflows/p12/evidence/acquisition_receipt.json)
+
+Five synthetic scenarios exercise a delayed or absent GPS position, an interval with known undercoverage, different numbers of snapshots per trip, retries and partial adoption within one episode, and a repeated local clock hour with late-arriving evidence. Their assertions use specified fixture outcomes. [Scenario definitions](../workflows/p12/tests/test_scenario_witnesses.py) · [Execution log](../workflows/p12/evidence/scenario_witnesses.txt)
+
+P12 reconciles evidence at the field, table and scenario level. For example, the P09 workflow includes a synthetic opening observation, while the canonical notification-delivery field remains null in the retained rows. A table count alone cannot answer whether dispatch actually observed that field. Read the individual dispositions and their evidence before treating a requirement as satisfied. [Field requirements](../workflows/p12/contracts/p12_requirement_reconciliation.csv) · [Table contracts](../workflows/p12/contracts/p12_table_reconciliation.csv) · [Validation scenarios](../workflows/p12/contracts/p12_validation_reconciliation.csv)
+
+Run the following from the repository root in the project’s Python 3.12 environment. It checks the published P11 parent and the P12 ledgers against retained outputs.
+
+```bash
+python -I -B workflows/p12/check_reconciliation.py --root . --require-ready
+```
+
+The JSON lists the recorded dispositions and any required gaps. The command exits with status 2 when the audit succeeds but finds such a gap. The P12 workflow runs the reconciliation and its regression tests on the published commit. The P11 integration workflow independently exercises the underlying system. [P12 workflow](../.github/workflows/p12-reconciliation.yml) · [P11 workflow](../.github/workflows/p11-integration.yml)

@@ -1,5 +1,7 @@
 # What has been demonstrated?
 
+P12 reconciles the planned scope against the retained implementation and results. The [field ledger](../workflows/p12/contracts/p12_requirement_reconciliation.csv) addresses 110 requirements, the [table ledger](../workflows/p12/contracts/p12_table_reconciliation.csv) distinguishes 28 mandatory contracts from optional inputs, and the [scenario ledger](../workflows/p12/contracts/p12_validation_reconciliation.csv) covers 14 validation cases. Each entry identifies evidence for its own scope. For the dispatch question, cohort definitions and measured outcomes, read the [methods and results](p12_methods_results.md).
+
 The historical M2 warehouse has 17 populated synthetic tables. P06 added a
 separate offline store with five canonical output tables; P07 adds canonical
 alert episodes, alerts and notification-delivery attempts. P08 preserves those
@@ -31,10 +33,11 @@ five abrupt process exits during complete-generation publication. G11 and G13
 have bounded evidence for those new entry points; the original frozen entry
 points retain their earlier limitations. The publication protocol covers
 cooperating readers/writers on one local filesystem, not hardware power loss
-or a PostgreSQL/filesystem distributed transaction. Exact-commit GitHub CI
-requires a successful run after publication; preparation does not claim it.
+or a PostgreSQL/filesystem distributed transaction. The subsequent [P11 GitHub Actions run](https://github.com/JacobCCMorgan/ds-m01-eta-delay-alerts/actions/runs/44578265478) passed on published commit `2757d817`. The dated preparation receipts describe the earlier local run.
 
-| Evidence index | What a row tells you |
+The following indexes retain the evidence classifications through P11. The P12 ledgers above give the later item-by-item dispositions.
+
+| Historical evidence index | What a row tells you |
 |---|---|
 | [110 original field requirements](../contracts/current_requirement_evidence.csv) | The original ID, field ID, canonical table/column, condition and intended output; observed evidence; and the remaining boundary. |
 | [28 required and 2 optional tables](../contracts/current_table_evidence.csv) | Data-stage rows, formal offline rows, required schemas or disabled inputs. M2, P06, P07, primary-S00 P08 and P09 counts describe separate retained stores. A blank phase count means the table is outside that store; zero means an empty reserved table. |
@@ -50,7 +53,7 @@ revision/recovery evidence without changing historical rows, field categories
 or scenario classifications. The P10 guard continues to reject unsupported
 revisions; supported revision behavior belongs to the P11 path.
 
-Of the 110 field mappings, 60 have a synthetic data-stage implementation and two
+In the historical field index, 60 of 110 mappings have a synthetic data-stage implementation and two
 have partial source semantics. A version attribute does not demonstrate
 multi-revision telemetry; a configured synthetic receipt clock does not prove
 external acquisition. Thirty-one mappings have materialized canonical offline
@@ -62,9 +65,7 @@ null. P09 retains opening in a separate synthetic audit, without rewriting the
 parent notification table. Two
 requirements can validly map to the same column through different facility joins.
 
-Five validation cases have exercised data behavior, six are partially
-tested, one has separately tested components and two depend on disabled optional
-inputs. ETA-V10 has synthetic retry/repetition and partial-adoption component
+The historical scenario index records five exercised cases, six partially tested cases, one case checked through separate components and two cases dependent on disabled optional inputs. ETA-V10 has synthetic retry/repetition and partial-adoption component
 evidence, while the original combined operational case remains partial. Named
 tests are linked only when both the definition and passing result are retained.
 
